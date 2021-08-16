@@ -1050,8 +1050,8 @@ var app = (function () {
 
     let Config = {
     	duration: 500,
-    	interval: 7000,
-    	jitter: 1000
+    	interval: 5000,
+    	jitter: 4000
     };
 
     let zoomOut = [
@@ -1691,8 +1691,8 @@ var app = (function () {
     	}
 
     	idle() {
-    		play("idle");
     		_tcIdle.reset();
+    		play("idle");
     	}
 
     	soundSwitch(args) {
