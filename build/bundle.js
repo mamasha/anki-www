@@ -218,6 +218,13 @@ var app = (function () {
         node.addEventListener(event, handler, options);
         return () => node.removeEventListener(event, handler, options);
     }
+    function self(fn) {
+        return function (event) {
+            // @ts-ignore
+            if (event.target === this)
+                fn.call(this, event);
+        };
+    }
     function attr(node, attribute, value) {
         if (value == null)
             node.removeAttribute(attribute);
@@ -256,6 +263,16 @@ var app = (function () {
     }
     function getContext(key) {
         return get_current_component().$$.context.get(key);
+    }
+    // TODO figure out if we still want to support
+    // shorthand events, or if we want to implement
+    // a real bubbling mechanism
+    function bubble(component, event) {
+        const callbacks = component.$$.callbacks[event.type];
+        if (callbacks) {
+            // @ts-ignore
+            callbacks.slice().forEach(fn => fn.call(this, event));
+        }
     }
 
     const dirty_components = [];
@@ -697,6 +714,8 @@ var app = (function () {
     	let div;
     	let div_class_value;
     	let current;
+    	let mounted;
+    	let dispose;
     	const default_slot_template = /*#slots*/ ctx[3].default;
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[2], null);
 
@@ -722,6 +741,11 @@ var app = (function () {
     			}
 
     			current = true;
+
+    			if (!mounted) {
+    				dispose = listen_dev(div, "click", self(/*click_handler*/ ctx[4]), false, false, false);
+    				mounted = true;
+    			}
     		},
     		p: function update(ctx, [dirty]) {
     			if (default_slot) {
@@ -762,6 +786,8 @@ var app = (function () {
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
     			if (default_slot) default_slot.d(detaching);
+    			mounted = false;
+    			dispose();
     		}
     	};
 
@@ -803,6 +829,10 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Grid> was created with unknown prop '${key}'`);
     	});
 
+    	function click_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
     	$$self.$$set = $$props => {
     		if ("layout" in $$props) $$invalidate(0, layout = $$props.layout);
     		if ("ga" in $$props) $$invalidate(1, ga = $$props.ga);
@@ -826,7 +856,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [layout, ga, $$scope, slots];
+    	return [layout, ga, $$scope, slots, click_handler];
     }
 
     class Grid extends SvelteComponentDev {
@@ -1067,6 +1097,10 @@ var app = (function () {
 
     function trueFalse() {
     	return rand(0, 2) == 0;
+    }
+
+    function randSign() {
+    	return rand(0, 2) == 0 ? +1 : -1;
     }
 
     function shuffle(arr) {
@@ -3423,12 +3457,8 @@ var app = (function () {
     	let b1 = rand(1, 10 - a1);
     	let b = 10 * b1 + b0;
     	let ans = a + b;
-    	let nums = [a, b];
-    	shuffle(nums);
-    	let wrong1 = trueFalse() ? ans + rand(1, 10) : ans - rand(1, 10);
-    	let wrong2 = ans > 50 ? ans - 10 : ans + 10;
-    	let answers = [ans, wrong1, wrong2];
-    	shuffle(answers);
+    	let nums = shuffle([a, b]);
+    	let answers = shuffle([ans, ans + randSign() * rand(1, 10), ans > 50 ? ans - 10 : ans + 10]);
     	let rightAt = answers.findIndex(x => x == ans);
 
     	_playbook.push({
@@ -3454,10 +3484,7 @@ var app = (function () {
     	let sum = a + b;
     	let nums = [sum, trueFalse() ? a : b];
     	let ans = sum - nums[1];
-    	let wrong1 = trueFalse() ? ans + rand(1, 10) : ans - rand(1, 10);
-    	let wrong2 = ans > 50 ? ans - 10 : ans + 10;
-    	let answers = [ans, wrong1, wrong2];
-    	shuffle(answers);
+    	let answers = shuffle([ans, ans + rand(1, 10) * randSign(), ans > 50 ? ans - 10 : ans + 10]);
     	let rightAt = answers.findIndex(x => x == ans);
 
     	_playbook.push({
@@ -3472,14 +3499,14 @@ var app = (function () {
 
     function addMulRound() {
     	let line = getLine();
-    	let a = rand(line[0], line[1]);
-    	let b = rand(line[2], line[3]);
+    	let a = rand(line[0], line[1] + 1);
+    	let b = rand(line[2], line[3] + 1);
     	let pair = [a % 10, b % 10];
     	let nums = shuffle([a, b]);
     	let op = "x";
     	let ans = a * b;
     	let sumDigit = ans % 10;
-    	let answers = shuffle([ans, ans - nums[0], ans + nums[1]]);
+    	let answers = shuffle([ans, ans + randSign() * Math.min(...nums), ans > 50 ? ans - 10 : ans + 10]);
     	let rightAt = answers.findIndex(x => x == ans);
 
     	_playbook.push({
@@ -3494,15 +3521,15 @@ var app = (function () {
 
     function addDivRound() {
     	let line = getLine();
-    	let a = rand(line[0], line[1]);
-    	let b = rand(line[2], line[3]);
+    	let a = rand(line[0], line[1] + 1);
+    	let b = rand(line[2], line[3] + 1);
     	let prod = a * b;
     	let pair = [a % 10, b % 10];
     	let nums = [prod, randFrom([a, b])];
     	let op = "/";
     	let ans = prod / nums[1];
     	let sumDigit = a * b % 10;
-    	let answers = shuffle([ans, ans > 50 ? ans - 1 : ans + 1, ans > 50 ? ans - nums[1] : ans + nums[1]]);
+    	let answers = shuffle([ans, ans > 2 ? ans + randSign() : ans + 1, ans > 50 ? ans - 10 : ans + 10]);
     	let rightAt = answers.findIndex(x => x == ans);
 
     	_playbook.push({
@@ -4644,7 +4671,7 @@ var app = (function () {
 
     /* src\plus-over\Main.svelte generated by Svelte v3.38.3 */
 
-    // (57:0) <Grid {layout}>
+    // (57:0) <Grid {layout}      on:click={() => fire("--evt-click")}  >
     function create_default_slot$1(ctx) {
     	let count;
     	let t0;
@@ -4707,7 +4734,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.2.3" },
+    			props: { ga: "ver", v: "0.2.4" },
     			$$inline: true
     		});
 
@@ -4837,7 +4864,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(57:0) <Grid {layout}>",
+    		source: "(57:0) <Grid {layout}      on:click={() => fire(\\\"--evt-click\\\")}  >",
     		ctx
     	});
 
@@ -4857,6 +4884,8 @@ var app = (function () {
     			$$inline: true
     		});
 
+    	grid.$on("click", /*click_handler*/ ctx[5]);
+
     	const block = {
     		c: function create() {
     			create_component(grid.$$.fragment);
@@ -4871,7 +4900,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const grid_changes = {};
 
-    			if (dirty & /*$$scope, congrats*/ 257) {
+    			if (dirty & /*$$scope, congrats*/ 513) {
     				grid_changes.$$scope = { dirty, ctx };
     			}
 
@@ -4965,6 +4994,8 @@ var app = (function () {
     		});
     	}
 
+    	const click_handler = () => fire$1("--evt-click");
+
     	$$self.$capture_state = () => ({
     		_a,
     		Version,
@@ -5004,7 +5035,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [congrats, layout, _settings, soundOn, congrats_1_binding];
+    	return [congrats, layout, _settings, soundOn, congrats_1_binding, click_handler];
     }
 
     class Main$1 extends SvelteComponentDev {
