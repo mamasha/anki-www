@@ -9708,7 +9708,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.3.3" },
+    			props: { ga: "ver", v: "0.3.5" },
     			$$inline: true
     		});
 
