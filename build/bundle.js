@@ -3177,6 +3177,10 @@ var app = (function () {
     		if (!_soundOn) return;
     		play(randFrom(names));
     	}
+
+    	get soundIsOn() {
+    		return _soundOn;
+    	}
     }
 
     const Mp3 = new CMp3();
@@ -3316,7 +3320,7 @@ var app = (function () {
     			attr_dev(line, "y1", "42");
     			attr_dev(line, "y2", "45");
     			attr_dev(line, "transform", "rotate(" + 6 * (/*minute*/ ctx[7] + /*offset*/ ctx[10]) + ")");
-    			add_location(line, file$g, 48, 3, 1065);
+    			add_location(line, file$g, 48, 3, 1074);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, line, anchor);
@@ -3362,7 +3366,7 @@ var app = (function () {
     			attr_dev(line, "y1", "35");
     			attr_dev(line, "y2", "45");
     			attr_dev(line, "transform", "rotate(" + 30 * /*minute*/ ctx[7] + ")");
-    			add_location(line, file$g, 40, 2, 933);
+    			add_location(line, file$g, 40, 2, 942);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, line, anchor);
@@ -3429,36 +3433,36 @@ var app = (function () {
     			line2 = svg_element("line");
     			line3 = svg_element("line");
 
-    			attr_dev(circle, "class", circle_class_value = "" + (null_to_empty(/*soundOn*/ ctx[0]
+    			attr_dev(circle, "class", circle_class_value = "" + (null_to_empty(/*soundOn*/ ctx[1]
     			? "clock-face-enabled"
     			: "clock-face-disabled") + " svelte-drk22q"));
 
     			attr_dev(circle, "r", "48");
-    			add_location(circle, file$g, 36, 1, 762);
+    			add_location(circle, file$g, 36, 1, 771);
     			attr_dev(line0, "class", "hour svelte-drk22q");
     			attr_dev(line0, "y1", "2");
     			attr_dev(line0, "y2", "-20");
     			attr_dev(line0, "transform", line0_transform_value = "rotate(" + (30 * /*hours*/ ctx[2] + /*minutes*/ ctx[3] / 2) + ")");
-    			add_location(line0, file$g, 58, 1, 1218);
+    			add_location(line0, file$g, 58, 1, 1227);
     			attr_dev(line1, "class", "minute svelte-drk22q");
     			attr_dev(line1, "y1", "4");
     			attr_dev(line1, "y2", "-30");
     			attr_dev(line1, "transform", line1_transform_value = "rotate(" + (6 * /*minutes*/ ctx[3] + /*seconds*/ ctx[4] / 10) + ")");
-    			add_location(line1, file$g, 66, 1, 1344);
+    			add_location(line1, file$g, 66, 1, 1353);
     			attr_dev(line2, "class", "second svelte-drk22q");
     			attr_dev(line2, "y1", "10");
     			attr_dev(line2, "y2", "-38");
-    			add_location(line2, file$g, 75, 2, 1515);
+    			add_location(line2, file$g, 75, 2, 1524);
     			attr_dev(line3, "class", "second-counterweight svelte-drk22q");
     			attr_dev(line3, "y1", "10");
     			attr_dev(line3, "y2", "2");
-    			add_location(line3, file$g, 76, 2, 1558);
+    			add_location(line3, file$g, 76, 2, 1567);
     			attr_dev(g, "transform", g_transform_value = "rotate(" + 6 * /*seconds*/ ctx[4] + ")");
-    			add_location(g, file$g, 74, 1, 1474);
+    			add_location(g, file$g, 74, 1, 1483);
     			attr_dev(svg, "viewBox", "-50 -50 100 100");
-    			set_style(svg, "grid-area", /*ga*/ ctx[1]);
+    			set_style(svg, "grid-area", /*ga*/ ctx[0]);
     			attr_dev(svg, "class", "svelte-drk22q");
-    			add_location(svg, file$g, 32, 0, 660);
+    			add_location(svg, file$g, 32, 0, 669);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3487,7 +3491,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*soundOn*/ 1 && circle_class_value !== (circle_class_value = "" + (null_to_empty(/*soundOn*/ ctx[0]
+    			if (dirty & /*soundOn*/ 2 && circle_class_value !== (circle_class_value = "" + (null_to_empty(/*soundOn*/ ctx[1]
     			? "clock-face-enabled"
     			: "clock-face-disabled") + " svelte-drk22q"))) {
     				attr_dev(circle, "class", circle_class_value);
@@ -3505,8 +3509,8 @@ var app = (function () {
     				attr_dev(g, "transform", g_transform_value);
     			}
 
-    			if (dirty & /*ga*/ 2) {
-    				set_style(svg, "grid-area", /*ga*/ ctx[1]);
+    			if (dirty & /*ga*/ 1) {
+    				set_style(svg, "grid-area", /*ga*/ ctx[0]);
     			}
     		},
     		i: noop,
@@ -3537,7 +3541,7 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Clock", slots, []);
     	let { ga } = $$props;
-    	let { soundOn } = $$props;
+    	let soundOn = Mp3.soundIsOn;
     	let time = new Date();
 
     	onMount(() => {
@@ -3554,19 +3558,18 @@ var app = (function () {
     	});
 
     	function soundSwitch() {
-    		$$invalidate(0, soundOn ^= true);
+    		$$invalidate(1, soundOn ^= true);
     		Mp3.soundSwitch(soundOn);
     	}
 
-    	const writable_props = ["ga", "soundOn"];
+    	const writable_props = ["ga"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Clock> was created with unknown prop '${key}'`);
     	});
 
     	$$self.$$set = $$props => {
-    		if ("ga" in $$props) $$invalidate(1, ga = $$props.ga);
-    		if ("soundOn" in $$props) $$invalidate(0, soundOn = $$props.soundOn);
+    		if ("ga" in $$props) $$invalidate(0, ga = $$props.ga);
     	};
 
     	$$self.$capture_state = () => ({
@@ -3583,8 +3586,8 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("ga" in $$props) $$invalidate(1, ga = $$props.ga);
-    		if ("soundOn" in $$props) $$invalidate(0, soundOn = $$props.soundOn);
+    		if ("ga" in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ("soundOn" in $$props) $$invalidate(1, soundOn = $$props.soundOn);
     		if ("time" in $$props) $$invalidate(6, time = $$props.time);
     		if ("hours" in $$props) $$invalidate(2, hours = $$props.hours);
     		if ("minutes" in $$props) $$invalidate(3, minutes = $$props.minutes);
@@ -3611,13 +3614,13 @@ var app = (function () {
     		}
     	};
 
-    	return [soundOn, ga, hours, minutes, seconds, soundSwitch, time];
+    	return [ga, soundOn, hours, minutes, seconds, soundSwitch, time];
     }
 
     class Clock extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$j, create_fragment$j, safe_not_equal, { ga: 1, soundOn: 0 });
+    		init(this, options, instance$j, create_fragment$j, safe_not_equal, { ga: 0 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -3629,12 +3632,8 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*ga*/ ctx[1] === undefined && !("ga" in props)) {
+    		if (/*ga*/ ctx[0] === undefined && !("ga" in props)) {
     			console.warn("<Clock> was created without expected prop 'ga'");
-    		}
-
-    		if (/*soundOn*/ ctx[0] === undefined && !("soundOn" in props)) {
-    			console.warn("<Clock> was created without expected prop 'soundOn'");
     		}
     	}
 
@@ -3643,14 +3642,6 @@ var app = (function () {
     	}
 
     	set ga(value) {
-    		throw new Error("<Clock>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	get soundOn() {
-    		throw new Error("<Clock>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set soundOn(value) {
     		throw new Error("<Clock>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -6629,11 +6620,7 @@ var app = (function () {
     	count = new Count$2({ props: { ga: "cnt" }, $$inline: true });
     	pair = new Pair({ props: { ga: "p1" }, $$inline: true });
     	digit = new Digit({ props: { ga: "p2" }, $$inline: true });
-
-    	clock = new Clock({
-    			props: { ga: "clk", soundOn: true },
-    			$$inline: true
-    		});
+    	clock = new Clock({ props: { ga: "clk" }, $$inline: true });
 
     	num0 = new Num$2({
     			props: { ga: "lhs", index: 0 },
@@ -7688,11 +7675,7 @@ var app = (function () {
     	let count_props = { ga: "cnt" };
     	count = new Count$1({ props: count_props, $$inline: true });
     	/*count_binding*/ ctx[6](count);
-
-    	clock = new Clock({
-    			props: { ga: "clk", soundOn: false },
-    			$$inline: true
-    		});
+    	clock = new Clock({ props: { ga: "clk" }, $$inline: true });
 
     	const block = {
     		c: function create() {
@@ -9075,11 +9058,11 @@ var app = (function () {
     	let ans;
     	let i = /*i*/ ctx[22];
     	let current;
-    	const assign_ans = () => /*ans_binding*/ ctx[8](ans, i);
-    	const unassign_ans = () => /*ans_binding*/ ctx[8](null, i);
+    	const assign_ans = () => /*ans_binding*/ ctx[7](ans, i);
+    	const unassign_ans = () => /*ans_binding*/ ctx[7](null, i);
 
     	function click_handler() {
-    		return /*click_handler*/ ctx[9](/*i*/ ctx[22]);
+    		return /*click_handler*/ ctx[8](/*i*/ ctx[22]);
     	}
 
     	let ans_props = {
@@ -9159,13 +9142,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	clock = new Clock({
-    			props: {
-    				ga: "clk",
-    				soundOn: /*_config*/ ctx[4].soundOn
-    			},
-    			$$inline: true
-    		});
+    	clock = new Clock({ props: { ga: "clk" }, $$inline: true });
 
     	num0 = new Num({
     			props: { ga: "lhs", num: /*_game*/ ctx[1].nums[0] },
@@ -9196,7 +9173,7 @@ var app = (function () {
 
     	let congrats_1_props = {};
     	congrats_1 = new Congrats({ props: congrats_1_props, $$inline: true });
-    	/*congrats_1_binding*/ ctx[10](congrats_1);
+    	/*congrats_1_binding*/ ctx[9](congrats_1);
 
     	const block = {
     		c: function create() {
@@ -9252,7 +9229,7 @@ var app = (function () {
     			if (dirty & /*_game*/ 2) num1_changes.num = /*_game*/ ctx[1].nums[1];
     			num1.$set(num1_changes);
 
-    			if (dirty & /*range, _game, answers, select*/ 38) {
+    			if (dirty & /*range, _game, answers, select*/ 22) {
     				each_value = range(0, 4);
     				validate_each_argument(each_value);
     				let i;
@@ -9326,7 +9303,7 @@ var app = (function () {
     			if (detaching) detach_dev(t4);
     			destroy_each(each_blocks, detaching);
     			if (detaching) detach_dev(t5);
-    			/*congrats_1_binding*/ ctx[10](null);
+    			/*congrats_1_binding*/ ctx[9](null);
     			destroy_component(congrats_1, detaching);
     		}
     	};
@@ -9348,14 +9325,14 @@ var app = (function () {
 
     	grid = new Grid({
     			props: {
-    				layout: /*layout*/ ctx[6],
+    				layout: /*layout*/ ctx[5],
     				$$slots: { default: [create_default_slot$1] },
     				$$scope: { ctx }
     			},
     			$$inline: true
     		});
 
-    	grid.$on("click", /*click_handler_1*/ ctx[11]);
+    	grid.$on("click", /*click_handler_1*/ ctx[10]);
 
     	const block = {
     		c: function create() {
@@ -9501,7 +9478,7 @@ var app = (function () {
     		_tcNewRound.cancel();
     		_tcIdle.reset();
 
-    		if ($$invalidate(7, ++_current) === _rounds.length) {
+    		if ($$invalidate(6, ++_current) === _rounds.length) {
     			addMulRound();
     			addDivRound();
     		}
@@ -9650,13 +9627,13 @@ var app = (function () {
     	$$self.$inject_state = $$props => {
     		if ("congrats" in $$props) $$invalidate(0, congrats = $$props.congrats);
     		if ("_game" in $$props) $$invalidate(1, _game = $$props._game);
-    		if ("_current" in $$props) $$invalidate(7, _current = $$props._current);
-    		if ("_rounds" in $$props) $$invalidate(12, _rounds = $$props._rounds);
-    		if ("_config" in $$props) $$invalidate(4, _config = $$props._config);
+    		if ("_current" in $$props) $$invalidate(6, _current = $$props._current);
+    		if ("_rounds" in $$props) $$invalidate(11, _rounds = $$props._rounds);
+    		if ("_config" in $$props) _config = $$props._config;
     		if ("_tcNewRound" in $$props) _tcNewRound = $$props._tcNewRound;
     		if ("_tcIdle" in $$props) _tcIdle = $$props._tcIdle;
     		if ("answers" in $$props) $$invalidate(2, answers = $$props.answers);
-    		if ("layout" in $$props) $$invalidate(6, layout = $$props.layout);
+    		if ("layout" in $$props) $$invalidate(5, layout = $$props.layout);
     		if ("_roundsLeft" in $$props) $$invalidate(3, _roundsLeft = $$props._roundsLeft);
     	};
 
@@ -9665,7 +9642,7 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*_current*/ 128) {
+    		if ($$self.$$.dirty & /*_current*/ 64) {
     			$$invalidate(3, _roundsLeft = _rounds.length - _current);
     		}
     	};
@@ -9675,7 +9652,6 @@ var app = (function () {
     		_game,
     		answers,
     		_roundsLeft,
-    		_config,
     		select,
     		layout,
     		_current,
@@ -9731,7 +9707,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.3.2" },
+    			props: { ga: "ver", v: "0.3.3" },
     			$$inline: true
     		});
 
