@@ -9053,7 +9053,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (181:4) {#each range(0, 4) as i}
+    // (183:4) {#each range(0, 4) as i}
     function create_each_block(ctx) {
     	let ans;
     	let i = /*i*/ ctx[22];
@@ -9114,14 +9114,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(181:4) {#each range(0, 4) as i}",
+    		source: "(183:4) {#each range(0, 4) as i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (172:0) <Grid {layout}      on:click={() => fire("--evt-click")}  >
+    // (174:0) <Grid {layout}      on:click={() => fire("--evt-click")}  >
     function create_default_slot$1(ctx) {
     	let count;
     	let t0;
@@ -9312,7 +9312,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(172:0) <Grid {layout}      on:click={() => fire(\\\"--evt-click\\\")}  >",
+    		source: "(174:0) <Grid {layout}      on:click={() => fire(\\\"--evt-click\\\")}  >",
     		ctx
     	});
 
@@ -9468,9 +9468,10 @@ var app = (function () {
     				break;
     		}
 
+    		while ([a0, a1, a2].find(x => x === a3)) a3++; // can happen
     		let nums = [lhs, rhs];
     		let answers = shuffle([a0, a1, a2, a3]);
-    		let rightAt = answers.findIndex(x => x == a0);
+    		let rightAt = answers.findIndex(x => x === a0);
     		_rounds.push({ nums, op, answers, rightAt });
     	}
 
