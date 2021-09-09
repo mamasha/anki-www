@@ -3096,17 +3096,18 @@ var app = (function () {
     	*commands() {
     		let content = ankiCard.content.replace("\n", " ");
     		if (!content.includes(";")) return;
-    		let p0 = ankiCard.content.split(";")[0];
+    		let cmds = ankiCard.content.split(";")[0];
 
-    		for (let cmd of splitNoEmpty(p0, ",")) {
+    		for (let cmd of splitNoEmpty(cmds, ",")) {
     			yield splitNoEmpty(cmd, " ");
     		}
     	}
 
     	tokens() {
-    		ankiCard.content.replace("\n", " ");
-    		let p1 = ankiCard.content.split(";")[1];
-    		return splitNoEmpty(p1, ",");
+    		let content = ankiCard.content.replace("\n", " ");
+    		if (!content.includes(";")) return [];
+    		let tkns = content.includes(";") ? content.split(";")[1] : content;
+    		return splitNoEmpty(tkns, ",");
     	}
     }
 
@@ -9162,27 +9163,27 @@ var app = (function () {
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[22] = list[i];
-    	child_ctx[23] = list;
-    	child_ctx[24] = i;
+    	child_ctx[23] = list[i];
+    	child_ctx[24] = list;
+    	child_ctx[25] = i;
     	return child_ctx;
     }
 
-    // (183:4) {#each [0, 1, 2, 3] as i}
+    // (201:4) {#each [0, 1, 2, 3] as i}
     function create_each_block$1(ctx) {
     	let ans;
-    	let i = /*i*/ ctx[22];
+    	let i = /*i*/ ctx[23];
     	let current;
     	const assign_ans = () => /*ans_binding*/ ctx[7](ans, i);
     	const unassign_ans = () => /*ans_binding*/ ctx[7](null, i);
 
     	function click_handler() {
-    		return /*click_handler*/ ctx[8](/*i*/ ctx[22]);
+    		return /*click_handler*/ ctx[8](/*i*/ ctx[23]);
     	}
 
     	let ans_props = {
-    		ga: `a${/*i*/ ctx[22]}`,
-    		num: /*_game*/ ctx[1].answers[/*i*/ ctx[22]]
+    		ga: `a${/*i*/ ctx[23]}`,
+    		num: /*_game*/ ctx[1].answers[/*i*/ ctx[23]]
     	};
 
     	ans = new Ans$1({ props: ans_props, $$inline: true });
@@ -9200,14 +9201,14 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (i !== /*i*/ ctx[22]) {
+    			if (i !== /*i*/ ctx[23]) {
     				unassign_ans();
-    				i = /*i*/ ctx[22];
+    				i = /*i*/ ctx[23];
     				assign_ans();
     			}
 
     			const ans_changes = {};
-    			if (dirty & /*_game*/ 2) ans_changes.num = /*_game*/ ctx[1].answers[/*i*/ ctx[22]];
+    			if (dirty & /*_game*/ 2) ans_changes.num = /*_game*/ ctx[1].answers[/*i*/ ctx[23]];
     			ans.$set(ans_changes);
     		},
     		i: function intro(local) {
@@ -9229,14 +9230,14 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(183:4) {#each [0, 1, 2, 3] as i}",
+    		source: "(201:4) {#each [0, 1, 2, 3] as i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (174:0) <Grid {layout}      on:click={() => fire("--evt-click")}  >
+    // (192:0) <Grid {layout}      on:click={() => fire("--evt-click")}  >
     function create_default_slot$2(ctx) {
     	let count;
     	let t0;
@@ -9427,7 +9428,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$2.name,
     		type: "slot",
-    		source: "(174:0) <Grid {layout}      on:click={() => fire(\\\"--evt-click\\\")}  >",
+    		source: "(192:0) <Grid {layout}      on:click={() => fire(\\\"--evt-click\\\")}  >",
     		ctx
     	});
 
@@ -9463,7 +9464,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const grid_changes = {};
 
-    			if (dirty & /*$$scope, congrats, _game, answers, _roundsLeft*/ 33554447) {
+    			if (dirty & /*$$scope, congrats, _game, answers, _roundsLeft*/ 67108879) {
     				grid_changes.$$scope = { dirty, ctx };
     			}
 
@@ -9508,8 +9509,29 @@ var app = (function () {
     	let _tcIdle = newTimedCmd$1("--cmd-idle", 7000, 3000);
     	let answers = [null, null, null];
 
+    	function getAbPairWithDots(line) {
+    		let [za, zb] = shuffle(line);
+
+    		let fa = za < 0
+    		? Math.pow(10, rand(za, -1))
+    		: Math.pow(10, rand(1, za));
+
+    		let fb = zb < 0
+    		? Math.pow(10, rand(zb, -1))
+    		: Math.pow(10, rand(1, zb));
+
+    		let a = rand(1, 9);
+    		let b = rand(2, 9);
+    		let f = b + pm(1);
+    		a *= fa;
+    		b *= fb;
+    		f *= fb;
+    		return { a, b, f };
+    	}
+
     	function getAbPair() {
     		let line = Anki.getCard().content.split(",").map(x => parseInt(x));
+    		if (line[0] < 0 || line[1] < 0) return getAbPairWithDots(line);
     		let a = rand(1, 9);
     		let b = rand(2, 9);
     		let f = b + pm(1);
@@ -9728,6 +9750,7 @@ var app = (function () {
     		_tcNewRound,
     		_tcIdle,
     		answers,
+    		getAbPairWithDots,
     		getAbPair,
     		addMulRound,
     		addDivRound,
@@ -11126,7 +11149,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.4.1" },
+    			props: { ga: "ver", v: "0.4.4" },
     			$$inline: true
     		});
 
