@@ -9530,7 +9530,7 @@ var app = (function () {
     	}
 
     	function getAbPair() {
-    		let line = Anki.getCard().content.split(",").map(x => parseInt(x));
+    		let line = Anki.tokens().map(x => parseInt(x));
     		if (line[0] < 0 || line[1] < 0) return getAbPairWithDots(line);
     		let a = rand(1, 9);
     		let b = rand(2, 9);
@@ -11149,7 +11149,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.4.4" },
+    			props: { ga: "ver", v: "0.4.5" },
     			$$inline: true
     		});
 
