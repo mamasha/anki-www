@@ -5821,11 +5821,11 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			button = element("button");
-    			t = text(/*_num*/ ctx[2]);
+    			t = text(/*_num*/ ctx[1]);
     			attr_dev(button, "class", /*_bgColor*/ ctx[3]);
     			set_style(button, "grid-area", /*ga*/ ctx[0]);
-    			set_style(button, "font-size", /*sz*/ ctx[1]);
-    			add_location(button, file$g, 18, 0, 443);
+    			set_style(button, "font-size", /*_sz*/ ctx[2] + "px");
+    			add_location(button, file$g, 22, 0, 554);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5844,14 +5844,14 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*_num*/ 4) set_data_dev(t, /*_num*/ ctx[2]);
+    			if (dirty & /*_num*/ 2) set_data_dev(t, /*_num*/ ctx[1]);
 
     			if (dirty & /*ga*/ 1) {
     				set_style(button, "grid-area", /*ga*/ ctx[0]);
     			}
 
-    			if (dirty & /*sz*/ 2) {
-    				set_style(button, "font-size", /*sz*/ ctx[1]);
+    			if (dirty & /*_sz*/ 4) {
+    				set_style(button, "font-size", /*_sz*/ ctx[2] + "px");
     			}
     		},
     		i: noop,
@@ -5880,16 +5880,20 @@ var app = (function () {
     	
     	let { ga } = $$props;
     	let { index } = $$props;
-    	let { sz = "30px" } = $$props;
+    	let { sz = 30 } = $$props;
     	let _num;
     	let _bgColor = getBgColor(ga);
+    	let _scale;
+    	let _sz;
 
     	function onClick() {
     		fire$2("--evt-click");
     	}
 
     	function updateView(game) {
-    		$$invalidate(2, _num = game.nums[index].toString());
+    		$$invalidate(1, _num = game.nums[index].toLocaleString("en"));
+    		_scale = _num.length <= 3 ? 1.2 : 2;
+    		$$invalidate(2, _sz = sz - _scale * _num.length);
     	}
 
     	on$3("--cmd-update-views", updateView);
@@ -5902,7 +5906,7 @@ var app = (function () {
     	$$self.$$set = $$props => {
     		if ("ga" in $$props) $$invalidate(0, ga = $$props.ga);
     		if ("index" in $$props) $$invalidate(5, index = $$props.index);
-    		if ("sz" in $$props) $$invalidate(1, sz = $$props.sz);
+    		if ("sz" in $$props) $$invalidate(6, sz = $$props.sz);
     	};
 
     	$$self.$capture_state = () => ({
@@ -5915,6 +5919,8 @@ var app = (function () {
     		sz,
     		_num,
     		_bgColor,
+    		_scale,
+    		_sz,
     		onClick,
     		updateView
     	});
@@ -5922,22 +5928,24 @@ var app = (function () {
     	$$self.$inject_state = $$props => {
     		if ("ga" in $$props) $$invalidate(0, ga = $$props.ga);
     		if ("index" in $$props) $$invalidate(5, index = $$props.index);
-    		if ("sz" in $$props) $$invalidate(1, sz = $$props.sz);
-    		if ("_num" in $$props) $$invalidate(2, _num = $$props._num);
+    		if ("sz" in $$props) $$invalidate(6, sz = $$props.sz);
+    		if ("_num" in $$props) $$invalidate(1, _num = $$props._num);
     		if ("_bgColor" in $$props) $$invalidate(3, _bgColor = $$props._bgColor);
+    		if ("_scale" in $$props) _scale = $$props._scale;
+    		if ("_sz" in $$props) $$invalidate(2, _sz = $$props._sz);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [ga, sz, _num, _bgColor, onClick, index];
+    	return [ga, _num, _sz, _bgColor, onClick, index, sz];
     }
 
     class Num$2 extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$k, create_fragment$k, safe_not_equal, { ga: 0, index: 5, sz: 1 });
+    		init(this, options, instance$k, create_fragment$k, safe_not_equal, { ga: 0, index: 5, sz: 6 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -6150,11 +6158,11 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			button = element("button");
-    			t = text(/*_text*/ ctx[2]);
-    			attr_dev(button, "class", /*_class*/ ctx[3]);
+    			t = text(/*_text*/ ctx[1]);
+    			attr_dev(button, "class", /*_class*/ ctx[2]);
     			set_style(button, "grid-area", /*ga*/ ctx[0]);
-    			set_style(button, "font-size", /*sz*/ ctx[1]);
-    			add_location(button, file$e, 34, 0, 861);
+    			set_style(button, "font-size", /*_sz*/ ctx[3] + "px");
+    			add_location(button, file$e, 38, 0, 974);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -6173,18 +6181,18 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*_text*/ 4) set_data_dev(t, /*_text*/ ctx[2]);
+    			if (dirty & /*_text*/ 2) set_data_dev(t, /*_text*/ ctx[1]);
 
-    			if (dirty & /*_class*/ 8) {
-    				attr_dev(button, "class", /*_class*/ ctx[3]);
+    			if (dirty & /*_class*/ 4) {
+    				attr_dev(button, "class", /*_class*/ ctx[2]);
     			}
 
     			if (dirty & /*ga*/ 1) {
     				set_style(button, "grid-area", /*ga*/ ctx[0]);
     			}
 
-    			if (dirty & /*sz*/ 2) {
-    				set_style(button, "font-size", /*sz*/ ctx[1]);
+    			if (dirty & /*_sz*/ 8) {
+    				set_style(button, "font-size", /*_sz*/ ctx[3] + "px");
     			}
     		},
     		i: noop,
@@ -6213,9 +6221,11 @@ var app = (function () {
     	
     	let _text;
     	let _class;
+    	let _scale;
+    	let _sz;
     	let { ga } = $$props;
     	let { index } = $$props;
-    	let { sz = "30px" } = $$props;
+    	let { sz = 30 } = $$props;
 
     	function onClick() {
     		fire$2("--evt-answer", { index });
@@ -6223,7 +6233,7 @@ var app = (function () {
 
     	function getText(game) {
     		if (game.state === "first-click") return "??";
-    		return game.answers[index].toString();
+    		return game.answers[index].toLocaleString("en");
     	}
 
     	function getClass(game) {
@@ -6235,8 +6245,10 @@ var app = (function () {
     	}
 
     	function updateView(game) {
-    		$$invalidate(2, _text = getText(game));
-    		$$invalidate(3, _class = getClass(game));
+    		$$invalidate(1, _text = getText(game));
+    		$$invalidate(2, _class = getClass(game));
+    		_scale = _text.length <= 3 ? 1.2 : 2;
+    		$$invalidate(3, _sz = sz - _scale * _text.length);
     	}
 
     	on$3("--cmd-update-views", updateView);
@@ -6249,7 +6261,7 @@ var app = (function () {
     	$$self.$$set = $$props => {
     		if ("ga" in $$props) $$invalidate(0, ga = $$props.ga);
     		if ("index" in $$props) $$invalidate(5, index = $$props.index);
-    		if ("sz" in $$props) $$invalidate(1, sz = $$props.sz);
+    		if ("sz" in $$props) $$invalidate(6, sz = $$props.sz);
     	};
 
     	$$self.$capture_state = () => ({
@@ -6258,6 +6270,8 @@ var app = (function () {
     		fire: fire$2,
     		_text,
     		_class,
+    		_scale,
+    		_sz,
     		ga,
     		index,
     		sz,
@@ -6268,24 +6282,26 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("_text" in $$props) $$invalidate(2, _text = $$props._text);
-    		if ("_class" in $$props) $$invalidate(3, _class = $$props._class);
+    		if ("_text" in $$props) $$invalidate(1, _text = $$props._text);
+    		if ("_class" in $$props) $$invalidate(2, _class = $$props._class);
+    		if ("_scale" in $$props) _scale = $$props._scale;
+    		if ("_sz" in $$props) $$invalidate(3, _sz = $$props._sz);
     		if ("ga" in $$props) $$invalidate(0, ga = $$props.ga);
     		if ("index" in $$props) $$invalidate(5, index = $$props.index);
-    		if ("sz" in $$props) $$invalidate(1, sz = $$props.sz);
+    		if ("sz" in $$props) $$invalidate(6, sz = $$props.sz);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [ga, sz, _text, _class, onClick, index];
+    	return [ga, _text, _class, _sz, onClick, index, sz];
     }
 
     class Ans$2 extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$i, create_fragment$i, safe_not_equal, { ga: 0, index: 5, sz: 1 });
+    		init(this, options, instance$i, create_fragment$i, safe_not_equal, { ga: 0, index: 5, sz: 6 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -11102,7 +11118,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.4.8" },
+    			props: { ga: "ver", v: "0.4.9" },
     			$$inline: true
     		});
 
