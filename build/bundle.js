@@ -8596,7 +8596,7 @@ var app = (function () {
     			attr_dev(button, "class", /*_bgColor*/ ctx[3]);
     			set_style(button, "grid-area", /*ga*/ ctx[0]);
     			set_style(button, "font-size", /*_sz*/ ctx[2] + "px");
-    			add_location(button, file$6, 11, 0, 286);
+    			add_location(button, file$6, 11, 0, 290);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -8688,7 +8688,7 @@ var app = (function () {
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*num*/ 16) {
-    			$$invalidate(1, _text = num.toLocaleString());
+    			$$invalidate(1, _text = num.toLocaleString("en"));
     		}
 
     		if ($$self.$$.dirty & /*sz, _text*/ 34) {
@@ -8753,7 +8753,7 @@ var app = (function () {
 
     function create_fragment$7(ctx) {
     	let button;
-    	let t_value = /*num*/ ctx[1].toLocaleString() + "";
+    	let t_value = /*num*/ ctx[1].toLocaleString("en") + "";
     	let t;
     	let mounted;
     	let dispose;
@@ -8765,7 +8765,7 @@ var app = (function () {
     			attr_dev(button, "class", /*_bgColor*/ ctx[2]);
     			set_style(button, "grid-area", /*ga*/ ctx[0]);
     			set_style(button, "font-size", /*_sz*/ ctx[3] + "px");
-    			add_location(button, file$5, 14, 0, 343);
+    			add_location(button, file$5, 14, 0, 347);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -8784,7 +8784,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*num*/ 2 && t_value !== (t_value = /*num*/ ctx[1].toLocaleString() + "")) set_data_dev(t, t_value);
+    			if (dirty & /*num*/ 2 && t_value !== (t_value = /*num*/ ctx[1].toLocaleString("en") + "")) set_data_dev(t, t_value);
 
     			if (dirty & /*_bgColor*/ 4) {
     				attr_dev(button, "class", /*_bgColor*/ ctx[2]);
@@ -8877,7 +8877,7 @@ var app = (function () {
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*num*/ 2) {
-    			$$invalidate(6, _text = num.toLocaleString());
+    			$$invalidate(6, _text = num.toLocaleString("en"));
     		}
 
     		if ($$self.$$.dirty & /*_text*/ 64) {
@@ -10261,7 +10261,7 @@ var app = (function () {
     	let v = randFrom(vars);
     	let equ = pattern.replace(v, "x");
     	let ans = abc[v.charCodeAt(0) - ("A").charCodeAt(0)];
-    	equ = equ.toLocaleLowerCase().replace("a", abc[0].toLocaleString()).replace("b", abc[1].toLocaleString()).replace("c", abc[2].toLocaleString()).replace("x", randFrom(_x));
+    	equ = equ.toLocaleLowerCase().replace("a", abc[0].toLocaleString("en")).replace("b", abc[1].toLocaleString("en")).replace("c", abc[2].toLocaleString("en")).replace("x", randFrom(_x));
     	return [equ, ans];
     }
 
@@ -10354,7 +10354,7 @@ var app = (function () {
     			attr_dev(button, "class", /*_bgColor*/ ctx[3]);
     			set_style(button, "grid-area", /*ga*/ ctx[0]);
     			set_style(button, "font-size", /*_sz*/ ctx[2] + "px");
-    			add_location(button, file$1, 33, 0, 860);
+    			add_location(button, file$1, 33, 0, 872);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -10425,15 +10425,15 @@ var app = (function () {
     				$$invalidate(3, _bgColor = bgColor);
     				break;
     			case "clicked":
-    				$$invalidate(1, _text = value.toLocaleString());
+    				$$invalidate(1, _text = value.toLocaleString("en"));
     				$$invalidate(3, _bgColor = bgColor);
     				break;
     			case "right":
-    				$$invalidate(1, _text = value.toLocaleString());
+    				$$invalidate(1, _text = value.toLocaleString("en"));
     				$$invalidate(3, _bgColor = "bg-green-200");
     				break;
     			case "wrong":
-    				$$invalidate(1, _text = value.toLocaleString());
+    				$$invalidate(1, _text = value.toLocaleString("en"));
     				$$invalidate(3, _bgColor = "bg-red-200");
     				break;
     		}
@@ -11103,7 +11103,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.4.6" },
+    			props: { ga: "ver", v: "0.4.7" },
     			$$inline: true
     		});
 
