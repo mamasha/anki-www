@@ -3105,7 +3105,6 @@ var app = (function () {
 
     	tokens() {
     		let content = ankiCard.content.replace("\n", " ");
-    		if (!content.includes(";")) return [];
     		let tkns = content.includes(";") ? content.split(";")[1] : content;
     		return splitNoEmpty(tkns, ",");
     	}
@@ -5399,12 +5398,12 @@ var app = (function () {
     let _game$1;
     let _tcNewRound = newTimedCmd$2("--cmd-new-round", 1000);
     let _tcIdle = newTimedCmd$2("--cmd-idle", 10000, 3000);
-    let _card = Anki.getCard();
     let _playbook = [];
     let _roundNo = -1;
+    let _m = [1, 8];
 
     function getPair() {
-    	let nums = _card.content.split(",");
+    	let nums = Anki.tokens();
     	let pairs = [];
 
     	for (let i = 0; i < nums.length - 1; i += 2) {
@@ -5415,21 +5414,12 @@ var app = (function () {
     	return pair;
     }
 
-    function* contentAsNums() {
-    	for (let line of splitNoEmpty(_card.content, "\n")) {
-    		for (let seg of splitNoEmpty(line, ",")) {
-    			for (let num of splitNoEmpty(seg)) {
-    				yield parseInt(num);
-    			}
-    		}
-    	}
-    }
-
     function splitToLines(numsInLine) {
     	let lines = [];
     	let line = [];
 
-    	for (let num of contentAsNums()) {
+    	for (let token of Anki.tokens()) {
+    		let num = parseInt(token);
     		line.push(num);
 
     		if (line.length == numsInLine) {
@@ -5450,10 +5440,10 @@ var app = (function () {
     	let sumDigit = (pair[0] + pair[1]) % 10;
     	let op = "+";
     	let a0 = pair[0];
-    	let a1 = rand(1, 8);
+    	let a1 = rand(_m[0], _m[1]);
     	let a = 10 * a1 + a0;
     	let b0 = pair[1];
-    	let b1 = rand(1, 9 - a1);
+    	let b1 = rand(_m[0], _m[1] + 1 - a1);
     	let b = 10 * b1 + b0;
     	let ans = a + b;
     	let nums = shuffle([a, b]);
@@ -5475,9 +5465,9 @@ var app = (function () {
     	let sumDigit = (pair[0] + pair[1]) % 10;
     	let op = "-";
     	let a0 = pair[0];
-    	let a1 = rand(1, 9);
+    	let a1 = rand(_m[0], _m[1] + 1);
     	let a = 10 * a1 + a0;
-    	let b1 = rand(1, 9 - a1);
+    	let b1 = rand(_m[0], _m[1] + 1 - a1);
     	let b0 = pair[1];
     	let b = 10 * b1 + b0;
     	let sum = a + b;
@@ -5567,6 +5557,16 @@ var app = (function () {
     }
 
     class CPlusOver {
+    	constructor() {
+    		for (let cmd of Anki.commands()) {
+    			switch (cmd[0].toLocaleLowerCase()) {
+    				case "m":
+    					_m = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    			}
+    		}
+    	}
+
     	newRound() {
     		var _a;
     		let config = Anki.getConfig();
@@ -5649,7 +5649,6 @@ var app = (function () {
 
     	done() {
     		Mp3.play("done");
-    		Anki.showAnswer();
     		addNextRounds();
     	}
 
@@ -10282,10 +10281,10 @@ var app = (function () {
     					_x = cmd.slice(1);
     					break;
     				case "a":
-    					_a = [parseInt(cmd[1]), parseInt(cmd[2])];
+    					_a = cmd.slice(1).map(x => parseInt(x));
     					break;
     				case "b":
-    					_b = [parseInt(cmd[1]), parseInt(cmd[2])];
+    					_b = cmd.slice(1).map(x => parseInt(x));
     					break;
     			}
     		}
@@ -11103,7 +11102,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.4.7" },
+    			props: { ga: "ver", v: "0.4.8" },
     			$$inline: true
     		});
 
