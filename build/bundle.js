@@ -14358,7 +14358,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (232:4) {#key recreate[0]}
+    // (233:4) {#key recreate[0]}
     function create_key_block_1(ctx) {
     	let num;
     	let current;
@@ -14404,14 +14404,14 @@ var app = (function () {
     		block,
     		id: create_key_block_1.name,
     		type: "key",
-    		source: "(232:4) {#key recreate[0]}",
+    		source: "(233:4) {#key recreate[0]}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (240:4) {#key recreate[0]}
+    // (241:4) {#key recreate[0]}
     function create_key_block(ctx) {
     	let num;
     	let current;
@@ -14457,14 +14457,14 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(240:4) {#key recreate[0]}",
+    		source: "(241:4) {#key recreate[0]}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (246:4) {#each _game.answers as ans, i (recreate[i]) }
+    // (247:4) {#each _game.answers as ans, i (recreate[i]) }
     function create_each_block$1(key_1, ctx) {
     	let first;
     	let ans;
@@ -14535,14 +14535,14 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(246:4) {#each _game.answers as ans, i (recreate[i]) }",
+    		source: "(247:4) {#each _game.answers as ans, i (recreate[i]) }",
     		ctx
     	});
 
     	return block;
     }
 
-    // (226:0) <Grid {layout}      on:click={() => fire("--evt-click")}  >
+    // (227:0) <Grid {layout}      on:click={() => fire("--evt-click")}  >
     function create_default_slot$2(ctx) {
     	let count;
     	let t0;
@@ -14729,7 +14729,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$2.name,
     		type: "slot",
-    		source: "(226:0) <Grid {layout}      on:click={() => fire(\\\"--evt-click\\\")}  >",
+    		source: "(227:0) <Grid {layout}      on:click={() => fire(\\\"--evt-click\\\")}  >",
     		ctx
     	});
 
@@ -15000,6 +15000,7 @@ var app = (function () {
     		}
 
     		$$invalidate(1, _game = _rounds[_current]);
+    		refreshMath();
     	}
 
     	function select(no) {
@@ -16530,7 +16531,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.4.10" },
+    			props: { ga: "ver", v: "0.4.11" },
     			$$inline: true
     		});
 
