@@ -14545,13 +14545,13 @@ var app = (function () {
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[27] = list[i];
-    	child_ctx[28] = list;
-    	child_ctx[29] = i;
+    	child_ctx[32] = list[i];
+    	child_ctx[33] = list;
+    	child_ctx[34] = i;
     	return child_ctx;
     }
 
-    // (233:4) {#key recreate[0]}
+    // (256:4) {#key recreate[0]}
     function create_key_block_1(ctx) {
     	let num;
     	let current;
@@ -14575,8 +14575,8 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const num_changes = {};
-    			if (dirty & /*_game*/ 2) num_changes.num = /*_game*/ ctx[1].nums[0];
-    			if (dirty & /*_withFractions*/ 4) num_changes.asAsciiMath = /*_withFractions*/ ctx[2] && trueFalse();
+    			if (dirty[0] & /*_game*/ 2) num_changes.num = /*_game*/ ctx[1].nums[0];
+    			if (dirty[0] & /*_withFractions*/ 4) num_changes.asAsciiMath = /*_withFractions*/ ctx[2] && trueFalse();
     			num.$set(num_changes);
     		},
     		i: function intro(local) {
@@ -14597,14 +14597,14 @@ var app = (function () {
     		block,
     		id: create_key_block_1.name,
     		type: "key",
-    		source: "(233:4) {#key recreate[0]}",
+    		source: "(256:4) {#key recreate[0]}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (241:4) {#key recreate[0]}
+    // (264:4) {#key recreate[0]}
     function create_key_block(ctx) {
     	let num;
     	let current;
@@ -14628,8 +14628,8 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const num_changes = {};
-    			if (dirty & /*_game*/ 2) num_changes.num = /*_game*/ ctx[1].nums[1];
-    			if (dirty & /*_withFractions*/ 4) num_changes.asAsciiMath = /*_withFractions*/ ctx[2] && trueFalse();
+    			if (dirty[0] & /*_game*/ 2) num_changes.num = /*_game*/ ctx[1].nums[1];
+    			if (dirty[0] & /*_withFractions*/ 4) num_changes.asAsciiMath = /*_withFractions*/ ctx[2] && trueFalse();
     			num.$set(num_changes);
     		},
     		i: function intro(local) {
@@ -14650,30 +14650,30 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(241:4) {#key recreate[0]}",
+    		source: "(264:4) {#key recreate[0]}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (247:4) {#each _game.answers as ans, i (recreate[i]) }
+    // (270:4) {#each _game.answers as ans, i (recreate[i]) }
     function create_each_block$1(key_1, ctx) {
     	let first;
     	let ans;
-    	let i = /*i*/ ctx[29];
+    	let i = /*i*/ ctx[34];
     	let current;
     	const assign_ans = () => /*ans_binding*/ ctx[9](ans, i);
     	const unassign_ans = () => /*ans_binding*/ ctx[9](null, i);
 
     	function click_handler() {
-    		return /*click_handler*/ ctx[10](/*i*/ ctx[29]);
+    		return /*click_handler*/ ctx[10](/*i*/ ctx[34]);
     	}
 
     	let ans_props = {
-    		ga: `a${/*i*/ ctx[29]}`,
-    		num: /*ans*/ ctx[27],
-    		asAsciiMath: /*_withFractions*/ ctx[2] && /*_game*/ ctx[1].asAsceeMath[/*i*/ ctx[29]]
+    		ga: `a${/*i*/ ctx[34]}`,
+    		num: /*ans*/ ctx[32],
+    		asAsciiMath: /*_withFractions*/ ctx[2] && /*_game*/ ctx[1].asAsceeMath[/*i*/ ctx[34]]
     	};
 
     	ans = new Ans$1({ props: ans_props, $$inline: true });
@@ -14696,16 +14696,16 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (i !== /*i*/ ctx[29]) {
+    			if (i !== /*i*/ ctx[34]) {
     				unassign_ans();
-    				i = /*i*/ ctx[29];
+    				i = /*i*/ ctx[34];
     				assign_ans();
     			}
 
     			const ans_changes = {};
-    			if (dirty & /*_game*/ 2) ans_changes.ga = `a${/*i*/ ctx[29]}`;
-    			if (dirty & /*_game*/ 2) ans_changes.num = /*ans*/ ctx[27];
-    			if (dirty & /*_withFractions, _game*/ 6) ans_changes.asAsciiMath = /*_withFractions*/ ctx[2] && /*_game*/ ctx[1].asAsceeMath[/*i*/ ctx[29]];
+    			if (dirty[0] & /*_game*/ 2) ans_changes.ga = `a${/*i*/ ctx[34]}`;
+    			if (dirty[0] & /*_game*/ 2) ans_changes.num = /*ans*/ ctx[32];
+    			if (dirty[0] & /*_withFractions, _game*/ 6) ans_changes.asAsciiMath = /*_withFractions*/ ctx[2] && /*_game*/ ctx[1].asAsceeMath[/*i*/ ctx[34]];
     			ans.$set(ans_changes);
     		},
     		i: function intro(local) {
@@ -14728,14 +14728,14 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(247:4) {#each _game.answers as ans, i (recreate[i]) }",
+    		source: "(270:4) {#each _game.answers as ans, i (recreate[i]) }",
     		ctx
     	});
 
     	return block;
     }
 
-    // (227:0) <Grid {layout}      on:click={() => fire("--evt-click")}  >
+    // (250:0) <Grid {layout}      on:click={() => fire("--evt-click")}  >
     function create_default_slot$2(ctx) {
     	let count;
     	let t0;
@@ -14769,7 +14769,7 @@ var app = (function () {
     	let key_block1 = create_key_block(ctx);
     	let each_value = /*_game*/ ctx[1].answers;
     	validate_each_argument(each_value);
-    	const get_key = ctx => /*recreate*/ ctx[4][/*i*/ ctx[29]];
+    	const get_key = ctx => /*recreate*/ ctx[4][/*i*/ ctx[34]];
     	validate_each_keys(ctx, each_value, get_each_context$1, get_key);
 
     	for (let i = 0; i < each_value.length; i += 1) {
@@ -14824,10 +14824,10 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const count_changes = {};
-    			if (dirty & /*_roundsLeft*/ 32) count_changes.count = /*_roundsLeft*/ ctx[5];
+    			if (dirty[0] & /*_roundsLeft*/ 32) count_changes.count = /*_roundsLeft*/ ctx[5];
     			count.$set(count_changes);
 
-    			if (dirty & /*recreate*/ 16 && safe_not_equal(previous_key, previous_key = /*recreate*/ ctx[4][0])) {
+    			if (dirty[0] & /*recreate*/ 16 && safe_not_equal(previous_key, previous_key = /*recreate*/ ctx[4][0])) {
     				group_outros();
     				transition_out(key_block0, 1, 1, noop);
     				check_outros();
@@ -14840,10 +14840,10 @@ var app = (function () {
     			}
 
     			const op_changes = {};
-    			if (dirty & /*_game*/ 2) op_changes.op = /*_game*/ ctx[1].op;
+    			if (dirty[0] & /*_game*/ 2) op_changes.op = /*_game*/ ctx[1].op;
     			op.$set(op_changes);
 
-    			if (dirty & /*recreate*/ 16 && safe_not_equal(previous_key_1, previous_key_1 = /*recreate*/ ctx[4][0])) {
+    			if (dirty[0] & /*recreate*/ 16 && safe_not_equal(previous_key_1, previous_key_1 = /*recreate*/ ctx[4][0])) {
     				group_outros();
     				transition_out(key_block1, 1, 1, noop);
     				check_outros();
@@ -14855,7 +14855,7 @@ var app = (function () {
     				key_block1.p(ctx, dirty);
     			}
 
-    			if (dirty & /*_game, _withFractions, answers, select, recreate*/ 94) {
+    			if (dirty[0] & /*_game, _withFractions, answers, select, recreate*/ 94) {
     				each_value = /*_game*/ ctx[1].answers;
     				validate_each_argument(each_value);
     				group_outros();
@@ -14922,7 +14922,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$2.name,
     		type: "slot",
-    		source: "(227:0) <Grid {layout}      on:click={() => fire(\\\"--evt-click\\\")}  >",
+    		source: "(250:0) <Grid {layout}      on:click={() => fire(\\\"--evt-click\\\")}  >",
     		ctx
     	});
 
@@ -14955,10 +14955,10 @@ var app = (function () {
     			mount_component(grid, target, anchor);
     			current = true;
     		},
-    		p: function update(ctx, [dirty]) {
+    		p: function update(ctx, dirty) {
     			const grid_changes = {};
 
-    			if (dirty & /*$$scope, congrats, _game, _withFractions, answers, _roundsLeft*/ 1073741871) {
+    			if (dirty[0] & /*congrats, _game, _withFractions, answers, _roundsLeft*/ 47 | dirty[1] & /*$$scope*/ 16) {
     				grid_changes.$$scope = { dirty, ctx };
     			}
 
@@ -15039,9 +15039,19 @@ var app = (function () {
     	let _config = Anki.getConfig();
     	let _tcNewRound = newTimedCmd$1("--cmd-next-round", 1000);
     	let _tcIdle = newTimedCmd$1("--cmd-idle", 7000, 3000);
+    	let _a = [1, 9];
+    	let _b = [2, 9];
+    	let _aA = [];
+    	let _bA = [];
     	let answers = [null, null, null];
     	let recreate = answers.map(_ => new Object());
     	let D = n => new decimal.Decimal(n);
+
+    	function getAb() {
+    		let a = D(_aA.length > 0 ? randFrom(_aA) : rand(_a[0], _a[1]));
+    		let b = D(_bA.length > 0 ? randFrom(_bA) : rand(_b[0], _b[1]));
+    		return [a, b];
+    	}
 
     	function getAbPairWithDots(line) {
     		let [za, zb] = shuffle(line);
@@ -15054,8 +15064,7 @@ var app = (function () {
     		? decimal.Decimal.pow(10, rand(zb, -1))
     		: decimal.Decimal.pow(10, rand(1, zb));
 
-    		let a = D(rand(1, 9));
-    		let b = D(rand(2, 9));
+    		let [a, b] = getAb();
     		let wrong = b.plus(pm(1));
     		a = a.mul(fa);
     		b = b.mul(fb);
@@ -15066,8 +15075,7 @@ var app = (function () {
     	function getAbPair() {
     		let line = Anki.tokens().map(x => parseInt(x));
     		if (line[0] < 0 || line[1] < 0) return getAbPairWithDots(line);
-    		let a = D(rand(1, 9));
-    		let b = D(rand(2, 9));
+    		let [a, b] = getAb();
     		let wrong = b.plus(pm(1));
     		let fa = D(1);
     		let fb = D(1);
@@ -15171,7 +15179,7 @@ var app = (function () {
     	}
 
     	function init() {
-    		var _a;
+    		var _c;
     		_tcIdle.reset();
     		let cmds = Anki.commands();
 
@@ -15182,10 +15190,22 @@ var app = (function () {
     				case "with-fractions":
     					$$invalidate(2, _withFractions = true);
     					break;
+    				case "a":
+    					_a = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    				case "b":
+    					_b = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    				case "a[]":
+    					_aA = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    				case "b[]":
+    					_bA = cmd.slice(1).map(x => parseInt(x));
+    					break;
     			}
     		}
 
-    		let noOfRounds = (_a = _config.rounds) !== null && _a !== void 0 ? _a : 4;
+    		let noOfRounds = (_c = _config.rounds) !== null && _c !== void 0 ? _c : 4;
 
     		for (let cnt = noOfRounds; cnt-- > 0; ) {
     			addMulRound();
@@ -15291,6 +15311,7 @@ var app = (function () {
     		shuffle,
     		pm,
     		trueFalse,
+    		randFrom,
     		Anki,
     		Mp3,
     		Grid,
@@ -15311,9 +15332,14 @@ var app = (function () {
     		_config,
     		_tcNewRound,
     		_tcIdle,
+    		_a,
+    		_b,
+    		_aA,
+    		_bA,
     		answers,
     		recreate,
     		D,
+    		getAb,
     		getAbPairWithDots,
     		getAbPair,
     		addMulRound,
@@ -15332,11 +15358,15 @@ var app = (function () {
     		if ("congrats" in $$props) $$invalidate(0, congrats = $$props.congrats);
     		if ("_game" in $$props) $$invalidate(1, _game = $$props._game);
     		if ("_current" in $$props) $$invalidate(8, _current = $$props._current);
-    		if ("_rounds" in $$props) $$invalidate(14, _rounds = $$props._rounds);
+    		if ("_rounds" in $$props) $$invalidate(18, _rounds = $$props._rounds);
     		if ("_withFractions" in $$props) $$invalidate(2, _withFractions = $$props._withFractions);
     		if ("_config" in $$props) _config = $$props._config;
     		if ("_tcNewRound" in $$props) _tcNewRound = $$props._tcNewRound;
     		if ("_tcIdle" in $$props) _tcIdle = $$props._tcIdle;
+    		if ("_a" in $$props) _a = $$props._a;
+    		if ("_b" in $$props) _b = $$props._b;
+    		if ("_aA" in $$props) _aA = $$props._aA;
+    		if ("_bA" in $$props) _bA = $$props._bA;
     		if ("answers" in $$props) $$invalidate(3, answers = $$props.answers);
     		if ("recreate" in $$props) $$invalidate(4, recreate = $$props.recreate);
     		if ("D" in $$props) D = $$props.D;
@@ -15349,7 +15379,7 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*_current*/ 256) {
+    		if ($$self.$$.dirty[0] & /*_current*/ 256) {
     			$$invalidate(5, _roundsLeft = _rounds.length - _current);
     		}
     	};
@@ -15374,7 +15404,7 @@ var app = (function () {
     class Main$1 extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$5, create_fragment$5, safe_not_equal, {});
+    		init(this, options, instance$5, create_fragment$5, safe_not_equal, {}, [-1, -1]);
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -16755,7 +16785,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.5.0" },
+    			props: { ga: "ver", v: "0.5.1" },
     			$$inline: true
     		});
 
