@@ -16648,7 +16648,7 @@ var app = (function () {
     function getScale(gameType) {
     	switch (gameType) {
     		case "%-simple":
-    			return 1;
+    			return 1.2;
     	}
 
     	return undefined;
@@ -16895,7 +16895,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.6.1" },
+    			props: { ga: "ver", v: "0.6.2" },
     			$$inline: true
     		});
 
