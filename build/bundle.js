@@ -15431,7 +15431,7 @@ var app = (function () {
     			attr_dev(p, "class", /*bgColor*/ ctx[2]);
     			set_style(p, "grid-area", /*ga*/ ctx[0]);
     			set_style(p, "font-size", /*_sz*/ ctx[4] + "px");
-    			add_location(p, file$3, 36, 0, 1473);
+    			add_location(p, file$3, 39, 0, 1609);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -15439,11 +15439,11 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
     			append_dev(p, t);
-    			/*p_binding*/ ctx[7](p);
+    			/*p_binding*/ ctx[9](p);
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(p, "click", /*click_handler*/ ctx[6], false, false, false),
+    					listen_dev(p, "click", /*click_handler*/ ctx[8], false, false, false),
     					action_destroyer(bounceOnDrag.call(null, p))
     				];
 
@@ -15469,7 +15469,7 @@ var app = (function () {
     		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
-    			/*p_binding*/ ctx[7](null);
+    			/*p_binding*/ ctx[9](null);
     			mounted = false;
     			run_all(dispose);
     		}
@@ -15486,7 +15486,10 @@ var app = (function () {
     	return block;
     }
 
+    const defaultScale = 1.4;
+
     function instance$4($$self, $$props, $$invalidate) {
+    	let _scale;
     	let _sz;
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("AsciiMath", slots, []);
@@ -15529,6 +15532,7 @@ var app = (function () {
 
     	let { ga } = $$props;
     	let { exp } = $$props;
+    	let { scale = defaultScale } = $$props;
     	let { bgColor = getBgColor(ga) } = $$props;
     	let { sz = 30 } = $$props;
     	let _self;
@@ -15547,7 +15551,7 @@ var app = (function () {
     		});
     	}
 
-    	const writable_props = ["ga", "exp", "bgColor", "sz"];
+    	const writable_props = ["ga", "exp", "scale", "bgColor", "sz"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<AsciiMath> was created with unknown prop '${key}'`);
@@ -15567,8 +15571,9 @@ var app = (function () {
     	$$self.$$set = $$props => {
     		if ("ga" in $$props) $$invalidate(0, ga = $$props.ga);
     		if ("exp" in $$props) $$invalidate(1, exp = $$props.exp);
+    		if ("scale" in $$props) $$invalidate(5, scale = $$props.scale);
     		if ("bgColor" in $$props) $$invalidate(2, bgColor = $$props.bgColor);
-    		if ("sz" in $$props) $$invalidate(5, sz = $$props.sz);
+    		if ("sz" in $$props) $$invalidate(6, sz = $$props.sz);
     	};
 
     	$$self.$capture_state = () => ({
@@ -15579,12 +15584,15 @@ var app = (function () {
     		pulse,
     		getBgColor,
     		bounceOnDrag,
+    		defaultScale,
     		ga,
     		exp,
+    		scale,
     		bgColor,
     		sz,
     		_self,
     		update,
+    		_scale,
     		_sz
     	});
 
@@ -15592,9 +15600,11 @@ var app = (function () {
     		if ("__awaiter" in $$props) __awaiter = $$props.__awaiter;
     		if ("ga" in $$props) $$invalidate(0, ga = $$props.ga);
     		if ("exp" in $$props) $$invalidate(1, exp = $$props.exp);
+    		if ("scale" in $$props) $$invalidate(5, scale = $$props.scale);
     		if ("bgColor" in $$props) $$invalidate(2, bgColor = $$props.bgColor);
-    		if ("sz" in $$props) $$invalidate(5, sz = $$props.sz);
+    		if ("sz" in $$props) $$invalidate(6, sz = $$props.sz);
     		if ("_self" in $$props) $$invalidate(3, _self = $$props._self);
+    		if ("_scale" in $$props) $$invalidate(7, _scale = $$props._scale);
     		if ("_sz" in $$props) $$invalidate(4, _sz = $$props._sz);
     	};
 
@@ -15603,8 +15613,14 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*sz, exp*/ 34) {
-    			$$invalidate(4, _sz = sz - 1.4 * exp.length);
+    		if ($$self.$$.dirty & /*scale*/ 32) {
+    			$$invalidate(7, _scale = scale !== null && scale !== void 0
+    			? scale
+    			: defaultScale);
+    		}
+
+    		if ($$self.$$.dirty & /*sz, _scale, exp*/ 194) {
+    			$$invalidate(4, _sz = sz - _scale * exp.length);
     		}
 
     		if ($$self.$$.dirty & /*exp*/ 2) {
@@ -15612,13 +15628,20 @@ var app = (function () {
     		}
     	};
 
-    	return [ga, exp, bgColor, _self, _sz, sz, click_handler, p_binding];
+    	return [ga, exp, bgColor, _self, _sz, scale, sz, _scale, click_handler, p_binding];
     }
 
     class AsciiMath extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$4, create_fragment$4, safe_not_equal, { ga: 0, exp: 1, bgColor: 2, sz: 5 });
+
+    		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
+    			ga: 0,
+    			exp: 1,
+    			scale: 5,
+    			bgColor: 2,
+    			sz: 6
+    		});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -15652,6 +15675,14 @@ var app = (function () {
     	}
 
     	set exp(value) {
+    		throw new Error("<AsciiMath>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get scale() {
+    		throw new Error("<AsciiMath>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set scale(value) {
     		throw new Error("<AsciiMath>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
@@ -15890,26 +15921,57 @@ var app = (function () {
     let _gameType = "equ+-";
     let _a = [10, 90];
     let _b = [10, 90];
+    let _c = [10, 90];
+    let _aA = [];
+    let _bA = [];
+    let _cA = [];
     let _x = ["X"];
     let _noOverflow = false;
+    let n2d = n => new decimal.Decimal(n);
+    let d2t = d => d.toNumber().toLocaleString("en");
+
+    function getAb() {
+    	let a = n2d(_aA.length > 0 ? randFrom(_aA) : rand(_a[0], _a[1]));
+    	let b = n2d(_bA.length > 0 ? randFrom(_bA) : rand(_b[0], _b[1]));
+    	return [a, b];
+    }
+
+    function get(n, nA) {
+    	return n2d(nA.length > 0 ? randFrom(nA) : rand(n[0], n[1]));
+    }
 
     function newAbc() {
     	let tzero = n => n - n % 10;
 
     	if (_gameType === "equ+-") {
+    		let [a, b] = getAb();
     		let a0 = rand(1, 9);
     		let b0 = _noOverflow ? rand(0, 9 - a0) : rand(10 - a0, 9);
-    		let a = tzero(rand(_a[0], _a[1])) + a0;
-    		let b = tzero(rand(_b[0], _b[1])) + b0;
-    		let c = a + b;
-    		return [...shuffle([a, b]), c];
+    		let aa = n2d(tzero(a) + a0);
+    		let bb = n2d(tzero(b) + b0);
+    		let c = aa.plus(bb);
+    		return [...shuffle([aa, bb]), c];
     	}
 
     	if (_gameType === "equ*/") {
-    		let a = rand(_a[0], _a[1]);
-    		let b = rand(_b[0], _b[1]);
-    		let c = a * b;
+    		let [a, b] = getAb();
+    		let c = a.mul(b);
     		return [...shuffle([a, b]), c];
+    	}
+
+    	if (_gameType === "%-simple") {
+    		let b = get(_b, _bA);
+    		let c;
+    		let a;
+    		let loopLimit = 100;
+
+    		do {
+    			c = get(_c, _cA);
+    			a = c.mul(100).div(b);
+    			if (loopLimit-- <= 0) break;
+    		} while (!a.trunc().eq(a));
+
+    		return [a, b, c];
     	}
 
     	throw `Unknown game type '${_gameType}'`;
@@ -15919,19 +15981,23 @@ var app = (function () {
     	if (_gameType == "equ+-") {
     		return shuffle([
     			rightAns,
-    			rightAns + pm(10),
-    			rightAns + pm(rand(1, 1)),
-    			rightAns + pm(rand(2, 2))
+    			rightAns.plus(pm(10)),
+    			rightAns.plus(pm(rand(1, 1))),
+    			rightAns.plus(pm(rand(2, 2)))
     		]);
     	}
 
     	if (_gameType == "equ*/") {
     		return shuffle([
     			rightAns,
-    			rightAns + pm(rand(1, 1)),
-    			rightAns + pm(rand(2, 2)),
-    			rightAns + pm(rand(3, 3))
+    			rightAns.plus(pm(rand(1, 1))),
+    			rightAns.plus(pm(rand(2, 2))),
+    			rightAns.plus(pm(rand(3, 3)))
     		]);
+    	}
+
+    	if (_gameType === "%-simple") {
+    		return shuffle([rightAns, rightAns.plus(pm(5)), rightAns.plus(pm(10)), rightAns.plus(pm(15))]);
     	}
 
     	throw `Unknown game type '${_gameType}'`;
@@ -15948,7 +16014,7 @@ var app = (function () {
     	let v = randFrom(vars);
     	let equ = pattern.replace(v, "$").replace("xx", "@");
     	let ans = abc[v.charCodeAt(0) - ("A").charCodeAt(0)];
-    	equ = equ.toLocaleLowerCase().replace("a", abc[0].toLocaleString("en")).replace("b", abc[1].toLocaleString("en")).replace("c", abc[2].toLocaleString("en")).replace("@", "xx").replace("$", randFrom(_x));
+    	equ = equ.toLocaleLowerCase().replace("a", d2t(abc[0])).replace("b", d2t(abc[1])).replace("c", d2t(abc[2])).replace("@", "xx").replace("$", randFrom(_x));
     	return [equ, ans];
     }
 
@@ -15962,6 +16028,9 @@ var app = (function () {
     				case "equ*/":
     					_gameType = "equ*/";
     					break;
+    				case "%-simple":
+    					_gameType = "%-simple";
+    					break;
     				case "no-overflow":
     					_noOverflow = true;
     					break;
@@ -15973,6 +16042,18 @@ var app = (function () {
     					break;
     				case "b":
     					_b = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    				case "c":
+    					_c = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    				case "a[]":
+    					_aA = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    				case "b[]":
+    					_bA = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    				case "c[]":
+    					_cA = cmd.slice(1).map(x => parseInt(x));
     					break;
     			}
     		}
@@ -15995,18 +16076,27 @@ var app = (function () {
 
     	nextRound() {
     		_next++;
+    		let gameType = _gameType;
     		let pattern = _patterns[_next % _patterns.length];
     		let abc = newAbc();
     		let [equ, rightAns] = makeEqu(pattern, abc);
     		let answers = makeAnswers(rightAns);
     		let progress = [_next < _totalRounds ? _next : _totalRounds, _totalRounds];
-    		return { progress, equ, rightAns, answers };
+
+    		return {
+    			gameType,
+    			progress,
+    			equ,
+    			rightAns,
+    			answers
+    		};
     	}
     }
 
     const Game = new CGame();
 
     /* src\equation\Model.svelte generated by Svelte v3.38.3 */
+
 
 
 
@@ -16034,7 +16124,7 @@ var app = (function () {
     			attr_dev(button, "class", /*_bgColor*/ ctx[3]);
     			set_style(button, "grid-area", /*ga*/ ctx[0]);
     			set_style(button, "font-size", /*_sz*/ ctx[2] + "px");
-    			add_location(button, file$1, 34, 0, 927);
+    			add_location(button, file$1, 38, 0, 963);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -16088,9 +16178,14 @@ var app = (function () {
     	return block;
     }
 
+    function toText(v) {
+    	return v.toNumber().toLocaleString("en");
+    }
+
     function instance$2($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Ans", slots, []);
+    	
     	let { ga } = $$props;
     	let { value } = $$props;
     	let { bgColor = getBgColor(ga, "bg-gray-100") } = $$props;
@@ -16106,15 +16201,15 @@ var app = (function () {
     				$$invalidate(3, _bgColor = bgColor);
     				break;
     			case "clicked":
-    				$$invalidate(1, _text = value.toLocaleString("en"));
+    				$$invalidate(1, _text = toText(value));
     				$$invalidate(3, _bgColor = bgColor);
     				break;
     			case "right":
-    				$$invalidate(1, _text = value.toLocaleString("en"));
+    				$$invalidate(1, _text = toText(value));
     				$$invalidate(3, _bgColor = "bg-green-200");
     				break;
     			case "wrong":
-    				$$invalidate(1, _text = value.toLocaleString("en"));
+    				$$invalidate(1, _text = toText(value));
     				$$invalidate(3, _bgColor = "bg-red-200");
     				break;
     		}
@@ -16150,6 +16245,7 @@ var app = (function () {
     		_text,
     		_sz,
     		_bgColor,
+    		toText,
     		setState
     	});
 
@@ -16252,7 +16348,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (117:4) {#each _round.answers as ans, no}
+    // (126:4) {#each _round.answers as ans, no}
     function create_each_block(ctx) {
     	let ans;
     	let no = /*no*/ ctx[23];
@@ -16313,14 +16409,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(117:4) {#each _round.answers as ans, no}",
+    		source: "(126:4) {#each _round.answers as ans, no}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (103:0) <Grid {layout}      on:click={() => anyClick()}  >
+    // (111:0) <Grid {layout}      on:click={() => anyClick()}  >
     function create_default_slot$1(ctx) {
     	let progress;
     	let t0;
@@ -16343,7 +16439,8 @@ var app = (function () {
     			props: {
     				ga: "equ",
     				sz: 40,
-    				exp: /*_round*/ ctx[1].equ
+    				exp: /*_round*/ ctx[1].equ,
+    				scale: getScale(/*_round*/ ctx[1].gameType)
     			},
     			$$inline: true
     		});
@@ -16403,6 +16500,7 @@ var app = (function () {
     			progress.$set(progress_changes);
     			const asciimath_changes = {};
     			if (dirty & /*_round*/ 2) asciimath_changes.exp = /*_round*/ ctx[1].equ;
+    			if (dirty & /*_round*/ 2) asciimath_changes.scale = getScale(/*_round*/ ctx[1].gameType);
     			asciimath.$set(asciimath_changes);
 
     			if (dirty & /*_round, _answers, gotAnswer*/ 70) {
@@ -16480,7 +16578,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(103:0) <Grid {layout}      on:click={() => anyClick()}  >",
+    		source: "(111:0) <Grid {layout}      on:click={() => anyClick()}  >",
     		ctx
     	});
 
@@ -16547,9 +16645,20 @@ var app = (function () {
     	return block;
     }
 
+    function getScale(gameType) {
+    	switch (gameType) {
+    		case "%-simple":
+    			return 0.3;
+    	}
+
+    	return undefined;
+    }
+
     function instance$1($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Main", slots, []);
+    	
+    	
     	let congrats;
     	let _game = Game;
     	let _round = _game.nextRound();
@@ -16704,6 +16813,7 @@ var app = (function () {
     		newRound,
     		idle,
     		startRound,
+    		getScale,
     		layout
     	});
 
@@ -16785,7 +16895,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.5.2" },
+    			props: { ga: "ver", v: "0.6.0" },
     			$$inline: true
     		});
 
