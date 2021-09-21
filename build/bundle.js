@@ -15929,9 +15929,11 @@ var app = (function () {
     let _a = [10, 90];
     let _b = [10, 90];
     let _c = [10, 90];
+    let _d = [10, 90];
     let _aA = [];
     let _bA = [];
     let _cA = [];
+    let _dA = [];
     let _x = ["X"];
     let _noOverflow = false;
     let n2d = n => new decimal.Decimal(n);
@@ -15964,6 +15966,13 @@ var app = (function () {
     		let [a, b] = getAb();
     		let c = a.mul(b);
     		return [...shuffle([a, b]), c];
+    	}
+
+    	if (_gameType === "ab+c=d") {
+    		let [a, b] = getAb();
+    		let d = get(_d, _dA);
+    		let c = d.minus(a.mul(b));
+    		return [...shuffle([a, b]), c, d];
     	}
 
     	if (_gameType === "%-simple") {
@@ -16039,6 +16048,15 @@ var app = (function () {
     		]);
     	}
 
+    	if (_gameType == "ab+c=d") {
+    		return shuffle([
+    			rightAns,
+    			rightAns.plus(pm(rand(1, 1))),
+    			rightAns.plus(pm(rand(2, 2))),
+    			rightAns.plus(pm(rand(3, 3)))
+    		]);
+    	}
+
     	if (_gameType === "%-simple" || _gameType === "%-plus" || _gameType === "%-minus") {
     		return shuffle([rightAns, rightAns.plus(pm(5)), rightAns.plus(pm(10)), rightAns.plus(pm(15))]);
     	}
@@ -16057,7 +16075,19 @@ var app = (function () {
     	let v = randFrom(vars);
     	let equ = pattern.replace(v, "$").replace("xx", "@");
     	let ans = abc[v.charCodeAt(0) - ("A").charCodeAt(0)];
-    	equ = equ.toLocaleLowerCase().replace("a", d2t(abc[0])).replace("b", d2t(abc[1])).replace("c", d2t(abc[2])).replace("@", "xx").replace("$", randFrom(_x));
+
+    	if (_gameType == "ab+c=d") {
+    		let c = abc[2];
+
+    		if (c.lt(0)) {
+    			abc[2] = c.neg();
+    			equ = equ.replace("+", "-");
+    		}
+
+    		if (ans.lt(0)) ans = ans.neg();
+    	}
+
+    	equ = equ.toLocaleLowerCase().replace("a", d2t(abc[0])).replace("b", d2t(abc[1])).replace("c", d2t(abc[2])).replace("d", d2t(abc[3])).replace("@", "xx").replace("$", randFrom(_x));
     	return [equ, ans];
     }
 
@@ -16070,6 +16100,9 @@ var app = (function () {
     					break;
     				case "equ*/":
     					_gameType = "equ*/";
+    					break;
+    				case "ab+c=d":
+    					_gameType = "ab+c=d";
     					break;
     				case "%-simple":
     					_gameType = "%-simple";
@@ -16095,6 +16128,9 @@ var app = (function () {
     				case "c":
     					_c = cmd.slice(1).map(x => parseInt(x));
     					break;
+    				case "d":
+    					_d = cmd.slice(1).map(x => parseInt(x));
+    					break;
     				case "a[]":
     					_aA = cmd.slice(1).map(x => parseInt(x));
     					break;
@@ -16103,6 +16139,9 @@ var app = (function () {
     					break;
     				case "c[]":
     					_cA = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    				case "d[]":
+    					_dA = cmd.slice(1).map(x => parseInt(x));
     					break;
     			}
     		}
@@ -16128,6 +16167,7 @@ var app = (function () {
     		let gameType = _gameType;
     		let pattern = _patterns[_next % _patterns.length];
     		let abc = newAbc();
+    		abc.push(n2d(0)); // d
     		let [equ, rightAns] = makeEqu(pattern, abc);
     		let answers = makeAnswers(rightAns);
     		let progress = [_next < _totalRounds ? _next : _totalRounds, _totalRounds];
@@ -16946,7 +16986,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.6.3" },
+    			props: { ga: "ver", v: "0.7.0" },
     			$$inline: true
     		});
 
