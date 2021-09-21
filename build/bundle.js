@@ -1396,6 +1396,13 @@ var app = (function () {
     	return arr[rand(0, arr.length - 1)];
     }
 
+    function randFromIf(arr, iff) {
+    	let filtered = arr.filter(iff);
+
+    	// assert there is any number in filtered array
+    	return filtered[rand(0, filtered.length - 1)];
+    }
+
     function trueFalse() {
     	return rand(0, 1) == 0;
     }
@@ -15974,6 +15981,42 @@ var app = (function () {
     		return [a, b, c];
     	}
 
+    	if (_gameType === "%-plus") {
+    		// assert _bA is here
+    		let b = n2d(randFromIf(_bA, x => x >= 100));
+
+    		let c;
+    		let a;
+    		let loopLimit = 100;
+
+    		do {
+    			c = get(_c, _cA);
+    			a = c.mul(100).div(b);
+    			if (loopLimit-- <= 0) break;
+    		} while (!a.trunc().eq(a));
+
+    		b = b.minus(100);
+    		return [a, b, c];
+    	}
+
+    	if (_gameType === "%-minus") {
+    		// assert _bA is here
+    		let b = n2d(randFromIf(_bA, x => x < 100));
+
+    		let c;
+    		let a;
+    		let loopLimit = 100;
+
+    		do {
+    			c = get(_c, _cA);
+    			a = c.mul(100).div(b);
+    			if (loopLimit-- <= 0) break;
+    		} while (!a.trunc().eq(a));
+
+    		b = n2d(100).minus(b);
+    		return [a, b, c];
+    	}
+
     	throw `Unknown game type '${_gameType}'`;
     }
 
@@ -15996,7 +16039,7 @@ var app = (function () {
     		]);
     	}
 
-    	if (_gameType === "%-simple") {
+    	if (_gameType === "%-simple" || _gameType === "%-plus" || _gameType === "%-minus") {
     		return shuffle([rightAns, rightAns.plus(pm(5)), rightAns.plus(pm(10)), rightAns.plus(pm(15))]);
     	}
 
@@ -16030,6 +16073,12 @@ var app = (function () {
     					break;
     				case "%-simple":
     					_gameType = "%-simple";
+    					break;
+    				case "%-plus":
+    					_gameType = "%-plus";
+    					break;
+    				case "%-minus":
+    					_gameType = "%-minus";
     					break;
     				case "no-overflow":
     					_noOverflow = true;
@@ -16348,7 +16397,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (126:4) {#each _round.answers as ans, no}
+    // (129:4) {#each _round.answers as ans, no}
     function create_each_block(ctx) {
     	let ans;
     	let no = /*no*/ ctx[23];
@@ -16409,14 +16458,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(126:4) {#each _round.answers as ans, no}",
+    		source: "(129:4) {#each _round.answers as ans, no}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (111:0) <Grid {layout}      on:click={() => anyClick()}  >
+    // (114:0) <Grid {layout}      on:click={() => anyClick()}  >
     function create_default_slot$1(ctx) {
     	let progress;
     	let t0;
@@ -16578,7 +16627,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(111:0) <Grid {layout}      on:click={() => anyClick()}  >",
+    		source: "(114:0) <Grid {layout}      on:click={() => anyClick()}  >",
     		ctx
     	});
 
@@ -16648,6 +16697,8 @@ var app = (function () {
     function getScale(gameType) {
     	switch (gameType) {
     		case "%-simple":
+    		case "%-plus":
+    		case "%-minus":
     			return 1.2;
     	}
 
@@ -16895,7 +16946,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.6.2" },
+    			props: { ga: "ver", v: "0.6.3" },
     			$$inline: true
     		});
 
