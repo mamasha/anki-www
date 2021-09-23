@@ -16192,7 +16192,7 @@ var app = (function () {
     let _dA = [];
     let _x = ["X"];
     let _noOverflow = false;
-    let _seconds = 120;
+    let _seconds = 40;
     let n2d = n => new decimal.Decimal(n);
     let d2n = d => d.toNumber();
     let d2t = d => d.toNumber().toLocaleString("en");
@@ -17314,7 +17314,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.8.0" },
+    			props: { ga: "ver", v: "0.8.1" },
     			$$inline: true
     		});
 
