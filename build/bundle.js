@@ -1387,7 +1387,924 @@ var app = (function () {
     	}
     }
 
+    var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+    function getDefaultExportFromCjs (x) {
+    	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+    }
+
+    function createCommonjsModule(fn) {
+      var module = { exports: {} };
+    	return fn(module, module.exports), module.exports;
+    }
+
+    /**
+     * @license Fraction.js v4.1.1 23/05/2021
+     * https://www.xarg.org/2014/03/rational-numbers-in-javascript/
+     *
+     * Copyright (c) 2021, Robert Eisele (robert@xarg.org)
+     * Dual licensed under the MIT or GPL Version 2 licenses.
+     **/
+
+    var fraction = createCommonjsModule(function (module, exports) {
+    /**
+     *
+     * This class offers the possibility to calculate fractions.
+     * You can pass a fraction in different formats. Either as array, as double, as string or as an integer.
+     *
+     * Array/Object form
+     * [ 0 => <nominator>, 1 => <denominator> ]
+     * [ n => <nominator>, d => <denominator> ]
+     *
+     * Integer form
+     * - Single integer value
+     *
+     * Double form
+     * - Single double value
+     *
+     * String form
+     * 123.456 - a simple double
+     * 123/456 - a string fraction
+     * 123.'456' - a double with repeating decimal places
+     * 123.(456) - synonym
+     * 123.45'6' - a double with repeating last place
+     * 123.45(6) - synonym
+     *
+     * Example:
+     *
+     * var f = new Fraction("9.4'31'");
+     * f.mul([-4, 3]).div(4.9);
+     *
+     */
+
+    (function(root) {
+
+      // Maximum search depth for cyclic rational numbers. 2000 should be more than enough.
+      // Example: 1/7 = 0.(142857) has 6 repeating decimal places.
+      // If MAX_CYCLE_LEN gets reduced, long cycles will not be detected and toString() only gets the first 10 digits
+      var MAX_CYCLE_LEN = 2000;
+
+      // Parsed data to avoid calling "new" all the time
+      var P = {
+        "s": 1,
+        "n": 0,
+        "d": 1
+      };
+
+      function createError(name) {
+
+        function errorConstructor() {
+          var temp = Error.apply(this, arguments);
+          temp['name'] = this['name'] = name;
+          this['stack'] = temp['stack'];
+          this['message'] = temp['message'];
+        }
+
+        /**
+         * Error constructor
+         *
+         * @constructor
+         */
+        function IntermediateInheritor() { }
+        IntermediateInheritor.prototype = Error.prototype;
+        errorConstructor.prototype = new IntermediateInheritor();
+
+        return errorConstructor;
+      }
+
+      var DivisionByZero = Fraction['DivisionByZero'] = createError('DivisionByZero');
+      var InvalidParameter = Fraction['InvalidParameter'] = createError('InvalidParameter');
+
+      function assign(n, s) {
+
+        if (isNaN(n = parseInt(n, 10))) {
+          throwInvalidParam();
+        }
+        return n * s;
+      }
+
+      function throwInvalidParam() {
+        throw new InvalidParameter();
+      }
+
+      function factorize(num) {
+
+        var factors = {};
+
+        var n = num;
+        var i = 2;
+        var s = 4;
+
+        while (s <= n) {
+
+          while (n % i === 0) {
+            n /= i;
+            factors[i] = (factors[i] || 0) + 1;
+          }
+          s += 1 + 2 * i++;
+        }
+
+        if (n !== num) {
+          if (n > 1)
+          factors[n] = (factors[n] || 0) + 1;
+        } else {
+          factors[num] = (factors[num] || 0) + 1;
+        }
+        return factors;
+      }
+
+      var parse = function(p1, p2) {
+
+        var n = 0, d = 1, s = 1;
+        var v = 0, w = 0, x = 0, y = 1, z = 1;
+
+        var A = 0, B = 1;
+        var C = 1, D = 1;
+
+        var N = 10000000;
+        var M;
+
+        if (p1 === undefined || p1 === null) ; else if (p2 !== undefined) {
+          n = p1;
+          d = p2;
+          s = n * d;
+        } else
+          switch (typeof p1) {
+
+            case "object":
+              {
+                if ("d" in p1 && "n" in p1) {
+                  n = p1["n"];
+                  d = p1["d"];
+                  if ("s" in p1)
+                    n *= p1["s"];
+                } else if (0 in p1) {
+                  n = p1[0];
+                  if (1 in p1)
+                    d = p1[1];
+                } else {
+                  throwInvalidParam();
+                }
+                s = n * d;
+                break;
+              }
+            case "number":
+              {
+                if (p1 < 0) {
+                  s = p1;
+                  p1 = -p1;
+                }
+
+                if (p1 % 1 === 0) {
+                  n = p1;
+                } else if (p1 > 0) { // check for != 0, scale would become NaN (log(0)), which converges really slow
+
+                  if (p1 >= 1) {
+                    z = Math.pow(10, Math.floor(1 + Math.log(p1) / Math.LN10));
+                    p1 /= z;
+                  }
+
+                  // Using Farey Sequences
+                  // http://www.johndcook.com/blog/2010/10/20/best-rational-approximation/
+
+                  while (B <= N && D <= N) {
+                    M = (A + C) / (B + D);
+
+                    if (p1 === M) {
+                      if (B + D <= N) {
+                        n = A + C;
+                        d = B + D;
+                      } else if (D > B) {
+                        n = C;
+                        d = D;
+                      } else {
+                        n = A;
+                        d = B;
+                      }
+                      break;
+
+                    } else {
+
+                      if (p1 > M) {
+                        A += C;
+                        B += D;
+                      } else {
+                        C += A;
+                        D += B;
+                      }
+
+                      if (B > N) {
+                        n = C;
+                        d = D;
+                      } else {
+                        n = A;
+                        d = B;
+                      }
+                    }
+                  }
+                  n *= z;
+                } else if (isNaN(p1) || isNaN(p2)) {
+                  d = n = NaN;
+                }
+                break;
+              }
+            case "string":
+              {
+                B = p1.match(/\d+|./g);
+
+                if (B === null)
+                  throwInvalidParam();
+
+                if (B[A] === '-') {// Check for minus sign at the beginning
+                  s = -1;
+                  A++;
+                } else if (B[A] === '+') {// Check for plus sign at the beginning
+                  A++;
+                }
+
+                if (B.length === A + 1) { // Check if it's just a simple number "1234"
+                  w = assign(B[A++], s);
+                } else if (B[A + 1] === '.' || B[A] === '.') { // Check if it's a decimal number
+
+                  if (B[A] !== '.') { // Handle 0.5 and .5
+                    v = assign(B[A++], s);
+                  }
+                  A++;
+
+                  // Check for decimal places
+                  if (A + 1 === B.length || B[A + 1] === '(' && B[A + 3] === ')' || B[A + 1] === "'" && B[A + 3] === "'") {
+                    w = assign(B[A], s);
+                    y = Math.pow(10, B[A].length);
+                    A++;
+                  }
+
+                  // Check for repeating places
+                  if (B[A] === '(' && B[A + 2] === ')' || B[A] === "'" && B[A + 2] === "'") {
+                    x = assign(B[A + 1], s);
+                    z = Math.pow(10, B[A + 1].length) - 1;
+                    A += 3;
+                  }
+
+                } else if (B[A + 1] === '/' || B[A + 1] === ':') { // Check for a simple fraction "123/456" or "123:456"
+                  w = assign(B[A], s);
+                  y = assign(B[A + 2], 1);
+                  A += 3;
+                } else if (B[A + 3] === '/' && B[A + 1] === ' ') { // Check for a complex fraction "123 1/2"
+                  v = assign(B[A], s);
+                  w = assign(B[A + 2], s);
+                  y = assign(B[A + 4], 1);
+                  A += 5;
+                }
+
+                if (B.length <= A) { // Check for more tokens on the stack
+                  d = y * z;
+                  s = /* void */
+                  n = x + d * v + z * w;
+                  break;
+                }
+
+                /* Fall through on error */
+              }
+            default:
+              throwInvalidParam();
+          }
+
+        if (d === 0) {
+          throw new DivisionByZero();
+        }
+
+        P["s"] = s < 0 ? -1 : 1;
+        P["n"] = Math.abs(n);
+        P["d"] = Math.abs(d);
+      };
+
+      function modpow(b, e, m) {
+
+        var r = 1;
+        for (; e > 0; b = (b * b) % m, e >>= 1) {
+
+          if (e & 1) {
+            r = (r * b) % m;
+          }
+        }
+        return r;
+      }
+
+
+      function cycleLen(n, d) {
+
+        for (; d % 2 === 0;
+          d /= 2) {
+        }
+
+        for (; d % 5 === 0;
+          d /= 5) {
+        }
+
+        if (d === 1) // Catch non-cyclic numbers
+          return 0;
+
+        // If we would like to compute really large numbers quicker, we could make use of Fermat's little theorem:
+        // 10^(d-1) % d == 1
+        // However, we don't need such large numbers and MAX_CYCLE_LEN should be the capstone,
+        // as we want to translate the numbers to strings.
+
+        var rem = 10 % d;
+        var t = 1;
+
+        for (; rem !== 1; t++) {
+          rem = rem * 10 % d;
+
+          if (t > MAX_CYCLE_LEN)
+            return 0; // Returning 0 here means that we don't print it as a cyclic number. It's likely that the answer is `d-1`
+        }
+        return t;
+      }
+
+
+      function cycleStart(n, d, len) {
+
+        var rem1 = 1;
+        var rem2 = modpow(10, len, d);
+
+        for (var t = 0; t < 300; t++) { // s < ~log10(Number.MAX_VALUE)
+          // Solve 10^s == 10^(s+t) (mod d)
+
+          if (rem1 === rem2)
+            return t;
+
+          rem1 = rem1 * 10 % d;
+          rem2 = rem2 * 10 % d;
+        }
+        return 0;
+      }
+
+      function gcd(a, b) {
+
+        if (!a)
+          return b;
+        if (!b)
+          return a;
+
+        while (1) {
+          a %= b;
+          if (!a)
+            return b;
+          b %= a;
+          if (!b)
+            return a;
+        }
+      }
+      /**
+       * Module constructor
+       *
+       * @constructor
+       * @param {number|Fraction=} a
+       * @param {number=} b
+       */
+      function Fraction(a, b) {
+
+        if (!(this instanceof Fraction)) {
+          return new Fraction(a, b);
+        }
+
+        parse(a, b);
+
+        if (Fraction['REDUCE']) {
+          a = gcd(P["d"], P["n"]); // Abuse a
+        } else {
+          a = 1;
+        }
+
+        this["s"] = P["s"];
+        this["n"] = P["n"] / a;
+        this["d"] = P["d"] / a;
+      }
+
+      /**
+       * Boolean global variable to be able to disable automatic reduction of the fraction
+       *
+       */
+      Fraction['REDUCE'] = 1;
+
+      Fraction.prototype = {
+
+        "s": 1,
+        "n": 0,
+        "d": 1,
+
+        /**
+         * Calculates the absolute value
+         *
+         * Ex: new Fraction(-4).abs() => 4
+         **/
+        "abs": function() {
+
+          return new Fraction(this["n"], this["d"]);
+        },
+
+        /**
+         * Inverts the sign of the current fraction
+         *
+         * Ex: new Fraction(-4).neg() => 4
+         **/
+        "neg": function() {
+
+          return new Fraction(-this["s"] * this["n"], this["d"]);
+        },
+
+        /**
+         * Adds two rational numbers
+         *
+         * Ex: new Fraction({n: 2, d: 3}).add("14.9") => 467 / 30
+         **/
+        "add": function(a, b) {
+
+          parse(a, b);
+          return new Fraction(
+            this["s"] * this["n"] * P["d"] + P["s"] * this["d"] * P["n"],
+            this["d"] * P["d"]
+          );
+        },
+
+        /**
+         * Subtracts two rational numbers
+         *
+         * Ex: new Fraction({n: 2, d: 3}).add("14.9") => -427 / 30
+         **/
+        "sub": function(a, b) {
+
+          parse(a, b);
+          return new Fraction(
+            this["s"] * this["n"] * P["d"] - P["s"] * this["d"] * P["n"],
+            this["d"] * P["d"]
+          );
+        },
+
+        /**
+         * Multiplies two rational numbers
+         *
+         * Ex: new Fraction("-17.(345)").mul(3) => 5776 / 111
+         **/
+        "mul": function(a, b) {
+
+          parse(a, b);
+          return new Fraction(
+            this["s"] * P["s"] * this["n"] * P["n"],
+            this["d"] * P["d"]
+          );
+        },
+
+        /**
+         * Divides two rational numbers
+         *
+         * Ex: new Fraction("-17.(345)").inverse().div(3)
+         **/
+        "div": function(a, b) {
+
+          parse(a, b);
+          return new Fraction(
+            this["s"] * P["s"] * this["n"] * P["d"],
+            this["d"] * P["n"]
+          );
+        },
+
+        /**
+         * Clones the actual object
+         *
+         * Ex: new Fraction("-17.(345)").clone()
+         **/
+        "clone": function() {
+          return new Fraction(this);
+        },
+
+        /**
+         * Calculates the modulo of two rational numbers - a more precise fmod
+         *
+         * Ex: new Fraction('4.(3)').mod([7, 8]) => (13/3) % (7/8) = (5/6)
+         **/
+        "mod": function(a, b) {
+
+          if (isNaN(this['n']) || isNaN(this['d'])) {
+            return new Fraction(NaN);
+          }
+
+          if (a === undefined) {
+            return new Fraction(this["s"] * this["n"] % this["d"], 1);
+          }
+
+          parse(a, b);
+          if (0 === P["n"] && 0 === this["d"]) {
+            Fraction(0, 0); // Throw DivisionByZero
+          }
+
+          /*
+           * First silly attempt, kinda slow
+           *
+           return that["sub"]({
+           "n": num["n"] * Math.floor((this.n / this.d) / (num.n / num.d)),
+           "d": num["d"],
+           "s": this["s"]
+           });*/
+
+          /*
+           * New attempt: a1 / b1 = a2 / b2 * q + r
+           * => b2 * a1 = a2 * b1 * q + b1 * b2 * r
+           * => (b2 * a1 % a2 * b1) / (b1 * b2)
+           */
+          return new Fraction(
+            this["s"] * (P["d"] * this["n"]) % (P["n"] * this["d"]),
+            P["d"] * this["d"]
+          );
+        },
+
+        /**
+         * Calculates the fractional gcd of two rational numbers
+         *
+         * Ex: new Fraction(5,8).gcd(3,7) => 1/56
+         */
+        "gcd": function(a, b) {
+
+          parse(a, b);
+
+          // gcd(a / b, c / d) = gcd(a, c) / lcm(b, d)
+
+          return new Fraction(gcd(P["n"], this["n"]) * gcd(P["d"], this["d"]), P["d"] * this["d"]);
+        },
+
+        /**
+         * Calculates the fractional lcm of two rational numbers
+         *
+         * Ex: new Fraction(5,8).lcm(3,7) => 15
+         */
+        "lcm": function(a, b) {
+
+          parse(a, b);
+
+          // lcm(a / b, c / d) = lcm(a, c) / gcd(b, d)
+
+          if (P["n"] === 0 && this["n"] === 0) {
+            return new Fraction;
+          }
+          return new Fraction(P["n"] * this["n"], gcd(P["n"], this["n"]) * gcd(P["d"], this["d"]));
+        },
+
+        /**
+         * Calculates the ceil of a rational number
+         *
+         * Ex: new Fraction('4.(3)').ceil() => (5 / 1)
+         **/
+        "ceil": function(places) {
+
+          places = Math.pow(10, places || 0);
+
+          if (isNaN(this["n"]) || isNaN(this["d"])) {
+            return new Fraction(NaN);
+          }
+          return new Fraction(Math.ceil(places * this["s"] * this["n"] / this["d"]), places);
+        },
+
+        /**
+         * Calculates the floor of a rational number
+         *
+         * Ex: new Fraction('4.(3)').floor() => (4 / 1)
+         **/
+        "floor": function(places) {
+
+          places = Math.pow(10, places || 0);
+
+          if (isNaN(this["n"]) || isNaN(this["d"])) {
+            return new Fraction(NaN);
+          }
+          return new Fraction(Math.floor(places * this["s"] * this["n"] / this["d"]), places);
+        },
+
+        /**
+         * Rounds a rational numbers
+         *
+         * Ex: new Fraction('4.(3)').round() => (4 / 1)
+         **/
+        "round": function(places) {
+
+          places = Math.pow(10, places || 0);
+
+          if (isNaN(this["n"]) || isNaN(this["d"])) {
+            return new Fraction(NaN);
+          }
+          return new Fraction(Math.round(places * this["s"] * this["n"] / this["d"]), places);
+        },
+
+        /**
+         * Gets the inverse of the fraction, means numerator and denominator are exchanged
+         *
+         * Ex: new Fraction([-3, 4]).inverse() => -4 / 3
+         **/
+        "inverse": function() {
+
+          return new Fraction(this["s"] * this["d"], this["n"]);
+        },
+
+        /**
+         * Calculates the fraction to some rational exponent, if possible
+         *
+         * Ex: new Fraction(-1,2).pow(-3) => -8
+         */
+        "pow": function(a, b) {
+
+          parse(a, b);
+
+          // Trivial case when exp is an integer
+
+          if (P['d'] === 1) {
+
+            if (P['s'] < 0) {
+              return new Fraction(Math.pow(this['s'] * this["d"], P['n']), Math.pow(this["n"], P['n']));
+            } else {
+              return new Fraction(Math.pow(this['s'] * this["n"], P['n']), Math.pow(this["d"], P['n']));
+            }
+          }
+
+          // Negative roots become complex
+          //     (-a/b)^(c/d) = x
+          // <=> (-1)^(c/d) * (a/b)^(c/d) = x
+          // <=> (cos(pi) + i*sin(pi))^(c/d) * (a/b)^(c/d) = x         # rotate 1 by 180°
+          // <=> (cos(c*pi/d) + i*sin(c*pi/d)) * (a/b)^(c/d) = x       # DeMoivre's formula in Q ( https://proofwiki.org/wiki/De_Moivre%27s_Formula/Rational_Index )
+          // From which follows that only for c=0 the root is non-complex. c/d is a reduced fraction, so that sin(c/dpi)=0 occurs for d=1, which is handled by our trivial case.
+          if (this['s'] < 0) return null;
+
+          // Now prime factor n and d
+          var N = factorize(this['n']);
+          var D = factorize(this['d']);
+
+          // Exponentiate and take root for n and d individually
+          var n = 1;
+          var d = 1;
+          for (var k in N) {
+            if (k === '1') continue;
+            if (k === '0') {
+              n = 0;
+              break;
+            }
+            N[k]*= P['n'];
+
+            if (N[k] % P['d'] === 0) {
+              N[k]/= P['d'];
+            } else return null;
+            n*= Math.pow(k, N[k]);
+          }
+
+          for (var k in D) {
+            if (k === '1') continue;
+            D[k]*= P['n'];
+
+            if (D[k] % P['d'] === 0) {
+              D[k]/= P['d'];
+            } else return null;
+            d*= Math.pow(k, D[k]);
+          }
+
+          if (P['s'] < 0) {
+            return new Fraction(d, n);
+          }
+          return new Fraction(n, d);
+        },
+
+        /**
+         * Check if two rational numbers are the same
+         *
+         * Ex: new Fraction(19.6).equals([98, 5]);
+         **/
+        "equals": function(a, b) {
+
+          parse(a, b);
+          return this["s"] * this["n"] * P["d"] === P["s"] * P["n"] * this["d"]; // Same as compare() === 0
+        },
+
+        /**
+         * Check if two rational numbers are the same
+         *
+         * Ex: new Fraction(19.6).equals([98, 5]);
+         **/
+        "compare": function(a, b) {
+
+          parse(a, b);
+          var t = (this["s"] * this["n"] * P["d"] - P["s"] * P["n"] * this["d"]);
+          return (0 < t) - (t < 0);
+        },
+
+        "simplify": function(eps) {
+
+          // First naive implementation, needs improvement
+
+          if (isNaN(this['n']) || isNaN(this['d'])) {
+            return this;
+          }
+
+          var cont = this['abs']()['toContinued']();
+
+          eps = eps || 0.001;
+
+          function rec(a) {
+            if (a.length === 1)
+              return new Fraction(a[0]);
+            return rec(a.slice(1))['inverse']()['add'](a[0]);
+          }
+
+          for (var i = 0; i < cont.length; i++) {
+            var tmp = rec(cont.slice(0, i + 1));
+            if (tmp['sub'](this['abs']())['abs']().valueOf() < eps) {
+              return tmp['mul'](this['s']);
+            }
+          }
+          return this;
+        },
+
+        /**
+         * Check if two rational numbers are divisible
+         *
+         * Ex: new Fraction(19.6).divisible(1.5);
+         */
+        "divisible": function(a, b) {
+
+          parse(a, b);
+          return !(!(P["n"] * this["d"]) || ((this["n"] * P["d"]) % (P["n"] * this["d"])));
+        },
+
+        /**
+         * Returns a decimal representation of the fraction
+         *
+         * Ex: new Fraction("100.'91823'").valueOf() => 100.91823918239183
+         **/
+        'valueOf': function() {
+
+          return this["s"] * this["n"] / this["d"];
+        },
+
+        /**
+         * Returns a string-fraction representation of a Fraction object
+         *
+         * Ex: new Fraction("1.'3'").toFraction() => "4 1/3"
+         **/
+        'toFraction': function(excludeWhole) {
+
+          var whole, str = "";
+          var n = this["n"];
+          var d = this["d"];
+          if (this["s"] < 0) {
+            str += '-';
+          }
+
+          if (d === 1) {
+            str += n;
+          } else {
+
+            if (excludeWhole && (whole = Math.floor(n / d)) > 0) {
+              str += whole;
+              str += " ";
+              n %= d;
+            }
+
+            str += n;
+            str += '/';
+            str += d;
+          }
+          return str;
+        },
+
+        /**
+         * Returns a latex representation of a Fraction object
+         *
+         * Ex: new Fraction("1.'3'").toLatex() => "\frac{4}{3}"
+         **/
+        'toLatex': function(excludeWhole) {
+
+          var whole, str = "";
+          var n = this["n"];
+          var d = this["d"];
+          if (this["s"] < 0) {
+            str += '-';
+          }
+
+          if (d === 1) {
+            str += n;
+          } else {
+
+            if (excludeWhole && (whole = Math.floor(n / d)) > 0) {
+              str += whole;
+              n %= d;
+            }
+
+            str += "\\frac{";
+            str += n;
+            str += '}{';
+            str += d;
+            str += '}';
+          }
+          return str;
+        },
+
+        /**
+         * Returns an array of continued fraction elements
+         *
+         * Ex: new Fraction("7/8").toContinued() => [0,1,7]
+         */
+        'toContinued': function() {
+
+          var t;
+          var a = this['n'];
+          var b = this['d'];
+          var res = [];
+
+          if (isNaN(a) || isNaN(b)) {
+            return res;
+          }
+
+          do {
+            res.push(Math.floor(a / b));
+            t = a % b;
+            a = b;
+            b = t;
+          } while (a !== 1);
+
+          return res;
+        },
+
+        /**
+         * Creates a string representation of a fraction with all digits
+         *
+         * Ex: new Fraction("100.'91823'").toString() => "100.(91823)"
+         **/
+        'toString': function(dec) {
+
+          var g;
+          var N = this["n"];
+          var D = this["d"];
+
+          if (isNaN(N) || isNaN(D)) {
+            return "NaN";
+          }
+
+          if (!Fraction['REDUCE']) {
+            g = gcd(N, D);
+            N /= g;
+            D /= g;
+          }
+
+          dec = dec || 15; // 15 = decimal places when no repetation
+
+          var cycLen = cycleLen(N, D); // Cycle length
+          var cycOff = cycleStart(N, D, cycLen); // Cycle start
+
+          var str = this['s'] === -1 ? "-" : "";
+
+          str += N / D | 0;
+
+          N %= D;
+          N *= 10;
+
+          if (N)
+            str += ".";
+
+          if (cycLen) {
+
+            for (var i = cycOff; i--;) {
+              str += N / D | 0;
+              N %= D;
+              N *= 10;
+            }
+            str += "(";
+            for (var i = cycLen; i--;) {
+              str += N / D | 0;
+              N %= D;
+              N *= 10;
+            }
+            str += ")";
+          } else {
+            for (var i = dec; N && i--;) {
+              str += N / D | 0;
+              N %= D;
+              N *= 10;
+            }
+          }
+          return str;
+        }
+      };
+
+      {
+        Object.defineProperty(Fraction, "__esModule", { 'value': true });
+        Fraction['default'] = Fraction;
+        Fraction['Fraction'] = Fraction;
+        module['exports'] = Fraction;
+      }
+
+    })();
+    });
+
+    var Fraction = /*@__PURE__*/getDefaultExportFromCjs(fraction);
+
     /* src\core\Helpers.svelte generated by Svelte v3.38.3 */
+
+
 
     function rand(min, max) {
     	min = Math.ceil(min);
@@ -1472,11 +2389,27 @@ var app = (function () {
     	return str.trim().split(delim !== null && delim !== void 0 ? delim : " ").filter(Boolean);
     }
 
-    var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+    function isFraction(d) {
+    	return !d.toFraction()[1].eq(1);
+    }
 
-    function createCommonjsModule(fn) {
-      var module = { exports: {} };
-    	return fn(module, module.exports), module.exports;
+    function d2t(d, excludeWhole = true) {
+    	let parts = d.toFraction();
+    	if (parts[1].eq(1)) return d.toNumber().toLocaleString("en");
+    	let fr = new Fraction(d.toNumber());
+    	return fr.toFraction(excludeWhole);
+    }
+
+    function allAreUnique(arr) {
+    	let set = new Set();
+
+    	for (let x of arr) {
+    		let str = `${x}`;
+    		if (set.has(str)) return false;
+    		set.add(str);
+    	}
+
+    	return true;
     }
 
     var dist = createCommonjsModule(function (module, exports) {
@@ -13916,7 +14849,7 @@ var app = (function () {
     	return `\`${str}\``;
     }
 
-    function D(num) {
+    function n2d$1(num) {
     	return new decimal.Decimal(num);
     }
 
@@ -13930,7 +14863,7 @@ var app = (function () {
     		return [false, str, str.length];
     	}
 
-    	let d = D(1);
+    	let d = n2d$1(1);
 
     	while (!n.toFraction()[1].eq(1)) {
     		n = n.mul(10);
@@ -14563,7 +15496,7 @@ var app = (function () {
 
     /* src\zero\Main.svelte generated by Svelte v3.38.3 */
 
-    const { Object: Object_1 } = globals;
+    const { Object: Object_1$1 } = globals;
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -15301,7 +16234,7 @@ var app = (function () {
 
     	const writable_props = [];
 
-    	Object_1.keys($$props).forEach(key => {
+    	Object_1$1.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Main> was created with unknown prop '${key}'`);
     	});
 
@@ -16195,16 +17128,23 @@ var app = (function () {
     let _seconds = 40;
     let n2d = n => new decimal.Decimal(n);
     let d2n = d => d.toNumber();
-    let d2t = d => d.toNumber().toLocaleString("en");
+
+    function parseDecimal(str) {
+    	let parts = str.split("/");
+    	if (parts.length === 1) return new decimal.Decimal(str);
+    	let [n, d] = [new decimal.Decimal(parts[0]), new decimal.Decimal(parts[1])];
+    	let fr = n.div(d);
+    	return fr;
+    }
 
     function getAb() {
-    	let a = n2d(_aA.length > 0 ? randFrom(_aA) : rand(_a[0], _a[1]));
-    	let b = n2d(_bA.length > 0 ? randFrom(_bA) : rand(_b[0], _b[1]));
+    	let a = _aA.length > 0 ? randFrom(_aA) : n2d(rand(_a[0], _a[1]));
+    	let b = _bA.length > 0 ? randFrom(_bA) : n2d(rand(_b[0], _b[1]));
     	return [a, b];
     }
 
     function get(n, nA) {
-    	return n2d(nA.length > 0 ? randFrom(nA) : rand(n[0], n[1]));
+    	return nA.length > 0 ? randFrom(nA) : n2d(rand(n[0], n[1]));
     }
 
     function percentsSimple(gameType, equ) {
@@ -16261,7 +17201,7 @@ var app = (function () {
     		return [a, b, c];
     	} else if (percentsPlus(_gameType, pattern)) {
     		// assert _bA is here
-    		let b = n2d(randFromIf(_bA, x => x >= 100));
+    		let b = randFromIf(_bA, x => x.gte(100));
 
     		let c;
     		let a;
@@ -16278,7 +17218,7 @@ var app = (function () {
     		return [a, b, c];
     	} else if (percentsMinus(_gameType, pattern)) {
     		// assert _bA is here
-    		let b = n2d(randFromIf(_bA, x => x < 100));
+    		let b = randFromIf(_bA, x => x.lt(100));
 
     		let c;
     		let a;
@@ -16295,11 +17235,17 @@ var app = (function () {
     		return [a, b, c];
     	}
 
+    	if (_gameType === "fr+-") {
+    		let [a, b] = getAb();
+    		let c = a.plus(b);
+    		return [...shuffle([a, b]), c];
+    	}
+
     	throw `Unknown game type '${_gameType}'`;
     }
 
-    function makeAnswers(rightAns) {
-    	if (_gameType == "equ+-") {
+    function makeAnswers(abc, rightAns) {
+    	if (_gameType === "equ+-") {
     		return shuffle([
     			rightAns,
     			rightAns.plus(pm(10)),
@@ -16308,7 +17254,7 @@ var app = (function () {
     		]);
     	}
 
-    	if (_gameType == "equ*/") {
+    	if (_gameType === "equ*/") {
     		return shuffle([
     			rightAns,
     			rightAns.plus(pm(rand(1, 1))),
@@ -16317,7 +17263,7 @@ var app = (function () {
     		]);
     	}
 
-    	if (_gameType == "ab+c=d") {
+    	if (_gameType === "ab+c=d") {
     		return shuffle([
     			rightAns,
     			rightAns.plus(pm(rand(1, 1))),
@@ -16328,6 +17274,22 @@ var app = (function () {
 
     	if (_gameType.includes("%")) {
     		return shuffle([rightAns, rightAns.plus(pm(5)), rightAns.plus(pm(10)), rightAns.plus(pm(15))]);
+    	}
+
+    	if (_gameType === "fr+-") {
+    		let variate = (x, v) => x.gt(v) ? x.plus(v.mul(pm(1))) : x.plus(v);
+
+    		for (let loopLimit = 100; true; ) {
+    			let answers = [
+    				rightAns,
+    				variate(rightAns, abc[0]),
+    				variate(rightAns, abc[1]),
+    				variate(rightAns, abc[2])
+    			];
+
+    			if (!allAreUnique(answers) && loopLimit-- > 0) continue;
+    			return shuffle(answers);
+    		}
     	}
 
     	throw `Unknown game type '${_gameType}'`;
@@ -16385,6 +17347,8 @@ var app = (function () {
     				case "%-all":
     					_gameType = "%-all";
     					break;
+    				case "game":
+    					_gameType = cmd[1];
     				case "no-overflow":
     					_noOverflow = true;
     					break;
@@ -16410,16 +17374,16 @@ var app = (function () {
     					_d = cmd.slice(1).map(x => parseInt(x));
     					break;
     				case "a[]":
-    					_aA = cmd.slice(1).map(x => parseInt(x));
+    					_aA = cmd.slice(1).map(x => parseDecimal(x));
     					break;
     				case "b[]":
-    					_bA = cmd.slice(1).map(x => parseInt(x));
+    					_bA = cmd.slice(1).map(x => parseDecimal(x));
     					break;
     				case "c[]":
-    					_cA = cmd.slice(1).map(x => parseInt(x));
+    					_cA = cmd.slice(1).map(x => parseDecimal(x));
     					break;
     				case "d[]":
-    					_dA = cmd.slice(1).map(x => parseInt(x));
+    					_dA = cmd.slice(1).map(x => parseDecimal(x));
     					break;
     			}
     		}
@@ -16447,7 +17411,7 @@ var app = (function () {
     		let abc = newAbc(pattern);
     		abc.push(n2d(0)); // d
     		let [equ, rightAns] = makeEqu(pattern, abc);
-    		let answers = makeAnswers(rightAns);
+    		let answers = makeAnswers(abc, rightAns);
     		let progress = [_next < _totalRounds ? _next : _totalRounds, _totalRounds];
 
     		return {
@@ -16496,7 +17460,7 @@ var app = (function () {
     			attr_dev(button, "class", /*_bgColor*/ ctx[3]);
     			set_style(button, "grid-area", /*ga*/ ctx[0]);
     			set_style(button, "font-size", /*_sz*/ ctx[2] + "px");
-    			add_location(button, file$1, 38, 0, 963);
+    			add_location(button, file$1, 43, 0, 1204);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -16550,10 +17514,6 @@ var app = (function () {
     	return block;
     }
 
-    function toText(v) {
-    	return v.toNumber().toLocaleString("en");
-    }
-
     function instance$2($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Ans", slots, []);
@@ -16565,6 +17525,11 @@ var app = (function () {
     	let _text;
     	let _sz;
     	let _bgColor;
+
+    	function toText(v) {
+    		if (!isFraction(v)) return v.toNumber().toLocaleString("en");
+    		return toAscii(d2t(v, trueFalse()));
+    	}
 
     	function setState(state) {
     		switch (state) {
@@ -16607,9 +17572,13 @@ var app = (function () {
     	};
 
     	$$self.$capture_state = () => ({
+    		toAscii,
+    		isFraction,
+    		trueFalse,
     		pulse,
     		getBgColor,
     		bounceOnDrag,
+    		d2t,
     		ga,
     		value,
     		bgColor,
@@ -16712,29 +17681,32 @@ var app = (function () {
 
     /* src\equation\Main.svelte generated by Svelte v3.38.3 */
 
+    const { Object: Object_1 } = globals;
+
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[24] = list[i];
-    	child_ctx[25] = list;
-    	child_ctx[26] = i;
+    	child_ctx[26] = list[i];
+    	child_ctx[27] = list;
+    	child_ctx[28] = i;
     	return child_ctx;
     }
 
-    // (138:4) {#each _round.answers as ans, no}
-    function create_each_block(ctx) {
+    // (156:4) {#each _round.answers as ans, no (_recreate[no])}
+    function create_each_block(key_1, ctx) {
+    	let first;
     	let ans;
-    	let no = /*no*/ ctx[26];
+    	let no = /*no*/ ctx[28];
     	let current;
-    	const assign_ans = () => /*ans_binding*/ ctx[10](ans, no);
-    	const unassign_ans = () => /*ans_binding*/ ctx[10](null, no);
+    	const assign_ans = () => /*ans_binding*/ ctx[11](ans, no);
+    	const unassign_ans = () => /*ans_binding*/ ctx[11](null, no);
 
     	function click_handler_1() {
-    		return /*click_handler_1*/ ctx[11](/*ans*/ ctx[24]);
+    		return /*click_handler_1*/ ctx[12](/*ans*/ ctx[26]);
     	}
 
     	let ans_props = {
-    		ga: `a${/*no*/ ctx[26]}`,
-    		value: /*ans*/ ctx[24]
+    		ga: `a${/*no*/ ctx[28]}`,
+    		value: /*ans*/ ctx[26]
     	};
 
     	ans = new Ans({ props: ans_props, $$inline: true });
@@ -16742,24 +17714,30 @@ var app = (function () {
     	ans.$on("click", click_handler_1);
 
     	const block = {
+    		key: key_1,
+    		first: null,
     		c: function create() {
+    			first = empty();
     			create_component(ans.$$.fragment);
+    			this.first = first;
     		},
     		m: function mount(target, anchor) {
+    			insert_dev(target, first, anchor);
     			mount_component(ans, target, anchor);
     			current = true;
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (no !== /*no*/ ctx[26]) {
+    			if (no !== /*no*/ ctx[28]) {
     				unassign_ans();
-    				no = /*no*/ ctx[26];
+    				no = /*no*/ ctx[28];
     				assign_ans();
     			}
 
     			const ans_changes = {};
-    			if (dirty & /*_round*/ 4) ans_changes.value = /*ans*/ ctx[24];
+    			if (dirty & /*_round*/ 4) ans_changes.ga = `a${/*no*/ ctx[28]}`;
+    			if (dirty & /*_round*/ 4) ans_changes.value = /*ans*/ ctx[26];
     			ans.$set(ans_changes);
     		},
     		i: function intro(local) {
@@ -16772,6 +17750,7 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
+    			if (detaching) detach_dev(first);
     			unassign_ans();
     			destroy_component(ans, detaching);
     		}
@@ -16781,14 +17760,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(138:4) {#each _round.answers as ans, no}",
+    		source: "(156:4) {#each _round.answers as ans, no (_recreate[no])}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (123:0) <Grid {layout}      on:click={() => anyClick()}  >
+    // (141:0) <Grid {layout}      on:click={() => anyClick()}  >
     function create_default_slot$1(ctx) {
     	let progress;
     	let t0;
@@ -16796,6 +17775,8 @@ var app = (function () {
     	let t1;
     	let asciimath;
     	let t2;
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
     	let t3;
     	let timer_1;
     	let t4;
@@ -16819,30 +17800,29 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	asciimath.$on("click", /*click_handler*/ ctx[9]);
+    	asciimath.$on("click", /*click_handler*/ ctx[10]);
     	let each_value = /*_round*/ ctx[2].answers;
     	validate_each_argument(each_value);
-    	let each_blocks = [];
+    	const get_key = ctx => /*_recreate*/ ctx[5][/*no*/ ctx[28]];
+    	validate_each_keys(ctx, each_value, get_each_context, get_key);
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    		let child_ctx = get_each_context(ctx, each_value, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block(key, child_ctx));
     	}
-
-    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
-    		each_blocks[i] = null;
-    	});
 
     	let timer_1_props = {
     		ga: "tm",
     		seconds: /*_round*/ ctx[2].seconds,
-    		onExpiration: /*func*/ ctx[12]
+    		onExpiration: /*func*/ ctx[13]
     	};
 
     	timer_1 = new Timer({ props: timer_1_props, $$inline: true });
-    	/*timer_1_binding*/ ctx[13](timer_1);
+    	/*timer_1_binding*/ ctx[14](timer_1);
     	let congrats_1_props = {};
     	congrats_1 = new Congrats({ props: congrats_1_props, $$inline: true });
-    	/*congrats_1_binding*/ ctx[14](congrats_1);
+    	/*congrats_1_binding*/ ctx[15](congrats_1);
 
     	const block = {
     		c: function create() {
@@ -16889,31 +17869,12 @@ var app = (function () {
     			if (dirty & /*_round*/ 4) asciimath_changes.scale = getScale(/*_round*/ ctx[2].gameType);
     			asciimath.$set(asciimath_changes);
 
-    			if (dirty & /*_round, _answers, gotAnswer*/ 140) {
+    			if (dirty & /*_round, _answers, gotAnswer, _recreate*/ 300) {
     				each_value = /*_round*/ ctx[2].answers;
     				validate_each_argument(each_value);
-    				let i;
-
-    				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context(ctx, each_value, i);
-
-    					if (each_blocks[i]) {
-    						each_blocks[i].p(child_ctx, dirty);
-    						transition_in(each_blocks[i], 1);
-    					} else {
-    						each_blocks[i] = create_each_block(child_ctx);
-    						each_blocks[i].c();
-    						transition_in(each_blocks[i], 1);
-    						each_blocks[i].m(t3.parentNode, t3);
-    					}
-    				}
-
     				group_outros();
-
-    				for (i = each_value.length; i < each_blocks.length; i += 1) {
-    					out(i);
-    				}
-
+    				validate_each_keys(ctx, each_value, get_each_context, get_key);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, t3.parentNode, outro_and_destroy_block, create_each_block, t3, get_each_context);
     				check_outros();
     			}
 
@@ -16941,7 +17902,6 @@ var app = (function () {
     			transition_out(progress.$$.fragment, local);
     			transition_out(clock.$$.fragment, local);
     			transition_out(asciimath.$$.fragment, local);
-    			each_blocks = each_blocks.filter(Boolean);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				transition_out(each_blocks[i]);
@@ -16958,12 +17918,16 @@ var app = (function () {
     			if (detaching) detach_dev(t1);
     			destroy_component(asciimath, detaching);
     			if (detaching) detach_dev(t2);
-    			destroy_each(each_blocks, detaching);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d(detaching);
+    			}
+
     			if (detaching) detach_dev(t3);
-    			/*timer_1_binding*/ ctx[13](null);
+    			/*timer_1_binding*/ ctx[14](null);
     			destroy_component(timer_1, detaching);
     			if (detaching) detach_dev(t4);
-    			/*congrats_1_binding*/ ctx[14](null);
+    			/*congrats_1_binding*/ ctx[15](null);
     			destroy_component(congrats_1, detaching);
     		}
     	};
@@ -16972,7 +17936,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(123:0) <Grid {layout}      on:click={() => anyClick()}  >",
+    		source: "(141:0) <Grid {layout}      on:click={() => anyClick()}  >",
     		ctx
     	});
 
@@ -16985,14 +17949,14 @@ var app = (function () {
 
     	grid = new Grid({
     			props: {
-    				layout: /*layout*/ ctx[8],
+    				layout: /*layout*/ ctx[9],
     				$$slots: { default: [create_default_slot$1] },
     				$$scope: { ctx }
     			},
     			$$inline: true
     		});
 
-    	grid.$on("click", /*click_handler_2*/ ctx[15]);
+    	grid.$on("click", /*click_handler_2*/ ctx[16]);
 
     	const block = {
     		c: function create() {
@@ -17008,7 +17972,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const grid_changes = {};
 
-    			if (dirty & /*$$scope, congrats, _round, timer, _answers, _progress*/ 134217759) {
+    			if (dirty & /*$$scope, congrats, _round, timer, _answers, _progress*/ 536870943) {
     				grid_changes.$$scope = { dirty, ctx };
     			}
 
@@ -17054,6 +18018,43 @@ var app = (function () {
     function instance$1($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Main", slots, []);
+
+    	var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
+    		function adopt(value) {
+    			return value instanceof P
+    			? value
+    			: new P(function (resolve) {
+    						resolve(value);
+    					});
+    		}
+
+    		return new (P || (P = Promise))(function (resolve, reject) {
+    				function fulfilled(value) {
+    					try {
+    						step(generator.next(value));
+    					} catch(e) {
+    						reject(e);
+    					}
+    				}
+
+    				function rejected(value) {
+    					try {
+    						step(generator["throw"](value));
+    					} catch(e) {
+    						reject(e);
+    					}
+    				}
+
+    				function step(result) {
+    					result.done
+    					? resolve(result.value)
+    					: adopt(result.value).then(fulfilled, rejected);
+    				}
+
+    				step((generator = generator.apply(thisArg, _arguments || [])).next());
+    			});
+    	};
+
     	
     	
     	let timer;
@@ -17065,6 +18066,7 @@ var app = (function () {
     	let _progress = [1, 10];
     	let _tcNewRound = newTimedCmd("--cmd-new-round", 1000);
     	let _tcIdle = newTimedCmd("--cmd-idle", 10000, 3000);
+    	let _recreate = _answers.map(_ => new Object());
 
     	function equClick() {
     		Mp3.playRandom();
@@ -17076,6 +18078,7 @@ var app = (function () {
     		if (_state == "start") {
     			_state = "clicked";
     			_answers.forEach(ans => ans.setState("clicked"));
+    			run(() => refreshMath());
     			return true;
     		}
 
@@ -17117,8 +18120,12 @@ var app = (function () {
     	}
 
     	function newRound() {
-    		$$invalidate(2, _round = _game.nextRound());
-    		startRound();
+    		return __awaiter(this, void 0, void 0, function* () {
+    			$$invalidate(5, _recreate = _answers.map(_ => new Object()));
+    			$$invalidate(2, _round = _game.nextRound());
+    			yield tick();
+    			startRound();
+    		});
     	}
 
     	function idle() {
@@ -17169,7 +18176,7 @@ var app = (function () {
     	on("--evt-time-is-up", () => timeIsUp());
     	const writable_props = [];
 
-    	Object.keys($$props).forEach(key => {
+    	Object_1.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Main> was created with unknown prop '${key}'`);
     	});
 
@@ -17179,6 +18186,7 @@ var app = (function () {
     		binding_callbacks[$$value ? "unshift" : "push"](() => {
     			_answers[no] = $$value;
     			$$invalidate(3, _answers);
+    			$$invalidate(2, _round);
     		});
     	}
 
@@ -17202,7 +18210,10 @@ var app = (function () {
     	const click_handler_2 = () => anyClick();
 
     	$$self.$capture_state = () => ({
+    		__awaiter,
+    		tick,
     		onMount,
+    		refreshMath,
     		Mp3,
     		AsciiMath,
     		Clock,
@@ -17210,6 +18221,7 @@ var app = (function () {
     		Progress,
     		Timer,
     		Congrats,
+    		run,
     		Game,
     		newTimedCmd,
     		on,
@@ -17224,6 +18236,7 @@ var app = (function () {
     		_progress,
     		_tcNewRound,
     		_tcIdle,
+    		_recreate,
     		equClick,
     		anyClick,
     		gotAnswer,
@@ -17236,6 +18249,7 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
+    		if ("__awaiter" in $$props) __awaiter = $$props.__awaiter;
     		if ("timer" in $$props) $$invalidate(0, timer = $$props.timer);
     		if ("congrats" in $$props) $$invalidate(1, congrats = $$props.congrats);
     		if ("_game" in $$props) _game = $$props._game;
@@ -17245,7 +18259,8 @@ var app = (function () {
     		if ("_progress" in $$props) $$invalidate(4, _progress = $$props._progress);
     		if ("_tcNewRound" in $$props) _tcNewRound = $$props._tcNewRound;
     		if ("_tcIdle" in $$props) _tcIdle = $$props._tcIdle;
-    		if ("layout" in $$props) $$invalidate(8, layout = $$props.layout);
+    		if ("_recreate" in $$props) $$invalidate(5, _recreate = $$props._recreate);
+    		if ("layout" in $$props) $$invalidate(9, layout = $$props.layout);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -17258,6 +18273,7 @@ var app = (function () {
     		_round,
     		_answers,
     		_progress,
+    		_recreate,
     		equClick,
     		anyClick,
     		gotAnswer,
@@ -17317,7 +18333,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.8.2" },
+    			props: { ga: "ver", v: "0.9.0" },
     			$$inline: true
     		});
 
