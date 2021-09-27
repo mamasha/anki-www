@@ -16388,6 +16388,9 @@ var app = (function () {
     				case "no-overflow":
     					_noOverflow = true;
     					break;
+    				case "timer":
+    					_seconds = parseInt(cmd[1]);
+    					break;
     				case "secs":
     					_seconds = parseInt(cmd[1]);
     					break;
@@ -17314,7 +17317,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.8.1" },
+    			props: { ga: "ver", v: "0.8.2" },
     			$$inline: true
     		});
 
