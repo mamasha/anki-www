@@ -17125,7 +17125,7 @@ var app = (function () {
     let _dA = [];
     let _x = ["X"];
     let _noOverflow = false;
-    let _seconds = 40;
+    let _seconds = 15 * _config.rounds;
     let n2d = n => new decimal.Decimal(n);
     let d2n = d => d.toNumber();
 
@@ -18333,7 +18333,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.9.0" },
+    			props: { ga: "ver", v: "0.9.1" },
     			$$inline: true
     		});
 
