@@ -17241,6 +17241,25 @@ var app = (function () {
     		return [...shuffle([a, b]), c];
     	}
 
+    	if (_gameType === "fr+-ab") {
+    		let [a, b] = getAb();
+
+    		if (a.eq(b)) {
+    			return pattern.includes("+")
+    			? [a, b, a.plus(b)]
+    			: [a.plus(b), ...shuffle([b, a])];
+    		}
+
+    		if (pattern.includes("+")) {
+    			return [...shuffle([a, b]), a.plus(b)];
+    		} else {
+    			let lhs = decimal.Decimal.max(a, b);
+    			let rhs = decimal.Decimal.min(a, b);
+    			let c = lhs.minus(rhs);
+    			return [lhs, rhs, c];
+    		}
+    	}
+
     	throw `Unknown game type '${_gameType}'`;
     }
 
@@ -17276,7 +17295,7 @@ var app = (function () {
     		return shuffle([rightAns, rightAns.plus(pm(5)), rightAns.plus(pm(10)), rightAns.plus(pm(15))]);
     	}
 
-    	if (_gameType === "fr+-") {
+    	if (_gameType.includes("fr+-")) {
     		let variate = (x, v) => x.gt(v) ? x.plus(v.mul(pm(1))) : x.plus(v);
 
     		for (let loopLimit = 100; true; ) {
@@ -18333,7 +18352,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.9.1" },
+    			props: { ga: "ver", v: "0.9.2" },
     			$$inline: true
     		});
 
