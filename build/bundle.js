@@ -17260,6 +17260,11 @@ var app = (function () {
     		}
     	}
 
+    	if (_gameType === "fr-reduction") {
+    		let [a, b] = getAb();
+    		return [a, b, n2d(1)];
+    	}
+
     	throw `Unknown game type '${_gameType}'`;
     }
 
@@ -17309,6 +17314,10 @@ var app = (function () {
     			if (!allAreUnique(answers) && loopLimit-- > 0) continue;
     			return shuffle(answers);
     		}
+    	}
+
+    	if (_gameType === "fr-reduction") {
+    		return [n2d(1), n2d(2), n2d(3), n2d(4)];
     	}
 
     	throw `Unknown game type '${_gameType}'`;
@@ -18117,8 +18126,8 @@ var app = (function () {
 
     		if (_state === "clicked") {
     			_state = "answered";
-    			let answerAt = _round.answers.findIndex(x => x === value);
-    			let rightAt = _round.answers.findIndex(x => x === _round.rightAns);
+    			let answerAt = _round.answers.findIndex(x => x.eq(value));
+    			let rightAt = _round.answers.findIndex(x => x.eq(_round.rightAns));
 
     			if (answerAt === rightAt) {
     				$$invalidate(4, _progress[0] += 1, _progress);
@@ -18352,7 +18361,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.9.2" },
+    			props: { ga: "ver", v: "0.9.3" },
     			$$inline: true
     		});
 
