@@ -18532,7 +18532,7 @@ var app = (function () {
     	let { ga } = $$props;
     	let { value } = $$props;
     	let { bgColor = getBgColor(ga, "bg-gray-100") } = $$props;
-    	let { sz = 30 } = $$props;
+    	let { sz = 24 } = $$props;
     	let _bgColor = bgColor;
     	let _sz = sz;
 
@@ -18859,7 +18859,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (129:4) {#key _recreate[0]}
+    // (131:4) {#key _recreate[0]}
     function create_key_block(ctx) {
     	let question;
     	let current;
@@ -18906,14 +18906,14 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(129:4) {#key _recreate[0]}",
+    		source: "(131:4) {#key _recreate[0]}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (136:4) {#each _round.answers as ans, no (_recreate[no])}
+    // (138:4) {#each _round.answers as ans, no (_recreate[no])}
     function create_each_block(key_1, ctx) {
     	let first;
     	let ans;
@@ -18982,14 +18982,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(136:4) {#each _round.answers as ans, no (_recreate[no])}",
+    		source: "(138:4) {#each _round.answers as ans, no (_recreate[no])}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (122:0) <Grid {layout}      on:click={() => anyClick()}  >
+    // (124:0) <Grid {layout}      on:click={() => anyClick()}  >
     function create_default_slot$1(ctx) {
     	let progress;
     	let t0;
@@ -19155,7 +19155,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(122:0) <Grid {layout}      on:click={() => anyClick()}  >",
+    		source: "(124:0) <Grid {layout}      on:click={() => anyClick()}  >",
     		ctx
     	});
 
@@ -19291,7 +19291,7 @@ var app = (function () {
 
     		if (answerAt === rightAt) {
     			$$invalidate(6, _progress[0] += 1, _progress);
-    			let isLast = _game.isLast(_round);
+    			let isLast = _game.isLast();
     			Mp3.play(isLast ? "done" : "yes");
     			_tcNewRound.reset();
     			if (isLast) congrats.play();
@@ -19329,12 +19329,13 @@ var app = (function () {
             "prg   .    clk "
             "que   que  que "
             "a0    .    a1  "
+            ".     .    .   "
             "a2    .    a3  "
             ".     .    .   "
             "tm    tm   tm  "
         `,
     		cols: `2fr 1fr 2fr`,
-    		rows: `50px 80px 80px 80px 15px 5px`,
+    		rows: `50px 80px 70px 10px 70px 15px 5px`,
     		bgColors: {
     			prg: "bg-green-300",
     			que: "bg-yellow-50 py-1",
@@ -19505,7 +19506,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.11.0" },
+    			props: { ga: "ver", v: "0.11.1" },
     			$$inline: true
     		});
 
