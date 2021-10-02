@@ -17201,6 +17201,25 @@ var app = (function () {
     		return [...shuffle([a, b]), c, d];
     	}
 
+    	if (_gameType === "a*/(b+c)=d") {
+    		for (let loopLimit = 100; true; ) {
+    			let [a, b] = getAb();
+    			let c = get(_c, _cA);
+    			let d;
+
+    			if (pattern.includes("+")) {
+    				d = a.mul(b).plus(a.mul(c));
+    			} else {
+    				if (b.lt(c)) [b, c] = [c, b];
+    				d = a.mul(b).minus(a.mul(c));
+    			}
+
+    			if (pattern.includes("/") && d.eq(0) && loopLimit-- > 0) continue;
+    			if (pattern.includes("/")) [a, d] = [d, a];
+    			return [a, b, c, d];
+    		}
+    	}
+
     	if (percentsSimple(_gameType, pattern)) {
     		let b = get(_b, _bA);
     		let c;
@@ -17317,7 +17336,7 @@ var app = (function () {
     		]);
     	}
 
-    	if (_gameType === "ab+c=d") {
+    	if (_gameType === "ab+c=d" || _gameType === "a*/(b+c)=d") {
     		return shuffle([
     			rightAns,
     			rightAns.plus(pm(rand(1, 1))),
@@ -19514,7 +19533,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.12.0" },
+    			props: { ga: "ver", v: "0.13.0" },
     			$$inline: true
     		});
 
