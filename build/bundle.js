@@ -17257,6 +17257,12 @@ var app = (function () {
     		return [...shuffle([a, b]), c];
     	}
 
+    	if (_gameType === "fr*/") {
+    		let [a, b] = shuffle(getAb());
+    		let c = pattern.includes("*") ? a.mul(b) : a.div(b);
+    		return [a, b, c];
+    	}
+
     	if (_gameType === "fr+-ab") {
     		let [a, b] = getAb();
 
@@ -17324,7 +17330,7 @@ var app = (function () {
     		return shuffle([rightAns, rightAns.plus(pm(5)), rightAns.plus(pm(10)), rightAns.plus(pm(15))]);
     	}
 
-    	if (_gameType.includes("fr+-")) {
+    	if (_gameType.includes("fr+-") || _gameType === "fr*/") {
     		let variate = (x, v) => x.gt(v) ? x.plus(v.mul(pm(1))) : x.plus(v);
 
     		for (let loopLimit = 100; true; ) {
@@ -19508,7 +19514,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.11.2" },
+    			props: { ga: "ver", v: "0.12.0" },
     			$$inline: true
     		});
 
