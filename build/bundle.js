@@ -17567,7 +17567,7 @@ var app = (function () {
     			attr_dev(button, "class", /*_bgColor*/ ctx[3]);
     			set_style(button, "grid-area", /*ga*/ ctx[0]);
     			set_style(button, "font-size", /*_sz*/ ctx[2] + "px");
-    			add_location(button, file$4, 43, 0, 1204);
+    			add_location(button, file$4, 47, 0, 1300);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -17580,7 +17580,7 @@ var app = (function () {
     				dispose = [
     					action_destroyer(pulse.call(null, button)),
     					action_destroyer(bounceOnDrag.call(null, button)),
-    					listen_dev(button, "click", /*click_handler*/ ctx[8], false, false, false)
+    					listen_dev(button, "click", /*click_handler*/ ctx[9], false, false, false)
     				];
 
     				mounted = true;
@@ -17627,6 +17627,7 @@ var app = (function () {
     	
     	let { ga } = $$props;
     	let { value } = $$props;
+    	let { units = "" } = $$props;
     	let { bgColor = getBgColor(ga, "bg-gray-100") } = $$props;
     	let { sz = 30 } = $$props;
     	let _text;
@@ -17634,8 +17635,10 @@ var app = (function () {
     	let _bgColor;
 
     	function toText(v) {
-    		if (!isFraction(v)) return v.toNumber().toLocaleString("en");
-    		return toAscii(d2t(v, trueFalse()));
+    		if (!isFraction(v) && !units) return v.toNumber().toLocaleString("en");
+    		let text = d2t(v, trueFalse());
+    		if (units) text += units;
+    		return toAscii(text);
     	}
 
     	function setState(state) {
@@ -17661,7 +17664,7 @@ var app = (function () {
     		$$invalidate(2, _sz = sz - 1.2 * _text.length);
     	}
 
-    	const writable_props = ["ga", "value", "bgColor", "sz"];
+    	const writable_props = ["ga", "value", "units", "bgColor", "sz"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Ans> was created with unknown prop '${key}'`);
@@ -17674,8 +17677,9 @@ var app = (function () {
     	$$self.$$set = $$props => {
     		if ("ga" in $$props) $$invalidate(0, ga = $$props.ga);
     		if ("value" in $$props) $$invalidate(4, value = $$props.value);
-    		if ("bgColor" in $$props) $$invalidate(5, bgColor = $$props.bgColor);
-    		if ("sz" in $$props) $$invalidate(6, sz = $$props.sz);
+    		if ("units" in $$props) $$invalidate(5, units = $$props.units);
+    		if ("bgColor" in $$props) $$invalidate(6, bgColor = $$props.bgColor);
+    		if ("sz" in $$props) $$invalidate(7, sz = $$props.sz);
     	};
 
     	$$self.$capture_state = () => ({
@@ -17688,6 +17692,7 @@ var app = (function () {
     		d2t,
     		ga,
     		value,
+    		units,
     		bgColor,
     		sz,
     		_text,
@@ -17700,8 +17705,9 @@ var app = (function () {
     	$$self.$inject_state = $$props => {
     		if ("ga" in $$props) $$invalidate(0, ga = $$props.ga);
     		if ("value" in $$props) $$invalidate(4, value = $$props.value);
-    		if ("bgColor" in $$props) $$invalidate(5, bgColor = $$props.bgColor);
-    		if ("sz" in $$props) $$invalidate(6, sz = $$props.sz);
+    		if ("units" in $$props) $$invalidate(5, units = $$props.units);
+    		if ("bgColor" in $$props) $$invalidate(6, bgColor = $$props.bgColor);
+    		if ("sz" in $$props) $$invalidate(7, sz = $$props.sz);
     		if ("_text" in $$props) $$invalidate(1, _text = $$props._text);
     		if ("_sz" in $$props) $$invalidate(2, _sz = $$props._sz);
     		if ("_bgColor" in $$props) $$invalidate(3, _bgColor = $$props._bgColor);
@@ -17711,7 +17717,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [ga, _text, _sz, _bgColor, value, bgColor, sz, setState, click_handler];
+    	return [ga, _text, _sz, _bgColor, value, units, bgColor, sz, setState, click_handler];
     }
 
     class Ans$1 extends SvelteComponentDev {
@@ -17721,9 +17727,10 @@ var app = (function () {
     		init(this, options, instance$6, create_fragment$6, safe_not_equal, {
     			ga: 0,
     			value: 4,
-    			bgColor: 5,
-    			sz: 6,
-    			setState: 7
+    			units: 5,
+    			bgColor: 6,
+    			sz: 7,
+    			setState: 8
     		});
 
     		dispatch_dev("SvelteRegisterComponent", {
@@ -17761,6 +17768,14 @@ var app = (function () {
     		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
+    	get units() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set units(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
     	get bgColor() {
     		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
@@ -17778,7 +17793,7 @@ var app = (function () {
     	}
 
     	get setState() {
-    		return this.$$.ctx[7];
+    		return this.$$.ctx[8];
     	}
 
     	set setState(value) {
@@ -17798,7 +17813,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (157:4) {#each _round.answers as ans, no (_recreate[no])}
+    // (163:4) {#each _round.answers as ans, no (_recreate[no])}
     function create_each_block$1(key_1, ctx) {
     	let first;
     	let ans;
@@ -17813,7 +17828,8 @@ var app = (function () {
 
     	let ans_props = {
     		ga: `a${/*no*/ ctx[28]}`,
-    		value: /*ans*/ ctx[26]
+    		value: /*ans*/ ctx[26],
+    		units: getAnsUnits(/*_round*/ ctx[2])
     	};
 
     	ans = new Ans$1({ props: ans_props, $$inline: true });
@@ -17845,6 +17861,7 @@ var app = (function () {
     			const ans_changes = {};
     			if (dirty & /*_round*/ 4) ans_changes.ga = `a${/*no*/ ctx[28]}`;
     			if (dirty & /*_round*/ 4) ans_changes.value = /*ans*/ ctx[26];
+    			if (dirty & /*_round*/ 4) ans_changes.units = getAnsUnits(/*_round*/ ctx[2]);
     			ans.$set(ans_changes);
     		},
     		i: function intro(local) {
@@ -17867,14 +17884,14 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(157:4) {#each _round.answers as ans, no (_recreate[no])}",
+    		source: "(163:4) {#each _round.answers as ans, no (_recreate[no])}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (142:0) <Grid {layout}      on:click={() => anyClick()}  >
+    // (148:0) <Grid {layout}      on:click={() => anyClick()}  >
     function create_default_slot$2(ctx) {
     	let progress;
     	let t0;
@@ -17976,7 +17993,7 @@ var app = (function () {
     			if (dirty & /*_round*/ 4) asciimath_changes.scale = getScale(/*_round*/ ctx[2]);
     			asciimath.$set(asciimath_changes);
 
-    			if (dirty & /*_round, _answers, gotAnswer, _recreate*/ 300) {
+    			if (dirty & /*_round, getAnsUnits, _answers, gotAnswer, _recreate*/ 300) {
     				each_value = /*_round*/ ctx[2].answers;
     				validate_each_argument(each_value);
     				group_outros();
@@ -18043,7 +18060,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$2.name,
     		type: "slot",
-    		source: "(142:0) <Grid {layout}      on:click={() => anyClick()}  >",
+    		source: "(148:0) <Grid {layout}      on:click={() => anyClick()}  >",
     		ctx
     	});
 
@@ -18122,6 +18139,15 @@ var app = (function () {
     	}
 
     	return undefined;
+    }
+
+    function getAnsUnits(round) {
+    	switch (round.gameType) {
+    		case "%-a-of-c":
+    			return "%";
+    	}
+
+    	return "";
     }
 
     function instance$5($$self, $$props, $$invalidate) {
@@ -18353,6 +18379,7 @@ var app = (function () {
     		idle,
     		startRound,
     		getScale,
+    		getAnsUnits,
     		timeIsUp,
     		layout
     	});
@@ -19693,7 +19720,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.15.0" },
+    			props: { ga: "ver", v: "0.15.1" },
     			$$inline: true
     		});
 
