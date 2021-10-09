@@ -17287,6 +17287,22 @@ var app = (function () {
     		return [a, b, c];
     	}
 
+    	if (_gameType === "%-b-is-c") {
+    		let b = get(_b, _bA);
+    		let c;
+    		let a;
+    		let loopLimit = 100;
+
+    		do {
+    			a = get(_a, _aA);
+    			c = a.mul(b).div(100);
+    			if (--loopLimit === 0) break;
+    		} while (!c.trunc().eq(c));
+
+    		if (loopLimit === 0) console.log([a, b, c].map(d => d2n(d)));
+    		return [a, b, c];
+    	}
+
     	if (_gameType === "fr+-") {
     		let [a, b] = getAb();
     		let c = a.plus(b);
@@ -19557,7 +19573,6 @@ var app = (function () {
     	let p0;
     	let t1;
     	let p1;
-    	let t2;
 
     	const block = {
     		c: function create() {
@@ -19565,9 +19580,9 @@ var app = (function () {
     			p0.textContent = "World problem is here";
     			t1 = space();
     			p1 = element("p");
-    			t2 = text(/*_text*/ ctx[0]);
-    			add_location(p0, file$1, 25, 0, 1087);
-    			add_location(p1, file$1, 29, 0, 1127);
+    			p1.textContent = `${/*_round*/ ctx[0].text}`;
+    			add_location(p0, file$1, 27, 0, 1125);
+    			add_location(p1, file$1, 31, 0, 1165);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -19576,11 +19591,8 @@ var app = (function () {
     			insert_dev(target, p0, anchor);
     			insert_dev(target, t1, anchor);
     			insert_dev(target, p1, anchor);
-    			append_dev(p1, t2);
     		},
-    		p: function update(ctx, [dirty]) {
-    			if (dirty & /*_text*/ 1) set_data_dev(t2, /*_text*/ ctx[0]);
-    		},
+    		p: noop,
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
@@ -19642,14 +19654,14 @@ var app = (function () {
     	};
 
     	let _text = "loading...";
-    	let _round = { text: "" };
+    	let _round = { text: "", equations: [], answers: [] };
 
     	function init() {
     		return __awaiter(this, void 0, void 0, function* () {
     			let response = yield fetch("./assets/problems.txt");
     			let text = yield response.text();
     			console.log(text);
-    			$$invalidate(0, _text = text);
+    			_text = text;
     		});
     	}
 
@@ -19664,15 +19676,15 @@ var app = (function () {
 
     	$$self.$inject_state = $$props => {
     		if ("__awaiter" in $$props) __awaiter = $$props.__awaiter;
-    		if ("_text" in $$props) $$invalidate(0, _text = $$props._text);
-    		if ("_round" in $$props) _round = $$props._round;
+    		if ("_text" in $$props) _text = $$props._text;
+    		if ("_round" in $$props) $$invalidate(0, _round = $$props._round);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [_text];
+    	return [_round];
     }
 
     class Main extends SvelteComponentDev {
@@ -19720,7 +19732,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.15.1" },
+    			props: { ga: "ver", v: "0.16.1" },
     			$$inline: true
     		});
 
