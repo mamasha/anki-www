@@ -18563,7 +18563,7 @@ var app = (function () {
     			attr_dev(button, "class", button_class_value = "" + (/*_bgColor*/ ctx[2] + " py-0.5 my-1"));
     			set_style(button, "grid-area", /*ga*/ ctx[0]);
     			set_style(button, "font-size", /*_sz*/ ctx[3] + "px");
-    			add_location(button, file$3, 24, 0, 640);
+    			add_location(button, file$3, 24, 0, 660);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -18594,6 +18594,10 @@ var app = (function () {
     			if (dirty & /*ga*/ 1) {
     				set_style(button, "grid-area", /*ga*/ ctx[0]);
     			}
+
+    			if (dirty & /*_sz*/ 8) {
+    				set_style(button, "font-size", /*_sz*/ ctx[3] + "px");
+    			}
     		},
     		i: noop,
     		o: noop,
@@ -18616,6 +18620,7 @@ var app = (function () {
     }
 
     function instance$4($$self, $$props, $$invalidate) {
+    	let _sz;
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Ans", slots, []);
     	let { ga } = $$props;
@@ -18623,7 +18628,6 @@ var app = (function () {
     	let { bgColor = getBgColor(ga, "bg-gray-100") } = $$props;
     	let { sz = 24 } = $$props;
     	let _bgColor = bgColor;
-    	let _sz = sz;
 
     	function setState(state) {
     		switch (state) {
@@ -18665,8 +18669,8 @@ var app = (function () {
     		bgColor,
     		sz,
     		_bgColor,
-    		_sz,
-    		setState
+    		setState,
+    		_sz
     	});
 
     	$$self.$inject_state = $$props => {
@@ -18681,6 +18685,12 @@ var app = (function () {
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*sz, value*/ 34) {
+    			$$invalidate(3, _sz = sz - 1.2 * value.length);
+    		}
+    	};
 
     	return [ga, value, _bgColor, _sz, bgColor, sz, setState, click_handler];
     }
@@ -19573,6 +19583,8 @@ var app = (function () {
     	let p0;
     	let t1;
     	let p1;
+    	let t2_value = /*_round*/ ctx[0].text + "";
+    	let t2;
 
     	const block = {
     		c: function create() {
@@ -19580,9 +19592,9 @@ var app = (function () {
     			p0.textContent = "World problem is here";
     			t1 = space();
     			p1 = element("p");
-    			p1.textContent = `${/*_round*/ ctx[0].text}`;
-    			add_location(p0, file$1, 27, 0, 1125);
-    			add_location(p1, file$1, 31, 0, 1165);
+    			t2 = text(t2_value);
+    			add_location(p0, file$1, 32, 0, 1227);
+    			add_location(p1, file$1, 36, 0, 1267);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -19591,8 +19603,11 @@ var app = (function () {
     			insert_dev(target, p0, anchor);
     			insert_dev(target, t1, anchor);
     			insert_dev(target, p1, anchor);
+    			append_dev(p1, t2);
     		},
-    		p: noop,
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*_round*/ 1 && t2_value !== (t2_value = /*_round*/ ctx[0].text + "")) set_data_dev(t2, t2_value);
+    		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
@@ -19653,15 +19668,16 @@ var app = (function () {
     			});
     	};
 
-    	let _text = "loading...";
     	let _round = { text: "", equations: [], answers: [] };
 
     	function init() {
     		return __awaiter(this, void 0, void 0, function* () {
     			let response = yield fetch("./assets/problems.txt");
     			let text = yield response.text();
+    			let equations = [];
+    			let answers = [];
     			console.log(text);
-    			_text = text;
+    			$$invalidate(0, _round = { text, equations, answers });
     		});
     	}
 
@@ -19672,11 +19688,10 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1.warn(`<Main> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$capture_state = () => ({ __awaiter, run, _text, _round, init });
+    	$$self.$capture_state = () => ({ __awaiter, run, _round, init });
 
     	$$self.$inject_state = $$props => {
     		if ("__awaiter" in $$props) __awaiter = $$props.__awaiter;
-    		if ("_text" in $$props) _text = $$props._text;
     		if ("_round" in $$props) $$invalidate(0, _round = $$props._round);
     	};
 
@@ -19732,7 +19747,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.16.1" },
+    			props: { ga: "ver", v: "0.16.2" },
     			$$inline: true
     		});
 
