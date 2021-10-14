@@ -18688,7 +18688,7 @@ var app = (function () {
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*sz, value*/ 34) {
-    			$$invalidate(3, _sz = sz - 1.2 * value.length);
+    			$$invalidate(3, _sz = sz - 1.1 * value.length);
     		}
     	};
 
@@ -19747,7 +19747,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.16.2" },
+    			props: { ga: "ver", v: "0.16.3" },
     			$$inline: true
     		});
 
