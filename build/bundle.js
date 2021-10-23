@@ -17126,10 +17126,12 @@ var app = (function () {
     let _b = [10, 90];
     let _c = [10, 90];
     let _d = [10, 90];
+    let _n = [1, 1];
     let _aA = [];
     let _bA = [];
     let _cA = [];
     let _dA = [];
+    let _nA = [];
     let _x = ["X"];
     let _noOverflow = false;
     let _properOnly = false;
@@ -17218,6 +17220,18 @@ var app = (function () {
     			if (pattern.includes("/") && d.eq(0) && loopLimit-- > 0) continue;
     			if (pattern.includes("/")) [a, d] = [d, a];
     			return [a, b, c, d];
+    		}
+    	}
+
+    	if (_gameType === "a/b=c/d") {
+    		for (let loopLimit = 100; true; ) {
+    			let [a, b] = getAb();
+    			let c = get(_c, _cA);
+    			let n1 = get(_n, _nA);
+    			let n2 = get(_n, _nA);
+    			if (a.gt(b) && _properOnly) [a, b] = [b, a];
+    			if (a.eq(b) && loopLimit-- > 0) continue;
+    			return [a.mul(n1), b.mul(n1), a.mul(c).mul(n2), b.mul(c).mul(n2)];
     		}
     	}
 
@@ -17342,7 +17356,7 @@ var app = (function () {
     			b = b.mul(d);
     			let fr = nd2f(a, b);
     			let c = f2d(fr);
-    			if ((a.eq(b) || a.gt(b) && _properOnly) && loopLimit-- > 0) continue;
+    			if (a.gte(b) && _properOnly && loopLimit-- > 0) continue;
     			return [a, b, c];
     		}
     	}
@@ -17369,7 +17383,7 @@ var app = (function () {
     		]);
     	}
 
-    	if (_gameType === "ab+c=d" || _gameType === "a*/(b+c)=d") {
+    	if (_gameType === "ab+c=d" || _gameType === "a*/(b+c)=d" || _gameType === "a/b=c/d") {
     		return shuffle([
     			rightAns,
     			rightAns.plus(pm(rand(1, 1))),
@@ -17470,7 +17484,7 @@ var app = (function () {
     					_noOverflow = false;
     					break;
     				case "proper-only":
-    					_properOnly = false;
+    					_properOnly = true;
     					break;
     				case "timer":
     					_seconds = parseInt(cmd[1]);
@@ -17493,6 +17507,9 @@ var app = (function () {
     				case "d":
     					_d = cmd.slice(1).map(x => parseInt(x));
     					break;
+    				case "n":
+    					_n = cmd.slice(1).map(x => parseInt(x));
+    					break;
     				case "a[]":
     					_aA = cmd.slice(1).map(x => parseDecimal(x));
     					break;
@@ -17504,6 +17521,9 @@ var app = (function () {
     					break;
     				case "d[]":
     					_dA = cmd.slice(1).map(x => parseDecimal(x));
+    					break;
+    				case "n[]":
+    					_nA = cmd.slice(1).map(x => parseDecimal(x));
     					break;
     			}
     		}
@@ -19747,7 +19767,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.16.3" },
+    			props: { ga: "ver", v: "0.17.0" },
     			$$inline: true
     		});
 
