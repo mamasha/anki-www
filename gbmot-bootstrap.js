@@ -19,6 +19,7 @@
     cssFile(`tailwind.min.css`);
     MathJax = {loader: {load: ['input/asciimath', 'output/chtml']}};
     jsFile(`https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js`);
+    //jsFile(`https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js`);
     cssFile(`${gbmotAt}global.css`);
     cssFile(`${gbmotAt}build/bundle.css`);
     jsFile(`${gbmotAt}build/bundle.js`);
