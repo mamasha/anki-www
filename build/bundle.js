@@ -17916,7 +17916,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (173:4) {#each _round.answers as ans, no (_recreate[no])}
+    // (172:4) {#each _round.answers as ans, no (_recreate[no])}
     function create_each_block$2(key_1, ctx) {
     	let first;
     	let ans;
@@ -17987,14 +17987,14 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(173:4) {#each _round.answers as ans, no (_recreate[no])}",
+    		source: "(172:4) {#each _round.answers as ans, no (_recreate[no])}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (158:0) <Grid {layout}      on:click={() => anyClick()}  >
+    // (157:0) <Grid {layout}      on:click={() => anyClick()}  >
     function create_default_slot$2(ctx) {
     	let progress;
     	let t0;
@@ -18163,7 +18163,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$2.name,
     		type: "slot",
-    		source: "(158:0) <Grid {layout}      on:click={() => anyClick()}  >",
+    		source: "(157:0) <Grid {layout}      on:click={() => anyClick()}  >",
     		ctx
     	});
 
@@ -18240,7 +18240,6 @@ var app = (function () {
     		case "%-all":
     			return 1.2;
     		case "dividers":
-    			return 0.2;
     		case "dividers+-":
     			return 0.3;
     	}
@@ -20329,7 +20328,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.20.1" },
+    			props: { ga: "ver", v: "0.20.2" },
     			$$inline: true
     		});
 
