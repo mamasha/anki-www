@@ -18420,7 +18420,7 @@ var app = (function () {
     		case "dividers":
     			return 0.3;
     		case "dividers-2":
-    			return 0.1;
+    			return 0.4;
     		case "dividers+-":
     			return 0.35;
     		case "sequence":
@@ -20520,7 +20520,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.21.1" },
+    			props: { ga: "ver", v: "0.21.2" },
     			$$inline: true
     		});
 
