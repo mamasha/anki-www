@@ -20008,6 +20008,7 @@ var app = (function () {
     			bdi = element("bdi");
     			t0 = text(t0_value);
     			t1 = space();
+    			attr_dev(bdi, "dir", "rtl");
     			add_location(bdi, file$2, 11, 12, 243);
     			attr_dev(p, "class", p_class_value = /*para*/ ctx[4].css);
     			add_location(p, file$2, 10, 8, 207);
@@ -21360,7 +21361,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.25.49" },
+    			props: { ga: "ver", v: "0.25.50" },
     			$$inline: true
     		});
 
