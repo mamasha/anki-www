@@ -1,17 +1,21620 @@
-var app=function(){"use strict";function e(){}function t(e){return e()}function n(){return Object.create(null)}function u(e){e.forEach(t)}function r(e){return"function"==typeof e}function i(e,t){return e!=e?t==t:e!==t||e&&"object"==typeof e||"function"==typeof e}function o(t,...n){if(null==t)return e;const u=t.subscribe(...n);return u.unsubscribe?()=>u.unsubscribe():u}function s(e,t,n){e.$$.on_destroy.push(o(t,n))}function a(e,t,n,u){return e[1]&&u?function(e,t){for(const n in t)e[n]=t[n];return e}(n.ctx.slice(),e[1](u(t))):n.ctx}function c(e){return null==e?"":e}function l(t){return t&&r(t.destroy)?t.destroy:e}function f(e,t){e.appendChild(t)}function d(e,t,n){e.insertBefore(t,n||null)}function D(e){e.parentNode.removeChild(e)}function p(e,t){for(let n=0;n<e.length;n+=1)e[n]&&e[n].d(t)}function g(e){return document.createElement(e)}function h(e){return document.createElementNS("http://www.w3.org/2000/svg",e)}function m(e){return document.createTextNode(e)}function F(){return m(" ")}function C(){return m("")}function v(e,t,n,u){return e.addEventListener(t,n,u),()=>e.removeEventListener(t,n,u)}function A(e,t,n){null==n?e.removeAttribute(t):e.getAttribute(t)!==n&&e.setAttribute(t,n)}function E(e,t){t=""+t,e.wholeText!==t&&(e.data=t)}function $(e,t,n,u){null===n?e.style.removeProperty(t):e.style.setProperty(t,n,u?"important":"")}function w(e,t,n){e.classList[n?"add":"remove"](t)}function y(e,t){return new e(t)}let b;function x(e){b=e}function B(){if(!b)throw new Error("Function called outside component initialization");return b}function N(e){B().$$.on_mount.push(e)}function k(e,t){const n=e.$$.callbacks[t.type];n&&n.slice().forEach((e=>e.call(this,t)))}const M=[],S=[],z=[],q=[],O=Promise.resolve();let I=!1;function P(){I||(I=!0,O.then(V))}function L(){return P(),O}function _(e){z.push(e)}const T=new Set;let H=0;function V(){const e=b;do{for(;H<M.length;){const e=M[H];H++,x(e),R(e.$$)}for(x(null),M.length=0,H=0;S.length;)S.pop()();for(let e=0;e<z.length;e+=1){const t=z[e];T.has(t)||(T.add(t),t())}z.length=0}while(M.length);for(;q.length;)q.pop()();I=!1,T.clear(),x(e)}function R(e){if(null!==e.fragment){e.update(),u(e.before_update);const t=e.dirty;e.dirty=[-1],e.fragment&&e.fragment.p(e.ctx,t),e.after_update.forEach(_)}}const j=new Set;let Z;function U(){Z={r:0,c:[],p:Z}}function J(){Z.r||u(Z.c),Z=Z.p}function W(e,t){e&&e.i&&(j.delete(e),e.i(t))}function X(e,t,n,u){if(e&&e.o){if(j.has(e))return;j.add(e),Z.c.push((()=>{j.delete(e),u&&(n&&e.d(1),u())})),e.o(t)}else u&&u()}function G(e,t){X(e,1,1,(()=>{t.delete(e.key)}))}function Y(e,t,n,u,r,i,o,s,a,c,l,f){let d=e.length,D=i.length,p=d;const g={};for(;p--;)g[e[p].key]=p;const h=[],m=new Map,F=new Map;for(p=D;p--;){const e=f(r,i,p),s=n(e);let a=o.get(s);a?u&&a.p(e,t):(a=c(s,e),a.c()),m.set(s,h[p]=a),s in g&&F.set(s,Math.abs(p-g[s]))}const C=new Set,v=new Set;function A(e){W(e,1),e.m(s,l),o.set(e.key,e),l=e.first,D--}for(;d&&D;){const t=h[D-1],n=e[d-1],u=t.key,r=n.key;t===n?(l=t.first,d--,D--):m.has(r)?!o.has(u)||C.has(u)?A(t):v.has(r)?d--:F.get(u)>F.get(r)?(v.add(u),A(t)):(C.add(r),d--):(a(n,o),d--)}for(;d--;){const t=e[d];m.has(t.key)||a(t,o)}for(;D;)A(h[D-1]);return h}function Q(e){e&&e.c()}function K(e,n,i,o){const{fragment:s,after_update:a}=e.$$;s&&s.m(n,i),o||_((()=>{const n=e.$$.on_mount.map(t).filter(r);e.$$.on_destroy?e.$$.on_destroy.push(...n):u(n),e.$$.on_mount=[]})),a.forEach(_)}function ee(e,t){const n=e.$$;null!==n.fragment&&(u(n.on_destroy),n.fragment&&n.fragment.d(t),n.on_destroy=n.fragment=null,n.ctx=[])}function te(t,r,i,o,s,a,c,l=[-1]){const f=b;x(t);const d=t.$$={fragment:null,ctx:[],props:a,update:e,not_equal:s,bound:n(),on_mount:[],on_destroy:[],on_disconnect:[],before_update:[],after_update:[],context:new Map(r.context||(f?f.$$.context:[])),callbacks:n(),dirty:l,skip_bound:!1,root:r.target||f.$$.root};c&&c(d.root);let p=!1;if(d.ctx=i?i(t,r.props||{},((e,n,...u)=>{const r=u.length?u[0]:n;return d.ctx&&s(d.ctx[e],d.ctx[e]=r)&&(!d.skip_bound&&d.bound[e]&&d.bound[e](r),p&&function(e,t){-1===e.$$.dirty[0]&&(M.push(e),P(),e.$$.dirty.fill(0)),e.$$.dirty[t/31|0]|=1<<t%31}(t,e)),n})):[],d.update(),p=!0,u(d.before_update),d.fragment=!!o&&o(d.ctx),r.target){if(r.hydrate){const e=function(e){return Array.from(e.childNodes)}(r.target);d.fragment&&d.fragment.l(e),e.forEach(D)}else d.fragment&&d.fragment.c();r.intro&&W(t.$$.fragment),K(t,r.target,r.anchor,r.customElement),V()}x(f)}class ne{$destroy(){ee(this,1),this.$destroy=e}$on(t,n){if(!r(n))return e;const u=this.$$.callbacks[t]||(this.$$.callbacks[t]=[]);return u.push(n),()=>{const e=u.indexOf(n);-1!==e&&u.splice(e,1)}}$set(e){var t;this.$$set&&(t=e,0!==Object.keys(t).length)&&(this.$$.skip_bound=!0,this.$$set(e),this.$$.skip_bound=!1)}}function ue(t){let n;return{c(){n=g("p"),n.textContent="Oops..."},m(e,t){d(e,n,t)},p:e,i:e,o:e,d(e){e&&D(n)}}}class re extends ne{constructor(e){super(),te(this,e,null,ue,i,{})}}function ie(e,t,n){const u=e.slice();return u[1]=t[n],u}function oe(e){let t,n,u=e[1]+"";return{c(){t=g("p"),n=m(u)},m(e,u){d(e,t,u),f(t,n)},p(e,t){1&t&&u!==(u=e[1]+"")&&E(n,u)},d(e){e&&D(t)}}}function se(t){let n,u=t[0],r=[];for(let e=0;e<u.length;e+=1)r[e]=oe(ie(t,u,e));return{c(){for(let e=0;e<r.length;e+=1)r[e].c();n=C()},m(e,t){for(let n=0;n<r.length;n+=1)r[n].m(e,t);d(e,n,t)},p(e,[t]){if(1&t){let i;for(u=e[0],i=0;i<u.length;i+=1){const o=ie(e,u,i);r[i]?r[i].p(o,t):(r[i]=oe(o),r[i].c(),r[i].m(n.parentNode,n))}for(;i<r.length;i+=1)r[i].d(1);r.length=u.length}},i:e,o:e,d(e){p(r,e),e&&D(n)}}}let ae=[],ce=()=>{};function le(e,t){!function(e,t,n){let u=`${e} ${t}`;n&&(u+=` (${n})`),console.log(u),ae.push(u),ce()}("E",e,t?.message)}function fe(e,t,n){let u=ae;return ce=()=>{n(0,u=ae)},[u]}class de extends ne{constructor(e){super(),te(this,e,fe,se,i,{})}}function De(e){let t,n,u,r,i;const o=e[4].default,s=function(e,t,n,u){if(e){const r=a(e,t,n,u);return e[0](r)}}(o,e,e[3],null);return{c(){t=g("div"),s&&s.c(),A(t,"class",n="my-grid "+e[2]+" svelte-ytrcuc"),$(t,"grid-area",e[1]),$(t,"--areas",e[0].areas),$(t,"--cols",e[0].cols),$(t,"--rows",e[0].rows)},m(n,o){var a;d(n,t,o),s&&s.m(t,null),u=!0,r||(i=v(t,"click",(a=e[5],function(e){e.target===this&&a.call(this,e)})),r=!0)},p(e,[r]){s&&s.p&&(!u||8&r)&&function(e,t,n,u,r,i){if(r){const o=a(t,n,u,i);e.p(o,r)}}(s,o,e,e[3],u?function(e,t,n,u){if(e[2]&&u){const r=e[2](u(n));if(void 0===t.dirty)return r;if("object"==typeof r){const e=[],n=Math.max(t.dirty.length,r.length);for(let u=0;u<n;u+=1)e[u]=t.dirty[u]|r[u];return e}return t.dirty|r}return t.dirty}(o,e[3],r,null):function(e){if(e.ctx.length>32){const t=[],n=e.ctx.length/32;for(let e=0;e<n;e++)t[e]=-1;return t}return-1}(e[3]),null),(!u||4&r&&n!==(n="my-grid "+e[2]+" svelte-ytrcuc"))&&A(t,"class",n),(!u||2&r)&&$(t,"grid-area",e[1]),(!u||1&r)&&$(t,"--areas",e[0].areas),(!u||1&r)&&$(t,"--cols",e[0].cols),(!u||1&r)&&$(t,"--rows",e[0].rows)},i(e){u||(W(s,e),u=!0)},o(e){X(s,e),u=!1},d(e){e&&D(t),s&&s.d(e),r=!1,i()}}}function pe(e,t){let n=(u="get-bg-color",B().$$.context.get(u));var u;if(!n)return t??"bg-transparent";return n(e,t)}function ge(e,t,n){let{$$slots:u={},$$scope:r}=t,{layout:i}=t,{ga:o="unset"}=t,{bgColor:s=pe(o)}=t;var a,c;return a="get-bg-color",c=function(e,t){return i.bgColors?i.bgColors[e]??t??"bg-transparent":t??"bg-transparent"},B().$$.context.set(a,c),e.$$set=e=>{"layout"in e&&n(0,i=e.layout),"ga"in e&&n(1,o=e.ga),"bgColor"in e&&n(2,s=e.bgColor),"$$scope"in e&&n(3,r=e.$$scope)},[i,o,s,r,u,function(t){k.call(this,e,t)}]}class he extends ne{constructor(e){super(),te(this,e,ge,De,i,{layout:0,ga:1,bgColor:2})}}const me=[];function Fe(e,t){return{subscribe:Ce(e,t).subscribe}}function Ce(t,n=e){let u;const r=new Set;function o(e){if(i(t,e)&&(t=e,u)){const e=!me.length;for(const e of r)e[1](),me.push(e,t);if(e){for(let e=0;e<me.length;e+=2)me[e][0](me[e+1]);me.length=0}}}return{set:o,update:function(e){o(e(t))},subscribe:function(i,s=e){const a=[i,s];return r.add(a),1===r.size&&(u=n(o)||e),i(t),()=>{r.delete(a),0===r.size&&(u(),u=null)}}}}const ve=function(){let e,t=[],n=0;function u(){e(t.length>0?t[n%t.length]:"")}return{current:Fe("",(t=>{e=t})),add:(e,r=!1)=>{N((()=>(t.push(e),r&&(n=t.length-1),u(),()=>{t=t.filter((t=>t!==e)),u()})))},next:()=>{n++,u()}}}();function Ae(t){let n,u,r,i;return{c(){n=g("span"),u=m(t[1]),A(n,"class","text-xs text-gray-300"),$(n,"grid-area",t[0])},m(e,o){d(e,n,o),f(n,u),r||(i=v(n,"click",t[4]),r=!0)},p(e,[t]){2&t&&E(u,e[1]),1&t&&$(n,"grid-area",e[0])},i:e,o:e,d(e){e&&D(n),r=!1,i()}}}function Ee(e,t,n){let u,{ga:r}=t,{v:i}=t;ve.add(i,!0);let{current:o}=ve;s(e,o,(e=>n(1,u=e)));return e.$$set=e=>{"ga"in e&&n(0,r=e.ga),"v"in e&&n(3,i=e.v)},[r,u,o,i,()=>ve.next()]}class $e extends ne{constructor(e){super(),te(this,e,Ee,Ae,i,{ga:0,v:3})}}function we(t){let n,u;return{c(){n=g("span"),u=m(t[1]),A(n,"class","text-xs text-gray-400"),$(n,"grid-area",t[0])},m(e,t){d(e,n,t),f(n,u)},p(e,[t]){2&t&&E(u,e[1]),1&t&&$(n,"grid-area",e[0])},i:e,o:e,d(e){e&&D(n)}}}function ye(e,t,n){let{ga:u}=t,{text:r}=t;return e.$$set=e=>{"ga"in e&&n(0,u=e.ga),"text"in e&&n(1,r=e.text)},[u,r]}class be extends ne{constructor(e){super(),te(this,e,ye,we,i,{ga:0,text:1})}}"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self&&self;function xe(e){return e&&e.__esModule&&Object.prototype.hasOwnProperty.call(e,"default")?e.default:e}function Be(e){var t={exports:{}};return e(t,t.exports),t.exports}var Ne,ke,Me=Be((function(e,t){e.exports=function(){function e(e,t){return e(t={exports:{}},t.exports),t.exports}var t=e((function(e){var t=e.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=t)})),n=e((function(e){var t=e.exports={version:"2.6.5"};"number"==typeof __e&&(__e=t)}));n.version;var u=function(e){return"object"==typeof e?null!==e:"function"==typeof e},r=function(e){if(!u(e))throw TypeError(e+" is not an object!");return e},i=function(e){try{return!!e()}catch(e){return!0}},o=!i((function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})),s=t.document,a=u(s)&&u(s.createElement),c=function(e){return a?s.createElement(e):{}},l=!o&&!i((function(){return 7!=Object.defineProperty(c("div"),"a",{get:function(){return 7}}).a})),f=function(e,t){if(!u(e))return e;var n,r;if(t&&"function"==typeof(n=e.toString)&&!u(r=n.call(e)))return r;if("function"==typeof(n=e.valueOf)&&!u(r=n.call(e)))return r;if(!t&&"function"==typeof(n=e.toString)&&!u(r=n.call(e)))return r;throw TypeError("Can't convert object to primitive value")},d=Object.defineProperty,D=o?Object.defineProperty:function(e,t,n){if(r(e),t=f(t,!0),r(n),l)try{return d(e,t,n)}catch(e){}if("get"in n||"set"in n)throw TypeError("Accessors not supported!");return"value"in n&&(e[t]=n.value),e},p={f:D},g=function(e,t){return{enumerable:!(1&e),configurable:!(2&e),writable:!(4&e),value:t}},h=o?function(e,t,n){return p.f(e,t,g(1,n))}:function(e,t,n){return e[t]=n,e},m={}.hasOwnProperty,F=function(e,t){return m.call(e,t)},C=0,v=Math.random(),A=function(e){return"Symbol(".concat(void 0===e?"":e,")_",(++C+v).toString(36))},E=e((function(e){var u="__core-js_shared__",r=t[u]||(t[u]={});(e.exports=function(e,t){return r[e]||(r[e]=void 0!==t?t:{})})("versions",[]).push({version:n.version,mode:"global",copyright:"© 2019 Denis Pushkarev (zloirock.ru)"})})),$=E("native-function-to-string",Function.toString),w=e((function(e){var u=A("src"),r="toString",i=(""+$).split(r);n.inspectSource=function(e){return $.call(e)},(e.exports=function(e,n,r,o){var s="function"==typeof r;s&&(F(r,"name")||h(r,"name",n)),e[n]!==r&&(s&&(F(r,u)||h(r,u,e[n]?""+e[n]:i.join(String(n)))),e===t?e[n]=r:o?e[n]?e[n]=r:h(e,n,r):(delete e[n],h(e,n,r)))})(Function.prototype,r,(function(){return"function"==typeof this&&this[u]||$.call(this)}))})),y=function(e){if("function"!=typeof e)throw TypeError(e+" is not a function!");return e},b=function(e,t,n){if(y(e),void 0===t)return e;switch(n){case 1:return function(n){return e.call(t,n)};case 2:return function(n,u){return e.call(t,n,u)};case 3:return function(n,u,r){return e.call(t,n,u,r)}}return function(){return e.apply(t,arguments)}},x="prototype",B=function(e,u,r){var i,o,s,a,c=e&B.F,l=e&B.G,f=e&B.S,d=e&B.P,D=e&B.B,p=l?t:f?t[u]||(t[u]={}):(t[u]||{})[x],g=l?n:n[u]||(n[u]={}),m=g[x]||(g[x]={});for(i in l&&(r=u),r)s=((o=!c&&p&&void 0!==p[i])?p:r)[i],a=D&&o?b(s,t):d&&"function"==typeof s?b(Function.call,s):s,p&&w(p,i,s,e&B.U),g[i]!=s&&h(g,i,a),d&&m[i]!=s&&(m[i]=s)};t.core=n,B.F=1,B.G=2,B.S=4,B.P=8,B.B=16,B.W=32,B.U=64,B.R=128;var N=B,k=Math.ceil,M=Math.floor,S=function(e){return isNaN(e=+e)?0:(e>0?M:k)(e)},z=function(e){if(null==e)throw TypeError("Can't call method on  "+e);return e},q=function(e){return function(t,n){var u,r,i=String(z(t)),o=S(n),s=i.length;return o<0||o>=s?e?"":void 0:(u=i.charCodeAt(o))<55296||u>56319||o+1===s||(r=i.charCodeAt(o+1))<56320||r>57343?e?i.charAt(o):u:e?i.slice(o,o+2):r-56320+(u-55296<<10)+65536}},O=q(!1);N(N.P,"String",{codePointAt:function(e){return O(this,e)}}),n.String.codePointAt;var I=Math.max,P=Math.min,L=function(e,t){return(e=S(e))<0?I(e+t,0):P(e,t)},_=String.fromCharCode,T=String.fromCodePoint;N(N.S+N.F*(!!T&&1!=T.length),"String",{fromCodePoint:function(e){for(var t,n=arguments,u=[],r=arguments.length,i=0;r>i;){if(t=+n[i++],L(t,1114111)!==t)throw RangeError(t+" is not a valid code point");u.push(t<65536?_(t):_(55296+((t-=65536)>>10),t%1024+56320))}return u.join("")}}),n.String.fromCodePoint;var H,V,R,j,Z,U,J,W,X,G,Y,Q,K,ee,te={Space_Separator:/[\u1680\u2000-\u200A\u202F\u205F\u3000]/,ID_Start:/[\xAA\xB5\xBA\xC0-\xD6\xD8-\xF6\xF8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0370-\u0374\u0376\u0377\u037A-\u037D\u037F\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5\u03F7-\u0481\u048A-\u052F\u0531-\u0556\u0559\u0561-\u0587\u05D0-\u05EA\u05F0-\u05F2\u0620-\u064A\u066E\u066F\u0671-\u06D3\u06D5\u06E5\u06E6\u06EE\u06EF\u06FA-\u06FC\u06FF\u0710\u0712-\u072F\u074D-\u07A5\u07B1\u07CA-\u07EA\u07F4\u07F5\u07FA\u0800-\u0815\u081A\u0824\u0828\u0840-\u0858\u0860-\u086A\u08A0-\u08B4\u08B6-\u08BD\u0904-\u0939\u093D\u0950\u0958-\u0961\u0971-\u0980\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2\u09B6-\u09B9\u09BD\u09CE\u09DC\u09DD\u09DF-\u09E1\u09F0\u09F1\u09FC\u0A05-\u0A0A\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39\u0A59-\u0A5C\u0A5E\u0A72-\u0A74\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD\u0AD0\u0AE0\u0AE1\u0AF9\u0B05-\u0B0C\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B5C\u0B5D\u0B5F-\u0B61\u0B71\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BD0\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C39\u0C3D\u0C58-\u0C5A\u0C60\u0C61\u0C80\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3\u0CB5-\u0CB9\u0CBD\u0CDE\u0CE0\u0CE1\u0CF1\u0CF2\u0D05-\u0D0C\u0D0E-\u0D10\u0D12-\u0D3A\u0D3D\u0D4E\u0D54-\u0D56\u0D5F-\u0D61\u0D7A-\u0D7F\u0D85-\u0D96\u0D9A-\u0DB1\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E81\u0E82\u0E84\u0E87\u0E88\u0E8A\u0E8D\u0E94-\u0E97\u0E99-\u0E9F\u0EA1-\u0EA3\u0EA5\u0EA7\u0EAA\u0EAB\u0EAD-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6\u0EDC-\u0EDF\u0F00\u0F40-\u0F47\u0F49-\u0F6C\u0F88-\u0F8C\u1000-\u102A\u103F\u1050-\u1055\u105A-\u105D\u1061\u1065\u1066\u106E-\u1070\u1075-\u1081\u108E\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310\u1312-\u1315\u1318-\u135A\u1380-\u138F\u13A0-\u13F5\u13F8-\u13FD\u1401-\u166C\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u16EE-\u16F8\u1700-\u170C\u170E-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17D7\u17DC\u1820-\u1877\u1880-\u1884\u1887-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191E\u1950-\u196D\u1970-\u1974\u1980-\u19AB\u19B0-\u19C9\u1A00-\u1A16\u1A20-\u1A54\u1AA7\u1B05-\u1B33\u1B45-\u1B4B\u1B83-\u1BA0\u1BAE\u1BAF\u1BBA-\u1BE5\u1C00-\u1C23\u1C4D-\u1C4F\u1C5A-\u1C7D\u1C80-\u1C88\u1CE9-\u1CEC\u1CEE-\u1CF1\u1CF5\u1CF6\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u2071\u207F\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2160-\u2188\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D80-\u2D96\u2DA0-\u2DA6\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE\u2DD0-\u2DD6\u2DD8-\u2DDE\u2E2F\u3005-\u3007\u3021-\u3029\u3031-\u3035\u3038-\u303C\u3041-\u3096\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312E\u3131-\u318E\u31A0-\u31BA\u31F0-\u31FF\u3400-\u4DB5\u4E00-\u9FEA\uA000-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA61F\uA62A\uA62B\uA640-\uA66E\uA67F-\uA69D\uA6A0-\uA6EF\uA717-\uA71F\uA722-\uA788\uA78B-\uA7AE\uA7B0-\uA7B7\uA7F7-\uA801\uA803-\uA805\uA807-\uA80A\uA80C-\uA822\uA840-\uA873\uA882-\uA8B3\uA8F2-\uA8F7\uA8FB\uA8FD\uA90A-\uA925\uA930-\uA946\uA960-\uA97C\uA984-\uA9B2\uA9CF\uA9E0-\uA9E4\uA9E6-\uA9EF\uA9FA-\uA9FE\uAA00-\uAA28\uAA40-\uAA42\uAA44-\uAA4B\uAA60-\uAA76\uAA7A\uAA7E-\uAAAF\uAAB1\uAAB5\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAADD\uAAE0-\uAAEA\uAAF2-\uAAF4\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E\uAB30-\uAB5A\uAB5C-\uAB65\uAB70-\uABE2\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D\uFB1F-\uFB28\uFB2A-\uFB36\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE70-\uFE74\uFE76-\uFEFC\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC]|\uD800[\uDC00-\uDC0B\uDC0D-\uDC26\uDC28-\uDC3A\uDC3C\uDC3D\uDC3F-\uDC4D\uDC50-\uDC5D\uDC80-\uDCFA\uDD40-\uDD74\uDE80-\uDE9C\uDEA0-\uDED0\uDF00-\uDF1F\uDF2D-\uDF4A\uDF50-\uDF75\uDF80-\uDF9D\uDFA0-\uDFC3\uDFC8-\uDFCF\uDFD1-\uDFD5]|\uD801[\uDC00-\uDC9D\uDCB0-\uDCD3\uDCD8-\uDCFB\uDD00-\uDD27\uDD30-\uDD63\uDE00-\uDF36\uDF40-\uDF55\uDF60-\uDF67]|\uD802[\uDC00-\uDC05\uDC08\uDC0A-\uDC35\uDC37\uDC38\uDC3C\uDC3F-\uDC55\uDC60-\uDC76\uDC80-\uDC9E\uDCE0-\uDCF2\uDCF4\uDCF5\uDD00-\uDD15\uDD20-\uDD39\uDD80-\uDDB7\uDDBE\uDDBF\uDE00\uDE10-\uDE13\uDE15-\uDE17\uDE19-\uDE33\uDE60-\uDE7C\uDE80-\uDE9C\uDEC0-\uDEC7\uDEC9-\uDEE4\uDF00-\uDF35\uDF40-\uDF55\uDF60-\uDF72\uDF80-\uDF91]|\uD803[\uDC00-\uDC48\uDC80-\uDCB2\uDCC0-\uDCF2]|\uD804[\uDC03-\uDC37\uDC83-\uDCAF\uDCD0-\uDCE8\uDD03-\uDD26\uDD50-\uDD72\uDD76\uDD83-\uDDB2\uDDC1-\uDDC4\uDDDA\uDDDC\uDE00-\uDE11\uDE13-\uDE2B\uDE80-\uDE86\uDE88\uDE8A-\uDE8D\uDE8F-\uDE9D\uDE9F-\uDEA8\uDEB0-\uDEDE\uDF05-\uDF0C\uDF0F\uDF10\uDF13-\uDF28\uDF2A-\uDF30\uDF32\uDF33\uDF35-\uDF39\uDF3D\uDF50\uDF5D-\uDF61]|\uD805[\uDC00-\uDC34\uDC47-\uDC4A\uDC80-\uDCAF\uDCC4\uDCC5\uDCC7\uDD80-\uDDAE\uDDD8-\uDDDB\uDE00-\uDE2F\uDE44\uDE80-\uDEAA\uDF00-\uDF19]|\uD806[\uDCA0-\uDCDF\uDCFF\uDE00\uDE0B-\uDE32\uDE3A\uDE50\uDE5C-\uDE83\uDE86-\uDE89\uDEC0-\uDEF8]|\uD807[\uDC00-\uDC08\uDC0A-\uDC2E\uDC40\uDC72-\uDC8F\uDD00-\uDD06\uDD08\uDD09\uDD0B-\uDD30\uDD46]|\uD808[\uDC00-\uDF99]|\uD809[\uDC00-\uDC6E\uDC80-\uDD43]|[\uD80C\uD81C-\uD820\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879][\uDC00-\uDFFF]|\uD80D[\uDC00-\uDC2E]|\uD811[\uDC00-\uDE46]|\uD81A[\uDC00-\uDE38\uDE40-\uDE5E\uDED0-\uDEED\uDF00-\uDF2F\uDF40-\uDF43\uDF63-\uDF77\uDF7D-\uDF8F]|\uD81B[\uDF00-\uDF44\uDF50\uDF93-\uDF9F\uDFE0\uDFE1]|\uD821[\uDC00-\uDFEC]|\uD822[\uDC00-\uDEF2]|\uD82C[\uDC00-\uDD1E\uDD70-\uDEFB]|\uD82F[\uDC00-\uDC6A\uDC70-\uDC7C\uDC80-\uDC88\uDC90-\uDC99]|\uD835[\uDC00-\uDC54\uDC56-\uDC9C\uDC9E\uDC9F\uDCA2\uDCA5\uDCA6\uDCA9-\uDCAC\uDCAE-\uDCB9\uDCBB\uDCBD-\uDCC3\uDCC5-\uDD05\uDD07-\uDD0A\uDD0D-\uDD14\uDD16-\uDD1C\uDD1E-\uDD39\uDD3B-\uDD3E\uDD40-\uDD44\uDD46\uDD4A-\uDD50\uDD52-\uDEA5\uDEA8-\uDEC0\uDEC2-\uDEDA\uDEDC-\uDEFA\uDEFC-\uDF14\uDF16-\uDF34\uDF36-\uDF4E\uDF50-\uDF6E\uDF70-\uDF88\uDF8A-\uDFA8\uDFAA-\uDFC2\uDFC4-\uDFCB]|\uD83A[\uDC00-\uDCC4\uDD00-\uDD43]|\uD83B[\uDE00-\uDE03\uDE05-\uDE1F\uDE21\uDE22\uDE24\uDE27\uDE29-\uDE32\uDE34-\uDE37\uDE39\uDE3B\uDE42\uDE47\uDE49\uDE4B\uDE4D-\uDE4F\uDE51\uDE52\uDE54\uDE57\uDE59\uDE5B\uDE5D\uDE5F\uDE61\uDE62\uDE64\uDE67-\uDE6A\uDE6C-\uDE72\uDE74-\uDE77\uDE79-\uDE7C\uDE7E\uDE80-\uDE89\uDE8B-\uDE9B\uDEA1-\uDEA3\uDEA5-\uDEA9\uDEAB-\uDEBB]|\uD869[\uDC00-\uDED6\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF34\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0]|\uD87E[\uDC00-\uDE1D]/,ID_Continue:/[\xAA\xB5\xBA\xC0-\xD6\xD8-\xF6\xF8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0300-\u0374\u0376\u0377\u037A-\u037D\u037F\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5\u03F7-\u0481\u0483-\u0487\u048A-\u052F\u0531-\u0556\u0559\u0561-\u0587\u0591-\u05BD\u05BF\u05C1\u05C2\u05C4\u05C5\u05C7\u05D0-\u05EA\u05F0-\u05F2\u0610-\u061A\u0620-\u0669\u066E-\u06D3\u06D5-\u06DC\u06DF-\u06E8\u06EA-\u06FC\u06FF\u0710-\u074A\u074D-\u07B1\u07C0-\u07F5\u07FA\u0800-\u082D\u0840-\u085B\u0860-\u086A\u08A0-\u08B4\u08B6-\u08BD\u08D4-\u08E1\u08E3-\u0963\u0966-\u096F\u0971-\u0983\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2\u09B6-\u09B9\u09BC-\u09C4\u09C7\u09C8\u09CB-\u09CE\u09D7\u09DC\u09DD\u09DF-\u09E3\u09E6-\u09F1\u09FC\u0A01-\u0A03\u0A05-\u0A0A\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39\u0A3C\u0A3E-\u0A42\u0A47\u0A48\u0A4B-\u0A4D\u0A51\u0A59-\u0A5C\u0A5E\u0A66-\u0A75\u0A81-\u0A83\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABC-\u0AC5\u0AC7-\u0AC9\u0ACB-\u0ACD\u0AD0\u0AE0-\u0AE3\u0AE6-\u0AEF\u0AF9-\u0AFF\u0B01-\u0B03\u0B05-\u0B0C\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3C-\u0B44\u0B47\u0B48\u0B4B-\u0B4D\u0B56\u0B57\u0B5C\u0B5D\u0B5F-\u0B63\u0B66-\u0B6F\u0B71\u0B82\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BBE-\u0BC2\u0BC6-\u0BC8\u0BCA-\u0BCD\u0BD0\u0BD7\u0BE6-\u0BEF\u0C00-\u0C03\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C39\u0C3D-\u0C44\u0C46-\u0C48\u0C4A-\u0C4D\u0C55\u0C56\u0C58-\u0C5A\u0C60-\u0C63\u0C66-\u0C6F\u0C80-\u0C83\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3\u0CB5-\u0CB9\u0CBC-\u0CC4\u0CC6-\u0CC8\u0CCA-\u0CCD\u0CD5\u0CD6\u0CDE\u0CE0-\u0CE3\u0CE6-\u0CEF\u0CF1\u0CF2\u0D00-\u0D03\u0D05-\u0D0C\u0D0E-\u0D10\u0D12-\u0D44\u0D46-\u0D48\u0D4A-\u0D4E\u0D54-\u0D57\u0D5F-\u0D63\u0D66-\u0D6F\u0D7A-\u0D7F\u0D82\u0D83\u0D85-\u0D96\u0D9A-\u0DB1\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0DCA\u0DCF-\u0DD4\u0DD6\u0DD8-\u0DDF\u0DE6-\u0DEF\u0DF2\u0DF3\u0E01-\u0E3A\u0E40-\u0E4E\u0E50-\u0E59\u0E81\u0E82\u0E84\u0E87\u0E88\u0E8A\u0E8D\u0E94-\u0E97\u0E99-\u0E9F\u0EA1-\u0EA3\u0EA5\u0EA7\u0EAA\u0EAB\u0EAD-\u0EB9\u0EBB-\u0EBD\u0EC0-\u0EC4\u0EC6\u0EC8-\u0ECD\u0ED0-\u0ED9\u0EDC-\u0EDF\u0F00\u0F18\u0F19\u0F20-\u0F29\u0F35\u0F37\u0F39\u0F3E-\u0F47\u0F49-\u0F6C\u0F71-\u0F84\u0F86-\u0F97\u0F99-\u0FBC\u0FC6\u1000-\u1049\u1050-\u109D\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310\u1312-\u1315\u1318-\u135A\u135D-\u135F\u1380-\u138F\u13A0-\u13F5\u13F8-\u13FD\u1401-\u166C\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u16EE-\u16F8\u1700-\u170C\u170E-\u1714\u1720-\u1734\u1740-\u1753\u1760-\u176C\u176E-\u1770\u1772\u1773\u1780-\u17D3\u17D7\u17DC\u17DD\u17E0-\u17E9\u180B-\u180D\u1810-\u1819\u1820-\u1877\u1880-\u18AA\u18B0-\u18F5\u1900-\u191E\u1920-\u192B\u1930-\u193B\u1946-\u196D\u1970-\u1974\u1980-\u19AB\u19B0-\u19C9\u19D0-\u19D9\u1A00-\u1A1B\u1A20-\u1A5E\u1A60-\u1A7C\u1A7F-\u1A89\u1A90-\u1A99\u1AA7\u1AB0-\u1ABD\u1B00-\u1B4B\u1B50-\u1B59\u1B6B-\u1B73\u1B80-\u1BF3\u1C00-\u1C37\u1C40-\u1C49\u1C4D-\u1C7D\u1C80-\u1C88\u1CD0-\u1CD2\u1CD4-\u1CF9\u1D00-\u1DF9\u1DFB-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u203F\u2040\u2054\u2071\u207F\u2090-\u209C\u20D0-\u20DC\u20E1\u20E5-\u20F0\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2160-\u2188\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CF3\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D7F-\u2D96\u2DA0-\u2DA6\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE\u2DD0-\u2DD6\u2DD8-\u2DDE\u2DE0-\u2DFF\u2E2F\u3005-\u3007\u3021-\u302F\u3031-\u3035\u3038-\u303C\u3041-\u3096\u3099\u309A\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312E\u3131-\u318E\u31A0-\u31BA\u31F0-\u31FF\u3400-\u4DB5\u4E00-\u9FEA\uA000-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA62B\uA640-\uA66F\uA674-\uA67D\uA67F-\uA6F1\uA717-\uA71F\uA722-\uA788\uA78B-\uA7AE\uA7B0-\uA7B7\uA7F7-\uA827\uA840-\uA873\uA880-\uA8C5\uA8D0-\uA8D9\uA8E0-\uA8F7\uA8FB\uA8FD\uA900-\uA92D\uA930-\uA953\uA960-\uA97C\uA980-\uA9C0\uA9CF-\uA9D9\uA9E0-\uA9FE\uAA00-\uAA36\uAA40-\uAA4D\uAA50-\uAA59\uAA60-\uAA76\uAA7A-\uAAC2\uAADB-\uAADD\uAAE0-\uAAEF\uAAF2-\uAAF6\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E\uAB30-\uAB5A\uAB5C-\uAB65\uAB70-\uABEA\uABEC\uABED\uABF0-\uABF9\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D-\uFB28\uFB2A-\uFB36\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE00-\uFE0F\uFE20-\uFE2F\uFE33\uFE34\uFE4D-\uFE4F\uFE70-\uFE74\uFE76-\uFEFC\uFF10-\uFF19\uFF21-\uFF3A\uFF3F\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC]|\uD800[\uDC00-\uDC0B\uDC0D-\uDC26\uDC28-\uDC3A\uDC3C\uDC3D\uDC3F-\uDC4D\uDC50-\uDC5D\uDC80-\uDCFA\uDD40-\uDD74\uDDFD\uDE80-\uDE9C\uDEA0-\uDED0\uDEE0\uDF00-\uDF1F\uDF2D-\uDF4A\uDF50-\uDF7A\uDF80-\uDF9D\uDFA0-\uDFC3\uDFC8-\uDFCF\uDFD1-\uDFD5]|\uD801[\uDC00-\uDC9D\uDCA0-\uDCA9\uDCB0-\uDCD3\uDCD8-\uDCFB\uDD00-\uDD27\uDD30-\uDD63\uDE00-\uDF36\uDF40-\uDF55\uDF60-\uDF67]|\uD802[\uDC00-\uDC05\uDC08\uDC0A-\uDC35\uDC37\uDC38\uDC3C\uDC3F-\uDC55\uDC60-\uDC76\uDC80-\uDC9E\uDCE0-\uDCF2\uDCF4\uDCF5\uDD00-\uDD15\uDD20-\uDD39\uDD80-\uDDB7\uDDBE\uDDBF\uDE00-\uDE03\uDE05\uDE06\uDE0C-\uDE13\uDE15-\uDE17\uDE19-\uDE33\uDE38-\uDE3A\uDE3F\uDE60-\uDE7C\uDE80-\uDE9C\uDEC0-\uDEC7\uDEC9-\uDEE6\uDF00-\uDF35\uDF40-\uDF55\uDF60-\uDF72\uDF80-\uDF91]|\uD803[\uDC00-\uDC48\uDC80-\uDCB2\uDCC0-\uDCF2]|\uD804[\uDC00-\uDC46\uDC66-\uDC6F\uDC7F-\uDCBA\uDCD0-\uDCE8\uDCF0-\uDCF9\uDD00-\uDD34\uDD36-\uDD3F\uDD50-\uDD73\uDD76\uDD80-\uDDC4\uDDCA-\uDDCC\uDDD0-\uDDDA\uDDDC\uDE00-\uDE11\uDE13-\uDE37\uDE3E\uDE80-\uDE86\uDE88\uDE8A-\uDE8D\uDE8F-\uDE9D\uDE9F-\uDEA8\uDEB0-\uDEEA\uDEF0-\uDEF9\uDF00-\uDF03\uDF05-\uDF0C\uDF0F\uDF10\uDF13-\uDF28\uDF2A-\uDF30\uDF32\uDF33\uDF35-\uDF39\uDF3C-\uDF44\uDF47\uDF48\uDF4B-\uDF4D\uDF50\uDF57\uDF5D-\uDF63\uDF66-\uDF6C\uDF70-\uDF74]|\uD805[\uDC00-\uDC4A\uDC50-\uDC59\uDC80-\uDCC5\uDCC7\uDCD0-\uDCD9\uDD80-\uDDB5\uDDB8-\uDDC0\uDDD8-\uDDDD\uDE00-\uDE40\uDE44\uDE50-\uDE59\uDE80-\uDEB7\uDEC0-\uDEC9\uDF00-\uDF19\uDF1D-\uDF2B\uDF30-\uDF39]|\uD806[\uDCA0-\uDCE9\uDCFF\uDE00-\uDE3E\uDE47\uDE50-\uDE83\uDE86-\uDE99\uDEC0-\uDEF8]|\uD807[\uDC00-\uDC08\uDC0A-\uDC36\uDC38-\uDC40\uDC50-\uDC59\uDC72-\uDC8F\uDC92-\uDCA7\uDCA9-\uDCB6\uDD00-\uDD06\uDD08\uDD09\uDD0B-\uDD36\uDD3A\uDD3C\uDD3D\uDD3F-\uDD47\uDD50-\uDD59]|\uD808[\uDC00-\uDF99]|\uD809[\uDC00-\uDC6E\uDC80-\uDD43]|[\uD80C\uD81C-\uD820\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879][\uDC00-\uDFFF]|\uD80D[\uDC00-\uDC2E]|\uD811[\uDC00-\uDE46]|\uD81A[\uDC00-\uDE38\uDE40-\uDE5E\uDE60-\uDE69\uDED0-\uDEED\uDEF0-\uDEF4\uDF00-\uDF36\uDF40-\uDF43\uDF50-\uDF59\uDF63-\uDF77\uDF7D-\uDF8F]|\uD81B[\uDF00-\uDF44\uDF50-\uDF7E\uDF8F-\uDF9F\uDFE0\uDFE1]|\uD821[\uDC00-\uDFEC]|\uD822[\uDC00-\uDEF2]|\uD82C[\uDC00-\uDD1E\uDD70-\uDEFB]|\uD82F[\uDC00-\uDC6A\uDC70-\uDC7C\uDC80-\uDC88\uDC90-\uDC99\uDC9D\uDC9E]|\uD834[\uDD65-\uDD69\uDD6D-\uDD72\uDD7B-\uDD82\uDD85-\uDD8B\uDDAA-\uDDAD\uDE42-\uDE44]|\uD835[\uDC00-\uDC54\uDC56-\uDC9C\uDC9E\uDC9F\uDCA2\uDCA5\uDCA6\uDCA9-\uDCAC\uDCAE-\uDCB9\uDCBB\uDCBD-\uDCC3\uDCC5-\uDD05\uDD07-\uDD0A\uDD0D-\uDD14\uDD16-\uDD1C\uDD1E-\uDD39\uDD3B-\uDD3E\uDD40-\uDD44\uDD46\uDD4A-\uDD50\uDD52-\uDEA5\uDEA8-\uDEC0\uDEC2-\uDEDA\uDEDC-\uDEFA\uDEFC-\uDF14\uDF16-\uDF34\uDF36-\uDF4E\uDF50-\uDF6E\uDF70-\uDF88\uDF8A-\uDFA8\uDFAA-\uDFC2\uDFC4-\uDFCB\uDFCE-\uDFFF]|\uD836[\uDE00-\uDE36\uDE3B-\uDE6C\uDE75\uDE84\uDE9B-\uDE9F\uDEA1-\uDEAF]|\uD838[\uDC00-\uDC06\uDC08-\uDC18\uDC1B-\uDC21\uDC23\uDC24\uDC26-\uDC2A]|\uD83A[\uDC00-\uDCC4\uDCD0-\uDCD6\uDD00-\uDD4A\uDD50-\uDD59]|\uD83B[\uDE00-\uDE03\uDE05-\uDE1F\uDE21\uDE22\uDE24\uDE27\uDE29-\uDE32\uDE34-\uDE37\uDE39\uDE3B\uDE42\uDE47\uDE49\uDE4B\uDE4D-\uDE4F\uDE51\uDE52\uDE54\uDE57\uDE59\uDE5B\uDE5D\uDE5F\uDE61\uDE62\uDE64\uDE67-\uDE6A\uDE6C-\uDE72\uDE74-\uDE77\uDE79-\uDE7C\uDE7E\uDE80-\uDE89\uDE8B-\uDE9B\uDEA1-\uDEA3\uDEA5-\uDEA9\uDEAB-\uDEBB]|\uD869[\uDC00-\uDED6\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF34\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0]|\uD87E[\uDC00-\uDE1D]|\uDB40[\uDD00-\uDDEF]/},ne={isSpaceSeparator:function(e){return"string"==typeof e&&te.Space_Separator.test(e)},isIdStartChar:function(e){return"string"==typeof e&&(e>="a"&&e<="z"||e>="A"&&e<="Z"||"$"===e||"_"===e||te.ID_Start.test(e))},isIdContinueChar:function(e){return"string"==typeof e&&(e>="a"&&e<="z"||e>="A"&&e<="Z"||e>="0"&&e<="9"||"$"===e||"_"===e||"‌"===e||"‍"===e||te.ID_Continue.test(e))},isDigit:function(e){return"string"==typeof e&&/[0-9]/.test(e)},isHexDigit:function(e){return"string"==typeof e&&/[0-9A-Fa-f]/.test(e)}},ue=function(e,t){H=String(e),V="start",R=[],j=0,Z=1,U=0,J=void 0,W=void 0,X=void 0;do{J=ie(),pe[V]()}while("eof"!==J.type);return"function"==typeof t?re({"":X},"",t):X};function re(e,t,n){var u=e[t];if(null!=u&&"object"==typeof u)for(var r in u){var i=re(u,r,n);void 0===i?delete u[r]:u[r]=i}return n.call(e,t,u)}function ie(){for(G="default",Y="",Q=!1,K=1;;){ee=oe();var e=ae[G]();if(e)return e}}function oe(){if(H[j])return String.fromCodePoint(H.codePointAt(j))}function se(){var e=oe();return"\n"===e?(Z++,U=0):e?U+=e.length:U++,e&&(j+=e.length),e}var ae={default:function(){switch(ee){case"\t":case"\v":case"\f":case" ":case" ":case"\ufeff":case"\n":case"\r":case"\u2028":case"\u2029":return void se();case"/":return se(),void(G="comment");case void 0:return se(),ce("eof")}if(!ne.isSpaceSeparator(ee))return ae[V]();se()},comment:function(){switch(ee){case"*":return se(),void(G="multiLineComment");case"/":return se(),void(G="singleLineComment")}throw me(se())},multiLineComment:function(){switch(ee){case"*":return se(),void(G="multiLineCommentAsterisk");case void 0:throw me(se())}se()},multiLineCommentAsterisk:function(){switch(ee){case"*":return void se();case"/":return se(),void(G="default");case void 0:throw me(se())}se(),G="multiLineComment"},singleLineComment:function(){switch(ee){case"\n":case"\r":case"\u2028":case"\u2029":return se(),void(G="default");case void 0:return se(),ce("eof")}se()},value:function(){switch(ee){case"{":case"[":return ce("punctuator",se());case"n":return se(),le("ull"),ce("null",null);case"t":return se(),le("rue"),ce("boolean",!0);case"f":return se(),le("alse"),ce("boolean",!1);case"-":case"+":return"-"===se()&&(K=-1),void(G="sign");case".":return Y=se(),void(G="decimalPointLeading");case"0":return Y=se(),void(G="zero");case"1":case"2":case"3":case"4":case"5":case"6":case"7":case"8":case"9":return Y=se(),void(G="decimalInteger");case"I":return se(),le("nfinity"),ce("numeric",1/0);case"N":return se(),le("aN"),ce("numeric",NaN);case'"':case"'":return Q='"'===se(),Y="",void(G="string")}throw me(se())},identifierNameStartEscape:function(){if("u"!==ee)throw me(se());se();var e=De();switch(e){case"$":case"_":break;default:if(!ne.isIdStartChar(e))throw Ce()}Y+=e,G="identifierName"},identifierName:function(){switch(ee){case"$":case"_":case"‌":case"‍":return void(Y+=se());case"\\":return se(),void(G="identifierNameEscape")}if(!ne.isIdContinueChar(ee))return ce("identifier",Y);Y+=se()},identifierNameEscape:function(){if("u"!==ee)throw me(se());se();var e=De();switch(e){case"$":case"_":case"‌":case"‍":break;default:if(!ne.isIdContinueChar(e))throw Ce()}Y+=e,G="identifierName"},sign:function(){switch(ee){case".":return Y=se(),void(G="decimalPointLeading");case"0":return Y=se(),void(G="zero");case"1":case"2":case"3":case"4":case"5":case"6":case"7":case"8":case"9":return Y=se(),void(G="decimalInteger");case"I":return se(),le("nfinity"),ce("numeric",K*(1/0));case"N":return se(),le("aN"),ce("numeric",NaN)}throw me(se())},zero:function(){switch(ee){case".":return Y+=se(),void(G="decimalPoint");case"e":case"E":return Y+=se(),void(G="decimalExponent");case"x":case"X":return Y+=se(),void(G="hexadecimal")}return ce("numeric",0*K)},decimalInteger:function(){switch(ee){case".":return Y+=se(),void(G="decimalPoint");case"e":case"E":return Y+=se(),void(G="decimalExponent")}if(!ne.isDigit(ee))return ce("numeric",K*Number(Y));Y+=se()},decimalPointLeading:function(){if(ne.isDigit(ee))return Y+=se(),void(G="decimalFraction");throw me(se())},decimalPoint:function(){switch(ee){case"e":case"E":return Y+=se(),void(G="decimalExponent")}return ne.isDigit(ee)?(Y+=se(),void(G="decimalFraction")):ce("numeric",K*Number(Y))},decimalFraction:function(){switch(ee){case"e":case"E":return Y+=se(),void(G="decimalExponent")}if(!ne.isDigit(ee))return ce("numeric",K*Number(Y));Y+=se()},decimalExponent:function(){switch(ee){case"+":case"-":return Y+=se(),void(G="decimalExponentSign")}if(ne.isDigit(ee))return Y+=se(),void(G="decimalExponentInteger");throw me(se())},decimalExponentSign:function(){if(ne.isDigit(ee))return Y+=se(),void(G="decimalExponentInteger");throw me(se())},decimalExponentInteger:function(){if(!ne.isDigit(ee))return ce("numeric",K*Number(Y));Y+=se()},hexadecimal:function(){if(ne.isHexDigit(ee))return Y+=se(),void(G="hexadecimalInteger");throw me(se())},hexadecimalInteger:function(){if(!ne.isHexDigit(ee))return ce("numeric",K*Number(Y));Y+=se()},string:function(){switch(ee){case"\\":return se(),void(Y+=fe());case'"':return Q?(se(),ce("string",Y)):void(Y+=se());case"'":return Q?void(Y+=se()):(se(),ce("string",Y));case"\n":case"\r":throw me(se());case"\u2028":case"\u2029":ve(ee);break;case void 0:throw me(se())}Y+=se()},start:function(){switch(ee){case"{":case"[":return ce("punctuator",se())}G="value"},beforePropertyName:function(){switch(ee){case"$":case"_":return Y=se(),void(G="identifierName");case"\\":return se(),void(G="identifierNameStartEscape");case"}":return ce("punctuator",se());case'"':case"'":return Q='"'===se(),void(G="string")}if(ne.isIdStartChar(ee))return Y+=se(),void(G="identifierName");throw me(se())},afterPropertyName:function(){if(":"===ee)return ce("punctuator",se());throw me(se())},beforePropertyValue:function(){G="value"},afterPropertyValue:function(){switch(ee){case",":case"}":return ce("punctuator",se())}throw me(se())},beforeArrayValue:function(){if("]"===ee)return ce("punctuator",se());G="value"},afterArrayValue:function(){switch(ee){case",":case"]":return ce("punctuator",se())}throw me(se())},end:function(){throw me(se())}};function ce(e,t){return{type:e,value:t,line:Z,column:U}}function le(e){for(var t=0,n=e;t<n.length;t+=1){var u=n[t];if(oe()!==u)throw me(se());se()}}function fe(){switch(oe()){case"b":return se(),"\b";case"f":return se(),"\f";case"n":return se(),"\n";case"r":return se(),"\r";case"t":return se(),"\t";case"v":return se(),"\v";case"0":if(se(),ne.isDigit(oe()))throw me(se());return"\0";case"x":return se(),de();case"u":return se(),De();case"\n":case"\u2028":case"\u2029":return se(),"";case"\r":return se(),"\n"===oe()&&se(),"";case"1":case"2":case"3":case"4":case"5":case"6":case"7":case"8":case"9":case void 0:throw me(se())}return se()}function de(){var e="",t=oe();if(!ne.isHexDigit(t))throw me(se());if(e+=se(),t=oe(),!ne.isHexDigit(t))throw me(se());return e+=se(),String.fromCodePoint(parseInt(e,16))}function De(){for(var e="",t=4;t-- >0;){var n=oe();if(!ne.isHexDigit(n))throw me(se());e+=se()}return String.fromCodePoint(parseInt(e,16))}var pe={start:function(){if("eof"===J.type)throw Fe();ge()},beforePropertyName:function(){switch(J.type){case"identifier":case"string":return W=J.value,void(V="afterPropertyName");case"punctuator":return void he();case"eof":throw Fe()}},afterPropertyName:function(){if("eof"===J.type)throw Fe();V="beforePropertyValue"},beforePropertyValue:function(){if("eof"===J.type)throw Fe();ge()},beforeArrayValue:function(){if("eof"===J.type)throw Fe();"punctuator"!==J.type||"]"!==J.value?ge():he()},afterPropertyValue:function(){if("eof"===J.type)throw Fe();switch(J.value){case",":return void(V="beforePropertyName");case"}":he()}},afterArrayValue:function(){if("eof"===J.type)throw Fe();switch(J.value){case",":return void(V="beforeArrayValue");case"]":he()}},end:function(){}};function ge(){var e;switch(J.type){case"punctuator":switch(J.value){case"{":e={};break;case"[":e=[]}break;case"null":case"boolean":case"numeric":case"string":e=J.value}if(void 0===X)X=e;else{var t=R[R.length-1];Array.isArray(t)?t.push(e):t[W]=e}if(null!==e&&"object"==typeof e)R.push(e),V=Array.isArray(e)?"beforeArrayValue":"beforePropertyName";else{var n=R[R.length-1];V=null==n?"end":Array.isArray(n)?"afterArrayValue":"afterPropertyValue"}}function he(){R.pop();var e=R[R.length-1];V=null==e?"end":Array.isArray(e)?"afterArrayValue":"afterPropertyValue"}function me(e){return Ee(void 0===e?"JSON5: invalid end of input at "+Z+":"+U:"JSON5: invalid character '"+Ae(e)+"' at "+Z+":"+U)}function Fe(){return Ee("JSON5: invalid end of input at "+Z+":"+U)}function Ce(){return Ee("JSON5: invalid identifier character at "+Z+":"+(U-=5))}function ve(e){console.warn("JSON5: '"+Ae(e)+"' in strings is not valid ECMAScript; consider escaping")}function Ae(e){var t={"'":"\\'",'"':'\\"',"\\":"\\\\","\b":"\\b","\f":"\\f","\n":"\\n","\r":"\\r","\t":"\\t","\v":"\\v","\0":"\\0","\u2028":"\\u2028","\u2029":"\\u2029"};if(t[e])return t[e];if(e<" "){var n=e.charCodeAt(0).toString(16);return"\\x"+("00"+n).substring(n.length)}return e}function Ee(e){var t=new SyntaxError(e);return t.lineNumber=Z,t.columnNumber=U,t}var $e=function(e,t,n){var u,r,i,o=[],s="",a="";if(null==t||"object"!=typeof t||Array.isArray(t)||(n=t.space,i=t.quote,t=t.replacer),"function"==typeof t)r=t;else if(Array.isArray(t)){u=[];for(var c=0,l=t;c<l.length;c+=1){var f=l[c],d=void 0;"string"==typeof f?d=f:("number"==typeof f||f instanceof String||f instanceof Number)&&(d=String(f)),void 0!==d&&u.indexOf(d)<0&&u.push(d)}}return n instanceof Number?n=Number(n):n instanceof String&&(n=String(n)),"number"==typeof n?n>0&&(n=Math.min(10,Math.floor(n)),a="          ".substr(0,n)):"string"==typeof n&&(a=n.substr(0,10)),D("",{"":e});function D(e,t){var n=t[e];switch(null!=n&&("function"==typeof n.toJSON5?n=n.toJSON5(e):"function"==typeof n.toJSON&&(n=n.toJSON(e))),r&&(n=r.call(t,e,n)),n instanceof Number?n=Number(n):n instanceof String?n=String(n):n instanceof Boolean&&(n=n.valueOf()),n){case null:return"null";case!0:return"true";case!1:return"false"}return"string"==typeof n?p(n):"number"==typeof n?String(n):"object"==typeof n?Array.isArray(n)?m(n):g(n):void 0}function p(e){for(var t={"'":.1,'"':.2},n={"'":"\\'",'"':'\\"',"\\":"\\\\","\b":"\\b","\f":"\\f","\n":"\\n","\r":"\\r","\t":"\\t","\v":"\\v","\0":"\\0","\u2028":"\\u2028","\u2029":"\\u2029"},u="",r=0;r<e.length;r++){var o=e[r];switch(o){case"'":case'"':t[o]++,u+=o;continue;case"\0":if(ne.isDigit(e[r+1])){u+="\\x00";continue}}if(n[o])u+=n[o];else if(o<" "){var s=o.charCodeAt(0).toString(16);u+="\\x"+("00"+s).substring(s.length)}else u+=o}var a=i||Object.keys(t).reduce((function(e,n){return t[e]<t[n]?e:n}));return a+(u=u.replace(new RegExp(a,"g"),n[a]))+a}function g(e){if(o.indexOf(e)>=0)throw TypeError("Converting circular structure to JSON5");o.push(e);var t=s;s+=a;for(var n,r,i=[],c=0,l=u||Object.keys(e);c<l.length;c+=1){var f=l[c],d=D(f,e);if(void 0!==d){var p=h(f)+":";""!==a&&(p+=" "),p+=d,i.push(p)}}if(0===i.length)n="{}";else if(""===a)n="{"+(r=i.join(","))+"}";else{var g=",\n"+s;r=i.join(g),n="{\n"+s+r+",\n"+t+"}"}return o.pop(),s=t,n}function h(e){if(0===e.length)return p(e);var t=String.fromCodePoint(e.codePointAt(0));if(!ne.isIdStartChar(t))return p(e);for(var n=t.length;n<e.length;n++)if(!ne.isIdContinueChar(String.fromCodePoint(e.codePointAt(n))))return p(e);return e}function m(e){if(o.indexOf(e)>=0)throw TypeError("Converting circular structure to JSON5");o.push(e);var t=s;s+=a;for(var n,u=[],r=0;r<e.length;r++){var i=D(String(r),e);u.push(void 0!==i?i:"null")}if(0===u.length)n="[]";else if(""===a)n="["+u.join(",")+"]";else{var c=",\n"+s,l=u.join(c);n="[\n"+s+l+",\n"+t+"]"}return o.pop(),s=t,n}};return{parse:ue,stringify:$e}}()})),Se=9e15,ze=1e9,qe="0123456789abcdef",Oe="2.3025850929940456840179914546843642076011014886287729760333279009675726096773524802359972050895982983419677840422862486334095254650828067566662873690987816894829072083255546808437998948262331985283935053089653777326288461633662222876982198867465436674744042432743651550489343149393914796194044002221051017141748003688084012647080685567743216228355220114804663715659121373450747856947683463616792101806445070648000277502684916746550586856935673420670581136429224554405758925724208241314695689016758940256776311356919292033376587141660230105703089634572075440370847469940168269282808481184289314848524948644871927809676271275775397027668605952496716674183485704422507197965004714951050492214776567636938662976979522110718264549734772662425709429322582798502585509785265383207606726317164309505995087807523710333101197857547331541421808427543863591778117054309827482385045648019095610299291824318237525357709750539565187697510374970888692180205189339507238539205144634197265287286965110862571492198849978748873771345686209167058",Ie="3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603486104543266482133936072602491412737245870066063155881748815209209628292540917153643678925903600113305305488204665213841469519415116094330572703657595919530921861173819326117931051185480744623799627495673518857527248912279381830119491298336733624406566430860213949463952247371907021798609437027705392171762931767523846748184676694051320005681271452635608277857713427577896091736371787214684409012249534301465495853710507922796892589235420199561121290219608640344181598136297747713099605187072113499999983729780499510597317328160963185950244594553469083026425223082533446850352619311881710100031378387528865875332083814206171776691473035982534904287554687311595628638823537875937519577818577805321712268066130019278766111959092164201989380952572010654858632789",Pe={precision:20,rounding:4,modulo:1,toExpNeg:-7,toExpPos:21,minE:-Se,maxE:Se,crypto:!1},Le=!0,_e="[DecimalError] ",Te=_e+"Invalid argument: ",He=_e+"Precision limit exceeded",Ve=_e+"crypto unavailable",Re="[object Decimal]",je=Math.floor,Ze=Math.pow,Ue=/^0b([01]+(\.[01]*)?|\.[01]+)(p[+-]?\d+)?$/i,Je=/^0x([0-9a-f]+(\.[0-9a-f]*)?|\.[0-9a-f]+)(p[+-]?\d+)?$/i,We=/^0o([0-7]+(\.[0-7]*)?|\.[0-7]+)(p[+-]?\d+)?$/i,Xe=/^(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i,Ge=1e7,Ye=Oe.length-1,Qe=Ie.length-1,Ke={toStringTag:Re};
-/*!
+
+(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
+var app = (function () {
+    'use strict';
+
+    function noop() { }
+    function assign(tar, src) {
+        // @ts-ignore
+        for (const k in src)
+            tar[k] = src[k];
+        return tar;
+    }
+    function add_location(element, file, line, column, char) {
+        element.__svelte_meta = {
+            loc: { file, line, column, char }
+        };
+    }
+    function run$1(fn) {
+        return fn();
+    }
+    function blank_object() {
+        return Object.create(null);
+    }
+    function run_all(fns) {
+        fns.forEach(run$1);
+    }
+    function is_function(thing) {
+        return typeof thing === 'function';
+    }
+    function safe_not_equal(a, b) {
+        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+    }
+    function is_empty(obj) {
+        return Object.keys(obj).length === 0;
+    }
+    function validate_store(store, name) {
+        if (store != null && typeof store.subscribe !== 'function') {
+            throw new Error(`'${name}' is not a store with a 'subscribe' method`);
+        }
+    }
+    function subscribe(store, ...callbacks) {
+        if (store == null) {
+            return noop;
+        }
+        const unsub = store.subscribe(...callbacks);
+        return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
+    }
+    function component_subscribe(component, store, callback) {
+        component.$$.on_destroy.push(subscribe(store, callback));
+    }
+    function create_slot(definition, ctx, $$scope, fn) {
+        if (definition) {
+            const slot_ctx = get_slot_context(definition, ctx, $$scope, fn);
+            return definition[0](slot_ctx);
+        }
+    }
+    function get_slot_context(definition, ctx, $$scope, fn) {
+        return definition[1] && fn
+            ? assign($$scope.ctx.slice(), definition[1](fn(ctx)))
+            : $$scope.ctx;
+    }
+    function get_slot_changes(definition, $$scope, dirty, fn) {
+        if (definition[2] && fn) {
+            const lets = definition[2](fn(dirty));
+            if ($$scope.dirty === undefined) {
+                return lets;
+            }
+            if (typeof lets === 'object') {
+                const merged = [];
+                const len = Math.max($$scope.dirty.length, lets.length);
+                for (let i = 0; i < len; i += 1) {
+                    merged[i] = $$scope.dirty[i] | lets[i];
+                }
+                return merged;
+            }
+            return $$scope.dirty | lets;
+        }
+        return $$scope.dirty;
+    }
+    function update_slot_base(slot, slot_definition, ctx, $$scope, slot_changes, get_slot_context_fn) {
+        if (slot_changes) {
+            const slot_context = get_slot_context(slot_definition, ctx, $$scope, get_slot_context_fn);
+            slot.p(slot_context, slot_changes);
+        }
+    }
+    function get_all_dirty_from_scope($$scope) {
+        if ($$scope.ctx.length > 32) {
+            const dirty = [];
+            const length = $$scope.ctx.length / 32;
+            for (let i = 0; i < length; i++) {
+                dirty[i] = -1;
+            }
+            return dirty;
+        }
+        return -1;
+    }
+    function null_to_empty(value) {
+        return value == null ? '' : value;
+    }
+    function action_destroyer(action_result) {
+        return action_result && is_function(action_result.destroy) ? action_result.destroy : noop;
+    }
+    function append(target, node) {
+        target.appendChild(node);
+    }
+    function insert(target, node, anchor) {
+        target.insertBefore(node, anchor || null);
+    }
+    function detach(node) {
+        node.parentNode.removeChild(node);
+    }
+    function destroy_each(iterations, detaching) {
+        for (let i = 0; i < iterations.length; i += 1) {
+            if (iterations[i])
+                iterations[i].d(detaching);
+        }
+    }
+    function element(name) {
+        return document.createElement(name);
+    }
+    function svg_element(name) {
+        return document.createElementNS('http://www.w3.org/2000/svg', name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function space() {
+        return text(' ');
+    }
+    function empty() {
+        return text('');
+    }
+    function listen(node, event, handler, options) {
+        node.addEventListener(event, handler, options);
+        return () => node.removeEventListener(event, handler, options);
+    }
+    function self$1(fn) {
+        return function (event) {
+            // @ts-ignore
+            if (event.target === this)
+                fn.call(this, event);
+        };
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else if (node.getAttribute(attribute) !== value)
+            node.setAttribute(attribute, value);
+    }
+    function children(element) {
+        return Array.from(element.childNodes);
+    }
+    function set_style(node, key, value, important) {
+        if (value === null) {
+            node.style.removeProperty(key);
+        }
+        else {
+            node.style.setProperty(key, value, important ? 'important' : '');
+        }
+    }
+    function toggle_class(element, name, toggle) {
+        element.classList[toggle ? 'add' : 'remove'](name);
+    }
+    function custom_event(type, detail, { bubbles = false, cancelable = false } = {}) {
+        const e = document.createEvent('CustomEvent');
+        e.initCustomEvent(type, bubbles, cancelable, detail);
+        return e;
+    }
+
+    let current_component;
+    function set_current_component(component) {
+        current_component = component;
+    }
+    function get_current_component() {
+        if (!current_component)
+            throw new Error('Function called outside component initialization');
+        return current_component;
+    }
+    /**
+     * The `onMount` function schedules a callback to run as soon as the component has been mounted to the DOM.
+     * It must be called during the component's initialisation (but doesn't need to live *inside* the component;
+     * it can be called from an external module).
+     *
+     * `onMount` does not run inside a [server-side component](/docs#run-time-server-side-component-api).
+     *
+     * https://svelte.dev/docs#run-time-svelte-onmount
+     */
+    function onMount(fn) {
+        get_current_component().$$.on_mount.push(fn);
+    }
+    /**
+     * Schedules a callback to run immediately before the component is unmounted.
+     *
+     * Out of `onMount`, `beforeUpdate`, `afterUpdate` and `onDestroy`, this is the
+     * only one that runs inside a server-side component.
+     *
+     * https://svelte.dev/docs#run-time-svelte-ondestroy
+     */
+    function onDestroy(fn) {
+        get_current_component().$$.on_destroy.push(fn);
+    }
+    /**
+     * Associates an arbitrary `context` object with the current component and the specified `key`
+     * and returns that object. The context is then available to children of the component
+     * (including slotted content) with `getContext`.
+     *
+     * Like lifecycle functions, this must be called during component initialisation.
+     *
+     * https://svelte.dev/docs#run-time-svelte-setcontext
+     */
+    function setContext(key, context) {
+        get_current_component().$$.context.set(key, context);
+        return context;
+    }
+    /**
+     * Retrieves the context that belongs to the closest parent component with the specified `key`.
+     * Must be called during component initialisation.
+     *
+     * https://svelte.dev/docs#run-time-svelte-getcontext
+     */
+    function getContext(key) {
+        return get_current_component().$$.context.get(key);
+    }
+    // TODO figure out if we still want to support
+    // shorthand events, or if we want to implement
+    // a real bubbling mechanism
+    function bubble(component, event) {
+        const callbacks = component.$$.callbacks[event.type];
+        if (callbacks) {
+            // @ts-ignore
+            callbacks.slice().forEach(fn => fn.call(this, event));
+        }
+    }
+
+    const dirty_components = [];
+    const binding_callbacks = [];
+    const render_callbacks = [];
+    const flush_callbacks = [];
+    const resolved_promise = Promise.resolve();
+    let update_scheduled = false;
+    function schedule_update() {
+        if (!update_scheduled) {
+            update_scheduled = true;
+            resolved_promise.then(flush);
+        }
+    }
+    function tick() {
+        schedule_update();
+        return resolved_promise;
+    }
+    function add_render_callback(fn) {
+        render_callbacks.push(fn);
+    }
+    // flush() calls callbacks in this order:
+    // 1. All beforeUpdate callbacks, in order: parents before children
+    // 2. All bind:this callbacks, in reverse order: children before parents.
+    // 3. All afterUpdate callbacks, in order: parents before children. EXCEPT
+    //    for afterUpdates called during the initial onMount, which are called in
+    //    reverse order: children before parents.
+    // Since callbacks might update component values, which could trigger another
+    // call to flush(), the following steps guard against this:
+    // 1. During beforeUpdate, any updated components will be added to the
+    //    dirty_components array and will cause a reentrant call to flush(). Because
+    //    the flush index is kept outside the function, the reentrant call will pick
+    //    up where the earlier call left off and go through all dirty components. The
+    //    current_component value is saved and restored so that the reentrant call will
+    //    not interfere with the "parent" flush() call.
+    // 2. bind:this callbacks cannot trigger new flush() calls.
+    // 3. During afterUpdate, any updated components will NOT have their afterUpdate
+    //    callback called a second time; the seen_callbacks set, outside the flush()
+    //    function, guarantees this behavior.
+    const seen_callbacks = new Set();
+    let flushidx = 0; // Do *not* move this inside the flush() function
+    function flush() {
+        const saved_component = current_component;
+        do {
+            // first, call beforeUpdate functions
+            // and update components
+            while (flushidx < dirty_components.length) {
+                const component = dirty_components[flushidx];
+                flushidx++;
+                set_current_component(component);
+                update(component.$$);
+            }
+            set_current_component(null);
+            dirty_components.length = 0;
+            flushidx = 0;
+            while (binding_callbacks.length)
+                binding_callbacks.pop()();
+            // then, once components are updated, call
+            // afterUpdate functions. This may cause
+            // subsequent updates...
+            for (let i = 0; i < render_callbacks.length; i += 1) {
+                const callback = render_callbacks[i];
+                if (!seen_callbacks.has(callback)) {
+                    // ...so guard against infinite loops
+                    seen_callbacks.add(callback);
+                    callback();
+                }
+            }
+            render_callbacks.length = 0;
+        } while (dirty_components.length);
+        while (flush_callbacks.length) {
+            flush_callbacks.pop()();
+        }
+        update_scheduled = false;
+        seen_callbacks.clear();
+        set_current_component(saved_component);
+    }
+    function update($$) {
+        if ($$.fragment !== null) {
+            $$.update();
+            run_all($$.before_update);
+            const dirty = $$.dirty;
+            $$.dirty = [-1];
+            $$.fragment && $$.fragment.p($$.ctx, dirty);
+            $$.after_update.forEach(add_render_callback);
+        }
+    }
+    const outroing = new Set();
+    let outros;
+    function group_outros() {
+        outros = {
+            r: 0,
+            c: [],
+            p: outros // parent group
+        };
+    }
+    function check_outros() {
+        if (!outros.r) {
+            run_all(outros.c);
+        }
+        outros = outros.p;
+    }
+    function transition_in(block, local) {
+        if (block && block.i) {
+            outroing.delete(block);
+            block.i(local);
+        }
+    }
+    function transition_out(block, local, detach, callback) {
+        if (block && block.o) {
+            if (outroing.has(block))
+                return;
+            outroing.add(block);
+            outros.c.push(() => {
+                outroing.delete(block);
+                if (callback) {
+                    if (detach)
+                        block.d(1);
+                    callback();
+                }
+            });
+            block.o(local);
+        }
+        else if (callback) {
+            callback();
+        }
+    }
+
+    const globals = (typeof window !== 'undefined'
+        ? window
+        : typeof globalThis !== 'undefined'
+            ? globalThis
+            : global);
+    function outro_and_destroy_block(block, lookup) {
+        transition_out(block, 1, 1, () => {
+            lookup.delete(block.key);
+        });
+    }
+    function update_keyed_each(old_blocks, dirty, get_key, dynamic, ctx, list, lookup, node, destroy, create_each_block, next, get_context) {
+        let o = old_blocks.length;
+        let n = list.length;
+        let i = o;
+        const old_indexes = {};
+        while (i--)
+            old_indexes[old_blocks[i].key] = i;
+        const new_blocks = [];
+        const new_lookup = new Map();
+        const deltas = new Map();
+        i = n;
+        while (i--) {
+            const child_ctx = get_context(ctx, list, i);
+            const key = get_key(child_ctx);
+            let block = lookup.get(key);
+            if (!block) {
+                block = create_each_block(key, child_ctx);
+                block.c();
+            }
+            else if (dynamic) {
+                block.p(child_ctx, dirty);
+            }
+            new_lookup.set(key, new_blocks[i] = block);
+            if (key in old_indexes)
+                deltas.set(key, Math.abs(i - old_indexes[key]));
+        }
+        const will_move = new Set();
+        const did_move = new Set();
+        function insert(block) {
+            transition_in(block, 1);
+            block.m(node, next);
+            lookup.set(block.key, block);
+            next = block.first;
+            n--;
+        }
+        while (o && n) {
+            const new_block = new_blocks[n - 1];
+            const old_block = old_blocks[o - 1];
+            const new_key = new_block.key;
+            const old_key = old_block.key;
+            if (new_block === old_block) {
+                // do nothing
+                next = new_block.first;
+                o--;
+                n--;
+            }
+            else if (!new_lookup.has(old_key)) {
+                // remove old block
+                destroy(old_block, lookup);
+                o--;
+            }
+            else if (!lookup.has(new_key) || will_move.has(new_key)) {
+                insert(new_block);
+            }
+            else if (did_move.has(old_key)) {
+                o--;
+            }
+            else if (deltas.get(new_key) > deltas.get(old_key)) {
+                did_move.add(new_key);
+                insert(new_block);
+            }
+            else {
+                will_move.add(old_key);
+                o--;
+            }
+        }
+        while (o--) {
+            const old_block = old_blocks[o];
+            if (!new_lookup.has(old_block.key))
+                destroy(old_block, lookup);
+        }
+        while (n)
+            insert(new_blocks[n - 1]);
+        return new_blocks;
+    }
+    function validate_each_keys(ctx, list, get_context, get_key) {
+        const keys = new Set();
+        for (let i = 0; i < list.length; i++) {
+            const key = get_key(get_context(ctx, list, i));
+            if (keys.has(key)) {
+                throw new Error('Cannot have duplicate keys in a keyed each');
+            }
+            keys.add(key);
+        }
+    }
+    function create_component(block) {
+        block && block.c();
+    }
+    function mount_component(component, target, anchor, customElement) {
+        const { fragment, after_update } = component.$$;
+        fragment && fragment.m(target, anchor);
+        if (!customElement) {
+            // onMount happens before the initial afterUpdate
+            add_render_callback(() => {
+                const new_on_destroy = component.$$.on_mount.map(run$1).filter(is_function);
+                // if the component was destroyed immediately
+                // it will update the `$$.on_destroy` reference to `null`.
+                // the destructured on_destroy may still reference to the old array
+                if (component.$$.on_destroy) {
+                    component.$$.on_destroy.push(...new_on_destroy);
+                }
+                else {
+                    // Edge case - component was destroyed immediately,
+                    // most likely as a result of a binding initialising
+                    run_all(new_on_destroy);
+                }
+                component.$$.on_mount = [];
+            });
+        }
+        after_update.forEach(add_render_callback);
+    }
+    function destroy_component(component, detaching) {
+        const $$ = component.$$;
+        if ($$.fragment !== null) {
+            run_all($$.on_destroy);
+            $$.fragment && $$.fragment.d(detaching);
+            // TODO null out other refs, including component.$$ (but need to
+            // preserve final state?)
+            $$.on_destroy = $$.fragment = null;
+            $$.ctx = [];
+        }
+    }
+    function make_dirty(component, i) {
+        if (component.$$.dirty[0] === -1) {
+            dirty_components.push(component);
+            schedule_update();
+            component.$$.dirty.fill(0);
+        }
+        component.$$.dirty[(i / 31) | 0] |= (1 << (i % 31));
+    }
+    function init(component, options, instance, create_fragment, not_equal, props, append_styles, dirty = [-1]) {
+        const parent_component = current_component;
+        set_current_component(component);
+        const $$ = component.$$ = {
+            fragment: null,
+            ctx: [],
+            // state
+            props,
+            update: noop,
+            not_equal,
+            bound: blank_object(),
+            // lifecycle
+            on_mount: [],
+            on_destroy: [],
+            on_disconnect: [],
+            before_update: [],
+            after_update: [],
+            context: new Map(options.context || (parent_component ? parent_component.$$.context : [])),
+            // everything else
+            callbacks: blank_object(),
+            dirty,
+            skip_bound: false,
+            root: options.target || parent_component.$$.root
+        };
+        append_styles && append_styles($$.root);
+        let ready = false;
+        $$.ctx = instance
+            ? instance(component, options.props || {}, (i, ret, ...rest) => {
+                const value = rest.length ? rest[0] : ret;
+                if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
+                    if (!$$.skip_bound && $$.bound[i])
+                        $$.bound[i](value);
+                    if (ready)
+                        make_dirty(component, i);
+                }
+                return ret;
+            })
+            : [];
+        $$.update();
+        ready = true;
+        run_all($$.before_update);
+        // `false` as a special case of no DOM component
+        $$.fragment = create_fragment ? create_fragment($$.ctx) : false;
+        if (options.target) {
+            if (options.hydrate) {
+                const nodes = children(options.target);
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.l(nodes);
+                nodes.forEach(detach);
+            }
+            else {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.c();
+            }
+            if (options.intro)
+                transition_in(component.$$.fragment);
+            mount_component(component, options.target, options.anchor, options.customElement);
+            flush();
+        }
+        set_current_component(parent_component);
+    }
+    /**
+     * Base class for Svelte components. Used when dev=false.
+     */
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            if (!is_function(callback)) {
+                return noop;
+            }
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set($$props) {
+            if (this.$$set && !is_empty($$props)) {
+                this.$$.skip_bound = true;
+                this.$$set($$props);
+                this.$$.skip_bound = false;
+            }
+        }
+    }
+
+    function dispatch_dev(type, detail) {
+        document.dispatchEvent(custom_event(type, Object.assign({ version: '3.52.0' }, detail), { bubbles: true }));
+    }
+    function append_dev(target, node) {
+        dispatch_dev('SvelteDOMInsert', { target, node });
+        append(target, node);
+    }
+    function insert_dev(target, node, anchor) {
+        dispatch_dev('SvelteDOMInsert', { target, node, anchor });
+        insert(target, node, anchor);
+    }
+    function detach_dev(node) {
+        dispatch_dev('SvelteDOMRemove', { node });
+        detach(node);
+    }
+    function listen_dev(node, event, handler, options, has_prevent_default, has_stop_propagation) {
+        const modifiers = options === true ? ['capture'] : options ? Array.from(Object.keys(options)) : [];
+        if (has_prevent_default)
+            modifiers.push('preventDefault');
+        if (has_stop_propagation)
+            modifiers.push('stopPropagation');
+        dispatch_dev('SvelteDOMAddEventListener', { node, event, handler, modifiers });
+        const dispose = listen(node, event, handler, options);
+        return () => {
+            dispatch_dev('SvelteDOMRemoveEventListener', { node, event, handler, modifiers });
+            dispose();
+        };
+    }
+    function attr_dev(node, attribute, value) {
+        attr(node, attribute, value);
+        if (value == null)
+            dispatch_dev('SvelteDOMRemoveAttribute', { node, attribute });
+        else
+            dispatch_dev('SvelteDOMSetAttribute', { node, attribute, value });
+    }
+    function set_data_dev(text, data) {
+        data = '' + data;
+        if (text.wholeText === data)
+            return;
+        dispatch_dev('SvelteDOMSetData', { node: text, data });
+        text.data = data;
+    }
+    function validate_each_argument(arg) {
+        if (typeof arg !== 'string' && !(arg && typeof arg === 'object' && 'length' in arg)) {
+            let msg = '{#each} only iterates over array-like objects.';
+            if (typeof Symbol === 'function' && arg && Symbol.iterator in arg) {
+                msg += ' You can use a spread to convert this iterable into an array.';
+            }
+            throw new Error(msg);
+        }
+    }
+    function validate_slots(name, slot, keys) {
+        for (const slot_key of Object.keys(slot)) {
+            if (!~keys.indexOf(slot_key)) {
+                console.warn(`<${name}> received an unexpected slot "${slot_key}".`);
+            }
+        }
+    }
+    function construct_svelte_component_dev(component, props) {
+        const error_message = 'this={...} of <svelte:component> should specify a Svelte component.';
+        try {
+            const instance = new component(props);
+            if (!instance.$$ || !instance.$set || !instance.$on || !instance.$destroy) {
+                throw new Error(error_message);
+            }
+            return instance;
+        }
+        catch (err) {
+            const { message } = err;
+            if (typeof message === 'string' && message.indexOf('is not a constructor') !== -1) {
+                throw new Error(error_message);
+            }
+            else {
+                throw err;
+            }
+        }
+    }
+    /**
+     * Base class for Svelte components with some minor dev-enhancements. Used when dev=true.
+     */
+    class SvelteComponentDev extends SvelteComponent {
+        constructor(options) {
+            if (!options || (!options.target && !options.$$inline)) {
+                throw new Error("'target' is a required option");
+            }
+            super();
+        }
+        $destroy() {
+            super.$destroy();
+            this.$destroy = () => {
+                console.warn('Component was already destroyed'); // eslint-disable-line no-console
+            };
+        }
+        $capture_state() { }
+        $inject_state() { }
+    }
+
+    /* src\core\Oops.svelte generated by Svelte v3.52.0 */
+
+    const file$u = "src\\core\\Oops.svelte";
+
+    function create_fragment$z(ctx) {
+    	let p;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			p.textContent = "Oops...";
+    			add_location(p, file$u, 0, 0, 0);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$z.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$z($$self, $$props) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Oops', slots, []);
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Oops> was created with unknown prop '${key}'`);
+    	});
+
+    	return [];
+    }
+
+    class Oops extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$z, create_fragment$z, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Oops",
+    			options,
+    			id: create_fragment$z.name
+    		});
+    	}
+    }
+
+    /* src\core\Logger.svelte generated by Svelte v3.52.0 */
+
+    const { console: console_1$2 } = globals;
+    const file$t = "src\\core\\Logger.svelte";
+
+    function get_each_context$8(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[1] = list[i];
+    	return child_ctx;
+    }
+
+    // (26:0) {#each lines as line}
+    function create_each_block$8(ctx) {
+    	let p;
+    	let t_value = /*line*/ ctx[1] + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			t = text(t_value);
+    			add_location(p, file$t, 26, 4, 542);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    			append_dev(p, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*lines*/ 1 && t_value !== (t_value = /*line*/ ctx[1] + "")) set_data_dev(t, t_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$8.name,
+    		type: "each",
+    		source: "(26:0) {#each lines as line}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$y(ctx) {
+    	let each_1_anchor;
+    	let each_value = /*lines*/ ctx[0];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$8(get_each_context$8(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each_1_anchor, anchor);
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*lines*/ 1) {
+    				each_value = /*lines*/ ctx[0];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$8(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$8(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(each_1_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$y.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    let _lines = [];
+
+    let _refresh = () => {
+    	
+    };
+
+    function log$1(level, msg, err) {
+    	let line = `${level} ${msg}`;
+    	if (err) line += ` (${err})`;
+    	console.log(line);
+    	_lines.push(line);
+    	_refresh();
+    }
+
+    function info(msg, err) {
+    	log$1("I", msg, err?.message);
+    }
+
+    function error(msg, err) {
+    	log$1("E", msg, err?.message);
+    }
+
+    function instance$y($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Logger', slots, []);
+    	let lines = _lines;
+
+    	_refresh = () => {
+    		$$invalidate(0, lines = _lines);
+    	};
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1$2.warn(`<Logger> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$capture_state = () => ({
+    		_lines,
+    		_refresh,
+    		log: log$1,
+    		info,
+    		error,
+    		lines
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('lines' in $$props) $$invalidate(0, lines = $$props.lines);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [lines];
+    }
+
+    class Logger extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$y, create_fragment$y, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Logger",
+    			options,
+    			id: create_fragment$y.name
+    		});
+    	}
+    }
+
+    /* src\core\Grid.svelte generated by Svelte v3.52.0 */
+    const file$s = "src\\core\\Grid.svelte";
+
+    function create_fragment$x(ctx) {
+    	let div;
+    	let div_class_value;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	const default_slot_template = /*#slots*/ ctx[4].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[3], null);
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			if (default_slot) default_slot.c();
+    			attr_dev(div, "class", div_class_value = "my-grid " + /*bgColor*/ ctx[2] + " svelte-1hqqd40");
+    			set_style(div, "grid-area", /*ga*/ ctx[1]);
+    			set_style(div, "--areas", /*layout*/ ctx[0].areas);
+    			set_style(div, "--cols", /*layout*/ ctx[0].cols);
+    			set_style(div, "--rows", /*layout*/ ctx[0].rows);
+    			add_location(div, file$s, 21, 0, 659);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+
+    			if (default_slot) {
+    				default_slot.m(div, null);
+    			}
+
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = listen_dev(div, "click", self$1(/*click_handler*/ ctx[5]), false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (default_slot) {
+    				if (default_slot.p && (!current || dirty & /*$$scope*/ 8)) {
+    					update_slot_base(
+    						default_slot,
+    						default_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[3],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[3])
+    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[3], dirty, null),
+    						null
+    					);
+    				}
+    			}
+
+    			if (!current || dirty & /*bgColor*/ 4 && div_class_value !== (div_class_value = "my-grid " + /*bgColor*/ ctx[2] + " svelte-1hqqd40")) {
+    				attr_dev(div, "class", div_class_value);
+    			}
+
+    			if (!current || dirty & /*ga*/ 2) {
+    				set_style(div, "grid-area", /*ga*/ ctx[1]);
+    			}
+
+    			if (!current || dirty & /*layout*/ 1) {
+    				set_style(div, "--areas", /*layout*/ ctx[0].areas);
+    			}
+
+    			if (!current || dirty & /*layout*/ 1) {
+    				set_style(div, "--cols", /*layout*/ ctx[0].cols);
+    			}
+
+    			if (!current || dirty & /*layout*/ 1) {
+    				set_style(div, "--rows", /*layout*/ ctx[0].rows);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(default_slot, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(default_slot, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			if (default_slot) default_slot.d(detaching);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$x.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function getBgColor(ga, $default) {
+    	let fn = getContext("get-bg-color");
+    	if (!fn) return $default ?? "bg-transparent";
+    	let bgColor = fn(ga, $default);
+
+    	// console.log(`${ga}: ${bgColor}`);
+    	return bgColor;
+    }
+
+    function instance$x($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Grid', slots, ['default']);
+    	let { layout } = $$props;
+    	let { ga = "unset" } = $$props;
+    	let { bgColor = getBgColor(ga) } = $$props;
+
+    	setContext("get-bg-color", function (ga, $default) {
+    		if (!layout.bgColors) return $default ?? "bg-transparent";
+    		return layout.bgColors[ga] ?? $default ?? "bg-transparent";
+    	});
+
+    	$$self.$$.on_mount.push(function () {
+    		if (layout === undefined && !('layout' in $$props || $$self.$$.bound[$$self.$$.props['layout']])) {
+    			console.warn("<Grid> was created without expected prop 'layout'");
+    		}
+    	});
+
+    	const writable_props = ['layout', 'ga', 'bgColor'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Grid> was created with unknown prop '${key}'`);
+    	});
+
+    	function click_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('layout' in $$props) $$invalidate(0, layout = $$props.layout);
+    		if ('ga' in $$props) $$invalidate(1, ga = $$props.ga);
+    		if ('bgColor' in $$props) $$invalidate(2, bgColor = $$props.bgColor);
+    		if ('$$scope' in $$props) $$invalidate(3, $$scope = $$props.$$scope);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		getContext,
+    		setContext,
+    		getBgColor,
+    		layout,
+    		ga,
+    		bgColor
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('layout' in $$props) $$invalidate(0, layout = $$props.layout);
+    		if ('ga' in $$props) $$invalidate(1, ga = $$props.ga);
+    		if ('bgColor' in $$props) $$invalidate(2, bgColor = $$props.bgColor);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [layout, ga, bgColor, $$scope, slots, click_handler];
+    }
+
+    class Grid extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$x, create_fragment$x, safe_not_equal, { layout: 0, ga: 1, bgColor: 2 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Grid",
+    			options,
+    			id: create_fragment$x.name
+    		});
+    	}
+
+    	get layout() {
+    		throw new Error("<Grid>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set layout(value) {
+    		throw new Error("<Grid>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get ga() {
+    		throw new Error("<Grid>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Grid>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get bgColor() {
+    		throw new Error("<Grid>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set bgColor(value) {
+    		throw new Error("<Grid>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    const subscriber_queue = [];
+    /**
+     * Creates a `Readable` store that allows reading by subscription.
+     * @param value initial value
+     * @param {StartStopNotifier}start start and stop notifications for subscriptions
+     */
+    function readable(value, start) {
+        return {
+            subscribe: writable(value, start).subscribe
+        };
+    }
+    /**
+     * Create a `Writable` store that allows both updating and reading by subscription.
+     * @param {*=}value initial value
+     * @param {StartStopNotifier=}start start and stop notifications for subscriptions
+     */
+    function writable(value, start = noop) {
+        let stop;
+        const subscribers = new Set();
+        function set(new_value) {
+            if (safe_not_equal(value, new_value)) {
+                value = new_value;
+                if (stop) { // store is ready
+                    const run_queue = !subscriber_queue.length;
+                    for (const subscriber of subscribers) {
+                        subscriber[1]();
+                        subscriber_queue.push(subscriber, value);
+                    }
+                    if (run_queue) {
+                        for (let i = 0; i < subscriber_queue.length; i += 2) {
+                            subscriber_queue[i][0](subscriber_queue[i + 1]);
+                        }
+                        subscriber_queue.length = 0;
+                    }
+                }
+            }
+        }
+        function update(fn) {
+            set(fn(value));
+        }
+        function subscribe(run, invalidate = noop) {
+            const subscriber = [run, invalidate];
+            subscribers.add(subscriber);
+            if (subscribers.size === 1) {
+                stop = start(set) || noop;
+            }
+            run(value);
+            return () => {
+                subscribers.delete(subscriber);
+                if (subscribers.size === 0) {
+                    stop();
+                    stop = null;
+                }
+            };
+        }
+        return { set, update, subscribe };
+    }
+
+    function createVersions() {
+        let _db = [];
+        let _index = 0;
+        let _set;
+        let _current = readable("", (set) => {
+            _set = set;
+        });
+        function update() {
+            _set(_db.length > 0 ? _db[_index % _db.length] : "");
+        }
+        return {
+            current: _current,
+            add: (v, $default = false) => {
+                onMount(() => {
+                    _db.push(v);
+                    if ($default)
+                        _index = _db.length - 1;
+                    update();
+                    return () => {
+                        _db = _db.filter(x => x !== v);
+                        update();
+                    };
+                });
+            },
+            next: () => {
+                _index++;
+                update();
+            }
+        };
+    }
+    const versions = createVersions();
+
+    /* src\core\Version.svelte generated by Svelte v3.52.0 */
+    const file$r = "src\\core\\Version.svelte";
+
+    function create_fragment$w(ctx) {
+    	let span;
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			span = element("span");
+    			t = text(/*$current*/ ctx[1]);
+    			attr_dev(span, "class", "text-xs text-gray-300");
+    			set_style(span, "grid-area", /*ga*/ ctx[0]);
+    			add_location(span, file$r, 8, 0, 218);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, span, anchor);
+    			append_dev(span, t);
+
+    			if (!mounted) {
+    				dispose = listen_dev(span, "click", /*click_handler*/ ctx[4], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*$current*/ 2) set_data_dev(t, /*$current*/ ctx[1]);
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(span, "grid-area", /*ga*/ ctx[0]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(span);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$w.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$w($$self, $$props, $$invalidate) {
+    	let $current;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Version', slots, []);
+    	let { ga } = $$props;
+    	let { v } = $$props;
+    	versions.add(v, true);
+    	let { current } = versions;
+    	validate_store(current, 'current');
+    	component_subscribe($$self, current, value => $$invalidate(1, $current = value));
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Version> was created without expected prop 'ga'");
+    		}
+
+    		if (v === undefined && !('v' in $$props || $$self.$$.bound[$$self.$$.props['v']])) {
+    			console.warn("<Version> was created without expected prop 'v'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'v'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Version> was created with unknown prop '${key}'`);
+    	});
+
+    	const click_handler = () => versions.next();
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('v' in $$props) $$invalidate(3, v = $$props.v);
+    	};
+
+    	$$self.$capture_state = () => ({ versions, ga, v, current, $current });
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('v' in $$props) $$invalidate(3, v = $$props.v);
+    		if ('current' in $$props) $$invalidate(2, current = $$props.current);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [ga, $current, current, v, click_handler];
+    }
+
+    class Version extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$w, create_fragment$w, safe_not_equal, { ga: 0, v: 3 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Version",
+    			options,
+    			id: create_fragment$w.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Version>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Version>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get v() {
+    		throw new Error("<Version>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set v(value) {
+    		throw new Error("<Version>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\core\Powered.svelte generated by Svelte v3.52.0 */
+
+    const file$q = "src\\core\\Powered.svelte";
+
+    function create_fragment$v(ctx) {
+    	let span;
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			span = element("span");
+    			t = text(/*text*/ ctx[1]);
+    			attr_dev(span, "class", "text-xs text-gray-400");
+    			set_style(span, "grid-area", /*ga*/ ctx[0]);
+    			add_location(span, file$q, 4, 0, 65);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, span, anchor);
+    			append_dev(span, t);
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*text*/ 2) set_data_dev(t, /*text*/ ctx[1]);
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(span, "grid-area", /*ga*/ ctx[0]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(span);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$v.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$v($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Powered', slots, []);
+    	let { ga } = $$props;
+    	let { text } = $$props;
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Powered> was created without expected prop 'ga'");
+    		}
+
+    		if (text === undefined && !('text' in $$props || $$self.$$.bound[$$self.$$.props['text']])) {
+    			console.warn("<Powered> was created without expected prop 'text'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'text'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Powered> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('text' in $$props) $$invalidate(1, text = $$props.text);
+    	};
+
+    	$$self.$capture_state = () => ({ ga, text });
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('text' in $$props) $$invalidate(1, text = $$props.text);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [ga, text];
+    }
+
+    class Powered extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$v, create_fragment$v, safe_not_equal, { ga: 0, text: 1 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Powered",
+    			options,
+    			id: create_fragment$v.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Powered>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Powered>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get text() {
+    		throw new Error("<Powered>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set text(value) {
+    		throw new Error("<Powered>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+    function getDefaultExportFromCjs (x) {
+    	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+    }
+
+    function createCommonjsModule(fn) {
+      var module = { exports: {} };
+    	return fn(module, module.exports), module.exports;
+    }
+
+    var dist = createCommonjsModule(function (module, exports) {
+    (function (global, factory) {
+    	module.exports = factory() ;
+    }(commonjsGlobal, (function () {
+    	function createCommonjsModule(fn, module) {
+    		return module = { exports: {} }, fn(module, module.exports), module.exports;
+    	}
+
+    	var _global = createCommonjsModule(function (module) {
+    	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+    	var global = module.exports = typeof window != 'undefined' && window.Math == Math
+    	  ? window : typeof self != 'undefined' && self.Math == Math ? self
+    	  // eslint-disable-next-line no-new-func
+    	  : Function('return this')();
+    	if (typeof __g == 'number') { __g = global; } // eslint-disable-line no-undef
+    	});
+
+    	var _core = createCommonjsModule(function (module) {
+    	var core = module.exports = { version: '2.6.5' };
+    	if (typeof __e == 'number') { __e = core; } // eslint-disable-line no-undef
+    	});
+    	_core.version;
+
+    	var _isObject = function (it) {
+    	  return typeof it === 'object' ? it !== null : typeof it === 'function';
+    	};
+
+    	var _anObject = function (it) {
+    	  if (!_isObject(it)) { throw TypeError(it + ' is not an object!'); }
+    	  return it;
+    	};
+
+    	var _fails = function (exec) {
+    	  try {
+    	    return !!exec();
+    	  } catch (e) {
+    	    return true;
+    	  }
+    	};
+
+    	// Thank's IE8 for his funny defineProperty
+    	var _descriptors = !_fails(function () {
+    	  return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
+    	});
+
+    	var document = _global.document;
+    	// typeof document.createElement is 'object' in old IE
+    	var is = _isObject(document) && _isObject(document.createElement);
+    	var _domCreate = function (it) {
+    	  return is ? document.createElement(it) : {};
+    	};
+
+    	var _ie8DomDefine = !_descriptors && !_fails(function () {
+    	  return Object.defineProperty(_domCreate('div'), 'a', { get: function () { return 7; } }).a != 7;
+    	});
+
+    	// 7.1.1 ToPrimitive(input [, PreferredType])
+
+    	// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+    	// and the second argument - flag - preferred type is a string
+    	var _toPrimitive = function (it, S) {
+    	  if (!_isObject(it)) { return it; }
+    	  var fn, val;
+    	  if (S && typeof (fn = it.toString) == 'function' && !_isObject(val = fn.call(it))) { return val; }
+    	  if (typeof (fn = it.valueOf) == 'function' && !_isObject(val = fn.call(it))) { return val; }
+    	  if (!S && typeof (fn = it.toString) == 'function' && !_isObject(val = fn.call(it))) { return val; }
+    	  throw TypeError("Can't convert object to primitive value");
+    	};
+
+    	var dP = Object.defineProperty;
+
+    	var f = _descriptors ? Object.defineProperty : function defineProperty(O, P, Attributes) {
+    	  _anObject(O);
+    	  P = _toPrimitive(P, true);
+    	  _anObject(Attributes);
+    	  if (_ie8DomDefine) { try {
+    	    return dP(O, P, Attributes);
+    	  } catch (e) { /* empty */ } }
+    	  if ('get' in Attributes || 'set' in Attributes) { throw TypeError('Accessors not supported!'); }
+    	  if ('value' in Attributes) { O[P] = Attributes.value; }
+    	  return O;
+    	};
+
+    	var _objectDp = {
+    		f: f
+    	};
+
+    	var _propertyDesc = function (bitmap, value) {
+    	  return {
+    	    enumerable: !(bitmap & 1),
+    	    configurable: !(bitmap & 2),
+    	    writable: !(bitmap & 4),
+    	    value: value
+    	  };
+    	};
+
+    	var _hide = _descriptors ? function (object, key, value) {
+    	  return _objectDp.f(object, key, _propertyDesc(1, value));
+    	} : function (object, key, value) {
+    	  object[key] = value;
+    	  return object;
+    	};
+
+    	var hasOwnProperty = {}.hasOwnProperty;
+    	var _has = function (it, key) {
+    	  return hasOwnProperty.call(it, key);
+    	};
+
+    	var id = 0;
+    	var px = Math.random();
+    	var _uid = function (key) {
+    	  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+    	};
+
+    	var _shared = createCommonjsModule(function (module) {
+    	var SHARED = '__core-js_shared__';
+    	var store = _global[SHARED] || (_global[SHARED] = {});
+
+    	(module.exports = function (key, value) {
+    	  return store[key] || (store[key] = value !== undefined ? value : {});
+    	})('versions', []).push({
+    	  version: _core.version,
+    	  mode: 'global',
+    	  copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
+    	});
+    	});
+
+    	var _functionToString = _shared('native-function-to-string', Function.toString);
+
+    	var _redefine = createCommonjsModule(function (module) {
+    	var SRC = _uid('src');
+
+    	var TO_STRING = 'toString';
+    	var TPL = ('' + _functionToString).split(TO_STRING);
+
+    	_core.inspectSource = function (it) {
+    	  return _functionToString.call(it);
+    	};
+
+    	(module.exports = function (O, key, val, safe) {
+    	  var isFunction = typeof val == 'function';
+    	  if (isFunction) { _has(val, 'name') || _hide(val, 'name', key); }
+    	  if (O[key] === val) { return; }
+    	  if (isFunction) { _has(val, SRC) || _hide(val, SRC, O[key] ? '' + O[key] : TPL.join(String(key))); }
+    	  if (O === _global) {
+    	    O[key] = val;
+    	  } else if (!safe) {
+    	    delete O[key];
+    	    _hide(O, key, val);
+    	  } else if (O[key]) {
+    	    O[key] = val;
+    	  } else {
+    	    _hide(O, key, val);
+    	  }
+    	// add fake Function#toString for correct work wrapped methods / constructors with methods like LoDash isNative
+    	})(Function.prototype, TO_STRING, function toString() {
+    	  return typeof this == 'function' && this[SRC] || _functionToString.call(this);
+    	});
+    	});
+
+    	var _aFunction = function (it) {
+    	  if (typeof it != 'function') { throw TypeError(it + ' is not a function!'); }
+    	  return it;
+    	};
+
+    	// optional / simple context binding
+
+    	var _ctx = function (fn, that, length) {
+    	  _aFunction(fn);
+    	  if (that === undefined) { return fn; }
+    	  switch (length) {
+    	    case 1: return function (a) {
+    	      return fn.call(that, a);
+    	    };
+    	    case 2: return function (a, b) {
+    	      return fn.call(that, a, b);
+    	    };
+    	    case 3: return function (a, b, c) {
+    	      return fn.call(that, a, b, c);
+    	    };
+    	  }
+    	  return function (/* ...args */) {
+    	    return fn.apply(that, arguments);
+    	  };
+    	};
+
+    	var PROTOTYPE = 'prototype';
+
+    	var $export = function (type, name, source) {
+    	  var IS_FORCED = type & $export.F;
+    	  var IS_GLOBAL = type & $export.G;
+    	  var IS_STATIC = type & $export.S;
+    	  var IS_PROTO = type & $export.P;
+    	  var IS_BIND = type & $export.B;
+    	  var target = IS_GLOBAL ? _global : IS_STATIC ? _global[name] || (_global[name] = {}) : (_global[name] || {})[PROTOTYPE];
+    	  var exports = IS_GLOBAL ? _core : _core[name] || (_core[name] = {});
+    	  var expProto = exports[PROTOTYPE] || (exports[PROTOTYPE] = {});
+    	  var key, own, out, exp;
+    	  if (IS_GLOBAL) { source = name; }
+    	  for (key in source) {
+    	    // contains in native
+    	    own = !IS_FORCED && target && target[key] !== undefined;
+    	    // export native or passed
+    	    out = (own ? target : source)[key];
+    	    // bind timers to global for call from export context
+    	    exp = IS_BIND && own ? _ctx(out, _global) : IS_PROTO && typeof out == 'function' ? _ctx(Function.call, out) : out;
+    	    // extend global
+    	    if (target) { _redefine(target, key, out, type & $export.U); }
+    	    // export
+    	    if (exports[key] != out) { _hide(exports, key, exp); }
+    	    if (IS_PROTO && expProto[key] != out) { expProto[key] = out; }
+    	  }
+    	};
+    	_global.core = _core;
+    	// type bitmap
+    	$export.F = 1;   // forced
+    	$export.G = 2;   // global
+    	$export.S = 4;   // static
+    	$export.P = 8;   // proto
+    	$export.B = 16;  // bind
+    	$export.W = 32;  // wrap
+    	$export.U = 64;  // safe
+    	$export.R = 128; // real proto method for `library`
+    	var _export = $export;
+
+    	// 7.1.4 ToInteger
+    	var ceil = Math.ceil;
+    	var floor = Math.floor;
+    	var _toInteger = function (it) {
+    	  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
+    	};
+
+    	// 7.2.1 RequireObjectCoercible(argument)
+    	var _defined = function (it) {
+    	  if (it == undefined) { throw TypeError("Can't call method on  " + it); }
+    	  return it;
+    	};
+
+    	// true  -> String#at
+    	// false -> String#codePointAt
+    	var _stringAt = function (TO_STRING) {
+    	  return function (that, pos) {
+    	    var s = String(_defined(that));
+    	    var i = _toInteger(pos);
+    	    var l = s.length;
+    	    var a, b;
+    	    if (i < 0 || i >= l) { return TO_STRING ? '' : undefined; }
+    	    a = s.charCodeAt(i);
+    	    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
+    	      ? TO_STRING ? s.charAt(i) : a
+    	      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
+    	  };
+    	};
+
+    	var $at = _stringAt(false);
+    	_export(_export.P, 'String', {
+    	  // 21.1.3.3 String.prototype.codePointAt(pos)
+    	  codePointAt: function codePointAt(pos) {
+    	    return $at(this, pos);
+    	  }
+    	});
+
+    	_core.String.codePointAt;
+
+    	var max = Math.max;
+    	var min = Math.min;
+    	var _toAbsoluteIndex = function (index, length) {
+    	  index = _toInteger(index);
+    	  return index < 0 ? max(index + length, 0) : min(index, length);
+    	};
+
+    	var fromCharCode = String.fromCharCode;
+    	var $fromCodePoint = String.fromCodePoint;
+
+    	// length should be 1, old FF problem
+    	_export(_export.S + _export.F * (!!$fromCodePoint && $fromCodePoint.length != 1), 'String', {
+    	  // 21.1.2.2 String.fromCodePoint(...codePoints)
+    	  fromCodePoint: function fromCodePoint(x) {
+    	    var arguments$1 = arguments;
+    	 // eslint-disable-line no-unused-vars
+    	    var res = [];
+    	    var aLen = arguments.length;
+    	    var i = 0;
+    	    var code;
+    	    while (aLen > i) {
+    	      code = +arguments$1[i++];
+    	      if (_toAbsoluteIndex(code, 0x10ffff) !== code) { throw RangeError(code + ' is not a valid code point'); }
+    	      res.push(code < 0x10000
+    	        ? fromCharCode(code)
+    	        : fromCharCode(((code -= 0x10000) >> 10) + 0xd800, code % 0x400 + 0xdc00)
+    	      );
+    	    } return res.join('');
+    	  }
+    	});
+
+    	_core.String.fromCodePoint;
+
+    	// This is a generated file. Do not edit.
+    	var Space_Separator = /[\u1680\u2000-\u200A\u202F\u205F\u3000]/;
+    	var ID_Start = /[\xAA\xB5\xBA\xC0-\xD6\xD8-\xF6\xF8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0370-\u0374\u0376\u0377\u037A-\u037D\u037F\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5\u03F7-\u0481\u048A-\u052F\u0531-\u0556\u0559\u0561-\u0587\u05D0-\u05EA\u05F0-\u05F2\u0620-\u064A\u066E\u066F\u0671-\u06D3\u06D5\u06E5\u06E6\u06EE\u06EF\u06FA-\u06FC\u06FF\u0710\u0712-\u072F\u074D-\u07A5\u07B1\u07CA-\u07EA\u07F4\u07F5\u07FA\u0800-\u0815\u081A\u0824\u0828\u0840-\u0858\u0860-\u086A\u08A0-\u08B4\u08B6-\u08BD\u0904-\u0939\u093D\u0950\u0958-\u0961\u0971-\u0980\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2\u09B6-\u09B9\u09BD\u09CE\u09DC\u09DD\u09DF-\u09E1\u09F0\u09F1\u09FC\u0A05-\u0A0A\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39\u0A59-\u0A5C\u0A5E\u0A72-\u0A74\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD\u0AD0\u0AE0\u0AE1\u0AF9\u0B05-\u0B0C\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B5C\u0B5D\u0B5F-\u0B61\u0B71\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BD0\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C39\u0C3D\u0C58-\u0C5A\u0C60\u0C61\u0C80\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3\u0CB5-\u0CB9\u0CBD\u0CDE\u0CE0\u0CE1\u0CF1\u0CF2\u0D05-\u0D0C\u0D0E-\u0D10\u0D12-\u0D3A\u0D3D\u0D4E\u0D54-\u0D56\u0D5F-\u0D61\u0D7A-\u0D7F\u0D85-\u0D96\u0D9A-\u0DB1\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E81\u0E82\u0E84\u0E87\u0E88\u0E8A\u0E8D\u0E94-\u0E97\u0E99-\u0E9F\u0EA1-\u0EA3\u0EA5\u0EA7\u0EAA\u0EAB\u0EAD-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6\u0EDC-\u0EDF\u0F00\u0F40-\u0F47\u0F49-\u0F6C\u0F88-\u0F8C\u1000-\u102A\u103F\u1050-\u1055\u105A-\u105D\u1061\u1065\u1066\u106E-\u1070\u1075-\u1081\u108E\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310\u1312-\u1315\u1318-\u135A\u1380-\u138F\u13A0-\u13F5\u13F8-\u13FD\u1401-\u166C\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u16EE-\u16F8\u1700-\u170C\u170E-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17D7\u17DC\u1820-\u1877\u1880-\u1884\u1887-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191E\u1950-\u196D\u1970-\u1974\u1980-\u19AB\u19B0-\u19C9\u1A00-\u1A16\u1A20-\u1A54\u1AA7\u1B05-\u1B33\u1B45-\u1B4B\u1B83-\u1BA0\u1BAE\u1BAF\u1BBA-\u1BE5\u1C00-\u1C23\u1C4D-\u1C4F\u1C5A-\u1C7D\u1C80-\u1C88\u1CE9-\u1CEC\u1CEE-\u1CF1\u1CF5\u1CF6\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u2071\u207F\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2160-\u2188\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D80-\u2D96\u2DA0-\u2DA6\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE\u2DD0-\u2DD6\u2DD8-\u2DDE\u2E2F\u3005-\u3007\u3021-\u3029\u3031-\u3035\u3038-\u303C\u3041-\u3096\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312E\u3131-\u318E\u31A0-\u31BA\u31F0-\u31FF\u3400-\u4DB5\u4E00-\u9FEA\uA000-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA61F\uA62A\uA62B\uA640-\uA66E\uA67F-\uA69D\uA6A0-\uA6EF\uA717-\uA71F\uA722-\uA788\uA78B-\uA7AE\uA7B0-\uA7B7\uA7F7-\uA801\uA803-\uA805\uA807-\uA80A\uA80C-\uA822\uA840-\uA873\uA882-\uA8B3\uA8F2-\uA8F7\uA8FB\uA8FD\uA90A-\uA925\uA930-\uA946\uA960-\uA97C\uA984-\uA9B2\uA9CF\uA9E0-\uA9E4\uA9E6-\uA9EF\uA9FA-\uA9FE\uAA00-\uAA28\uAA40-\uAA42\uAA44-\uAA4B\uAA60-\uAA76\uAA7A\uAA7E-\uAAAF\uAAB1\uAAB5\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAADD\uAAE0-\uAAEA\uAAF2-\uAAF4\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E\uAB30-\uAB5A\uAB5C-\uAB65\uAB70-\uABE2\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D\uFB1F-\uFB28\uFB2A-\uFB36\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE70-\uFE74\uFE76-\uFEFC\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC]|\uD800[\uDC00-\uDC0B\uDC0D-\uDC26\uDC28-\uDC3A\uDC3C\uDC3D\uDC3F-\uDC4D\uDC50-\uDC5D\uDC80-\uDCFA\uDD40-\uDD74\uDE80-\uDE9C\uDEA0-\uDED0\uDF00-\uDF1F\uDF2D-\uDF4A\uDF50-\uDF75\uDF80-\uDF9D\uDFA0-\uDFC3\uDFC8-\uDFCF\uDFD1-\uDFD5]|\uD801[\uDC00-\uDC9D\uDCB0-\uDCD3\uDCD8-\uDCFB\uDD00-\uDD27\uDD30-\uDD63\uDE00-\uDF36\uDF40-\uDF55\uDF60-\uDF67]|\uD802[\uDC00-\uDC05\uDC08\uDC0A-\uDC35\uDC37\uDC38\uDC3C\uDC3F-\uDC55\uDC60-\uDC76\uDC80-\uDC9E\uDCE0-\uDCF2\uDCF4\uDCF5\uDD00-\uDD15\uDD20-\uDD39\uDD80-\uDDB7\uDDBE\uDDBF\uDE00\uDE10-\uDE13\uDE15-\uDE17\uDE19-\uDE33\uDE60-\uDE7C\uDE80-\uDE9C\uDEC0-\uDEC7\uDEC9-\uDEE4\uDF00-\uDF35\uDF40-\uDF55\uDF60-\uDF72\uDF80-\uDF91]|\uD803[\uDC00-\uDC48\uDC80-\uDCB2\uDCC0-\uDCF2]|\uD804[\uDC03-\uDC37\uDC83-\uDCAF\uDCD0-\uDCE8\uDD03-\uDD26\uDD50-\uDD72\uDD76\uDD83-\uDDB2\uDDC1-\uDDC4\uDDDA\uDDDC\uDE00-\uDE11\uDE13-\uDE2B\uDE80-\uDE86\uDE88\uDE8A-\uDE8D\uDE8F-\uDE9D\uDE9F-\uDEA8\uDEB0-\uDEDE\uDF05-\uDF0C\uDF0F\uDF10\uDF13-\uDF28\uDF2A-\uDF30\uDF32\uDF33\uDF35-\uDF39\uDF3D\uDF50\uDF5D-\uDF61]|\uD805[\uDC00-\uDC34\uDC47-\uDC4A\uDC80-\uDCAF\uDCC4\uDCC5\uDCC7\uDD80-\uDDAE\uDDD8-\uDDDB\uDE00-\uDE2F\uDE44\uDE80-\uDEAA\uDF00-\uDF19]|\uD806[\uDCA0-\uDCDF\uDCFF\uDE00\uDE0B-\uDE32\uDE3A\uDE50\uDE5C-\uDE83\uDE86-\uDE89\uDEC0-\uDEF8]|\uD807[\uDC00-\uDC08\uDC0A-\uDC2E\uDC40\uDC72-\uDC8F\uDD00-\uDD06\uDD08\uDD09\uDD0B-\uDD30\uDD46]|\uD808[\uDC00-\uDF99]|\uD809[\uDC00-\uDC6E\uDC80-\uDD43]|[\uD80C\uD81C-\uD820\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879][\uDC00-\uDFFF]|\uD80D[\uDC00-\uDC2E]|\uD811[\uDC00-\uDE46]|\uD81A[\uDC00-\uDE38\uDE40-\uDE5E\uDED0-\uDEED\uDF00-\uDF2F\uDF40-\uDF43\uDF63-\uDF77\uDF7D-\uDF8F]|\uD81B[\uDF00-\uDF44\uDF50\uDF93-\uDF9F\uDFE0\uDFE1]|\uD821[\uDC00-\uDFEC]|\uD822[\uDC00-\uDEF2]|\uD82C[\uDC00-\uDD1E\uDD70-\uDEFB]|\uD82F[\uDC00-\uDC6A\uDC70-\uDC7C\uDC80-\uDC88\uDC90-\uDC99]|\uD835[\uDC00-\uDC54\uDC56-\uDC9C\uDC9E\uDC9F\uDCA2\uDCA5\uDCA6\uDCA9-\uDCAC\uDCAE-\uDCB9\uDCBB\uDCBD-\uDCC3\uDCC5-\uDD05\uDD07-\uDD0A\uDD0D-\uDD14\uDD16-\uDD1C\uDD1E-\uDD39\uDD3B-\uDD3E\uDD40-\uDD44\uDD46\uDD4A-\uDD50\uDD52-\uDEA5\uDEA8-\uDEC0\uDEC2-\uDEDA\uDEDC-\uDEFA\uDEFC-\uDF14\uDF16-\uDF34\uDF36-\uDF4E\uDF50-\uDF6E\uDF70-\uDF88\uDF8A-\uDFA8\uDFAA-\uDFC2\uDFC4-\uDFCB]|\uD83A[\uDC00-\uDCC4\uDD00-\uDD43]|\uD83B[\uDE00-\uDE03\uDE05-\uDE1F\uDE21\uDE22\uDE24\uDE27\uDE29-\uDE32\uDE34-\uDE37\uDE39\uDE3B\uDE42\uDE47\uDE49\uDE4B\uDE4D-\uDE4F\uDE51\uDE52\uDE54\uDE57\uDE59\uDE5B\uDE5D\uDE5F\uDE61\uDE62\uDE64\uDE67-\uDE6A\uDE6C-\uDE72\uDE74-\uDE77\uDE79-\uDE7C\uDE7E\uDE80-\uDE89\uDE8B-\uDE9B\uDEA1-\uDEA3\uDEA5-\uDEA9\uDEAB-\uDEBB]|\uD869[\uDC00-\uDED6\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF34\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0]|\uD87E[\uDC00-\uDE1D]/;
+    	var ID_Continue = /[\xAA\xB5\xBA\xC0-\xD6\xD8-\xF6\xF8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0300-\u0374\u0376\u0377\u037A-\u037D\u037F\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5\u03F7-\u0481\u0483-\u0487\u048A-\u052F\u0531-\u0556\u0559\u0561-\u0587\u0591-\u05BD\u05BF\u05C1\u05C2\u05C4\u05C5\u05C7\u05D0-\u05EA\u05F0-\u05F2\u0610-\u061A\u0620-\u0669\u066E-\u06D3\u06D5-\u06DC\u06DF-\u06E8\u06EA-\u06FC\u06FF\u0710-\u074A\u074D-\u07B1\u07C0-\u07F5\u07FA\u0800-\u082D\u0840-\u085B\u0860-\u086A\u08A0-\u08B4\u08B6-\u08BD\u08D4-\u08E1\u08E3-\u0963\u0966-\u096F\u0971-\u0983\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2\u09B6-\u09B9\u09BC-\u09C4\u09C7\u09C8\u09CB-\u09CE\u09D7\u09DC\u09DD\u09DF-\u09E3\u09E6-\u09F1\u09FC\u0A01-\u0A03\u0A05-\u0A0A\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39\u0A3C\u0A3E-\u0A42\u0A47\u0A48\u0A4B-\u0A4D\u0A51\u0A59-\u0A5C\u0A5E\u0A66-\u0A75\u0A81-\u0A83\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABC-\u0AC5\u0AC7-\u0AC9\u0ACB-\u0ACD\u0AD0\u0AE0-\u0AE3\u0AE6-\u0AEF\u0AF9-\u0AFF\u0B01-\u0B03\u0B05-\u0B0C\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3C-\u0B44\u0B47\u0B48\u0B4B-\u0B4D\u0B56\u0B57\u0B5C\u0B5D\u0B5F-\u0B63\u0B66-\u0B6F\u0B71\u0B82\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BBE-\u0BC2\u0BC6-\u0BC8\u0BCA-\u0BCD\u0BD0\u0BD7\u0BE6-\u0BEF\u0C00-\u0C03\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C39\u0C3D-\u0C44\u0C46-\u0C48\u0C4A-\u0C4D\u0C55\u0C56\u0C58-\u0C5A\u0C60-\u0C63\u0C66-\u0C6F\u0C80-\u0C83\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3\u0CB5-\u0CB9\u0CBC-\u0CC4\u0CC6-\u0CC8\u0CCA-\u0CCD\u0CD5\u0CD6\u0CDE\u0CE0-\u0CE3\u0CE6-\u0CEF\u0CF1\u0CF2\u0D00-\u0D03\u0D05-\u0D0C\u0D0E-\u0D10\u0D12-\u0D44\u0D46-\u0D48\u0D4A-\u0D4E\u0D54-\u0D57\u0D5F-\u0D63\u0D66-\u0D6F\u0D7A-\u0D7F\u0D82\u0D83\u0D85-\u0D96\u0D9A-\u0DB1\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0DCA\u0DCF-\u0DD4\u0DD6\u0DD8-\u0DDF\u0DE6-\u0DEF\u0DF2\u0DF3\u0E01-\u0E3A\u0E40-\u0E4E\u0E50-\u0E59\u0E81\u0E82\u0E84\u0E87\u0E88\u0E8A\u0E8D\u0E94-\u0E97\u0E99-\u0E9F\u0EA1-\u0EA3\u0EA5\u0EA7\u0EAA\u0EAB\u0EAD-\u0EB9\u0EBB-\u0EBD\u0EC0-\u0EC4\u0EC6\u0EC8-\u0ECD\u0ED0-\u0ED9\u0EDC-\u0EDF\u0F00\u0F18\u0F19\u0F20-\u0F29\u0F35\u0F37\u0F39\u0F3E-\u0F47\u0F49-\u0F6C\u0F71-\u0F84\u0F86-\u0F97\u0F99-\u0FBC\u0FC6\u1000-\u1049\u1050-\u109D\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310\u1312-\u1315\u1318-\u135A\u135D-\u135F\u1380-\u138F\u13A0-\u13F5\u13F8-\u13FD\u1401-\u166C\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u16EE-\u16F8\u1700-\u170C\u170E-\u1714\u1720-\u1734\u1740-\u1753\u1760-\u176C\u176E-\u1770\u1772\u1773\u1780-\u17D3\u17D7\u17DC\u17DD\u17E0-\u17E9\u180B-\u180D\u1810-\u1819\u1820-\u1877\u1880-\u18AA\u18B0-\u18F5\u1900-\u191E\u1920-\u192B\u1930-\u193B\u1946-\u196D\u1970-\u1974\u1980-\u19AB\u19B0-\u19C9\u19D0-\u19D9\u1A00-\u1A1B\u1A20-\u1A5E\u1A60-\u1A7C\u1A7F-\u1A89\u1A90-\u1A99\u1AA7\u1AB0-\u1ABD\u1B00-\u1B4B\u1B50-\u1B59\u1B6B-\u1B73\u1B80-\u1BF3\u1C00-\u1C37\u1C40-\u1C49\u1C4D-\u1C7D\u1C80-\u1C88\u1CD0-\u1CD2\u1CD4-\u1CF9\u1D00-\u1DF9\u1DFB-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u203F\u2040\u2054\u2071\u207F\u2090-\u209C\u20D0-\u20DC\u20E1\u20E5-\u20F0\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2160-\u2188\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CF3\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D7F-\u2D96\u2DA0-\u2DA6\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE\u2DD0-\u2DD6\u2DD8-\u2DDE\u2DE0-\u2DFF\u2E2F\u3005-\u3007\u3021-\u302F\u3031-\u3035\u3038-\u303C\u3041-\u3096\u3099\u309A\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312E\u3131-\u318E\u31A0-\u31BA\u31F0-\u31FF\u3400-\u4DB5\u4E00-\u9FEA\uA000-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA62B\uA640-\uA66F\uA674-\uA67D\uA67F-\uA6F1\uA717-\uA71F\uA722-\uA788\uA78B-\uA7AE\uA7B0-\uA7B7\uA7F7-\uA827\uA840-\uA873\uA880-\uA8C5\uA8D0-\uA8D9\uA8E0-\uA8F7\uA8FB\uA8FD\uA900-\uA92D\uA930-\uA953\uA960-\uA97C\uA980-\uA9C0\uA9CF-\uA9D9\uA9E0-\uA9FE\uAA00-\uAA36\uAA40-\uAA4D\uAA50-\uAA59\uAA60-\uAA76\uAA7A-\uAAC2\uAADB-\uAADD\uAAE0-\uAAEF\uAAF2-\uAAF6\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E\uAB30-\uAB5A\uAB5C-\uAB65\uAB70-\uABEA\uABEC\uABED\uABF0-\uABF9\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D-\uFB28\uFB2A-\uFB36\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE00-\uFE0F\uFE20-\uFE2F\uFE33\uFE34\uFE4D-\uFE4F\uFE70-\uFE74\uFE76-\uFEFC\uFF10-\uFF19\uFF21-\uFF3A\uFF3F\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC]|\uD800[\uDC00-\uDC0B\uDC0D-\uDC26\uDC28-\uDC3A\uDC3C\uDC3D\uDC3F-\uDC4D\uDC50-\uDC5D\uDC80-\uDCFA\uDD40-\uDD74\uDDFD\uDE80-\uDE9C\uDEA0-\uDED0\uDEE0\uDF00-\uDF1F\uDF2D-\uDF4A\uDF50-\uDF7A\uDF80-\uDF9D\uDFA0-\uDFC3\uDFC8-\uDFCF\uDFD1-\uDFD5]|\uD801[\uDC00-\uDC9D\uDCA0-\uDCA9\uDCB0-\uDCD3\uDCD8-\uDCFB\uDD00-\uDD27\uDD30-\uDD63\uDE00-\uDF36\uDF40-\uDF55\uDF60-\uDF67]|\uD802[\uDC00-\uDC05\uDC08\uDC0A-\uDC35\uDC37\uDC38\uDC3C\uDC3F-\uDC55\uDC60-\uDC76\uDC80-\uDC9E\uDCE0-\uDCF2\uDCF4\uDCF5\uDD00-\uDD15\uDD20-\uDD39\uDD80-\uDDB7\uDDBE\uDDBF\uDE00-\uDE03\uDE05\uDE06\uDE0C-\uDE13\uDE15-\uDE17\uDE19-\uDE33\uDE38-\uDE3A\uDE3F\uDE60-\uDE7C\uDE80-\uDE9C\uDEC0-\uDEC7\uDEC9-\uDEE6\uDF00-\uDF35\uDF40-\uDF55\uDF60-\uDF72\uDF80-\uDF91]|\uD803[\uDC00-\uDC48\uDC80-\uDCB2\uDCC0-\uDCF2]|\uD804[\uDC00-\uDC46\uDC66-\uDC6F\uDC7F-\uDCBA\uDCD0-\uDCE8\uDCF0-\uDCF9\uDD00-\uDD34\uDD36-\uDD3F\uDD50-\uDD73\uDD76\uDD80-\uDDC4\uDDCA-\uDDCC\uDDD0-\uDDDA\uDDDC\uDE00-\uDE11\uDE13-\uDE37\uDE3E\uDE80-\uDE86\uDE88\uDE8A-\uDE8D\uDE8F-\uDE9D\uDE9F-\uDEA8\uDEB0-\uDEEA\uDEF0-\uDEF9\uDF00-\uDF03\uDF05-\uDF0C\uDF0F\uDF10\uDF13-\uDF28\uDF2A-\uDF30\uDF32\uDF33\uDF35-\uDF39\uDF3C-\uDF44\uDF47\uDF48\uDF4B-\uDF4D\uDF50\uDF57\uDF5D-\uDF63\uDF66-\uDF6C\uDF70-\uDF74]|\uD805[\uDC00-\uDC4A\uDC50-\uDC59\uDC80-\uDCC5\uDCC7\uDCD0-\uDCD9\uDD80-\uDDB5\uDDB8-\uDDC0\uDDD8-\uDDDD\uDE00-\uDE40\uDE44\uDE50-\uDE59\uDE80-\uDEB7\uDEC0-\uDEC9\uDF00-\uDF19\uDF1D-\uDF2B\uDF30-\uDF39]|\uD806[\uDCA0-\uDCE9\uDCFF\uDE00-\uDE3E\uDE47\uDE50-\uDE83\uDE86-\uDE99\uDEC0-\uDEF8]|\uD807[\uDC00-\uDC08\uDC0A-\uDC36\uDC38-\uDC40\uDC50-\uDC59\uDC72-\uDC8F\uDC92-\uDCA7\uDCA9-\uDCB6\uDD00-\uDD06\uDD08\uDD09\uDD0B-\uDD36\uDD3A\uDD3C\uDD3D\uDD3F-\uDD47\uDD50-\uDD59]|\uD808[\uDC00-\uDF99]|\uD809[\uDC00-\uDC6E\uDC80-\uDD43]|[\uD80C\uD81C-\uD820\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879][\uDC00-\uDFFF]|\uD80D[\uDC00-\uDC2E]|\uD811[\uDC00-\uDE46]|\uD81A[\uDC00-\uDE38\uDE40-\uDE5E\uDE60-\uDE69\uDED0-\uDEED\uDEF0-\uDEF4\uDF00-\uDF36\uDF40-\uDF43\uDF50-\uDF59\uDF63-\uDF77\uDF7D-\uDF8F]|\uD81B[\uDF00-\uDF44\uDF50-\uDF7E\uDF8F-\uDF9F\uDFE0\uDFE1]|\uD821[\uDC00-\uDFEC]|\uD822[\uDC00-\uDEF2]|\uD82C[\uDC00-\uDD1E\uDD70-\uDEFB]|\uD82F[\uDC00-\uDC6A\uDC70-\uDC7C\uDC80-\uDC88\uDC90-\uDC99\uDC9D\uDC9E]|\uD834[\uDD65-\uDD69\uDD6D-\uDD72\uDD7B-\uDD82\uDD85-\uDD8B\uDDAA-\uDDAD\uDE42-\uDE44]|\uD835[\uDC00-\uDC54\uDC56-\uDC9C\uDC9E\uDC9F\uDCA2\uDCA5\uDCA6\uDCA9-\uDCAC\uDCAE-\uDCB9\uDCBB\uDCBD-\uDCC3\uDCC5-\uDD05\uDD07-\uDD0A\uDD0D-\uDD14\uDD16-\uDD1C\uDD1E-\uDD39\uDD3B-\uDD3E\uDD40-\uDD44\uDD46\uDD4A-\uDD50\uDD52-\uDEA5\uDEA8-\uDEC0\uDEC2-\uDEDA\uDEDC-\uDEFA\uDEFC-\uDF14\uDF16-\uDF34\uDF36-\uDF4E\uDF50-\uDF6E\uDF70-\uDF88\uDF8A-\uDFA8\uDFAA-\uDFC2\uDFC4-\uDFCB\uDFCE-\uDFFF]|\uD836[\uDE00-\uDE36\uDE3B-\uDE6C\uDE75\uDE84\uDE9B-\uDE9F\uDEA1-\uDEAF]|\uD838[\uDC00-\uDC06\uDC08-\uDC18\uDC1B-\uDC21\uDC23\uDC24\uDC26-\uDC2A]|\uD83A[\uDC00-\uDCC4\uDCD0-\uDCD6\uDD00-\uDD4A\uDD50-\uDD59]|\uD83B[\uDE00-\uDE03\uDE05-\uDE1F\uDE21\uDE22\uDE24\uDE27\uDE29-\uDE32\uDE34-\uDE37\uDE39\uDE3B\uDE42\uDE47\uDE49\uDE4B\uDE4D-\uDE4F\uDE51\uDE52\uDE54\uDE57\uDE59\uDE5B\uDE5D\uDE5F\uDE61\uDE62\uDE64\uDE67-\uDE6A\uDE6C-\uDE72\uDE74-\uDE77\uDE79-\uDE7C\uDE7E\uDE80-\uDE89\uDE8B-\uDE9B\uDEA1-\uDEA3\uDEA5-\uDEA9\uDEAB-\uDEBB]|\uD869[\uDC00-\uDED6\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF34\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0]|\uD87E[\uDC00-\uDE1D]|\uDB40[\uDD00-\uDDEF]/;
+
+    	var unicode = {
+    		Space_Separator: Space_Separator,
+    		ID_Start: ID_Start,
+    		ID_Continue: ID_Continue
+    	};
+
+    	var util = {
+    	    isSpaceSeparator: function isSpaceSeparator (c) {
+    	        return typeof c === 'string' && unicode.Space_Separator.test(c)
+    	    },
+
+    	    isIdStartChar: function isIdStartChar (c) {
+    	        return typeof c === 'string' && (
+    	            (c >= 'a' && c <= 'z') ||
+    	        (c >= 'A' && c <= 'Z') ||
+    	        (c === '$') || (c === '_') ||
+    	        unicode.ID_Start.test(c)
+    	        )
+    	    },
+
+    	    isIdContinueChar: function isIdContinueChar (c) {
+    	        return typeof c === 'string' && (
+    	            (c >= 'a' && c <= 'z') ||
+    	        (c >= 'A' && c <= 'Z') ||
+    	        (c >= '0' && c <= '9') ||
+    	        (c === '$') || (c === '_') ||
+    	        (c === '\u200C') || (c === '\u200D') ||
+    	        unicode.ID_Continue.test(c)
+    	        )
+    	    },
+
+    	    isDigit: function isDigit (c) {
+    	        return typeof c === 'string' && /[0-9]/.test(c)
+    	    },
+
+    	    isHexDigit: function isHexDigit (c) {
+    	        return typeof c === 'string' && /[0-9A-Fa-f]/.test(c)
+    	    },
+    	};
+
+    	var source;
+    	var parseState;
+    	var stack;
+    	var pos;
+    	var line;
+    	var column;
+    	var token;
+    	var key;
+    	var root;
+
+    	var parse = function parse (text, reviver) {
+    	    source = String(text);
+    	    parseState = 'start';
+    	    stack = [];
+    	    pos = 0;
+    	    line = 1;
+    	    column = 0;
+    	    token = undefined;
+    	    key = undefined;
+    	    root = undefined;
+
+    	    do {
+    	        token = lex();
+
+    	        // This code is unreachable.
+    	        // if (!parseStates[parseState]) {
+    	        //     throw invalidParseState()
+    	        // }
+
+    	        parseStates[parseState]();
+    	    } while (token.type !== 'eof')
+
+    	    if (typeof reviver === 'function') {
+    	        return internalize({'': root}, '', reviver)
+    	    }
+
+    	    return root
+    	};
+
+    	function internalize (holder, name, reviver) {
+    	    var value = holder[name];
+    	    if (value != null && typeof value === 'object') {
+    	        for (var key in value) {
+    	            var replacement = internalize(value, key, reviver);
+    	            if (replacement === undefined) {
+    	                delete value[key];
+    	            } else {
+    	                value[key] = replacement;
+    	            }
+    	        }
+    	    }
+
+    	    return reviver.call(holder, name, value)
+    	}
+
+    	var lexState;
+    	var buffer;
+    	var doubleQuote;
+    	var sign;
+    	var c;
+
+    	function lex () {
+    	    lexState = 'default';
+    	    buffer = '';
+    	    doubleQuote = false;
+    	    sign = 1;
+
+    	    for (;;) {
+    	        c = peek();
+
+    	        // This code is unreachable.
+    	        // if (!lexStates[lexState]) {
+    	        //     throw invalidLexState(lexState)
+    	        // }
+
+    	        var token = lexStates[lexState]();
+    	        if (token) {
+    	            return token
+    	        }
+    	    }
+    	}
+
+    	function peek () {
+    	    if (source[pos]) {
+    	        return String.fromCodePoint(source.codePointAt(pos))
+    	    }
+    	}
+
+    	function read () {
+    	    var c = peek();
+
+    	    if (c === '\n') {
+    	        line++;
+    	        column = 0;
+    	    } else if (c) {
+    	        column += c.length;
+    	    } else {
+    	        column++;
+    	    }
+
+    	    if (c) {
+    	        pos += c.length;
+    	    }
+
+    	    return c
+    	}
+
+    	var lexStates = {
+    	    default: function default$1 () {
+    	        switch (c) {
+    	        case '\t':
+    	        case '\v':
+    	        case '\f':
+    	        case ' ':
+    	        case '\u00A0':
+    	        case '\uFEFF':
+    	        case '\n':
+    	        case '\r':
+    	        case '\u2028':
+    	        case '\u2029':
+    	            read();
+    	            return
+
+    	        case '/':
+    	            read();
+    	            lexState = 'comment';
+    	            return
+
+    	        case undefined:
+    	            read();
+    	            return newToken('eof')
+    	        }
+
+    	        if (util.isSpaceSeparator(c)) {
+    	            read();
+    	            return
+    	        }
+
+    	        // This code is unreachable.
+    	        // if (!lexStates[parseState]) {
+    	        //     throw invalidLexState(parseState)
+    	        // }
+
+    	        return lexStates[parseState]()
+    	    },
+
+    	    comment: function comment () {
+    	        switch (c) {
+    	        case '*':
+    	            read();
+    	            lexState = 'multiLineComment';
+    	            return
+
+    	        case '/':
+    	            read();
+    	            lexState = 'singleLineComment';
+    	            return
+    	        }
+
+    	        throw invalidChar(read())
+    	    },
+
+    	    multiLineComment: function multiLineComment () {
+    	        switch (c) {
+    	        case '*':
+    	            read();
+    	            lexState = 'multiLineCommentAsterisk';
+    	            return
+
+    	        case undefined:
+    	            throw invalidChar(read())
+    	        }
+
+    	        read();
+    	    },
+
+    	    multiLineCommentAsterisk: function multiLineCommentAsterisk () {
+    	        switch (c) {
+    	        case '*':
+    	            read();
+    	            return
+
+    	        case '/':
+    	            read();
+    	            lexState = 'default';
+    	            return
+
+    	        case undefined:
+    	            throw invalidChar(read())
+    	        }
+
+    	        read();
+    	        lexState = 'multiLineComment';
+    	    },
+
+    	    singleLineComment: function singleLineComment () {
+    	        switch (c) {
+    	        case '\n':
+    	        case '\r':
+    	        case '\u2028':
+    	        case '\u2029':
+    	            read();
+    	            lexState = 'default';
+    	            return
+
+    	        case undefined:
+    	            read();
+    	            return newToken('eof')
+    	        }
+
+    	        read();
+    	    },
+
+    	    value: function value () {
+    	        switch (c) {
+    	        case '{':
+    	        case '[':
+    	            return newToken('punctuator', read())
+
+    	        case 'n':
+    	            read();
+    	            literal('ull');
+    	            return newToken('null', null)
+
+    	        case 't':
+    	            read();
+    	            literal('rue');
+    	            return newToken('boolean', true)
+
+    	        case 'f':
+    	            read();
+    	            literal('alse');
+    	            return newToken('boolean', false)
+
+    	        case '-':
+    	        case '+':
+    	            if (read() === '-') {
+    	                sign = -1;
+    	            }
+
+    	            lexState = 'sign';
+    	            return
+
+    	        case '.':
+    	            buffer = read();
+    	            lexState = 'decimalPointLeading';
+    	            return
+
+    	        case '0':
+    	            buffer = read();
+    	            lexState = 'zero';
+    	            return
+
+    	        case '1':
+    	        case '2':
+    	        case '3':
+    	        case '4':
+    	        case '5':
+    	        case '6':
+    	        case '7':
+    	        case '8':
+    	        case '9':
+    	            buffer = read();
+    	            lexState = 'decimalInteger';
+    	            return
+
+    	        case 'I':
+    	            read();
+    	            literal('nfinity');
+    	            return newToken('numeric', Infinity)
+
+    	        case 'N':
+    	            read();
+    	            literal('aN');
+    	            return newToken('numeric', NaN)
+
+    	        case '"':
+    	        case "'":
+    	            doubleQuote = (read() === '"');
+    	            buffer = '';
+    	            lexState = 'string';
+    	            return
+    	        }
+
+    	        throw invalidChar(read())
+    	    },
+
+    	    identifierNameStartEscape: function identifierNameStartEscape () {
+    	        if (c !== 'u') {
+    	            throw invalidChar(read())
+    	        }
+
+    	        read();
+    	        var u = unicodeEscape();
+    	        switch (u) {
+    	        case '$':
+    	        case '_':
+    	            break
+
+    	        default:
+    	            if (!util.isIdStartChar(u)) {
+    	                throw invalidIdentifier()
+    	            }
+
+    	            break
+    	        }
+
+    	        buffer += u;
+    	        lexState = 'identifierName';
+    	    },
+
+    	    identifierName: function identifierName () {
+    	        switch (c) {
+    	        case '$':
+    	        case '_':
+    	        case '\u200C':
+    	        case '\u200D':
+    	            buffer += read();
+    	            return
+
+    	        case '\\':
+    	            read();
+    	            lexState = 'identifierNameEscape';
+    	            return
+    	        }
+
+    	        if (util.isIdContinueChar(c)) {
+    	            buffer += read();
+    	            return
+    	        }
+
+    	        return newToken('identifier', buffer)
+    	    },
+
+    	    identifierNameEscape: function identifierNameEscape () {
+    	        if (c !== 'u') {
+    	            throw invalidChar(read())
+    	        }
+
+    	        read();
+    	        var u = unicodeEscape();
+    	        switch (u) {
+    	        case '$':
+    	        case '_':
+    	        case '\u200C':
+    	        case '\u200D':
+    	            break
+
+    	        default:
+    	            if (!util.isIdContinueChar(u)) {
+    	                throw invalidIdentifier()
+    	            }
+
+    	            break
+    	        }
+
+    	        buffer += u;
+    	        lexState = 'identifierName';
+    	    },
+
+    	    sign: function sign$1 () {
+    	        switch (c) {
+    	        case '.':
+    	            buffer = read();
+    	            lexState = 'decimalPointLeading';
+    	            return
+
+    	        case '0':
+    	            buffer = read();
+    	            lexState = 'zero';
+    	            return
+
+    	        case '1':
+    	        case '2':
+    	        case '3':
+    	        case '4':
+    	        case '5':
+    	        case '6':
+    	        case '7':
+    	        case '8':
+    	        case '9':
+    	            buffer = read();
+    	            lexState = 'decimalInteger';
+    	            return
+
+    	        case 'I':
+    	            read();
+    	            literal('nfinity');
+    	            return newToken('numeric', sign * Infinity)
+
+    	        case 'N':
+    	            read();
+    	            literal('aN');
+    	            return newToken('numeric', NaN)
+    	        }
+
+    	        throw invalidChar(read())
+    	    },
+
+    	    zero: function zero () {
+    	        switch (c) {
+    	        case '.':
+    	            buffer += read();
+    	            lexState = 'decimalPoint';
+    	            return
+
+    	        case 'e':
+    	        case 'E':
+    	            buffer += read();
+    	            lexState = 'decimalExponent';
+    	            return
+
+    	        case 'x':
+    	        case 'X':
+    	            buffer += read();
+    	            lexState = 'hexadecimal';
+    	            return
+    	        }
+
+    	        return newToken('numeric', sign * 0)
+    	    },
+
+    	    decimalInteger: function decimalInteger () {
+    	        switch (c) {
+    	        case '.':
+    	            buffer += read();
+    	            lexState = 'decimalPoint';
+    	            return
+
+    	        case 'e':
+    	        case 'E':
+    	            buffer += read();
+    	            lexState = 'decimalExponent';
+    	            return
+    	        }
+
+    	        if (util.isDigit(c)) {
+    	            buffer += read();
+    	            return
+    	        }
+
+    	        return newToken('numeric', sign * Number(buffer))
+    	    },
+
+    	    decimalPointLeading: function decimalPointLeading () {
+    	        if (util.isDigit(c)) {
+    	            buffer += read();
+    	            lexState = 'decimalFraction';
+    	            return
+    	        }
+
+    	        throw invalidChar(read())
+    	    },
+
+    	    decimalPoint: function decimalPoint () {
+    	        switch (c) {
+    	        case 'e':
+    	        case 'E':
+    	            buffer += read();
+    	            lexState = 'decimalExponent';
+    	            return
+    	        }
+
+    	        if (util.isDigit(c)) {
+    	            buffer += read();
+    	            lexState = 'decimalFraction';
+    	            return
+    	        }
+
+    	        return newToken('numeric', sign * Number(buffer))
+    	    },
+
+    	    decimalFraction: function decimalFraction () {
+    	        switch (c) {
+    	        case 'e':
+    	        case 'E':
+    	            buffer += read();
+    	            lexState = 'decimalExponent';
+    	            return
+    	        }
+
+    	        if (util.isDigit(c)) {
+    	            buffer += read();
+    	            return
+    	        }
+
+    	        return newToken('numeric', sign * Number(buffer))
+    	    },
+
+    	    decimalExponent: function decimalExponent () {
+    	        switch (c) {
+    	        case '+':
+    	        case '-':
+    	            buffer += read();
+    	            lexState = 'decimalExponentSign';
+    	            return
+    	        }
+
+    	        if (util.isDigit(c)) {
+    	            buffer += read();
+    	            lexState = 'decimalExponentInteger';
+    	            return
+    	        }
+
+    	        throw invalidChar(read())
+    	    },
+
+    	    decimalExponentSign: function decimalExponentSign () {
+    	        if (util.isDigit(c)) {
+    	            buffer += read();
+    	            lexState = 'decimalExponentInteger';
+    	            return
+    	        }
+
+    	        throw invalidChar(read())
+    	    },
+
+    	    decimalExponentInteger: function decimalExponentInteger () {
+    	        if (util.isDigit(c)) {
+    	            buffer += read();
+    	            return
+    	        }
+
+    	        return newToken('numeric', sign * Number(buffer))
+    	    },
+
+    	    hexadecimal: function hexadecimal () {
+    	        if (util.isHexDigit(c)) {
+    	            buffer += read();
+    	            lexState = 'hexadecimalInteger';
+    	            return
+    	        }
+
+    	        throw invalidChar(read())
+    	    },
+
+    	    hexadecimalInteger: function hexadecimalInteger () {
+    	        if (util.isHexDigit(c)) {
+    	            buffer += read();
+    	            return
+    	        }
+
+    	        return newToken('numeric', sign * Number(buffer))
+    	    },
+
+    	    string: function string () {
+    	        switch (c) {
+    	        case '\\':
+    	            read();
+    	            buffer += escape();
+    	            return
+
+    	        case '"':
+    	            if (doubleQuote) {
+    	                read();
+    	                return newToken('string', buffer)
+    	            }
+
+    	            buffer += read();
+    	            return
+
+    	        case "'":
+    	            if (!doubleQuote) {
+    	                read();
+    	                return newToken('string', buffer)
+    	            }
+
+    	            buffer += read();
+    	            return
+
+    	        case '\n':
+    	        case '\r':
+    	            throw invalidChar(read())
+
+    	        case '\u2028':
+    	        case '\u2029':
+    	            separatorChar(c);
+    	            break
+
+    	        case undefined:
+    	            throw invalidChar(read())
+    	        }
+
+    	        buffer += read();
+    	    },
+
+    	    start: function start () {
+    	        switch (c) {
+    	        case '{':
+    	        case '[':
+    	            return newToken('punctuator', read())
+
+    	        // This code is unreachable since the default lexState handles eof.
+    	        // case undefined:
+    	        //     return newToken('eof')
+    	        }
+
+    	        lexState = 'value';
+    	    },
+
+    	    beforePropertyName: function beforePropertyName () {
+    	        switch (c) {
+    	        case '$':
+    	        case '_':
+    	            buffer = read();
+    	            lexState = 'identifierName';
+    	            return
+
+    	        case '\\':
+    	            read();
+    	            lexState = 'identifierNameStartEscape';
+    	            return
+
+    	        case '}':
+    	            return newToken('punctuator', read())
+
+    	        case '"':
+    	        case "'":
+    	            doubleQuote = (read() === '"');
+    	            lexState = 'string';
+    	            return
+    	        }
+
+    	        if (util.isIdStartChar(c)) {
+    	            buffer += read();
+    	            lexState = 'identifierName';
+    	            return
+    	        }
+
+    	        throw invalidChar(read())
+    	    },
+
+    	    afterPropertyName: function afterPropertyName () {
+    	        if (c === ':') {
+    	            return newToken('punctuator', read())
+    	        }
+
+    	        throw invalidChar(read())
+    	    },
+
+    	    beforePropertyValue: function beforePropertyValue () {
+    	        lexState = 'value';
+    	    },
+
+    	    afterPropertyValue: function afterPropertyValue () {
+    	        switch (c) {
+    	        case ',':
+    	        case '}':
+    	            return newToken('punctuator', read())
+    	        }
+
+    	        throw invalidChar(read())
+    	    },
+
+    	    beforeArrayValue: function beforeArrayValue () {
+    	        if (c === ']') {
+    	            return newToken('punctuator', read())
+    	        }
+
+    	        lexState = 'value';
+    	    },
+
+    	    afterArrayValue: function afterArrayValue () {
+    	        switch (c) {
+    	        case ',':
+    	        case ']':
+    	            return newToken('punctuator', read())
+    	        }
+
+    	        throw invalidChar(read())
+    	    },
+
+    	    end: function end () {
+    	        // This code is unreachable since it's handled by the default lexState.
+    	        // if (c === undefined) {
+    	        //     read()
+    	        //     return newToken('eof')
+    	        // }
+
+    	        throw invalidChar(read())
+    	    },
+    	};
+
+    	function newToken (type, value) {
+    	    return {
+    	        type: type,
+    	        value: value,
+    	        line: line,
+    	        column: column,
+    	    }
+    	}
+
+    	function literal (s) {
+    	    for (var i = 0, list = s; i < list.length; i += 1) {
+    	        var c = list[i];
+
+    	        var p = peek();
+
+    	        if (p !== c) {
+    	            throw invalidChar(read())
+    	        }
+
+    	        read();
+    	    }
+    	}
+
+    	function escape () {
+    	    var c = peek();
+    	    switch (c) {
+    	    case 'b':
+    	        read();
+    	        return '\b'
+
+    	    case 'f':
+    	        read();
+    	        return '\f'
+
+    	    case 'n':
+    	        read();
+    	        return '\n'
+
+    	    case 'r':
+    	        read();
+    	        return '\r'
+
+    	    case 't':
+    	        read();
+    	        return '\t'
+
+    	    case 'v':
+    	        read();
+    	        return '\v'
+
+    	    case '0':
+    	        read();
+    	        if (util.isDigit(peek())) {
+    	            throw invalidChar(read())
+    	        }
+
+    	        return '\0'
+
+    	    case 'x':
+    	        read();
+    	        return hexEscape()
+
+    	    case 'u':
+    	        read();
+    	        return unicodeEscape()
+
+    	    case '\n':
+    	    case '\u2028':
+    	    case '\u2029':
+    	        read();
+    	        return ''
+
+    	    case '\r':
+    	        read();
+    	        if (peek() === '\n') {
+    	            read();
+    	        }
+
+    	        return ''
+
+    	    case '1':
+    	    case '2':
+    	    case '3':
+    	    case '4':
+    	    case '5':
+    	    case '6':
+    	    case '7':
+    	    case '8':
+    	    case '9':
+    	        throw invalidChar(read())
+
+    	    case undefined:
+    	        throw invalidChar(read())
+    	    }
+
+    	    return read()
+    	}
+
+    	function hexEscape () {
+    	    var buffer = '';
+    	    var c = peek();
+
+    	    if (!util.isHexDigit(c)) {
+    	        throw invalidChar(read())
+    	    }
+
+    	    buffer += read();
+
+    	    c = peek();
+    	    if (!util.isHexDigit(c)) {
+    	        throw invalidChar(read())
+    	    }
+
+    	    buffer += read();
+
+    	    return String.fromCodePoint(parseInt(buffer, 16))
+    	}
+
+    	function unicodeEscape () {
+    	    var buffer = '';
+    	    var count = 4;
+
+    	    while (count-- > 0) {
+    	        var c = peek();
+    	        if (!util.isHexDigit(c)) {
+    	            throw invalidChar(read())
+    	        }
+
+    	        buffer += read();
+    	    }
+
+    	    return String.fromCodePoint(parseInt(buffer, 16))
+    	}
+
+    	var parseStates = {
+    	    start: function start () {
+    	        if (token.type === 'eof') {
+    	            throw invalidEOF()
+    	        }
+
+    	        push();
+    	    },
+
+    	    beforePropertyName: function beforePropertyName () {
+    	        switch (token.type) {
+    	        case 'identifier':
+    	        case 'string':
+    	            key = token.value;
+    	            parseState = 'afterPropertyName';
+    	            return
+
+    	        case 'punctuator':
+    	            // This code is unreachable since it's handled by the lexState.
+    	            // if (token.value !== '}') {
+    	            //     throw invalidToken()
+    	            // }
+
+    	            pop();
+    	            return
+
+    	        case 'eof':
+    	            throw invalidEOF()
+    	        }
+
+    	        // This code is unreachable since it's handled by the lexState.
+    	        // throw invalidToken()
+    	    },
+
+    	    afterPropertyName: function afterPropertyName () {
+    	        // This code is unreachable since it's handled by the lexState.
+    	        // if (token.type !== 'punctuator' || token.value !== ':') {
+    	        //     throw invalidToken()
+    	        // }
+
+    	        if (token.type === 'eof') {
+    	            throw invalidEOF()
+    	        }
+
+    	        parseState = 'beforePropertyValue';
+    	    },
+
+    	    beforePropertyValue: function beforePropertyValue () {
+    	        if (token.type === 'eof') {
+    	            throw invalidEOF()
+    	        }
+
+    	        push();
+    	    },
+
+    	    beforeArrayValue: function beforeArrayValue () {
+    	        if (token.type === 'eof') {
+    	            throw invalidEOF()
+    	        }
+
+    	        if (token.type === 'punctuator' && token.value === ']') {
+    	            pop();
+    	            return
+    	        }
+
+    	        push();
+    	    },
+
+    	    afterPropertyValue: function afterPropertyValue () {
+    	        // This code is unreachable since it's handled by the lexState.
+    	        // if (token.type !== 'punctuator') {
+    	        //     throw invalidToken()
+    	        // }
+
+    	        if (token.type === 'eof') {
+    	            throw invalidEOF()
+    	        }
+
+    	        switch (token.value) {
+    	        case ',':
+    	            parseState = 'beforePropertyName';
+    	            return
+
+    	        case '}':
+    	            pop();
+    	        }
+
+    	        // This code is unreachable since it's handled by the lexState.
+    	        // throw invalidToken()
+    	    },
+
+    	    afterArrayValue: function afterArrayValue () {
+    	        // This code is unreachable since it's handled by the lexState.
+    	        // if (token.type !== 'punctuator') {
+    	        //     throw invalidToken()
+    	        // }
+
+    	        if (token.type === 'eof') {
+    	            throw invalidEOF()
+    	        }
+
+    	        switch (token.value) {
+    	        case ',':
+    	            parseState = 'beforeArrayValue';
+    	            return
+
+    	        case ']':
+    	            pop();
+    	        }
+
+    	        // This code is unreachable since it's handled by the lexState.
+    	        // throw invalidToken()
+    	    },
+
+    	    end: function end () {
+    	        // This code is unreachable since it's handled by the lexState.
+    	        // if (token.type !== 'eof') {
+    	        //     throw invalidToken()
+    	        // }
+    	    },
+    	};
+
+    	function push () {
+    	    var value;
+
+    	    switch (token.type) {
+    	    case 'punctuator':
+    	        switch (token.value) {
+    	        case '{':
+    	            value = {};
+    	            break
+
+    	        case '[':
+    	            value = [];
+    	            break
+    	        }
+
+    	        break
+
+    	    case 'null':
+    	    case 'boolean':
+    	    case 'numeric':
+    	    case 'string':
+    	        value = token.value;
+    	        break
+
+    	    // This code is unreachable.
+    	    // default:
+    	    //     throw invalidToken()
+    	    }
+
+    	    if (root === undefined) {
+    	        root = value;
+    	    } else {
+    	        var parent = stack[stack.length - 1];
+    	        if (Array.isArray(parent)) {
+    	            parent.push(value);
+    	        } else {
+    	            parent[key] = value;
+    	        }
+    	    }
+
+    	    if (value !== null && typeof value === 'object') {
+    	        stack.push(value);
+
+    	        if (Array.isArray(value)) {
+    	            parseState = 'beforeArrayValue';
+    	        } else {
+    	            parseState = 'beforePropertyName';
+    	        }
+    	    } else {
+    	        var current = stack[stack.length - 1];
+    	        if (current == null) {
+    	            parseState = 'end';
+    	        } else if (Array.isArray(current)) {
+    	            parseState = 'afterArrayValue';
+    	        } else {
+    	            parseState = 'afterPropertyValue';
+    	        }
+    	    }
+    	}
+
+    	function pop () {
+    	    stack.pop();
+
+    	    var current = stack[stack.length - 1];
+    	    if (current == null) {
+    	        parseState = 'end';
+    	    } else if (Array.isArray(current)) {
+    	        parseState = 'afterArrayValue';
+    	    } else {
+    	        parseState = 'afterPropertyValue';
+    	    }
+    	}
+
+    	// This code is unreachable.
+    	// function invalidParseState () {
+    	//     return new Error(`JSON5: invalid parse state '${parseState}'`)
+    	// }
+
+    	// This code is unreachable.
+    	// function invalidLexState (state) {
+    	//     return new Error(`JSON5: invalid lex state '${state}'`)
+    	// }
+
+    	function invalidChar (c) {
+    	    if (c === undefined) {
+    	        return syntaxError(("JSON5: invalid end of input at " + line + ":" + column))
+    	    }
+
+    	    return syntaxError(("JSON5: invalid character '" + (formatChar(c)) + "' at " + line + ":" + column))
+    	}
+
+    	function invalidEOF () {
+    	    return syntaxError(("JSON5: invalid end of input at " + line + ":" + column))
+    	}
+
+    	// This code is unreachable.
+    	// function invalidToken () {
+    	//     if (token.type === 'eof') {
+    	//         return syntaxError(`JSON5: invalid end of input at ${line}:${column}`)
+    	//     }
+
+    	//     const c = String.fromCodePoint(token.value.codePointAt(0))
+    	//     return syntaxError(`JSON5: invalid character '${formatChar(c)}' at ${line}:${column}`)
+    	// }
+
+    	function invalidIdentifier () {
+    	    column -= 5;
+    	    return syntaxError(("JSON5: invalid identifier character at " + line + ":" + column))
+    	}
+
+    	function separatorChar (c) {
+    	    console.warn(("JSON5: '" + (formatChar(c)) + "' in strings is not valid ECMAScript; consider escaping"));
+    	}
+
+    	function formatChar (c) {
+    	    var replacements = {
+    	        "'": "\\'",
+    	        '"': '\\"',
+    	        '\\': '\\\\',
+    	        '\b': '\\b',
+    	        '\f': '\\f',
+    	        '\n': '\\n',
+    	        '\r': '\\r',
+    	        '\t': '\\t',
+    	        '\v': '\\v',
+    	        '\0': '\\0',
+    	        '\u2028': '\\u2028',
+    	        '\u2029': '\\u2029',
+    	    };
+
+    	    if (replacements[c]) {
+    	        return replacements[c]
+    	    }
+
+    	    if (c < ' ') {
+    	        var hexString = c.charCodeAt(0).toString(16);
+    	        return '\\x' + ('00' + hexString).substring(hexString.length)
+    	    }
+
+    	    return c
+    	}
+
+    	function syntaxError (message) {
+    	    var err = new SyntaxError(message);
+    	    err.lineNumber = line;
+    	    err.columnNumber = column;
+    	    return err
+    	}
+
+    	var stringify = function stringify (value, replacer, space) {
+    	    var stack = [];
+    	    var indent = '';
+    	    var propertyList;
+    	    var replacerFunc;
+    	    var gap = '';
+    	    var quote;
+
+    	    if (
+    	        replacer != null &&
+    	        typeof replacer === 'object' &&
+    	        !Array.isArray(replacer)
+    	    ) {
+    	        space = replacer.space;
+    	        quote = replacer.quote;
+    	        replacer = replacer.replacer;
+    	    }
+
+    	    if (typeof replacer === 'function') {
+    	        replacerFunc = replacer;
+    	    } else if (Array.isArray(replacer)) {
+    	        propertyList = [];
+    	        for (var i = 0, list = replacer; i < list.length; i += 1) {
+    	            var v = list[i];
+
+    	            var item = (void 0);
+
+    	            if (typeof v === 'string') {
+    	                item = v;
+    	            } else if (
+    	                typeof v === 'number' ||
+    	                v instanceof String ||
+    	                v instanceof Number
+    	            ) {
+    	                item = String(v);
+    	            }
+
+    	            if (item !== undefined && propertyList.indexOf(item) < 0) {
+    	                propertyList.push(item);
+    	            }
+    	        }
+    	    }
+
+    	    if (space instanceof Number) {
+    	        space = Number(space);
+    	    } else if (space instanceof String) {
+    	        space = String(space);
+    	    }
+
+    	    if (typeof space === 'number') {
+    	        if (space > 0) {
+    	            space = Math.min(10, Math.floor(space));
+    	            gap = '          '.substr(0, space);
+    	        }
+    	    } else if (typeof space === 'string') {
+    	        gap = space.substr(0, 10);
+    	    }
+
+    	    return serializeProperty('', {'': value})
+
+    	    function serializeProperty (key, holder) {
+    	        var value = holder[key];
+    	        if (value != null) {
+    	            if (typeof value.toJSON5 === 'function') {
+    	                value = value.toJSON5(key);
+    	            } else if (typeof value.toJSON === 'function') {
+    	                value = value.toJSON(key);
+    	            }
+    	        }
+
+    	        if (replacerFunc) {
+    	            value = replacerFunc.call(holder, key, value);
+    	        }
+
+    	        if (value instanceof Number) {
+    	            value = Number(value);
+    	        } else if (value instanceof String) {
+    	            value = String(value);
+    	        } else if (value instanceof Boolean) {
+    	            value = value.valueOf();
+    	        }
+
+    	        switch (value) {
+    	        case null: return 'null'
+    	        case true: return 'true'
+    	        case false: return 'false'
+    	        }
+
+    	        if (typeof value === 'string') {
+    	            return quoteString(value)
+    	        }
+
+    	        if (typeof value === 'number') {
+    	            return String(value)
+    	        }
+
+    	        if (typeof value === 'object') {
+    	            return Array.isArray(value) ? serializeArray(value) : serializeObject(value)
+    	        }
+
+    	        return undefined
+    	    }
+
+    	    function quoteString (value) {
+    	        var quotes = {
+    	            "'": 0.1,
+    	            '"': 0.2,
+    	        };
+
+    	        var replacements = {
+    	            "'": "\\'",
+    	            '"': '\\"',
+    	            '\\': '\\\\',
+    	            '\b': '\\b',
+    	            '\f': '\\f',
+    	            '\n': '\\n',
+    	            '\r': '\\r',
+    	            '\t': '\\t',
+    	            '\v': '\\v',
+    	            '\0': '\\0',
+    	            '\u2028': '\\u2028',
+    	            '\u2029': '\\u2029',
+    	        };
+
+    	        var product = '';
+
+    	        for (var i = 0; i < value.length; i++) {
+    	            var c = value[i];
+    	            switch (c) {
+    	            case "'":
+    	            case '"':
+    	                quotes[c]++;
+    	                product += c;
+    	                continue
+
+    	            case '\0':
+    	                if (util.isDigit(value[i + 1])) {
+    	                    product += '\\x00';
+    	                    continue
+    	                }
+    	            }
+
+    	            if (replacements[c]) {
+    	                product += replacements[c];
+    	                continue
+    	            }
+
+    	            if (c < ' ') {
+    	                var hexString = c.charCodeAt(0).toString(16);
+    	                product += '\\x' + ('00' + hexString).substring(hexString.length);
+    	                continue
+    	            }
+
+    	            product += c;
+    	        }
+
+    	        var quoteChar = quote || Object.keys(quotes).reduce(function (a, b) { return (quotes[a] < quotes[b]) ? a : b; });
+
+    	        product = product.replace(new RegExp(quoteChar, 'g'), replacements[quoteChar]);
+
+    	        return quoteChar + product + quoteChar
+    	    }
+
+    	    function serializeObject (value) {
+    	        if (stack.indexOf(value) >= 0) {
+    	            throw TypeError('Converting circular structure to JSON5')
+    	        }
+
+    	        stack.push(value);
+
+    	        var stepback = indent;
+    	        indent = indent + gap;
+
+    	        var keys = propertyList || Object.keys(value);
+    	        var partial = [];
+    	        for (var i = 0, list = keys; i < list.length; i += 1) {
+    	            var key = list[i];
+
+    	            var propertyString = serializeProperty(key, value);
+    	            if (propertyString !== undefined) {
+    	                var member = serializeKey(key) + ':';
+    	                if (gap !== '') {
+    	                    member += ' ';
+    	                }
+    	                member += propertyString;
+    	                partial.push(member);
+    	            }
+    	        }
+
+    	        var final;
+    	        if (partial.length === 0) {
+    	            final = '{}';
+    	        } else {
+    	            var properties;
+    	            if (gap === '') {
+    	                properties = partial.join(',');
+    	                final = '{' + properties + '}';
+    	            } else {
+    	                var separator = ',\n' + indent;
+    	                properties = partial.join(separator);
+    	                final = '{\n' + indent + properties + ',\n' + stepback + '}';
+    	            }
+    	        }
+
+    	        stack.pop();
+    	        indent = stepback;
+    	        return final
+    	    }
+
+    	    function serializeKey (key) {
+    	        if (key.length === 0) {
+    	            return quoteString(key)
+    	        }
+
+    	        var firstChar = String.fromCodePoint(key.codePointAt(0));
+    	        if (!util.isIdStartChar(firstChar)) {
+    	            return quoteString(key)
+    	        }
+
+    	        for (var i = firstChar.length; i < key.length; i++) {
+    	            if (!util.isIdContinueChar(String.fromCodePoint(key.codePointAt(i)))) {
+    	                return quoteString(key)
+    	            }
+    	        }
+
+    	        return key
+    	    }
+
+    	    function serializeArray (value) {
+    	        if (stack.indexOf(value) >= 0) {
+    	            throw TypeError('Converting circular structure to JSON5')
+    	        }
+
+    	        stack.push(value);
+
+    	        var stepback = indent;
+    	        indent = indent + gap;
+
+    	        var partial = [];
+    	        for (var i = 0; i < value.length; i++) {
+    	            var propertyString = serializeProperty(String(i), value);
+    	            partial.push((propertyString !== undefined) ? propertyString : 'null');
+    	        }
+
+    	        var final;
+    	        if (partial.length === 0) {
+    	            final = '[]';
+    	        } else {
+    	            if (gap === '') {
+    	                var properties = partial.join(',');
+    	                final = '[' + properties + ']';
+    	            } else {
+    	                var separator = ',\n' + indent;
+    	                var properties$1 = partial.join(separator);
+    	                final = '[\n' + indent + properties$1 + ',\n' + stepback + ']';
+    	            }
+    	        }
+
+    	        stack.pop();
+    	        indent = stepback;
+    	        return final
+    	    }
+    	};
+
+    	var JSON5 = {
+    	    parse: parse,
+    	    stringify: stringify,
+    	};
+
+    	var lib = JSON5;
+
+    	var es5 = lib;
+
+    	return es5;
+
+    })));
+    });
+
+    /*!
      *  decimal.js v10.4.2
      *  An arbitrary-precision Decimal type for JavaScript.
      *  https://github.com/MikeMcl/decimal.js
      *  Copyright (c) 2022 Michael Mclaughlin <M8ch88l@gmail.com>
      *  MIT Licence
-     */function et(e){var t,n,u,r=e.length-1,i="",o=e[0];if(r>0){for(i+=o,t=1;t<r;t++)(n=7-(u=e[t]+"").length)&&(i+=ft(n)),i+=u;(n=7-(u=(o=e[t])+"").length)&&(i+=ft(n))}else if(0===o)return"0";for(;o%10==0;)o/=10;return i+o}function tt(e,t,n){if(e!==~~e||e<t||e>n)throw Error(Te+e)}function nt(e,t,n,u){var r,i,o,s;for(i=e[0];i>=10;i/=10)--t;return--t<0?(t+=7,r=0):(r=Math.ceil((t+1)/7),t%=7),i=Ze(10,7-t),s=e[r]%i|0,null==u?t<3?(0==t?s=s/100|0:1==t&&(s=s/10|0),o=n<4&&99999==s||n>3&&49999==s||5e4==s||0==s):o=(n<4&&s+1==i||n>3&&s+1==i/2)&&(e[r+1]/i/100|0)==Ze(10,t-2)-1||(s==i/2||0==s)&&0==(e[r+1]/i/100|0):t<4?(0==t?s=s/1e3|0:1==t?s=s/100|0:2==t&&(s=s/10|0),o=(u||n<4)&&9999==s||!u&&n>3&&4999==s):o=((u||n<4)&&s+1==i||!u&&n>3&&s+1==i/2)&&(e[r+1]/i/1e3|0)==Ze(10,t-3)-1,o}function ut(e,t,n){for(var u,r,i=[0],o=0,s=e.length;o<s;){for(r=i.length;r--;)i[r]*=t;for(i[0]+=qe.indexOf(e.charAt(o++)),u=0;u<i.length;u++)i[u]>n-1&&(void 0===i[u+1]&&(i[u+1]=0),i[u+1]+=i[u]/n|0,i[u]%=n)}return i.reverse()}Ke.absoluteValue=Ke.abs=function(){var e=new this.constructor(this);return e.s<0&&(e.s=1),it(e)},Ke.ceil=function(){return it(new this.constructor(this),this.e+1,2)},Ke.clampedTo=Ke.clamp=function(e,t){var n=this,u=n.constructor;if(e=new u(e),t=new u(t),!e.s||!t.s)return new u(NaN);if(e.gt(t))throw Error(Te+t);return n.cmp(e)<0?e:n.cmp(t)>0?t:new u(n)},Ke.comparedTo=Ke.cmp=function(e){var t,n,u,r,i=this,o=i.d,s=(e=new i.constructor(e)).d,a=i.s,c=e.s;if(!o||!s)return a&&c?a!==c?a:o===s?0:!o^a<0?1:-1:NaN;if(!o[0]||!s[0])return o[0]?a:s[0]?-c:0;if(a!==c)return a;if(i.e!==e.e)return i.e>e.e^a<0?1:-1;for(t=0,n=(u=o.length)<(r=s.length)?u:r;t<n;++t)if(o[t]!==s[t])return o[t]>s[t]^a<0?1:-1;return u===r?0:u>r^a<0?1:-1},Ke.cosine=Ke.cos=function(){var e,t,n=this,u=n.constructor;return n.d?n.d[0]?(e=u.precision,t=u.rounding,u.precision=e+Math.max(n.e,n.sd())+7,u.rounding=1,n=function(e,t){var n,u,r;if(t.isZero())return t;(u=t.d.length)<32?r=(1/At(4,n=Math.ceil(u/3))).toString():(n=16,r="2.3283064365386962890625e-10");e.precision+=n,t=vt(e,1,t.times(r),new e(1));for(var i=n;i--;){var o=t.times(t);t=o.times(o).minus(o).times(8).plus(1)}return e.precision-=n,t}(u,Et(u,n)),u.precision=e,u.rounding=t,it(2==ke||3==ke?n.neg():n,e,t,!0)):new u(1):new u(NaN)},Ke.cubeRoot=Ke.cbrt=function(){var e,t,n,u,r,i,o,s,a,c,l=this,f=l.constructor;if(!l.isFinite()||l.isZero())return new f(l);for(Le=!1,(i=l.s*Ze(l.s*l,1/3))&&Math.abs(i)!=1/0?u=new f(i.toString()):(n=et(l.d),(i=((e=l.e)-n.length+1)%3)&&(n+=1==i||-2==i?"0":"00"),i=Ze(n,1/3),e=je((e+1)/3)-(e%3==(e<0?-1:2)),(u=new f(n=i==1/0?"5e"+e:(n=i.toExponential()).slice(0,n.indexOf("e")+1)+e)).s=l.s),o=(e=f.precision)+3;;)if(c=(a=(s=u).times(s).times(s)).plus(l),u=rt(c.plus(l).times(s),c.plus(a),o+2,1),et(s.d).slice(0,o)===(n=et(u.d)).slice(0,o)){if("9999"!=(n=n.slice(o-3,o+1))&&(r||"4999"!=n)){+n&&(+n.slice(1)||"5"!=n.charAt(0))||(it(u,e+1,1),t=!u.times(u).times(u).eq(l));break}if(!r&&(it(s,e+1,0),s.times(s).times(s).eq(l))){u=s;break}o+=4,r=1}return Le=!0,it(u,e,f.rounding,t)},Ke.decimalPlaces=Ke.dp=function(){var e,t=this.d,n=NaN;if(t){if(n=7*((e=t.length-1)-je(this.e/7)),e=t[e])for(;e%10==0;e/=10)n--;n<0&&(n=0)}return n},Ke.dividedBy=Ke.div=function(e){return rt(this,new this.constructor(e))},Ke.dividedToIntegerBy=Ke.divToInt=function(e){var t=this.constructor;return it(rt(this,new t(e),0,1,1),t.precision,t.rounding)},Ke.equals=Ke.eq=function(e){return 0===this.cmp(e)},Ke.floor=function(){return it(new this.constructor(this),this.e+1,3)},Ke.greaterThan=Ke.gt=function(e){return this.cmp(e)>0},Ke.greaterThanOrEqualTo=Ke.gte=function(e){var t=this.cmp(e);return 1==t||0===t},Ke.hyperbolicCosine=Ke.cosh=function(){var e,t,n,u,r,i=this,o=i.constructor,s=new o(1);if(!i.isFinite())return new o(i.s?1/0:NaN);if(i.isZero())return s;n=o.precision,u=o.rounding,o.precision=n+Math.max(i.e,i.sd())+4,o.rounding=1,(r=i.d.length)<32?t=(1/At(4,e=Math.ceil(r/3))).toString():(e=16,t="2.3283064365386962890625e-10"),i=vt(o,1,i.times(t),new o(1),!0);for(var a,c=e,l=new o(8);c--;)a=i.times(i),i=s.minus(a.times(l.minus(a.times(l))));return it(i,o.precision=n,o.rounding=u,!0)},Ke.hyperbolicSine=Ke.sinh=function(){var e,t,n,u,r=this,i=r.constructor;if(!r.isFinite()||r.isZero())return new i(r);if(t=i.precision,n=i.rounding,i.precision=t+Math.max(r.e,r.sd())+4,i.rounding=1,(u=r.d.length)<3)r=vt(i,2,r,r,!0);else{e=(e=1.4*Math.sqrt(u))>16?16:0|e,r=vt(i,2,r=r.times(1/At(5,e)),r,!0);for(var o,s=new i(5),a=new i(16),c=new i(20);e--;)o=r.times(r),r=r.times(s.plus(o.times(a.times(o).plus(c))))}return i.precision=t,i.rounding=n,it(r,t,n,!0)},Ke.hyperbolicTangent=Ke.tanh=function(){var e,t,n=this,u=n.constructor;return n.isFinite()?n.isZero()?new u(n):(e=u.precision,t=u.rounding,u.precision=e+7,u.rounding=1,rt(n.sinh(),n.cosh(),u.precision=e,u.rounding=t)):new u(n.s)},Ke.inverseCosine=Ke.acos=function(){var e,t=this,n=t.constructor,u=t.abs().cmp(1),r=n.precision,i=n.rounding;return-1!==u?0===u?t.isNeg()?ct(n,r,i):new n(0):new n(NaN):t.isZero()?ct(n,r+4,i).times(.5):(n.precision=r+6,n.rounding=1,t=t.asin(),e=ct(n,r+4,i).times(.5),n.precision=r,n.rounding=i,e.minus(t))},Ke.inverseHyperbolicCosine=Ke.acosh=function(){var e,t,n=this,u=n.constructor;return n.lte(1)?new u(n.eq(1)?0:NaN):n.isFinite()?(e=u.precision,t=u.rounding,u.precision=e+Math.max(Math.abs(n.e),n.sd())+4,u.rounding=1,Le=!1,n=n.times(n).minus(1).sqrt().plus(n),Le=!0,u.precision=e,u.rounding=t,n.ln()):new u(n)},Ke.inverseHyperbolicSine=Ke.asinh=function(){var e,t,n=this,u=n.constructor;return!n.isFinite()||n.isZero()?new u(n):(e=u.precision,t=u.rounding,u.precision=e+2*Math.max(Math.abs(n.e),n.sd())+6,u.rounding=1,Le=!1,n=n.times(n).plus(1).sqrt().plus(n),Le=!0,u.precision=e,u.rounding=t,n.ln())},Ke.inverseHyperbolicTangent=Ke.atanh=function(){var e,t,n,u,r=this,i=r.constructor;return r.isFinite()?r.e>=0?new i(r.abs().eq(1)?r.s/0:r.isZero()?r:NaN):(e=i.precision,t=i.rounding,u=r.sd(),Math.max(u,e)<2*-r.e-1?it(new i(r),e,t,!0):(i.precision=n=u-r.e,r=rt(r.plus(1),new i(1).minus(r),n+e,1),i.precision=e+4,i.rounding=1,r=r.ln(),i.precision=e,i.rounding=t,r.times(.5))):new i(NaN)},Ke.inverseSine=Ke.asin=function(){var e,t,n,u,r=this,i=r.constructor;return r.isZero()?new i(r):(t=r.abs().cmp(1),n=i.precision,u=i.rounding,-1!==t?0===t?((e=ct(i,n+4,u).times(.5)).s=r.s,e):new i(NaN):(i.precision=n+6,i.rounding=1,r=r.div(new i(1).minus(r.times(r)).sqrt().plus(1)).atan(),i.precision=n,i.rounding=u,r.times(2)))},Ke.inverseTangent=Ke.atan=function(){var e,t,n,u,r,i,o,s,a,c=this,l=c.constructor,f=l.precision,d=l.rounding;if(c.isFinite()){if(c.isZero())return new l(c);if(c.abs().eq(1)&&f+4<=Qe)return(o=ct(l,f+4,d).times(.25)).s=c.s,o}else{if(!c.s)return new l(NaN);if(f+4<=Qe)return(o=ct(l,f+4,d).times(.5)).s=c.s,o}for(l.precision=s=f+10,l.rounding=1,e=n=Math.min(28,s/7+2|0);e;--e)c=c.div(c.times(c).plus(1).sqrt().plus(1));for(Le=!1,t=Math.ceil(s/7),u=1,a=c.times(c),o=new l(c),r=c;-1!==e;)if(r=r.times(a),i=o.minus(r.div(u+=2)),r=r.times(a),void 0!==(o=i.plus(r.div(u+=2))).d[t])for(e=t;o.d[e]===i.d[e]&&e--;);return n&&(o=o.times(2<<n-1)),Le=!0,it(o,l.precision=f,l.rounding=d,!0)},Ke.isFinite=function(){return!!this.d},Ke.isInteger=Ke.isInt=function(){return!!this.d&&je(this.e/7)>this.d.length-2},Ke.isNaN=function(){return!this.s},Ke.isNegative=Ke.isNeg=function(){return this.s<0},Ke.isPositive=Ke.isPos=function(){return this.s>0},Ke.isZero=function(){return!!this.d&&0===this.d[0]},Ke.lessThan=Ke.lt=function(e){return this.cmp(e)<0},Ke.lessThanOrEqualTo=Ke.lte=function(e){return this.cmp(e)<1},Ke.logarithm=Ke.log=function(e){var t,n,u,r,i,o,s,a,c=this,l=c.constructor,f=l.precision,d=l.rounding;if(null==e)e=new l(10),t=!0;else{if(n=(e=new l(e)).d,e.s<0||!n||!n[0]||e.eq(1))return new l(NaN);t=e.eq(10)}if(n=c.d,c.s<0||!n||!n[0]||c.eq(1))return new l(n&&!n[0]?-1/0:1!=c.s?NaN:n?0:1/0);if(t)if(n.length>1)i=!0;else{for(r=n[0];r%10==0;)r/=10;i=1!==r}if(Le=!1,o=ht(c,s=f+5),u=t?at(l,s+10):ht(e,s),nt((a=rt(o,u,s,1)).d,r=f,d))do{if(o=ht(c,s+=10),u=t?at(l,s+10):ht(e,s),a=rt(o,u,s,1),!i){+et(a.d).slice(r+1,r+15)+1==1e14&&(a=it(a,f+1,0));break}}while(nt(a.d,r+=10,d));return Le=!0,it(a,f,d)},Ke.minus=Ke.sub=function(e){var t,n,u,r,i,o,s,a,c,l,f,d,D=this,p=D.constructor;if(e=new p(e),!D.d||!e.d)return D.s&&e.s?D.d?e.s=-e.s:e=new p(e.d||D.s!==e.s?D:NaN):e=new p(NaN),e;if(D.s!=e.s)return e.s=-e.s,D.plus(e);if(c=D.d,d=e.d,s=p.precision,a=p.rounding,!c[0]||!d[0]){if(d[0])e.s=-e.s;else{if(!c[0])return new p(3===a?-0:0);e=new p(D)}return Le?it(e,s,a):e}if(n=je(e.e/7),l=je(D.e/7),c=c.slice(),i=l-n){for((f=i<0)?(t=c,i=-i,o=d.length):(t=d,n=l,o=c.length),i>(u=Math.max(Math.ceil(s/7),o)+2)&&(i=u,t.length=1),t.reverse(),u=i;u--;)t.push(0);t.reverse()}else{for((f=(u=c.length)<(o=d.length))&&(o=u),u=0;u<o;u++)if(c[u]!=d[u]){f=c[u]<d[u];break}i=0}for(f&&(t=c,c=d,d=t,e.s=-e.s),o=c.length,u=d.length-o;u>0;--u)c[o++]=0;for(u=d.length;u>i;){if(c[--u]<d[u]){for(r=u;r&&0===c[--r];)c[r]=Ge-1;--c[r],c[u]+=Ge}c[u]-=d[u]}for(;0===c[--o];)c.pop();for(;0===c[0];c.shift())--n;return c[0]?(e.d=c,e.e=st(c,n),Le?it(e,s,a):e):new p(3===a?-0:0)},Ke.modulo=Ke.mod=function(e){var t,n=this,u=n.constructor;return e=new u(e),!n.d||!e.s||e.d&&!e.d[0]?new u(NaN):!e.d||n.d&&!n.d[0]?it(new u(n),u.precision,u.rounding):(Le=!1,9==u.modulo?(t=rt(n,e.abs(),0,3,1)).s*=e.s:t=rt(n,e,0,u.modulo,1),t=t.times(e),Le=!0,n.minus(t))},Ke.naturalExponential=Ke.exp=function(){return gt(this)},Ke.naturalLogarithm=Ke.ln=function(){return ht(this)},Ke.negated=Ke.neg=function(){var e=new this.constructor(this);return e.s=-e.s,it(e)},Ke.plus=Ke.add=function(e){var t,n,u,r,i,o,s,a,c,l,f=this,d=f.constructor;if(e=new d(e),!f.d||!e.d)return f.s&&e.s?f.d||(e=new d(e.d||f.s===e.s?f:NaN)):e=new d(NaN),e;if(f.s!=e.s)return e.s=-e.s,f.minus(e);if(c=f.d,l=e.d,s=d.precision,a=d.rounding,!c[0]||!l[0])return l[0]||(e=new d(f)),Le?it(e,s,a):e;if(i=je(f.e/7),u=je(e.e/7),c=c.slice(),r=i-u){for(r<0?(n=c,r=-r,o=l.length):(n=l,u=i,o=c.length),r>(o=(i=Math.ceil(s/7))>o?i+1:o+1)&&(r=o,n.length=1),n.reverse();r--;)n.push(0);n.reverse()}for((o=c.length)-(r=l.length)<0&&(r=o,n=l,l=c,c=n),t=0;r;)t=(c[--r]=c[r]+l[r]+t)/Ge|0,c[r]%=Ge;for(t&&(c.unshift(t),++u),o=c.length;0==c[--o];)c.pop();return e.d=c,e.e=st(c,u),Le?it(e,s,a):e},Ke.precision=Ke.sd=function(e){var t,n=this;if(void 0!==e&&e!==!!e&&1!==e&&0!==e)throw Error(Te+e);return n.d?(t=lt(n.d),e&&n.e+1>t&&(t=n.e+1)):t=NaN,t},Ke.round=function(){var e=this,t=e.constructor;return it(new t(e),e.e+1,t.rounding)},Ke.sine=Ke.sin=function(){var e,t,n=this,u=n.constructor;return n.isFinite()?n.isZero()?new u(n):(e=u.precision,t=u.rounding,u.precision=e+Math.max(n.e,n.sd())+7,u.rounding=1,n=function(e,t){var n,u=t.d.length;if(u<3)return t.isZero()?t:vt(e,2,t,t);n=(n=1.4*Math.sqrt(u))>16?16:0|n,t=t.times(1/At(5,n)),t=vt(e,2,t,t);for(var r,i=new e(5),o=new e(16),s=new e(20);n--;)r=t.times(t),t=t.times(i.plus(r.times(o.times(r).minus(s))));return t}(u,Et(u,n)),u.precision=e,u.rounding=t,it(ke>2?n.neg():n,e,t,!0)):new u(NaN)},Ke.squareRoot=Ke.sqrt=function(){var e,t,n,u,r,i,o=this,s=o.d,a=o.e,c=o.s,l=o.constructor;if(1!==c||!s||!s[0])return new l(!c||c<0&&(!s||s[0])?NaN:s?o:1/0);for(Le=!1,0==(c=Math.sqrt(+o))||c==1/0?(((t=et(s)).length+a)%2==0&&(t+="0"),c=Math.sqrt(t),a=je((a+1)/2)-(a<0||a%2),u=new l(t=c==1/0?"5e"+a:(t=c.toExponential()).slice(0,t.indexOf("e")+1)+a)):u=new l(c.toString()),n=(a=l.precision)+3;;)if(u=(i=u).plus(rt(o,i,n+2,1)).times(.5),et(i.d).slice(0,n)===(t=et(u.d)).slice(0,n)){if("9999"!=(t=t.slice(n-3,n+1))&&(r||"4999"!=t)){+t&&(+t.slice(1)||"5"!=t.charAt(0))||(it(u,a+1,1),e=!u.times(u).eq(o));break}if(!r&&(it(i,a+1,0),i.times(i).eq(o))){u=i;break}n+=4,r=1}return Le=!0,it(u,a,l.rounding,e)},Ke.tangent=Ke.tan=function(){var e,t,n=this,u=n.constructor;return n.isFinite()?n.isZero()?new u(n):(e=u.precision,t=u.rounding,u.precision=e+10,u.rounding=1,(n=n.sin()).s=1,n=rt(n,new u(1).minus(n.times(n)).sqrt(),e+10,0),u.precision=e,u.rounding=t,it(2==ke||4==ke?n.neg():n,e,t,!0)):new u(NaN)},Ke.times=Ke.mul=function(e){var t,n,u,r,i,o,s,a,c,l=this,f=l.constructor,d=l.d,D=(e=new f(e)).d;if(e.s*=l.s,!(d&&d[0]&&D&&D[0]))return new f(!e.s||d&&!d[0]&&!D||D&&!D[0]&&!d?NaN:d&&D?0*e.s:e.s/0);for(n=je(l.e/7)+je(e.e/7),(a=d.length)<(c=D.length)&&(i=d,d=D,D=i,o=a,a=c,c=o),i=[],u=o=a+c;u--;)i.push(0);for(u=c;--u>=0;){for(t=0,r=a+u;r>u;)s=i[r]+D[u]*d[r-u-1]+t,i[r--]=s%Ge|0,t=s/Ge|0;i[r]=(i[r]+t)%Ge|0}for(;!i[--o];)i.pop();return t?++n:i.shift(),e.d=i,e.e=st(i,n),Le?it(e,f.precision,f.rounding):e},Ke.toBinary=function(e,t){return $t(this,2,e,t)},Ke.toDecimalPlaces=Ke.toDP=function(e,t){var n=this,u=n.constructor;return n=new u(n),void 0===e?n:(tt(e,0,ze),void 0===t?t=u.rounding:tt(t,0,8),it(n,e+n.e+1,t))},Ke.toExponential=function(e,t){var n,u=this,r=u.constructor;return void 0===e?n=ot(u,!0):(tt(e,0,ze),void 0===t?t=r.rounding:tt(t,0,8),n=ot(u=it(new r(u),e+1,t),!0,e+1)),u.isNeg()&&!u.isZero()?"-"+n:n},Ke.toFixed=function(e,t){var n,u,r=this,i=r.constructor;return void 0===e?n=ot(r):(tt(e,0,ze),void 0===t?t=i.rounding:tt(t,0,8),n=ot(u=it(new i(r),e+r.e+1,t),!1,e+u.e+1)),r.isNeg()&&!r.isZero()?"-"+n:n},Ke.toFraction=function(e){var t,n,u,r,i,o,s,a,c,l,f,d,D=this,p=D.d,g=D.constructor;if(!p)return new g(D);if(c=n=new g(1),u=a=new g(0),o=(i=(t=new g(u)).e=lt(p)-D.e-1)%7,t.d[0]=Ze(10,o<0?7+o:o),null==e)e=i>0?t:c;else{if(!(s=new g(e)).isInt()||s.lt(c))throw Error(Te+s);e=s.gt(t)?i>0?t:c:s}for(Le=!1,s=new g(et(p)),l=g.precision,g.precision=i=7*p.length*2;f=rt(s,t,0,1,1),1!=(r=n.plus(f.times(u))).cmp(e);)n=u,u=r,r=c,c=a.plus(f.times(r)),a=r,r=t,t=s.minus(f.times(r)),s=r;return r=rt(e.minus(n),u,0,1,1),a=a.plus(r.times(c)),n=n.plus(r.times(u)),a.s=c.s=D.s,d=rt(c,u,i,1).minus(D).abs().cmp(rt(a,n,i,1).minus(D).abs())<1?[c,u]:[a,n],g.precision=l,Le=!0,d},Ke.toHexadecimal=Ke.toHex=function(e,t){return $t(this,16,e,t)},Ke.toNearest=function(e,t){var n=this,u=n.constructor;if(n=new u(n),null==e){if(!n.d)return n;e=new u(1),t=u.rounding}else{if(e=new u(e),void 0===t?t=u.rounding:tt(t,0,8),!n.d)return e.s?n:e;if(!e.d)return e.s&&(e.s=n.s),e}return e.d[0]?(Le=!1,n=rt(n,e,0,t,1).times(e),Le=!0,it(n)):(e.s=n.s,n=e),n},Ke.toNumber=function(){return+this},Ke.toOctal=function(e,t){return $t(this,8,e,t)},Ke.toPower=Ke.pow=function(e){var t,n,u,r,i,o,s=this,a=s.constructor,c=+(e=new a(e));if(!(s.d&&e.d&&s.d[0]&&e.d[0]))return new a(Ze(+s,c));if((s=new a(s)).eq(1))return s;if(u=a.precision,i=a.rounding,e.eq(1))return it(s,u,i);if((t=je(e.e/7))>=e.d.length-1&&(n=c<0?-c:c)<=9007199254740991)return r=dt(a,s,n,u),e.s<0?new a(1).div(r):it(r,u,i);if((o=s.s)<0){if(t<e.d.length-1)return new a(NaN);if(0==(1&e.d[t])&&(o=1),0==s.e&&1==s.d[0]&&1==s.d.length)return s.s=o,s}return(t=0!=(n=Ze(+s,c))&&isFinite(n)?new a(n+"").e:je(c*(Math.log("0."+et(s.d))/Math.LN10+s.e+1)))>a.maxE+1||t<a.minE-1?new a(t>0?o/0:0):(Le=!1,a.rounding=s.s=1,n=Math.min(12,(t+"").length),(r=gt(e.times(ht(s,u+n)),u)).d&&nt((r=it(r,u+5,1)).d,u,i)&&(t=u+10,+et((r=it(gt(e.times(ht(s,t+n)),t),t+5,1)).d).slice(u+1,u+15)+1==1e14&&(r=it(r,u+1,0))),r.s=o,Le=!0,a.rounding=i,it(r,u,i))},Ke.toPrecision=function(e,t){var n,u=this,r=u.constructor;return void 0===e?n=ot(u,u.e<=r.toExpNeg||u.e>=r.toExpPos):(tt(e,1,ze),void 0===t?t=r.rounding:tt(t,0,8),n=ot(u=it(new r(u),e,t),e<=u.e||u.e<=r.toExpNeg,e)),u.isNeg()&&!u.isZero()?"-"+n:n},Ke.toSignificantDigits=Ke.toSD=function(e,t){var n=this.constructor;return void 0===e?(e=n.precision,t=n.rounding):(tt(e,1,ze),void 0===t?t=n.rounding:tt(t,0,8)),it(new n(this),e,t)},Ke.toString=function(){var e=this,t=e.constructor,n=ot(e,e.e<=t.toExpNeg||e.e>=t.toExpPos);return e.isNeg()&&!e.isZero()?"-"+n:n},Ke.truncated=Ke.trunc=function(){return it(new this.constructor(this),this.e+1,1)},Ke.valueOf=Ke.toJSON=function(){var e=this,t=e.constructor,n=ot(e,e.e<=t.toExpNeg||e.e>=t.toExpPos);return e.isNeg()?"-"+n:n};var rt=function(){function e(e,t,n){var u,r=0,i=e.length;for(e=e.slice();i--;)u=e[i]*t+r,e[i]=u%n|0,r=u/n|0;return r&&e.unshift(r),e}function t(e,t,n,u){var r,i;if(n!=u)i=n>u?1:-1;else for(r=i=0;r<n;r++)if(e[r]!=t[r]){i=e[r]>t[r]?1:-1;break}return i}function n(e,t,n,u){for(var r=0;n--;)e[n]-=r,r=e[n]<t[n]?1:0,e[n]=r*u+e[n]-t[n];for(;!e[0]&&e.length>1;)e.shift()}return function(u,r,i,o,s,a){var c,l,f,d,D,p,g,h,m,F,C,v,A,E,$,w,y,b,x,B,N=u.constructor,k=u.s==r.s?1:-1,M=u.d,S=r.d;if(!(M&&M[0]&&S&&S[0]))return new N(u.s&&r.s&&(M?!S||M[0]!=S[0]:S)?M&&0==M[0]||!S?0*k:k/0:NaN);for(a?(D=1,l=u.e-r.e):(a=Ge,D=7,l=je(u.e/D)-je(r.e/D)),x=S.length,y=M.length,F=(m=new N(k)).d=[],f=0;S[f]==(M[f]||0);f++);if(S[f]>(M[f]||0)&&l--,null==i?(E=i=N.precision,o=N.rounding):E=s?i+(u.e-r.e)+1:i,E<0)F.push(1),p=!0;else{if(E=E/D+2|0,f=0,1==x){for(d=0,S=S[0],E++;(f<y||d)&&E--;f++)$=d*a+(M[f]||0),F[f]=$/S|0,d=$%S|0;p=d||f<y}else{for((d=a/(S[0]+1)|0)>1&&(S=e(S,d,a),M=e(M,d,a),x=S.length,y=M.length),w=x,v=(C=M.slice(0,x)).length;v<x;)C[v++]=0;(B=S.slice()).unshift(0),b=S[0],S[1]>=a/2&&++b;do{d=0,(c=t(S,C,x,v))<0?(A=C[0],x!=v&&(A=A*a+(C[1]||0)),(d=A/b|0)>1?(d>=a&&(d=a-1),1==(c=t(g=e(S,d,a),C,h=g.length,v=C.length))&&(d--,n(g,x<h?B:S,h,a))):(0==d&&(c=d=1),g=S.slice()),(h=g.length)<v&&g.unshift(0),n(C,g,v,a),-1==c&&(c=t(S,C,x,v=C.length))<1&&(d++,n(C,x<v?B:S,v,a)),v=C.length):0===c&&(d++,C=[0]),F[f++]=d,c&&C[0]?C[v++]=M[w]||0:(C=[M[w]],v=1)}while((w++<y||void 0!==C[0])&&E--);p=void 0!==C[0]}F[0]||F.shift()}if(1==D)m.e=l,Ne=p;else{for(f=1,d=F[0];d>=10;d/=10)f++;m.e=f+l*D-1,it(m,s?i+m.e+1:i,o,p)}return m}}();function it(e,t,n,u){var r,i,o,s,a,c,l,f,d,D=e.constructor;e:if(null!=t){if(!(f=e.d))return e;for(r=1,s=f[0];s>=10;s/=10)r++;if((i=t-r)<0)i+=7,o=t,a=(l=f[d=0])/Ze(10,r-o-1)%10|0;else if((d=Math.ceil((i+1)/7))>=(s=f.length)){if(!u)break e;for(;s++<=d;)f.push(0);l=a=0,r=1,o=(i%=7)-7+1}else{for(l=s=f[d],r=1;s>=10;s/=10)r++;a=(o=(i%=7)-7+r)<0?0:l/Ze(10,r-o-1)%10|0}if(u=u||t<0||void 0!==f[d+1]||(o<0?l:l%Ze(10,r-o-1)),c=n<4?(a||u)&&(0==n||n==(e.s<0?3:2)):a>5||5==a&&(4==n||u||6==n&&(i>0?o>0?l/Ze(10,r-o):0:f[d-1])%10&1||n==(e.s<0?8:7)),t<1||!f[0])return f.length=0,c?(t-=e.e+1,f[0]=Ze(10,(7-t%7)%7),e.e=-t||0):f[0]=e.e=0,e;if(0==i?(f.length=d,s=1,d--):(f.length=d+1,s=Ze(10,7-i),f[d]=o>0?(l/Ze(10,r-o)%Ze(10,o)|0)*s:0),c)for(;;){if(0==d){for(i=1,o=f[0];o>=10;o/=10)i++;for(o=f[0]+=s,s=1;o>=10;o/=10)s++;i!=s&&(e.e++,f[0]==Ge&&(f[0]=1));break}if(f[d]+=s,f[d]!=Ge)break;f[d--]=0,s=1}for(i=f.length;0===f[--i];)f.pop()}return Le&&(e.e>D.maxE?(e.d=null,e.e=NaN):e.e<D.minE&&(e.e=0,e.d=[0])),e}function ot(e,t,n){if(!e.isFinite())return mt(e);var u,r=e.e,i=et(e.d),o=i.length;return t?(n&&(u=n-o)>0?i=i.charAt(0)+"."+i.slice(1)+ft(u):o>1&&(i=i.charAt(0)+"."+i.slice(1)),i=i+(e.e<0?"e":"e+")+e.e):r<0?(i="0."+ft(-r-1)+i,n&&(u=n-o)>0&&(i+=ft(u))):r>=o?(i+=ft(r+1-o),n&&(u=n-r-1)>0&&(i=i+"."+ft(u))):((u=r+1)<o&&(i=i.slice(0,u)+"."+i.slice(u)),n&&(u=n-o)>0&&(r+1===o&&(i+="."),i+=ft(u))),i}function st(e,t){var n=e[0];for(t*=7;n>=10;n/=10)t++;return t}function at(e,t,n){if(t>Ye)throw Le=!0,n&&(e.precision=n),Error(He);return it(new e(Oe),t,1,!0)}function ct(e,t,n){if(t>Qe)throw Error(He);return it(new e(Ie),t,n,!0)}function lt(e){var t=e.length-1,n=7*t+1;if(t=e[t]){for(;t%10==0;t/=10)n--;for(t=e[0];t>=10;t/=10)n++}return n}function ft(e){for(var t="";e--;)t+="0";return t}function dt(e,t,n,u){var r,i=new e(1),o=Math.ceil(u/7+4);for(Le=!1;;){if(n%2&&wt((i=i.times(t)).d,o)&&(r=!0),0===(n=je(n/2))){n=i.d.length-1,r&&0===i.d[n]&&++i.d[n];break}wt((t=t.times(t)).d,o)}return Le=!0,i}function Dt(e){return 1&e.d[e.d.length-1]}function pt(e,t,n){for(var u,r=new e(t[0]),i=0;++i<t.length;){if(!(u=new e(t[i])).s){r=u;break}r[n](u)&&(r=u)}return r}function gt(e,t){var n,u,r,i,o,s,a,c=0,l=0,f=0,d=e.constructor,D=d.rounding,p=d.precision;if(!e.d||!e.d[0]||e.e>17)return new d(e.d?e.d[0]?e.s<0?0:1/0:1:e.s?e.s<0?0:e:NaN);for(null==t?(Le=!1,a=p):a=t,s=new d(.03125);e.e>-2;)e=e.times(s),f+=5;for(a+=u=Math.log(Ze(2,f))/Math.LN10*2+5|0,n=i=o=new d(1),d.precision=a;;){if(i=it(i.times(e),a,1),n=n.times(++l),et((s=o.plus(rt(i,n,a,1))).d).slice(0,a)===et(o.d).slice(0,a)){for(r=f;r--;)o=it(o.times(o),a,1);if(null!=t)return d.precision=p,o;if(!(c<3&&nt(o.d,a-u,D,c)))return it(o,d.precision=p,D,Le=!0);d.precision=a+=10,n=i=s=new d(1),l=0,c++}o=s}}function ht(e,t){var n,u,r,i,o,s,a,c,l,f,d,D=1,p=e,g=p.d,h=p.constructor,m=h.rounding,F=h.precision;if(p.s<0||!g||!g[0]||!p.e&&1==g[0]&&1==g.length)return new h(g&&!g[0]?-1/0:1!=p.s?NaN:g?0:p);if(null==t?(Le=!1,l=F):l=t,h.precision=l+=10,u=(n=et(g)).charAt(0),!(Math.abs(i=p.e)<15e14))return c=at(h,l+2,F).times(i+""),p=ht(new h(u+"."+n.slice(1)),l-10).plus(c),h.precision=F,null==t?it(p,F,m,Le=!0):p;for(;u<7&&1!=u||1==u&&n.charAt(1)>3;)u=(n=et((p=p.times(e)).d)).charAt(0),D++;for(i=p.e,u>1?(p=new h("0."+n),i++):p=new h(u+"."+n.slice(1)),f=p,a=o=p=rt(p.minus(1),p.plus(1),l,1),d=it(p.times(p),l,1),r=3;;){if(o=it(o.times(d),l,1),et((c=a.plus(rt(o,new h(r),l,1))).d).slice(0,l)===et(a.d).slice(0,l)){if(a=a.times(2),0!==i&&(a=a.plus(at(h,l+2,F).times(i+""))),a=rt(a,new h(D),l,1),null!=t)return h.precision=F,a;if(!nt(a.d,l-10,m,s))return it(a,h.precision=F,m,Le=!0);h.precision=l+=10,c=o=p=rt(f.minus(1),f.plus(1),l,1),d=it(p.times(p),l,1),r=s=1}a=c,r+=2}}function mt(e){return String(e.s*e.s/0)}function Ft(e,t){var n,u,r;for((n=t.indexOf("."))>-1&&(t=t.replace(".","")),(u=t.search(/e/i))>0?(n<0&&(n=u),n+=+t.slice(u+1),t=t.substring(0,u)):n<0&&(n=t.length),u=0;48===t.charCodeAt(u);u++);for(r=t.length;48===t.charCodeAt(r-1);--r);if(t=t.slice(u,r)){if(r-=u,e.e=n=n-u-1,e.d=[],u=(n+1)%7,n<0&&(u+=7),u<r){for(u&&e.d.push(+t.slice(0,u)),r-=7;u<r;)e.d.push(+t.slice(u,u+=7));u=7-(t=t.slice(u)).length}else u-=r;for(;u--;)t+="0";e.d.push(+t),Le&&(e.e>e.constructor.maxE?(e.d=null,e.e=NaN):e.e<e.constructor.minE&&(e.e=0,e.d=[0]))}else e.e=0,e.d=[0];return e}function Ct(e,t){var n,u,r,i,o,s,a,c,l;if(t.indexOf("_")>-1){if(t=t.replace(/(\d)_(?=\d)/g,"$1"),Xe.test(t))return Ft(e,t)}else if("Infinity"===t||"NaN"===t)return+t||(e.s=NaN),e.e=NaN,e.d=null,e;if(Je.test(t))n=16,t=t.toLowerCase();else if(Ue.test(t))n=2;else{if(!We.test(t))throw Error(Te+t);n=8}for((i=t.search(/p/i))>0?(a=+t.slice(i+1),t=t.substring(2,i)):t=t.slice(2),o=(i=t.indexOf("."))>=0,u=e.constructor,o&&(i=(s=(t=t.replace(".","")).length)-i,r=dt(u,new u(n),i,2*i)),i=l=(c=ut(t,n,Ge)).length-1;0===c[i];--i)c.pop();return i<0?new u(0*e.s):(e.e=st(c,l),e.d=c,Le=!1,o&&(e=rt(e,r,4*s)),a&&(e=e.times(Math.abs(a)<54?Ze(2,a):dn.pow(2,a))),Le=!0,e)}function vt(e,t,n,u,r){var i,o,s,a,c=e.precision,l=Math.ceil(c/7);for(Le=!1,a=n.times(n),s=new e(u);;){if(o=rt(s.times(a),new e(t++*t++),c,1),s=r?u.plus(o):u.minus(o),u=rt(o.times(a),new e(t++*t++),c,1),void 0!==(o=s.plus(u)).d[l]){for(i=l;o.d[i]===s.d[i]&&i--;);if(-1==i)break}i=s,s=u,u=o,o=i}return Le=!0,o.d.length=l+1,o}function At(e,t){for(var n=e;--t;)n*=e;return n}function Et(e,t){var n,u=t.s<0,r=ct(e,e.precision,1),i=r.times(.5);if((t=t.abs()).lte(i))return ke=u?4:1,t;if((n=t.divToInt(r)).isZero())ke=u?3:2;else{if((t=t.minus(n.times(r))).lte(i))return ke=Dt(n)?u?2:3:u?4:1,t;ke=Dt(n)?u?1:4:u?3:2}return t.minus(r).abs()}function $t(e,t,n,u){var r,i,o,s,a,c,l,f,d,D=e.constructor,p=void 0!==n;if(p?(tt(n,1,ze),void 0===u?u=D.rounding:tt(u,0,8)):(n=D.precision,u=D.rounding),e.isFinite()){for(p?(r=2,16==t?n=4*n-3:8==t&&(n=3*n-2)):r=t,(o=(l=ot(e)).indexOf("."))>=0&&(l=l.replace(".",""),(d=new D(1)).e=l.length-o,d.d=ut(ot(d),10,r),d.e=d.d.length),i=a=(f=ut(l,10,r)).length;0==f[--a];)f.pop();if(f[0]){if(o<0?i--:((e=new D(e)).d=f,e.e=i,f=(e=rt(e,d,n,u,0,r)).d,i=e.e,c=Ne),o=f[n],s=r/2,c=c||void 0!==f[n+1],c=u<4?(void 0!==o||c)&&(0===u||u===(e.s<0?3:2)):o>s||o===s&&(4===u||c||6===u&&1&f[n-1]||u===(e.s<0?8:7)),f.length=n,c)for(;++f[--n]>r-1;)f[n]=0,n||(++i,f.unshift(1));for(a=f.length;!f[a-1];--a);for(o=0,l="";o<a;o++)l+=qe.charAt(f[o]);if(p){if(a>1)if(16==t||8==t){for(o=16==t?4:3,--a;a%o;a++)l+="0";for(a=(f=ut(l,r,t)).length;!f[a-1];--a);for(o=1,l="1.";o<a;o++)l+=qe.charAt(f[o])}else l=l.charAt(0)+"."+l.slice(1);l=l+(i<0?"p":"p+")+i}else if(i<0){for(;++i;)l="0"+l;l="0."+l}else if(++i>a)for(i-=a;i--;)l+="0";else i<a&&(l=l.slice(0,i)+"."+l.slice(i))}else l=p?"0p+0":"0";l=(16==t?"0x":2==t?"0b":8==t?"0o":"")+l}else l=mt(e);return e.s<0?"-"+l:l}function wt(e,t){if(e.length>t)return e.length=t,!0}function yt(e){return new this(e).abs()}function bt(e){return new this(e).acos()}function xt(e){return new this(e).acosh()}function Bt(e,t){return new this(e).plus(t)}function Nt(e){return new this(e).asin()}function kt(e){return new this(e).asinh()}function Mt(e){return new this(e).atan()}function St(e){return new this(e).atanh()}function zt(e,t){e=new this(e),t=new this(t);var n,u=this.precision,r=this.rounding,i=u+4;return e.s&&t.s?e.d||t.d?!t.d||e.isZero()?(n=t.s<0?ct(this,u,r):new this(0)).s=e.s:!e.d||t.isZero()?(n=ct(this,i,1).times(.5)).s=e.s:t.s<0?(this.precision=i,this.rounding=1,n=this.atan(rt(e,t,i,1)),t=ct(this,i,1),this.precision=u,this.rounding=r,n=e.s<0?n.minus(t):n.plus(t)):n=this.atan(rt(e,t,i,1)):(n=ct(this,i,1).times(t.s>0?.25:.75)).s=e.s:n=new this(NaN),n}function qt(e){return new this(e).cbrt()}function Ot(e){return it(e=new this(e),e.e+1,2)}function It(e,t,n){return new this(e).clamp(t,n)}function Pt(e){if(!e||"object"!=typeof e)throw Error(_e+"Object expected");var t,n,u,r=!0===e.defaults,i=["precision",1,ze,"rounding",0,8,"toExpNeg",-Se,0,"toExpPos",0,Se,"maxE",0,Se,"minE",-Se,0,"modulo",0,9];for(t=0;t<i.length;t+=3)if(n=i[t],r&&(this[n]=Pe[n]),void 0!==(u=e[n])){if(!(je(u)===u&&u>=i[t+1]&&u<=i[t+2]))throw Error(Te+n+": "+u);this[n]=u}if(n="crypto",r&&(this[n]=Pe[n]),void 0!==(u=e[n])){if(!0!==u&&!1!==u&&0!==u&&1!==u)throw Error(Te+n+": "+u);if(u){if("undefined"==typeof crypto||!crypto||!crypto.getRandomValues&&!crypto.randomBytes)throw Error(Ve);this[n]=!0}else this[n]=!1}return this}function Lt(e){return new this(e).cos()}function _t(e){return new this(e).cosh()}function Tt(e,t){return new this(e).div(t)}function Ht(e){return new this(e).exp()}function Vt(e){return it(e=new this(e),e.e+1,3)}function Rt(){var e,t,n=new this(0);for(Le=!1,e=0;e<arguments.length;)if((t=new this(arguments[e++])).d)n.d&&(n=n.plus(t.times(t)));else{if(t.s)return Le=!0,new this(1/0);n=t}return Le=!0,n.sqrt()}function jt(e){return e instanceof dn||e&&e.toStringTag===Re||!1}function Zt(e){return new this(e).ln()}function Ut(e,t){return new this(e).log(t)}function Jt(e){return new this(e).log(2)}function Wt(e){return new this(e).log(10)}function Xt(){return pt(this,arguments,"lt")}function Gt(){return pt(this,arguments,"gt")}function Yt(e,t){return new this(e).mod(t)}function Qt(e,t){return new this(e).mul(t)}function Kt(e,t){return new this(e).pow(t)}function en(e){var t,n,u,r,i=0,o=new this(1),s=[];if(void 0===e?e=this.precision:tt(e,1,ze),u=Math.ceil(e/7),this.crypto)if(crypto.getRandomValues)for(t=crypto.getRandomValues(new Uint32Array(u));i<u;)(r=t[i])>=429e7?t[i]=crypto.getRandomValues(new Uint32Array(1))[0]:s[i++]=r%1e7;else{if(!crypto.randomBytes)throw Error(Ve);for(t=crypto.randomBytes(u*=4);i<u;)(r=t[i]+(t[i+1]<<8)+(t[i+2]<<16)+((127&t[i+3])<<24))>=214e7?crypto.randomBytes(4).copy(t,i):(s.push(r%1e7),i+=4);i=u/4}else for(;i<u;)s[i++]=1e7*Math.random()|0;for(e%=7,(u=s[--i])&&e&&(r=Ze(10,7-e),s[i]=(u/r|0)*r);0===s[i];i--)s.pop();if(i<0)n=0,s=[0];else{for(n=-1;0===s[0];n-=7)s.shift();for(u=1,r=s[0];r>=10;r/=10)u++;u<7&&(n-=7-u)}return o.e=n,o.d=s,o}function tn(e){return it(e=new this(e),e.e+1,this.rounding)}function nn(e){return(e=new this(e)).d?e.d[0]?e.s:0*e.s:e.s||NaN}function un(e){return new this(e).sin()}function rn(e){return new this(e).sinh()}function on(e){return new this(e).sqrt()}function sn(e,t){return new this(e).sub(t)}function an(){var e=0,t=arguments,n=new this(t[e]);for(Le=!1;n.s&&++e<t.length;)n=n.plus(t[e]);return Le=!0,it(n,this.precision,this.rounding)}function cn(e){return new this(e).tan()}function ln(e){return new this(e).tanh()}function fn(e){return it(e=new this(e),e.e+1,1)}Ke[Symbol.for("nodejs.util.inspect.custom")]=Ke.toString,Ke[Symbol.toStringTag]="Decimal";var dn=Ke.constructor=function e(t){var n,u,r;function i(e){var t,n,u,r=this;if(!(r instanceof i))return new i(e);if(r.constructor=i,jt(e))return r.s=e.s,void(Le?!e.d||e.e>i.maxE?(r.e=NaN,r.d=null):e.e<i.minE?(r.e=0,r.d=[0]):(r.e=e.e,r.d=e.d.slice()):(r.e=e.e,r.d=e.d?e.d.slice():e.d));if("number"===(u=typeof e)){if(0===e)return r.s=1/e<0?-1:1,r.e=0,void(r.d=[0]);if(e<0?(e=-e,r.s=-1):r.s=1,e===~~e&&e<1e7){for(t=0,n=e;n>=10;n/=10)t++;return void(Le?t>i.maxE?(r.e=NaN,r.d=null):t<i.minE?(r.e=0,r.d=[0]):(r.e=t,r.d=[e]):(r.e=t,r.d=[e]))}return 0*e!=0?(e||(r.s=NaN),r.e=NaN,void(r.d=null)):Ft(r,e.toString())}if("string"!==u)throw Error(Te+e);return 45===(n=e.charCodeAt(0))?(e=e.slice(1),r.s=-1):(43===n&&(e=e.slice(1)),r.s=1),Xe.test(e)?Ft(r,e):Ct(r,e)}if(i.prototype=Ke,i.ROUND_UP=0,i.ROUND_DOWN=1,i.ROUND_CEIL=2,i.ROUND_FLOOR=3,i.ROUND_HALF_UP=4,i.ROUND_HALF_DOWN=5,i.ROUND_HALF_EVEN=6,i.ROUND_HALF_CEIL=7,i.ROUND_HALF_FLOOR=8,i.EUCLID=9,i.config=i.set=Pt,i.clone=e,i.isDecimal=jt,i.abs=yt,i.acos=bt,i.acosh=xt,i.add=Bt,i.asin=Nt,i.asinh=kt,i.atan=Mt,i.atanh=St,i.atan2=zt,i.cbrt=qt,i.ceil=Ot,i.clamp=It,i.cos=Lt,i.cosh=_t,i.div=Tt,i.exp=Ht,i.floor=Vt,i.hypot=Rt,i.ln=Zt,i.log=Ut,i.log10=Wt,i.log2=Jt,i.max=Xt,i.min=Gt,i.mod=Yt,i.mul=Qt,i.pow=Kt,i.random=en,i.round=tn,i.sign=nn,i.sin=un,i.sinh=rn,i.sqrt=on,i.sub=sn,i.sum=an,i.tan=cn,i.tanh=ln,i.trunc=fn,void 0===t&&(t={}),t&&!0!==t.defaults)for(r=["precision","rounding","toExpNeg","toExpPos","maxE","minE","modulo","crypto"],n=0;n<r.length;)t.hasOwnProperty(u=r[n++])||(t[u]=this[u]);return i.config(t),i}(Pe);Oe=new dn(Oe),Ie=new dn(Ie);
-/**
+     */
+
+
+    // -----------------------------------  EDITABLE DEFAULTS  ------------------------------------ //
+
+
+      // The maximum exponent magnitude.
+      // The limit on the value of `toExpNeg`, `toExpPos`, `minE` and `maxE`.
+    var EXP_LIMIT = 9e15,                      // 0 to 9e15
+
+      // The limit on the value of `precision`, and on the value of the first argument to
+      // `toDecimalPlaces`, `toExponential`, `toFixed`, `toPrecision` and `toSignificantDigits`.
+      MAX_DIGITS = 1e9,                        // 0 to 1e9
+
+      // Base conversion alphabet.
+      NUMERALS = '0123456789abcdef',
+
+      // The natural logarithm of 10 (1025 digits).
+      LN10 = '2.3025850929940456840179914546843642076011014886287729760333279009675726096773524802359972050895982983419677840422862486334095254650828067566662873690987816894829072083255546808437998948262331985283935053089653777326288461633662222876982198867465436674744042432743651550489343149393914796194044002221051017141748003688084012647080685567743216228355220114804663715659121373450747856947683463616792101806445070648000277502684916746550586856935673420670581136429224554405758925724208241314695689016758940256776311356919292033376587141660230105703089634572075440370847469940168269282808481184289314848524948644871927809676271275775397027668605952496716674183485704422507197965004714951050492214776567636938662976979522110718264549734772662425709429322582798502585509785265383207606726317164309505995087807523710333101197857547331541421808427543863591778117054309827482385045648019095610299291824318237525357709750539565187697510374970888692180205189339507238539205144634197265287286965110862571492198849978748873771345686209167058',
+
+      // Pi (1025 digits).
+      PI = '3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603486104543266482133936072602491412737245870066063155881748815209209628292540917153643678925903600113305305488204665213841469519415116094330572703657595919530921861173819326117931051185480744623799627495673518857527248912279381830119491298336733624406566430860213949463952247371907021798609437027705392171762931767523846748184676694051320005681271452635608277857713427577896091736371787214684409012249534301465495853710507922796892589235420199561121290219608640344181598136297747713099605187072113499999983729780499510597317328160963185950244594553469083026425223082533446850352619311881710100031378387528865875332083814206171776691473035982534904287554687311595628638823537875937519577818577805321712268066130019278766111959092164201989380952572010654858632789',
+
+
+      // The initial configuration properties of the Decimal constructor.
+      DEFAULTS = {
+
+        // These values must be integers within the stated ranges (inclusive).
+        // Most of these values can be changed at run-time using the `Decimal.config` method.
+
+        // The maximum number of significant digits of the result of a calculation or base conversion.
+        // E.g. `Decimal.config({ precision: 20 });`
+        precision: 20,                         // 1 to MAX_DIGITS
+
+        // The rounding mode used when rounding to `precision`.
+        //
+        // ROUND_UP         0 Away from zero.
+        // ROUND_DOWN       1 Towards zero.
+        // ROUND_CEIL       2 Towards +Infinity.
+        // ROUND_FLOOR      3 Towards -Infinity.
+        // ROUND_HALF_UP    4 Towards nearest neighbour. If equidistant, up.
+        // ROUND_HALF_DOWN  5 Towards nearest neighbour. If equidistant, down.
+        // ROUND_HALF_EVEN  6 Towards nearest neighbour. If equidistant, towards even neighbour.
+        // ROUND_HALF_CEIL  7 Towards nearest neighbour. If equidistant, towards +Infinity.
+        // ROUND_HALF_FLOOR 8 Towards nearest neighbour. If equidistant, towards -Infinity.
+        //
+        // E.g.
+        // `Decimal.rounding = 4;`
+        // `Decimal.rounding = Decimal.ROUND_HALF_UP;`
+        rounding: 4,                           // 0 to 8
+
+        // The modulo mode used when calculating the modulus: a mod n.
+        // The quotient (q = a / n) is calculated according to the corresponding rounding mode.
+        // The remainder (r) is calculated as: r = a - n * q.
+        //
+        // UP         0 The remainder is positive if the dividend is negative, else is negative.
+        // DOWN       1 The remainder has the same sign as the dividend (JavaScript %).
+        // FLOOR      3 The remainder has the same sign as the divisor (Python %).
+        // HALF_EVEN  6 The IEEE 754 remainder function.
+        // EUCLID     9 Euclidian division. q = sign(n) * floor(a / abs(n)). Always positive.
+        //
+        // Truncated division (1), floored division (3), the IEEE 754 remainder (6), and Euclidian
+        // division (9) are commonly used for the modulus operation. The other rounding modes can also
+        // be used, but they may not give useful results.
+        modulo: 1,                             // 0 to 9
+
+        // The exponent value at and beneath which `toString` returns exponential notation.
+        // JavaScript numbers: -7
+        toExpNeg: -7,                          // 0 to -EXP_LIMIT
+
+        // The exponent value at and above which `toString` returns exponential notation.
+        // JavaScript numbers: 21
+        toExpPos:  21,                         // 0 to EXP_LIMIT
+
+        // The minimum exponent value, beneath which underflow to zero occurs.
+        // JavaScript numbers: -324  (5e-324)
+        minE: -EXP_LIMIT,                      // -1 to -EXP_LIMIT
+
+        // The maximum exponent value, above which overflow to Infinity occurs.
+        // JavaScript numbers: 308  (1.7976931348623157e+308)
+        maxE: EXP_LIMIT,                       // 1 to EXP_LIMIT
+
+        // Whether to use cryptographically-secure random number generation, if available.
+        crypto: false                          // true/false
+      },
+
+
+    // ----------------------------------- END OF EDITABLE DEFAULTS ------------------------------- //
+
+
+      inexact, quadrant,
+      external = true,
+
+      decimalError = '[DecimalError] ',
+      invalidArgument = decimalError + 'Invalid argument: ',
+      precisionLimitExceeded = decimalError + 'Precision limit exceeded',
+      cryptoUnavailable = decimalError + 'crypto unavailable',
+      tag = '[object Decimal]',
+
+      mathfloor = Math.floor,
+      mathpow = Math.pow,
+
+      isBinary = /^0b([01]+(\.[01]*)?|\.[01]+)(p[+-]?\d+)?$/i,
+      isHex = /^0x([0-9a-f]+(\.[0-9a-f]*)?|\.[0-9a-f]+)(p[+-]?\d+)?$/i,
+      isOctal = /^0o([0-7]+(\.[0-7]*)?|\.[0-7]+)(p[+-]?\d+)?$/i,
+      isDecimal = /^(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i,
+
+      BASE = 1e7,
+      LOG_BASE = 7,
+      MAX_SAFE_INTEGER = 9007199254740991,
+
+      LN10_PRECISION = LN10.length - 1,
+      PI_PRECISION = PI.length - 1,
+
+      // Decimal.prototype object
+      P = { toStringTag: tag };
+
+
+    // Decimal prototype methods
+
+
+    /*
+     *  absoluteValue             abs
+     *  ceil
+     *  clampedTo                 clamp
+     *  comparedTo                cmp
+     *  cosine                    cos
+     *  cubeRoot                  cbrt
+     *  decimalPlaces             dp
+     *  dividedBy                 div
+     *  dividedToIntegerBy        divToInt
+     *  equals                    eq
+     *  floor
+     *  greaterThan               gt
+     *  greaterThanOrEqualTo      gte
+     *  hyperbolicCosine          cosh
+     *  hyperbolicSine            sinh
+     *  hyperbolicTangent         tanh
+     *  inverseCosine             acos
+     *  inverseHyperbolicCosine   acosh
+     *  inverseHyperbolicSine     asinh
+     *  inverseHyperbolicTangent  atanh
+     *  inverseSine               asin
+     *  inverseTangent            atan
+     *  isFinite
+     *  isInteger                 isInt
+     *  isNaN
+     *  isNegative                isNeg
+     *  isPositive                isPos
+     *  isZero
+     *  lessThan                  lt
+     *  lessThanOrEqualTo         lte
+     *  logarithm                 log
+     *  [maximum]                 [max]
+     *  [minimum]                 [min]
+     *  minus                     sub
+     *  modulo                    mod
+     *  naturalExponential        exp
+     *  naturalLogarithm          ln
+     *  negated                   neg
+     *  plus                      add
+     *  precision                 sd
+     *  round
+     *  sine                      sin
+     *  squareRoot                sqrt
+     *  tangent                   tan
+     *  times                     mul
+     *  toBinary
+     *  toDecimalPlaces           toDP
+     *  toExponential
+     *  toFixed
+     *  toFraction
+     *  toHexadecimal             toHex
+     *  toNearest
+     *  toNumber
+     *  toOctal
+     *  toPower                   pow
+     *  toPrecision
+     *  toSignificantDigits       toSD
+     *  toString
+     *  truncated                 trunc
+     *  valueOf                   toJSON
+     */
+
+
+    /*
+     * Return a new Decimal whose value is the absolute value of this Decimal.
+     *
+     */
+    P.absoluteValue = P.abs = function () {
+      var x = new this.constructor(this);
+      if (x.s < 0) x.s = 1;
+      return finalise(x);
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the value of this Decimal rounded to a whole number in the
+     * direction of positive Infinity.
+     *
+     */
+    P.ceil = function () {
+      return finalise(new this.constructor(this), this.e + 1, 2);
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the value of this Decimal clamped to the range
+     * delineated by `min` and `max`.
+     *
+     * min {number|string|Decimal}
+     * max {number|string|Decimal}
+     *
+     */
+    P.clampedTo = P.clamp = function (min, max) {
+      var k,
+        x = this,
+        Ctor = x.constructor;
+      min = new Ctor(min);
+      max = new Ctor(max);
+      if (!min.s || !max.s) return new Ctor(NaN);
+      if (min.gt(max)) throw Error(invalidArgument + max);
+      k = x.cmp(min);
+      return k < 0 ? min : x.cmp(max) > 0 ? max : new Ctor(x);
+    };
+
+
+    /*
+     * Return
+     *   1    if the value of this Decimal is greater than the value of `y`,
+     *  -1    if the value of this Decimal is less than the value of `y`,
+     *   0    if they have the same value,
+     *   NaN  if the value of either Decimal is NaN.
+     *
+     */
+    P.comparedTo = P.cmp = function (y) {
+      var i, j, xdL, ydL,
+        x = this,
+        xd = x.d,
+        yd = (y = new x.constructor(y)).d,
+        xs = x.s,
+        ys = y.s;
+
+      // Either NaN or ±Infinity?
+      if (!xd || !yd) {
+        return !xs || !ys ? NaN : xs !== ys ? xs : xd === yd ? 0 : !xd ^ xs < 0 ? 1 : -1;
+      }
+
+      // Either zero?
+      if (!xd[0] || !yd[0]) return xd[0] ? xs : yd[0] ? -ys : 0;
+
+      // Signs differ?
+      if (xs !== ys) return xs;
+
+      // Compare exponents.
+      if (x.e !== y.e) return x.e > y.e ^ xs < 0 ? 1 : -1;
+
+      xdL = xd.length;
+      ydL = yd.length;
+
+      // Compare digit by digit.
+      for (i = 0, j = xdL < ydL ? xdL : ydL; i < j; ++i) {
+        if (xd[i] !== yd[i]) return xd[i] > yd[i] ^ xs < 0 ? 1 : -1;
+      }
+
+      // Compare lengths.
+      return xdL === ydL ? 0 : xdL > ydL ^ xs < 0 ? 1 : -1;
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the cosine of the value in radians of this Decimal.
+     *
+     * Domain: [-Infinity, Infinity]
+     * Range: [-1, 1]
+     *
+     * cos(0)         = 1
+     * cos(-0)        = 1
+     * cos(Infinity)  = NaN
+     * cos(-Infinity) = NaN
+     * cos(NaN)       = NaN
+     *
+     */
+    P.cosine = P.cos = function () {
+      var pr, rm,
+        x = this,
+        Ctor = x.constructor;
+
+      if (!x.d) return new Ctor(NaN);
+
+      // cos(0) = cos(-0) = 1
+      if (!x.d[0]) return new Ctor(1);
+
+      pr = Ctor.precision;
+      rm = Ctor.rounding;
+      Ctor.precision = pr + Math.max(x.e, x.sd()) + LOG_BASE;
+      Ctor.rounding = 1;
+
+      x = cosine(Ctor, toLessThanHalfPi(Ctor, x));
+
+      Ctor.precision = pr;
+      Ctor.rounding = rm;
+
+      return finalise(quadrant == 2 || quadrant == 3 ? x.neg() : x, pr, rm, true);
+    };
+
+
+    /*
+     *
+     * Return a new Decimal whose value is the cube root of the value of this Decimal, rounded to
+     * `precision` significant digits using rounding mode `rounding`.
+     *
+     *  cbrt(0)  =  0
+     *  cbrt(-0) = -0
+     *  cbrt(1)  =  1
+     *  cbrt(-1) = -1
+     *  cbrt(N)  =  N
+     *  cbrt(-I) = -I
+     *  cbrt(I)  =  I
+     *
+     * Math.cbrt(x) = (x < 0 ? -Math.pow(-x, 1/3) : Math.pow(x, 1/3))
+     *
+     */
+    P.cubeRoot = P.cbrt = function () {
+      var e, m, n, r, rep, s, sd, t, t3, t3plusx,
+        x = this,
+        Ctor = x.constructor;
+
+      if (!x.isFinite() || x.isZero()) return new Ctor(x);
+      external = false;
+
+      // Initial estimate.
+      s = x.s * mathpow(x.s * x, 1 / 3);
+
+       // Math.cbrt underflow/overflow?
+       // Pass x to Math.pow as integer, then adjust the exponent of the result.
+      if (!s || Math.abs(s) == 1 / 0) {
+        n = digitsToString(x.d);
+        e = x.e;
+
+        // Adjust n exponent so it is a multiple of 3 away from x exponent.
+        if (s = (e - n.length + 1) % 3) n += (s == 1 || s == -2 ? '0' : '00');
+        s = mathpow(n, 1 / 3);
+
+        // Rarely, e may be one less than the result exponent value.
+        e = mathfloor((e + 1) / 3) - (e % 3 == (e < 0 ? -1 : 2));
+
+        if (s == 1 / 0) {
+          n = '5e' + e;
+        } else {
+          n = s.toExponential();
+          n = n.slice(0, n.indexOf('e') + 1) + e;
+        }
+
+        r = new Ctor(n);
+        r.s = x.s;
+      } else {
+        r = new Ctor(s.toString());
+      }
+
+      sd = (e = Ctor.precision) + 3;
+
+      // Halley's method.
+      // TODO? Compare Newton's method.
+      for (;;) {
+        t = r;
+        t3 = t.times(t).times(t);
+        t3plusx = t3.plus(x);
+        r = divide(t3plusx.plus(x).times(t), t3plusx.plus(t3), sd + 2, 1);
+
+        // TODO? Replace with for-loop and checkRoundingDigits.
+        if (digitsToString(t.d).slice(0, sd) === (n = digitsToString(r.d)).slice(0, sd)) {
+          n = n.slice(sd - 3, sd + 1);
+
+          // The 4th rounding digit may be in error by -1 so if the 4 rounding digits are 9999 or 4999
+          // , i.e. approaching a rounding boundary, continue the iteration.
+          if (n == '9999' || !rep && n == '4999') {
+
+            // On the first iteration only, check to see if rounding up gives the exact result as the
+            // nines may infinitely repeat.
+            if (!rep) {
+              finalise(t, e + 1, 0);
+
+              if (t.times(t).times(t).eq(x)) {
+                r = t;
+                break;
+              }
+            }
+
+            sd += 4;
+            rep = 1;
+          } else {
+
+            // If the rounding digits are null, 0{0,4} or 50{0,3}, check for an exact result.
+            // If not, then there are further digits and m will be truthy.
+            if (!+n || !+n.slice(1) && n.charAt(0) == '5') {
+
+              // Truncate to the first rounding digit.
+              finalise(r, e + 1, 1);
+              m = !r.times(r).times(r).eq(x);
+            }
+
+            break;
+          }
+        }
+      }
+
+      external = true;
+
+      return finalise(r, e, Ctor.rounding, m);
+    };
+
+
+    /*
+     * Return the number of decimal places of the value of this Decimal.
+     *
+     */
+    P.decimalPlaces = P.dp = function () {
+      var w,
+        d = this.d,
+        n = NaN;
+
+      if (d) {
+        w = d.length - 1;
+        n = (w - mathfloor(this.e / LOG_BASE)) * LOG_BASE;
+
+        // Subtract the number of trailing zeros of the last word.
+        w = d[w];
+        if (w) for (; w % 10 == 0; w /= 10) n--;
+        if (n < 0) n = 0;
+      }
+
+      return n;
+    };
+
+
+    /*
+     *  n / 0 = I
+     *  n / N = N
+     *  n / I = 0
+     *  0 / n = 0
+     *  0 / 0 = N
+     *  0 / N = N
+     *  0 / I = 0
+     *  N / n = N
+     *  N / 0 = N
+     *  N / N = N
+     *  N / I = N
+     *  I / n = I
+     *  I / 0 = I
+     *  I / N = N
+     *  I / I = N
+     *
+     * Return a new Decimal whose value is the value of this Decimal divided by `y`, rounded to
+     * `precision` significant digits using rounding mode `rounding`.
+     *
+     */
+    P.dividedBy = P.div = function (y) {
+      return divide(this, new this.constructor(y));
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the integer part of dividing the value of this Decimal
+     * by the value of `y`, rounded to `precision` significant digits using rounding mode `rounding`.
+     *
+     */
+    P.dividedToIntegerBy = P.divToInt = function (y) {
+      var x = this,
+        Ctor = x.constructor;
+      return finalise(divide(x, new Ctor(y), 0, 1, 1), Ctor.precision, Ctor.rounding);
+    };
+
+
+    /*
+     * Return true if the value of this Decimal is equal to the value of `y`, otherwise return false.
+     *
+     */
+    P.equals = P.eq = function (y) {
+      return this.cmp(y) === 0;
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the value of this Decimal rounded to a whole number in the
+     * direction of negative Infinity.
+     *
+     */
+    P.floor = function () {
+      return finalise(new this.constructor(this), this.e + 1, 3);
+    };
+
+
+    /*
+     * Return true if the value of this Decimal is greater than the value of `y`, otherwise return
+     * false.
+     *
+     */
+    P.greaterThan = P.gt = function (y) {
+      return this.cmp(y) > 0;
+    };
+
+
+    /*
+     * Return true if the value of this Decimal is greater than or equal to the value of `y`,
+     * otherwise return false.
+     *
+     */
+    P.greaterThanOrEqualTo = P.gte = function (y) {
+      var k = this.cmp(y);
+      return k == 1 || k === 0;
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the hyperbolic cosine of the value in radians of this
+     * Decimal.
+     *
+     * Domain: [-Infinity, Infinity]
+     * Range: [1, Infinity]
+     *
+     * cosh(x) = 1 + x^2/2! + x^4/4! + x^6/6! + ...
+     *
+     * cosh(0)         = 1
+     * cosh(-0)        = 1
+     * cosh(Infinity)  = Infinity
+     * cosh(-Infinity) = Infinity
+     * cosh(NaN)       = NaN
+     *
+     *  x        time taken (ms)   result
+     * 1000      9                 9.8503555700852349694e+433
+     * 10000     25                4.4034091128314607936e+4342
+     * 100000    171               1.4033316802130615897e+43429
+     * 1000000   3817              1.5166076984010437725e+434294
+     * 10000000  abandoned after 2 minute wait
+     *
+     * TODO? Compare performance of cosh(x) = 0.5 * (exp(x) + exp(-x))
+     *
+     */
+    P.hyperbolicCosine = P.cosh = function () {
+      var k, n, pr, rm, len,
+        x = this,
+        Ctor = x.constructor,
+        one = new Ctor(1);
+
+      if (!x.isFinite()) return new Ctor(x.s ? 1 / 0 : NaN);
+      if (x.isZero()) return one;
+
+      pr = Ctor.precision;
+      rm = Ctor.rounding;
+      Ctor.precision = pr + Math.max(x.e, x.sd()) + 4;
+      Ctor.rounding = 1;
+      len = x.d.length;
+
+      // Argument reduction: cos(4x) = 1 - 8cos^2(x) + 8cos^4(x) + 1
+      // i.e. cos(x) = 1 - cos^2(x/4)(8 - 8cos^2(x/4))
+
+      // Estimate the optimum number of times to use the argument reduction.
+      // TODO? Estimation reused from cosine() and may not be optimal here.
+      if (len < 32) {
+        k = Math.ceil(len / 3);
+        n = (1 / tinyPow(4, k)).toString();
+      } else {
+        k = 16;
+        n = '2.3283064365386962890625e-10';
+      }
+
+      x = taylorSeries(Ctor, 1, x.times(n), new Ctor(1), true);
+
+      // Reverse argument reduction
+      var cosh2_x,
+        i = k,
+        d8 = new Ctor(8);
+      for (; i--;) {
+        cosh2_x = x.times(x);
+        x = one.minus(cosh2_x.times(d8.minus(cosh2_x.times(d8))));
+      }
+
+      return finalise(x, Ctor.precision = pr, Ctor.rounding = rm, true);
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the hyperbolic sine of the value in radians of this
+     * Decimal.
+     *
+     * Domain: [-Infinity, Infinity]
+     * Range: [-Infinity, Infinity]
+     *
+     * sinh(x) = x + x^3/3! + x^5/5! + x^7/7! + ...
+     *
+     * sinh(0)         = 0
+     * sinh(-0)        = -0
+     * sinh(Infinity)  = Infinity
+     * sinh(-Infinity) = -Infinity
+     * sinh(NaN)       = NaN
+     *
+     * x        time taken (ms)
+     * 10       2 ms
+     * 100      5 ms
+     * 1000     14 ms
+     * 10000    82 ms
+     * 100000   886 ms            1.4033316802130615897e+43429
+     * 200000   2613 ms
+     * 300000   5407 ms
+     * 400000   8824 ms
+     * 500000   13026 ms          8.7080643612718084129e+217146
+     * 1000000  48543 ms
+     *
+     * TODO? Compare performance of sinh(x) = 0.5 * (exp(x) - exp(-x))
+     *
+     */
+    P.hyperbolicSine = P.sinh = function () {
+      var k, pr, rm, len,
+        x = this,
+        Ctor = x.constructor;
+
+      if (!x.isFinite() || x.isZero()) return new Ctor(x);
+
+      pr = Ctor.precision;
+      rm = Ctor.rounding;
+      Ctor.precision = pr + Math.max(x.e, x.sd()) + 4;
+      Ctor.rounding = 1;
+      len = x.d.length;
+
+      if (len < 3) {
+        x = taylorSeries(Ctor, 2, x, x, true);
+      } else {
+
+        // Alternative argument reduction: sinh(3x) = sinh(x)(3 + 4sinh^2(x))
+        // i.e. sinh(x) = sinh(x/3)(3 + 4sinh^2(x/3))
+        // 3 multiplications and 1 addition
+
+        // Argument reduction: sinh(5x) = sinh(x)(5 + sinh^2(x)(20 + 16sinh^2(x)))
+        // i.e. sinh(x) = sinh(x/5)(5 + sinh^2(x/5)(20 + 16sinh^2(x/5)))
+        // 4 multiplications and 2 additions
+
+        // Estimate the optimum number of times to use the argument reduction.
+        k = 1.4 * Math.sqrt(len);
+        k = k > 16 ? 16 : k | 0;
+
+        x = x.times(1 / tinyPow(5, k));
+        x = taylorSeries(Ctor, 2, x, x, true);
+
+        // Reverse argument reduction
+        var sinh2_x,
+          d5 = new Ctor(5),
+          d16 = new Ctor(16),
+          d20 = new Ctor(20);
+        for (; k--;) {
+          sinh2_x = x.times(x);
+          x = x.times(d5.plus(sinh2_x.times(d16.times(sinh2_x).plus(d20))));
+        }
+      }
+
+      Ctor.precision = pr;
+      Ctor.rounding = rm;
+
+      return finalise(x, pr, rm, true);
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the hyperbolic tangent of the value in radians of this
+     * Decimal.
+     *
+     * Domain: [-Infinity, Infinity]
+     * Range: [-1, 1]
+     *
+     * tanh(x) = sinh(x) / cosh(x)
+     *
+     * tanh(0)         = 0
+     * tanh(-0)        = -0
+     * tanh(Infinity)  = 1
+     * tanh(-Infinity) = -1
+     * tanh(NaN)       = NaN
+     *
+     */
+    P.hyperbolicTangent = P.tanh = function () {
+      var pr, rm,
+        x = this,
+        Ctor = x.constructor;
+
+      if (!x.isFinite()) return new Ctor(x.s);
+      if (x.isZero()) return new Ctor(x);
+
+      pr = Ctor.precision;
+      rm = Ctor.rounding;
+      Ctor.precision = pr + 7;
+      Ctor.rounding = 1;
+
+      return divide(x.sinh(), x.cosh(), Ctor.precision = pr, Ctor.rounding = rm);
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the arccosine (inverse cosine) in radians of the value of
+     * this Decimal.
+     *
+     * Domain: [-1, 1]
+     * Range: [0, pi]
+     *
+     * acos(x) = pi/2 - asin(x)
+     *
+     * acos(0)       = pi/2
+     * acos(-0)      = pi/2
+     * acos(1)       = 0
+     * acos(-1)      = pi
+     * acos(1/2)     = pi/3
+     * acos(-1/2)    = 2*pi/3
+     * acos(|x| > 1) = NaN
+     * acos(NaN)     = NaN
+     *
+     */
+    P.inverseCosine = P.acos = function () {
+      var halfPi,
+        x = this,
+        Ctor = x.constructor,
+        k = x.abs().cmp(1),
+        pr = Ctor.precision,
+        rm = Ctor.rounding;
+
+      if (k !== -1) {
+        return k === 0
+          // |x| is 1
+          ? x.isNeg() ? getPi(Ctor, pr, rm) : new Ctor(0)
+          // |x| > 1 or x is NaN
+          : new Ctor(NaN);
+      }
+
+      if (x.isZero()) return getPi(Ctor, pr + 4, rm).times(0.5);
+
+      // TODO? Special case acos(0.5) = pi/3 and acos(-0.5) = 2*pi/3
+
+      Ctor.precision = pr + 6;
+      Ctor.rounding = 1;
+
+      x = x.asin();
+      halfPi = getPi(Ctor, pr + 4, rm).times(0.5);
+
+      Ctor.precision = pr;
+      Ctor.rounding = rm;
+
+      return halfPi.minus(x);
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the inverse of the hyperbolic cosine in radians of the
+     * value of this Decimal.
+     *
+     * Domain: [1, Infinity]
+     * Range: [0, Infinity]
+     *
+     * acosh(x) = ln(x + sqrt(x^2 - 1))
+     *
+     * acosh(x < 1)     = NaN
+     * acosh(NaN)       = NaN
+     * acosh(Infinity)  = Infinity
+     * acosh(-Infinity) = NaN
+     * acosh(0)         = NaN
+     * acosh(-0)        = NaN
+     * acosh(1)         = 0
+     * acosh(-1)        = NaN
+     *
+     */
+    P.inverseHyperbolicCosine = P.acosh = function () {
+      var pr, rm,
+        x = this,
+        Ctor = x.constructor;
+
+      if (x.lte(1)) return new Ctor(x.eq(1) ? 0 : NaN);
+      if (!x.isFinite()) return new Ctor(x);
+
+      pr = Ctor.precision;
+      rm = Ctor.rounding;
+      Ctor.precision = pr + Math.max(Math.abs(x.e), x.sd()) + 4;
+      Ctor.rounding = 1;
+      external = false;
+
+      x = x.times(x).minus(1).sqrt().plus(x);
+
+      external = true;
+      Ctor.precision = pr;
+      Ctor.rounding = rm;
+
+      return x.ln();
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the inverse of the hyperbolic sine in radians of the value
+     * of this Decimal.
+     *
+     * Domain: [-Infinity, Infinity]
+     * Range: [-Infinity, Infinity]
+     *
+     * asinh(x) = ln(x + sqrt(x^2 + 1))
+     *
+     * asinh(NaN)       = NaN
+     * asinh(Infinity)  = Infinity
+     * asinh(-Infinity) = -Infinity
+     * asinh(0)         = 0
+     * asinh(-0)        = -0
+     *
+     */
+    P.inverseHyperbolicSine = P.asinh = function () {
+      var pr, rm,
+        x = this,
+        Ctor = x.constructor;
+
+      if (!x.isFinite() || x.isZero()) return new Ctor(x);
+
+      pr = Ctor.precision;
+      rm = Ctor.rounding;
+      Ctor.precision = pr + 2 * Math.max(Math.abs(x.e), x.sd()) + 6;
+      Ctor.rounding = 1;
+      external = false;
+
+      x = x.times(x).plus(1).sqrt().plus(x);
+
+      external = true;
+      Ctor.precision = pr;
+      Ctor.rounding = rm;
+
+      return x.ln();
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the inverse of the hyperbolic tangent in radians of the
+     * value of this Decimal.
+     *
+     * Domain: [-1, 1]
+     * Range: [-Infinity, Infinity]
+     *
+     * atanh(x) = 0.5 * ln((1 + x) / (1 - x))
+     *
+     * atanh(|x| > 1)   = NaN
+     * atanh(NaN)       = NaN
+     * atanh(Infinity)  = NaN
+     * atanh(-Infinity) = NaN
+     * atanh(0)         = 0
+     * atanh(-0)        = -0
+     * atanh(1)         = Infinity
+     * atanh(-1)        = -Infinity
+     *
+     */
+    P.inverseHyperbolicTangent = P.atanh = function () {
+      var pr, rm, wpr, xsd,
+        x = this,
+        Ctor = x.constructor;
+
+      if (!x.isFinite()) return new Ctor(NaN);
+      if (x.e >= 0) return new Ctor(x.abs().eq(1) ? x.s / 0 : x.isZero() ? x : NaN);
+
+      pr = Ctor.precision;
+      rm = Ctor.rounding;
+      xsd = x.sd();
+
+      if (Math.max(xsd, pr) < 2 * -x.e - 1) return finalise(new Ctor(x), pr, rm, true);
+
+      Ctor.precision = wpr = xsd - x.e;
+
+      x = divide(x.plus(1), new Ctor(1).minus(x), wpr + pr, 1);
+
+      Ctor.precision = pr + 4;
+      Ctor.rounding = 1;
+
+      x = x.ln();
+
+      Ctor.precision = pr;
+      Ctor.rounding = rm;
+
+      return x.times(0.5);
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the arcsine (inverse sine) in radians of the value of this
+     * Decimal.
+     *
+     * Domain: [-Infinity, Infinity]
+     * Range: [-pi/2, pi/2]
+     *
+     * asin(x) = 2*atan(x/(1 + sqrt(1 - x^2)))
+     *
+     * asin(0)       = 0
+     * asin(-0)      = -0
+     * asin(1/2)     = pi/6
+     * asin(-1/2)    = -pi/6
+     * asin(1)       = pi/2
+     * asin(-1)      = -pi/2
+     * asin(|x| > 1) = NaN
+     * asin(NaN)     = NaN
+     *
+     * TODO? Compare performance of Taylor series.
+     *
+     */
+    P.inverseSine = P.asin = function () {
+      var halfPi, k,
+        pr, rm,
+        x = this,
+        Ctor = x.constructor;
+
+      if (x.isZero()) return new Ctor(x);
+
+      k = x.abs().cmp(1);
+      pr = Ctor.precision;
+      rm = Ctor.rounding;
+
+      if (k !== -1) {
+
+        // |x| is 1
+        if (k === 0) {
+          halfPi = getPi(Ctor, pr + 4, rm).times(0.5);
+          halfPi.s = x.s;
+          return halfPi;
+        }
+
+        // |x| > 1 or x is NaN
+        return new Ctor(NaN);
+      }
+
+      // TODO? Special case asin(1/2) = pi/6 and asin(-1/2) = -pi/6
+
+      Ctor.precision = pr + 6;
+      Ctor.rounding = 1;
+
+      x = x.div(new Ctor(1).minus(x.times(x)).sqrt().plus(1)).atan();
+
+      Ctor.precision = pr;
+      Ctor.rounding = rm;
+
+      return x.times(2);
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the arctangent (inverse tangent) in radians of the value
+     * of this Decimal.
+     *
+     * Domain: [-Infinity, Infinity]
+     * Range: [-pi/2, pi/2]
+     *
+     * atan(x) = x - x^3/3 + x^5/5 - x^7/7 + ...
+     *
+     * atan(0)         = 0
+     * atan(-0)        = -0
+     * atan(1)         = pi/4
+     * atan(-1)        = -pi/4
+     * atan(Infinity)  = pi/2
+     * atan(-Infinity) = -pi/2
+     * atan(NaN)       = NaN
+     *
+     */
+    P.inverseTangent = P.atan = function () {
+      var i, j, k, n, px, t, r, wpr, x2,
+        x = this,
+        Ctor = x.constructor,
+        pr = Ctor.precision,
+        rm = Ctor.rounding;
+
+      if (!x.isFinite()) {
+        if (!x.s) return new Ctor(NaN);
+        if (pr + 4 <= PI_PRECISION) {
+          r = getPi(Ctor, pr + 4, rm).times(0.5);
+          r.s = x.s;
+          return r;
+        }
+      } else if (x.isZero()) {
+        return new Ctor(x);
+      } else if (x.abs().eq(1) && pr + 4 <= PI_PRECISION) {
+        r = getPi(Ctor, pr + 4, rm).times(0.25);
+        r.s = x.s;
+        return r;
+      }
+
+      Ctor.precision = wpr = pr + 10;
+      Ctor.rounding = 1;
+
+      // TODO? if (x >= 1 && pr <= PI_PRECISION) atan(x) = halfPi * x.s - atan(1 / x);
+
+      // Argument reduction
+      // Ensure |x| < 0.42
+      // atan(x) = 2 * atan(x / (1 + sqrt(1 + x^2)))
+
+      k = Math.min(28, wpr / LOG_BASE + 2 | 0);
+
+      for (i = k; i; --i) x = x.div(x.times(x).plus(1).sqrt().plus(1));
+
+      external = false;
+
+      j = Math.ceil(wpr / LOG_BASE);
+      n = 1;
+      x2 = x.times(x);
+      r = new Ctor(x);
+      px = x;
+
+      // atan(x) = x - x^3/3 + x^5/5 - x^7/7 + ...
+      for (; i !== -1;) {
+        px = px.times(x2);
+        t = r.minus(px.div(n += 2));
+
+        px = px.times(x2);
+        r = t.plus(px.div(n += 2));
+
+        if (r.d[j] !== void 0) for (i = j; r.d[i] === t.d[i] && i--;);
+      }
+
+      if (k) r = r.times(2 << (k - 1));
+
+      external = true;
+
+      return finalise(r, Ctor.precision = pr, Ctor.rounding = rm, true);
+    };
+
+
+    /*
+     * Return true if the value of this Decimal is a finite number, otherwise return false.
+     *
+     */
+    P.isFinite = function () {
+      return !!this.d;
+    };
+
+
+    /*
+     * Return true if the value of this Decimal is an integer, otherwise return false.
+     *
+     */
+    P.isInteger = P.isInt = function () {
+      return !!this.d && mathfloor(this.e / LOG_BASE) > this.d.length - 2;
+    };
+
+
+    /*
+     * Return true if the value of this Decimal is NaN, otherwise return false.
+     *
+     */
+    P.isNaN = function () {
+      return !this.s;
+    };
+
+
+    /*
+     * Return true if the value of this Decimal is negative, otherwise return false.
+     *
+     */
+    P.isNegative = P.isNeg = function () {
+      return this.s < 0;
+    };
+
+
+    /*
+     * Return true if the value of this Decimal is positive, otherwise return false.
+     *
+     */
+    P.isPositive = P.isPos = function () {
+      return this.s > 0;
+    };
+
+
+    /*
+     * Return true if the value of this Decimal is 0 or -0, otherwise return false.
+     *
+     */
+    P.isZero = function () {
+      return !!this.d && this.d[0] === 0;
+    };
+
+
+    /*
+     * Return true if the value of this Decimal is less than `y`, otherwise return false.
+     *
+     */
+    P.lessThan = P.lt = function (y) {
+      return this.cmp(y) < 0;
+    };
+
+
+    /*
+     * Return true if the value of this Decimal is less than or equal to `y`, otherwise return false.
+     *
+     */
+    P.lessThanOrEqualTo = P.lte = function (y) {
+      return this.cmp(y) < 1;
+    };
+
+
+    /*
+     * Return the logarithm of the value of this Decimal to the specified base, rounded to `precision`
+     * significant digits using rounding mode `rounding`.
+     *
+     * If no base is specified, return log[10](arg).
+     *
+     * log[base](arg) = ln(arg) / ln(base)
+     *
+     * The result will always be correctly rounded if the base of the log is 10, and 'almost always'
+     * otherwise:
+     *
+     * Depending on the rounding mode, the result may be incorrectly rounded if the first fifteen
+     * rounding digits are [49]99999999999999 or [50]00000000000000. In that case, the maximum error
+     * between the result and the correctly rounded result will be one ulp (unit in the last place).
+     *
+     * log[-b](a)       = NaN
+     * log[0](a)        = NaN
+     * log[1](a)        = NaN
+     * log[NaN](a)      = NaN
+     * log[Infinity](a) = NaN
+     * log[b](0)        = -Infinity
+     * log[b](-0)       = -Infinity
+     * log[b](-a)       = NaN
+     * log[b](1)        = 0
+     * log[b](Infinity) = Infinity
+     * log[b](NaN)      = NaN
+     *
+     * [base] {number|string|Decimal} The base of the logarithm.
+     *
+     */
+    P.logarithm = P.log = function (base) {
+      var isBase10, d, denominator, k, inf, num, sd, r,
+        arg = this,
+        Ctor = arg.constructor,
+        pr = Ctor.precision,
+        rm = Ctor.rounding,
+        guard = 5;
+
+      // Default base is 10.
+      if (base == null) {
+        base = new Ctor(10);
+        isBase10 = true;
+      } else {
+        base = new Ctor(base);
+        d = base.d;
+
+        // Return NaN if base is negative, or non-finite, or is 0 or 1.
+        if (base.s < 0 || !d || !d[0] || base.eq(1)) return new Ctor(NaN);
+
+        isBase10 = base.eq(10);
+      }
+
+      d = arg.d;
+
+      // Is arg negative, non-finite, 0 or 1?
+      if (arg.s < 0 || !d || !d[0] || arg.eq(1)) {
+        return new Ctor(d && !d[0] ? -1 / 0 : arg.s != 1 ? NaN : d ? 0 : 1 / 0);
+      }
+
+      // The result will have a non-terminating decimal expansion if base is 10 and arg is not an
+      // integer power of 10.
+      if (isBase10) {
+        if (d.length > 1) {
+          inf = true;
+        } else {
+          for (k = d[0]; k % 10 === 0;) k /= 10;
+          inf = k !== 1;
+        }
+      }
+
+      external = false;
+      sd = pr + guard;
+      num = naturalLogarithm(arg, sd);
+      denominator = isBase10 ? getLn10(Ctor, sd + 10) : naturalLogarithm(base, sd);
+
+      // The result will have 5 rounding digits.
+      r = divide(num, denominator, sd, 1);
+
+      // If at a rounding boundary, i.e. the result's rounding digits are [49]9999 or [50]0000,
+      // calculate 10 further digits.
+      //
+      // If the result is known to have an infinite decimal expansion, repeat this until it is clear
+      // that the result is above or below the boundary. Otherwise, if after calculating the 10
+      // further digits, the last 14 are nines, round up and assume the result is exact.
+      // Also assume the result is exact if the last 14 are zero.
+      //
+      // Example of a result that will be incorrectly rounded:
+      // log[1048576](4503599627370502) = 2.60000000000000009610279511444746...
+      // The above result correctly rounded using ROUND_CEIL to 1 decimal place should be 2.7, but it
+      // will be given as 2.6 as there are 15 zeros immediately after the requested decimal place, so
+      // the exact result would be assumed to be 2.6, which rounded using ROUND_CEIL to 1 decimal
+      // place is still 2.6.
+      if (checkRoundingDigits(r.d, k = pr, rm)) {
+
+        do {
+          sd += 10;
+          num = naturalLogarithm(arg, sd);
+          denominator = isBase10 ? getLn10(Ctor, sd + 10) : naturalLogarithm(base, sd);
+          r = divide(num, denominator, sd, 1);
+
+          if (!inf) {
+
+            // Check for 14 nines from the 2nd rounding digit, as the first may be 4.
+            if (+digitsToString(r.d).slice(k + 1, k + 15) + 1 == 1e14) {
+              r = finalise(r, pr + 1, 0);
+            }
+
+            break;
+          }
+        } while (checkRoundingDigits(r.d, k += 10, rm));
+      }
+
+      external = true;
+
+      return finalise(r, pr, rm);
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the maximum of the arguments and the value of this Decimal.
+     *
+     * arguments {number|string|Decimal}
+     *
+    P.max = function () {
+      Array.prototype.push.call(arguments, this);
+      return maxOrMin(this.constructor, arguments, 'lt');
+    };
+     */
+
+
+    /*
+     * Return a new Decimal whose value is the minimum of the arguments and the value of this Decimal.
+     *
+     * arguments {number|string|Decimal}
+     *
+    P.min = function () {
+      Array.prototype.push.call(arguments, this);
+      return maxOrMin(this.constructor, arguments, 'gt');
+    };
+     */
+
+
+    /*
+     *  n - 0 = n
+     *  n - N = N
+     *  n - I = -I
+     *  0 - n = -n
+     *  0 - 0 = 0
+     *  0 - N = N
+     *  0 - I = -I
+     *  N - n = N
+     *  N - 0 = N
+     *  N - N = N
+     *  N - I = N
+     *  I - n = I
+     *  I - 0 = I
+     *  I - N = N
+     *  I - I = N
+     *
+     * Return a new Decimal whose value is the value of this Decimal minus `y`, rounded to `precision`
+     * significant digits using rounding mode `rounding`.
+     *
+     */
+    P.minus = P.sub = function (y) {
+      var d, e, i, j, k, len, pr, rm, xd, xe, xLTy, yd,
+        x = this,
+        Ctor = x.constructor;
+
+      y = new Ctor(y);
+
+      // If either is not finite...
+      if (!x.d || !y.d) {
+
+        // Return NaN if either is NaN.
+        if (!x.s || !y.s) y = new Ctor(NaN);
+
+        // Return y negated if x is finite and y is ±Infinity.
+        else if (x.d) y.s = -y.s;
+
+        // Return x if y is finite and x is ±Infinity.
+        // Return x if both are ±Infinity with different signs.
+        // Return NaN if both are ±Infinity with the same sign.
+        else y = new Ctor(y.d || x.s !== y.s ? x : NaN);
+
+        return y;
+      }
+
+      // If signs differ...
+      if (x.s != y.s) {
+        y.s = -y.s;
+        return x.plus(y);
+      }
+
+      xd = x.d;
+      yd = y.d;
+      pr = Ctor.precision;
+      rm = Ctor.rounding;
+
+      // If either is zero...
+      if (!xd[0] || !yd[0]) {
+
+        // Return y negated if x is zero and y is non-zero.
+        if (yd[0]) y.s = -y.s;
+
+        // Return x if y is zero and x is non-zero.
+        else if (xd[0]) y = new Ctor(x);
+
+        // Return zero if both are zero.
+        // From IEEE 754 (2008) 6.3: 0 - 0 = -0 - -0 = -0 when rounding to -Infinity.
+        else return new Ctor(rm === 3 ? -0 : 0);
+
+        return external ? finalise(y, pr, rm) : y;
+      }
+
+      // x and y are finite, non-zero numbers with the same sign.
+
+      // Calculate base 1e7 exponents.
+      e = mathfloor(y.e / LOG_BASE);
+      xe = mathfloor(x.e / LOG_BASE);
+
+      xd = xd.slice();
+      k = xe - e;
+
+      // If base 1e7 exponents differ...
+      if (k) {
+        xLTy = k < 0;
+
+        if (xLTy) {
+          d = xd;
+          k = -k;
+          len = yd.length;
+        } else {
+          d = yd;
+          e = xe;
+          len = xd.length;
+        }
+
+        // Numbers with massively different exponents would result in a very high number of
+        // zeros needing to be prepended, but this can be avoided while still ensuring correct
+        // rounding by limiting the number of zeros to `Math.ceil(pr / LOG_BASE) + 2`.
+        i = Math.max(Math.ceil(pr / LOG_BASE), len) + 2;
+
+        if (k > i) {
+          k = i;
+          d.length = 1;
+        }
+
+        // Prepend zeros to equalise exponents.
+        d.reverse();
+        for (i = k; i--;) d.push(0);
+        d.reverse();
+
+      // Base 1e7 exponents equal.
+      } else {
+
+        // Check digits to determine which is the bigger number.
+
+        i = xd.length;
+        len = yd.length;
+        xLTy = i < len;
+        if (xLTy) len = i;
+
+        for (i = 0; i < len; i++) {
+          if (xd[i] != yd[i]) {
+            xLTy = xd[i] < yd[i];
+            break;
+          }
+        }
+
+        k = 0;
+      }
+
+      if (xLTy) {
+        d = xd;
+        xd = yd;
+        yd = d;
+        y.s = -y.s;
+      }
+
+      len = xd.length;
+
+      // Append zeros to `xd` if shorter.
+      // Don't add zeros to `yd` if shorter as subtraction only needs to start at `yd` length.
+      for (i = yd.length - len; i > 0; --i) xd[len++] = 0;
+
+      // Subtract yd from xd.
+      for (i = yd.length; i > k;) {
+
+        if (xd[--i] < yd[i]) {
+          for (j = i; j && xd[--j] === 0;) xd[j] = BASE - 1;
+          --xd[j];
+          xd[i] += BASE;
+        }
+
+        xd[i] -= yd[i];
+      }
+
+      // Remove trailing zeros.
+      for (; xd[--len] === 0;) xd.pop();
+
+      // Remove leading zeros and adjust exponent accordingly.
+      for (; xd[0] === 0; xd.shift()) --e;
+
+      // Zero?
+      if (!xd[0]) return new Ctor(rm === 3 ? -0 : 0);
+
+      y.d = xd;
+      y.e = getBase10Exponent(xd, e);
+
+      return external ? finalise(y, pr, rm) : y;
+    };
+
+
+    /*
+     *   n % 0 =  N
+     *   n % N =  N
+     *   n % I =  n
+     *   0 % n =  0
+     *  -0 % n = -0
+     *   0 % 0 =  N
+     *   0 % N =  N
+     *   0 % I =  0
+     *   N % n =  N
+     *   N % 0 =  N
+     *   N % N =  N
+     *   N % I =  N
+     *   I % n =  N
+     *   I % 0 =  N
+     *   I % N =  N
+     *   I % I =  N
+     *
+     * Return a new Decimal whose value is the value of this Decimal modulo `y`, rounded to
+     * `precision` significant digits using rounding mode `rounding`.
+     *
+     * The result depends on the modulo mode.
+     *
+     */
+    P.modulo = P.mod = function (y) {
+      var q,
+        x = this,
+        Ctor = x.constructor;
+
+      y = new Ctor(y);
+
+      // Return NaN if x is ±Infinity or NaN, or y is NaN or ±0.
+      if (!x.d || !y.s || y.d && !y.d[0]) return new Ctor(NaN);
+
+      // Return x if y is ±Infinity or x is ±0.
+      if (!y.d || x.d && !x.d[0]) {
+        return finalise(new Ctor(x), Ctor.precision, Ctor.rounding);
+      }
+
+      // Prevent rounding of intermediate calculations.
+      external = false;
+
+      if (Ctor.modulo == 9) {
+
+        // Euclidian division: q = sign(y) * floor(x / abs(y))
+        // result = x - q * y    where  0 <= result < abs(y)
+        q = divide(x, y.abs(), 0, 3, 1);
+        q.s *= y.s;
+      } else {
+        q = divide(x, y, 0, Ctor.modulo, 1);
+      }
+
+      q = q.times(y);
+
+      external = true;
+
+      return x.minus(q);
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the natural exponential of the value of this Decimal,
+     * i.e. the base e raised to the power the value of this Decimal, rounded to `precision`
+     * significant digits using rounding mode `rounding`.
+     *
+     */
+    P.naturalExponential = P.exp = function () {
+      return naturalExponential(this);
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the natural logarithm of the value of this Decimal,
+     * rounded to `precision` significant digits using rounding mode `rounding`.
+     *
+     */
+    P.naturalLogarithm = P.ln = function () {
+      return naturalLogarithm(this);
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the value of this Decimal negated, i.e. as if multiplied by
+     * -1.
+     *
+     */
+    P.negated = P.neg = function () {
+      var x = new this.constructor(this);
+      x.s = -x.s;
+      return finalise(x);
+    };
+
+
+    /*
+     *  n + 0 = n
+     *  n + N = N
+     *  n + I = I
+     *  0 + n = n
+     *  0 + 0 = 0
+     *  0 + N = N
+     *  0 + I = I
+     *  N + n = N
+     *  N + 0 = N
+     *  N + N = N
+     *  N + I = N
+     *  I + n = I
+     *  I + 0 = I
+     *  I + N = N
+     *  I + I = I
+     *
+     * Return a new Decimal whose value is the value of this Decimal plus `y`, rounded to `precision`
+     * significant digits using rounding mode `rounding`.
+     *
+     */
+    P.plus = P.add = function (y) {
+      var carry, d, e, i, k, len, pr, rm, xd, yd,
+        x = this,
+        Ctor = x.constructor;
+
+      y = new Ctor(y);
+
+      // If either is not finite...
+      if (!x.d || !y.d) {
+
+        // Return NaN if either is NaN.
+        if (!x.s || !y.s) y = new Ctor(NaN);
+
+        // Return x if y is finite and x is ±Infinity.
+        // Return x if both are ±Infinity with the same sign.
+        // Return NaN if both are ±Infinity with different signs.
+        // Return y if x is finite and y is ±Infinity.
+        else if (!x.d) y = new Ctor(y.d || x.s === y.s ? x : NaN);
+
+        return y;
+      }
+
+       // If signs differ...
+      if (x.s != y.s) {
+        y.s = -y.s;
+        return x.minus(y);
+      }
+
+      xd = x.d;
+      yd = y.d;
+      pr = Ctor.precision;
+      rm = Ctor.rounding;
+
+      // If either is zero...
+      if (!xd[0] || !yd[0]) {
+
+        // Return x if y is zero.
+        // Return y if y is non-zero.
+        if (!yd[0]) y = new Ctor(x);
+
+        return external ? finalise(y, pr, rm) : y;
+      }
+
+      // x and y are finite, non-zero numbers with the same sign.
+
+      // Calculate base 1e7 exponents.
+      k = mathfloor(x.e / LOG_BASE);
+      e = mathfloor(y.e / LOG_BASE);
+
+      xd = xd.slice();
+      i = k - e;
+
+      // If base 1e7 exponents differ...
+      if (i) {
+
+        if (i < 0) {
+          d = xd;
+          i = -i;
+          len = yd.length;
+        } else {
+          d = yd;
+          e = k;
+          len = xd.length;
+        }
+
+        // Limit number of zeros prepended to max(ceil(pr / LOG_BASE), len) + 1.
+        k = Math.ceil(pr / LOG_BASE);
+        len = k > len ? k + 1 : len + 1;
+
+        if (i > len) {
+          i = len;
+          d.length = 1;
+        }
+
+        // Prepend zeros to equalise exponents. Note: Faster to use reverse then do unshifts.
+        d.reverse();
+        for (; i--;) d.push(0);
+        d.reverse();
+      }
+
+      len = xd.length;
+      i = yd.length;
+
+      // If yd is longer than xd, swap xd and yd so xd points to the longer array.
+      if (len - i < 0) {
+        i = len;
+        d = yd;
+        yd = xd;
+        xd = d;
+      }
+
+      // Only start adding at yd.length - 1 as the further digits of xd can be left as they are.
+      for (carry = 0; i;) {
+        carry = (xd[--i] = xd[i] + yd[i] + carry) / BASE | 0;
+        xd[i] %= BASE;
+      }
+
+      if (carry) {
+        xd.unshift(carry);
+        ++e;
+      }
+
+      // Remove trailing zeros.
+      // No need to check for zero, as +x + +y != 0 && -x + -y != 0
+      for (len = xd.length; xd[--len] == 0;) xd.pop();
+
+      y.d = xd;
+      y.e = getBase10Exponent(xd, e);
+
+      return external ? finalise(y, pr, rm) : y;
+    };
+
+
+    /*
+     * Return the number of significant digits of the value of this Decimal.
+     *
+     * [z] {boolean|number} Whether to count integer-part trailing zeros: true, false, 1 or 0.
+     *
+     */
+    P.precision = P.sd = function (z) {
+      var k,
+        x = this;
+
+      if (z !== void 0 && z !== !!z && z !== 1 && z !== 0) throw Error(invalidArgument + z);
+
+      if (x.d) {
+        k = getPrecision(x.d);
+        if (z && x.e + 1 > k) k = x.e + 1;
+      } else {
+        k = NaN;
+      }
+
+      return k;
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the value of this Decimal rounded to a whole number using
+     * rounding mode `rounding`.
+     *
+     */
+    P.round = function () {
+      var x = this,
+        Ctor = x.constructor;
+
+      return finalise(new Ctor(x), x.e + 1, Ctor.rounding);
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the sine of the value in radians of this Decimal.
+     *
+     * Domain: [-Infinity, Infinity]
+     * Range: [-1, 1]
+     *
+     * sin(x) = x - x^3/3! + x^5/5! - ...
+     *
+     * sin(0)         = 0
+     * sin(-0)        = -0
+     * sin(Infinity)  = NaN
+     * sin(-Infinity) = NaN
+     * sin(NaN)       = NaN
+     *
+     */
+    P.sine = P.sin = function () {
+      var pr, rm,
+        x = this,
+        Ctor = x.constructor;
+
+      if (!x.isFinite()) return new Ctor(NaN);
+      if (x.isZero()) return new Ctor(x);
+
+      pr = Ctor.precision;
+      rm = Ctor.rounding;
+      Ctor.precision = pr + Math.max(x.e, x.sd()) + LOG_BASE;
+      Ctor.rounding = 1;
+
+      x = sine(Ctor, toLessThanHalfPi(Ctor, x));
+
+      Ctor.precision = pr;
+      Ctor.rounding = rm;
+
+      return finalise(quadrant > 2 ? x.neg() : x, pr, rm, true);
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the square root of this Decimal, rounded to `precision`
+     * significant digits using rounding mode `rounding`.
+     *
+     *  sqrt(-n) =  N
+     *  sqrt(N)  =  N
+     *  sqrt(-I) =  N
+     *  sqrt(I)  =  I
+     *  sqrt(0)  =  0
+     *  sqrt(-0) = -0
+     *
+     */
+    P.squareRoot = P.sqrt = function () {
+      var m, n, sd, r, rep, t,
+        x = this,
+        d = x.d,
+        e = x.e,
+        s = x.s,
+        Ctor = x.constructor;
+
+      // Negative/NaN/Infinity/zero?
+      if (s !== 1 || !d || !d[0]) {
+        return new Ctor(!s || s < 0 && (!d || d[0]) ? NaN : d ? x : 1 / 0);
+      }
+
+      external = false;
+
+      // Initial estimate.
+      s = Math.sqrt(+x);
+
+      // Math.sqrt underflow/overflow?
+      // Pass x to Math.sqrt as integer, then adjust the exponent of the result.
+      if (s == 0 || s == 1 / 0) {
+        n = digitsToString(d);
+
+        if ((n.length + e) % 2 == 0) n += '0';
+        s = Math.sqrt(n);
+        e = mathfloor((e + 1) / 2) - (e < 0 || e % 2);
+
+        if (s == 1 / 0) {
+          n = '5e' + e;
+        } else {
+          n = s.toExponential();
+          n = n.slice(0, n.indexOf('e') + 1) + e;
+        }
+
+        r = new Ctor(n);
+      } else {
+        r = new Ctor(s.toString());
+      }
+
+      sd = (e = Ctor.precision) + 3;
+
+      // Newton-Raphson iteration.
+      for (;;) {
+        t = r;
+        r = t.plus(divide(x, t, sd + 2, 1)).times(0.5);
+
+        // TODO? Replace with for-loop and checkRoundingDigits.
+        if (digitsToString(t.d).slice(0, sd) === (n = digitsToString(r.d)).slice(0, sd)) {
+          n = n.slice(sd - 3, sd + 1);
+
+          // The 4th rounding digit may be in error by -1 so if the 4 rounding digits are 9999 or
+          // 4999, i.e. approaching a rounding boundary, continue the iteration.
+          if (n == '9999' || !rep && n == '4999') {
+
+            // On the first iteration only, check to see if rounding up gives the exact result as the
+            // nines may infinitely repeat.
+            if (!rep) {
+              finalise(t, e + 1, 0);
+
+              if (t.times(t).eq(x)) {
+                r = t;
+                break;
+              }
+            }
+
+            sd += 4;
+            rep = 1;
+          } else {
+
+            // If the rounding digits are null, 0{0,4} or 50{0,3}, check for an exact result.
+            // If not, then there are further digits and m will be truthy.
+            if (!+n || !+n.slice(1) && n.charAt(0) == '5') {
+
+              // Truncate to the first rounding digit.
+              finalise(r, e + 1, 1);
+              m = !r.times(r).eq(x);
+            }
+
+            break;
+          }
+        }
+      }
+
+      external = true;
+
+      return finalise(r, e, Ctor.rounding, m);
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the tangent of the value in radians of this Decimal.
+     *
+     * Domain: [-Infinity, Infinity]
+     * Range: [-Infinity, Infinity]
+     *
+     * tan(0)         = 0
+     * tan(-0)        = -0
+     * tan(Infinity)  = NaN
+     * tan(-Infinity) = NaN
+     * tan(NaN)       = NaN
+     *
+     */
+    P.tangent = P.tan = function () {
+      var pr, rm,
+        x = this,
+        Ctor = x.constructor;
+
+      if (!x.isFinite()) return new Ctor(NaN);
+      if (x.isZero()) return new Ctor(x);
+
+      pr = Ctor.precision;
+      rm = Ctor.rounding;
+      Ctor.precision = pr + 10;
+      Ctor.rounding = 1;
+
+      x = x.sin();
+      x.s = 1;
+      x = divide(x, new Ctor(1).minus(x.times(x)).sqrt(), pr + 10, 0);
+
+      Ctor.precision = pr;
+      Ctor.rounding = rm;
+
+      return finalise(quadrant == 2 || quadrant == 4 ? x.neg() : x, pr, rm, true);
+    };
+
+
+    /*
+     *  n * 0 = 0
+     *  n * N = N
+     *  n * I = I
+     *  0 * n = 0
+     *  0 * 0 = 0
+     *  0 * N = N
+     *  0 * I = N
+     *  N * n = N
+     *  N * 0 = N
+     *  N * N = N
+     *  N * I = N
+     *  I * n = I
+     *  I * 0 = N
+     *  I * N = N
+     *  I * I = I
+     *
+     * Return a new Decimal whose value is this Decimal times `y`, rounded to `precision` significant
+     * digits using rounding mode `rounding`.
+     *
+     */
+    P.times = P.mul = function (y) {
+      var carry, e, i, k, r, rL, t, xdL, ydL,
+        x = this,
+        Ctor = x.constructor,
+        xd = x.d,
+        yd = (y = new Ctor(y)).d;
+
+      y.s *= x.s;
+
+       // If either is NaN, ±Infinity or ±0...
+      if (!xd || !xd[0] || !yd || !yd[0]) {
+
+        return new Ctor(!y.s || xd && !xd[0] && !yd || yd && !yd[0] && !xd
+
+          // Return NaN if either is NaN.
+          // Return NaN if x is ±0 and y is ±Infinity, or y is ±0 and x is ±Infinity.
+          ? NaN
+
+          // Return ±Infinity if either is ±Infinity.
+          // Return ±0 if either is ±0.
+          : !xd || !yd ? y.s / 0 : y.s * 0);
+      }
+
+      e = mathfloor(x.e / LOG_BASE) + mathfloor(y.e / LOG_BASE);
+      xdL = xd.length;
+      ydL = yd.length;
+
+      // Ensure xd points to the longer array.
+      if (xdL < ydL) {
+        r = xd;
+        xd = yd;
+        yd = r;
+        rL = xdL;
+        xdL = ydL;
+        ydL = rL;
+      }
+
+      // Initialise the result array with zeros.
+      r = [];
+      rL = xdL + ydL;
+      for (i = rL; i--;) r.push(0);
+
+      // Multiply!
+      for (i = ydL; --i >= 0;) {
+        carry = 0;
+        for (k = xdL + i; k > i;) {
+          t = r[k] + yd[i] * xd[k - i - 1] + carry;
+          r[k--] = t % BASE | 0;
+          carry = t / BASE | 0;
+        }
+
+        r[k] = (r[k] + carry) % BASE | 0;
+      }
+
+      // Remove trailing zeros.
+      for (; !r[--rL];) r.pop();
+
+      if (carry) ++e;
+      else r.shift();
+
+      y.d = r;
+      y.e = getBase10Exponent(r, e);
+
+      return external ? finalise(y, Ctor.precision, Ctor.rounding) : y;
+    };
+
+
+    /*
+     * Return a string representing the value of this Decimal in base 2, round to `sd` significant
+     * digits using rounding mode `rm`.
+     *
+     * If the optional `sd` argument is present then return binary exponential notation.
+     *
+     * [sd] {number} Significant digits. Integer, 1 to MAX_DIGITS inclusive.
+     * [rm] {number} Rounding mode. Integer, 0 to 8 inclusive.
+     *
+     */
+    P.toBinary = function (sd, rm) {
+      return toStringBinary(this, 2, sd, rm);
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the value of this Decimal rounded to a maximum of `dp`
+     * decimal places using rounding mode `rm` or `rounding` if `rm` is omitted.
+     *
+     * If `dp` is omitted, return a new Decimal whose value is the value of this Decimal.
+     *
+     * [dp] {number} Decimal places. Integer, 0 to MAX_DIGITS inclusive.
+     * [rm] {number} Rounding mode. Integer, 0 to 8 inclusive.
+     *
+     */
+    P.toDecimalPlaces = P.toDP = function (dp, rm) {
+      var x = this,
+        Ctor = x.constructor;
+
+      x = new Ctor(x);
+      if (dp === void 0) return x;
+
+      checkInt32(dp, 0, MAX_DIGITS);
+
+      if (rm === void 0) rm = Ctor.rounding;
+      else checkInt32(rm, 0, 8);
+
+      return finalise(x, dp + x.e + 1, rm);
+    };
+
+
+    /*
+     * Return a string representing the value of this Decimal in exponential notation rounded to
+     * `dp` fixed decimal places using rounding mode `rounding`.
+     *
+     * [dp] {number} Decimal places. Integer, 0 to MAX_DIGITS inclusive.
+     * [rm] {number} Rounding mode. Integer, 0 to 8 inclusive.
+     *
+     */
+    P.toExponential = function (dp, rm) {
+      var str,
+        x = this,
+        Ctor = x.constructor;
+
+      if (dp === void 0) {
+        str = finiteToString(x, true);
+      } else {
+        checkInt32(dp, 0, MAX_DIGITS);
+
+        if (rm === void 0) rm = Ctor.rounding;
+        else checkInt32(rm, 0, 8);
+
+        x = finalise(new Ctor(x), dp + 1, rm);
+        str = finiteToString(x, true, dp + 1);
+      }
+
+      return x.isNeg() && !x.isZero() ? '-' + str : str;
+    };
+
+
+    /*
+     * Return a string representing the value of this Decimal in normal (fixed-point) notation to
+     * `dp` fixed decimal places and rounded using rounding mode `rm` or `rounding` if `rm` is
+     * omitted.
+     *
+     * As with JavaScript numbers, (-0).toFixed(0) is '0', but e.g. (-0.00001).toFixed(0) is '-0'.
+     *
+     * [dp] {number} Decimal places. Integer, 0 to MAX_DIGITS inclusive.
+     * [rm] {number} Rounding mode. Integer, 0 to 8 inclusive.
+     *
+     * (-0).toFixed(0) is '0', but (-0.1).toFixed(0) is '-0'.
+     * (-0).toFixed(1) is '0.0', but (-0.01).toFixed(1) is '-0.0'.
+     * (-0).toFixed(3) is '0.000'.
+     * (-0.5).toFixed(0) is '-0'.
+     *
+     */
+    P.toFixed = function (dp, rm) {
+      var str, y,
+        x = this,
+        Ctor = x.constructor;
+
+      if (dp === void 0) {
+        str = finiteToString(x);
+      } else {
+        checkInt32(dp, 0, MAX_DIGITS);
+
+        if (rm === void 0) rm = Ctor.rounding;
+        else checkInt32(rm, 0, 8);
+
+        y = finalise(new Ctor(x), dp + x.e + 1, rm);
+        str = finiteToString(y, false, dp + y.e + 1);
+      }
+
+      // To determine whether to add the minus sign look at the value before it was rounded,
+      // i.e. look at `x` rather than `y`.
+      return x.isNeg() && !x.isZero() ? '-' + str : str;
+    };
+
+
+    /*
+     * Return an array representing the value of this Decimal as a simple fraction with an integer
+     * numerator and an integer denominator.
+     *
+     * The denominator will be a positive non-zero value less than or equal to the specified maximum
+     * denominator. If a maximum denominator is not specified, the denominator will be the lowest
+     * value necessary to represent the number exactly.
+     *
+     * [maxD] {number|string|Decimal} Maximum denominator. Integer >= 1 and < Infinity.
+     *
+     */
+    P.toFraction = function (maxD) {
+      var d, d0, d1, d2, e, k, n, n0, n1, pr, q, r,
+        x = this,
+        xd = x.d,
+        Ctor = x.constructor;
+
+      if (!xd) return new Ctor(x);
+
+      n1 = d0 = new Ctor(1);
+      d1 = n0 = new Ctor(0);
+
+      d = new Ctor(d1);
+      e = d.e = getPrecision(xd) - x.e - 1;
+      k = e % LOG_BASE;
+      d.d[0] = mathpow(10, k < 0 ? LOG_BASE + k : k);
+
+      if (maxD == null) {
+
+        // d is 10**e, the minimum max-denominator needed.
+        maxD = e > 0 ? d : n1;
+      } else {
+        n = new Ctor(maxD);
+        if (!n.isInt() || n.lt(n1)) throw Error(invalidArgument + n);
+        maxD = n.gt(d) ? (e > 0 ? d : n1) : n;
+      }
+
+      external = false;
+      n = new Ctor(digitsToString(xd));
+      pr = Ctor.precision;
+      Ctor.precision = e = xd.length * LOG_BASE * 2;
+
+      for (;;)  {
+        q = divide(n, d, 0, 1, 1);
+        d2 = d0.plus(q.times(d1));
+        if (d2.cmp(maxD) == 1) break;
+        d0 = d1;
+        d1 = d2;
+        d2 = n1;
+        n1 = n0.plus(q.times(d2));
+        n0 = d2;
+        d2 = d;
+        d = n.minus(q.times(d2));
+        n = d2;
+      }
+
+      d2 = divide(maxD.minus(d0), d1, 0, 1, 1);
+      n0 = n0.plus(d2.times(n1));
+      d0 = d0.plus(d2.times(d1));
+      n0.s = n1.s = x.s;
+
+      // Determine which fraction is closer to x, n0/d0 or n1/d1?
+      r = divide(n1, d1, e, 1).minus(x).abs().cmp(divide(n0, d0, e, 1).minus(x).abs()) < 1
+          ? [n1, d1] : [n0, d0];
+
+      Ctor.precision = pr;
+      external = true;
+
+      return r;
+    };
+
+
+    /*
+     * Return a string representing the value of this Decimal in base 16, round to `sd` significant
+     * digits using rounding mode `rm`.
+     *
+     * If the optional `sd` argument is present then return binary exponential notation.
+     *
+     * [sd] {number} Significant digits. Integer, 1 to MAX_DIGITS inclusive.
+     * [rm] {number} Rounding mode. Integer, 0 to 8 inclusive.
+     *
+     */
+    P.toHexadecimal = P.toHex = function (sd, rm) {
+      return toStringBinary(this, 16, sd, rm);
+    };
+
+
+    /*
+     * Returns a new Decimal whose value is the nearest multiple of `y` in the direction of rounding
+     * mode `rm`, or `Decimal.rounding` if `rm` is omitted, to the value of this Decimal.
+     *
+     * The return value will always have the same sign as this Decimal, unless either this Decimal
+     * or `y` is NaN, in which case the return value will be also be NaN.
+     *
+     * The return value is not affected by the value of `precision`.
+     *
+     * y {number|string|Decimal} The magnitude to round to a multiple of.
+     * [rm] {number} Rounding mode. Integer, 0 to 8 inclusive.
+     *
+     * 'toNearest() rounding mode not an integer: {rm}'
+     * 'toNearest() rounding mode out of range: {rm}'
+     *
+     */
+    P.toNearest = function (y, rm) {
+      var x = this,
+        Ctor = x.constructor;
+
+      x = new Ctor(x);
+
+      if (y == null) {
+
+        // If x is not finite, return x.
+        if (!x.d) return x;
+
+        y = new Ctor(1);
+        rm = Ctor.rounding;
+      } else {
+        y = new Ctor(y);
+        if (rm === void 0) {
+          rm = Ctor.rounding;
+        } else {
+          checkInt32(rm, 0, 8);
+        }
+
+        // If x is not finite, return x if y is not NaN, else NaN.
+        if (!x.d) return y.s ? x : y;
+
+        // If y is not finite, return Infinity with the sign of x if y is Infinity, else NaN.
+        if (!y.d) {
+          if (y.s) y.s = x.s;
+          return y;
+        }
+      }
+
+      // If y is not zero, calculate the nearest multiple of y to x.
+      if (y.d[0]) {
+        external = false;
+        x = divide(x, y, 0, rm, 1).times(y);
+        external = true;
+        finalise(x);
+
+      // If y is zero, return zero with the sign of x.
+      } else {
+        y.s = x.s;
+        x = y;
+      }
+
+      return x;
+    };
+
+
+    /*
+     * Return the value of this Decimal converted to a number primitive.
+     * Zero keeps its sign.
+     *
+     */
+    P.toNumber = function () {
+      return +this;
+    };
+
+
+    /*
+     * Return a string representing the value of this Decimal in base 8, round to `sd` significant
+     * digits using rounding mode `rm`.
+     *
+     * If the optional `sd` argument is present then return binary exponential notation.
+     *
+     * [sd] {number} Significant digits. Integer, 1 to MAX_DIGITS inclusive.
+     * [rm] {number} Rounding mode. Integer, 0 to 8 inclusive.
+     *
+     */
+    P.toOctal = function (sd, rm) {
+      return toStringBinary(this, 8, sd, rm);
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the value of this Decimal raised to the power `y`, rounded
+     * to `precision` significant digits using rounding mode `rounding`.
+     *
+     * ECMAScript compliant.
+     *
+     *   pow(x, NaN)                           = NaN
+     *   pow(x, ±0)                            = 1
+
+     *   pow(NaN, non-zero)                    = NaN
+     *   pow(abs(x) > 1, +Infinity)            = +Infinity
+     *   pow(abs(x) > 1, -Infinity)            = +0
+     *   pow(abs(x) == 1, ±Infinity)           = NaN
+     *   pow(abs(x) < 1, +Infinity)            = +0
+     *   pow(abs(x) < 1, -Infinity)            = +Infinity
+     *   pow(+Infinity, y > 0)                 = +Infinity
+     *   pow(+Infinity, y < 0)                 = +0
+     *   pow(-Infinity, odd integer > 0)       = -Infinity
+     *   pow(-Infinity, even integer > 0)      = +Infinity
+     *   pow(-Infinity, odd integer < 0)       = -0
+     *   pow(-Infinity, even integer < 0)      = +0
+     *   pow(+0, y > 0)                        = +0
+     *   pow(+0, y < 0)                        = +Infinity
+     *   pow(-0, odd integer > 0)              = -0
+     *   pow(-0, even integer > 0)             = +0
+     *   pow(-0, odd integer < 0)              = -Infinity
+     *   pow(-0, even integer < 0)             = +Infinity
+     *   pow(finite x < 0, finite non-integer) = NaN
+     *
+     * For non-integer or very large exponents pow(x, y) is calculated using
+     *
+     *   x^y = exp(y*ln(x))
+     *
+     * Assuming the first 15 rounding digits are each equally likely to be any digit 0-9, the
+     * probability of an incorrectly rounded result
+     * P([49]9{14} | [50]0{14}) = 2 * 0.2 * 10^-14 = 4e-15 = 1/2.5e+14
+     * i.e. 1 in 250,000,000,000,000
+     *
+     * If a result is incorrectly rounded the maximum error will be 1 ulp (unit in last place).
+     *
+     * y {number|string|Decimal} The power to which to raise this Decimal.
+     *
+     */
+    P.toPower = P.pow = function (y) {
+      var e, k, pr, r, rm, s,
+        x = this,
+        Ctor = x.constructor,
+        yn = +(y = new Ctor(y));
+
+      // Either ±Infinity, NaN or ±0?
+      if (!x.d || !y.d || !x.d[0] || !y.d[0]) return new Ctor(mathpow(+x, yn));
+
+      x = new Ctor(x);
+
+      if (x.eq(1)) return x;
+
+      pr = Ctor.precision;
+      rm = Ctor.rounding;
+
+      if (y.eq(1)) return finalise(x, pr, rm);
+
+      // y exponent
+      e = mathfloor(y.e / LOG_BASE);
+
+      // If y is a small integer use the 'exponentiation by squaring' algorithm.
+      if (e >= y.d.length - 1 && (k = yn < 0 ? -yn : yn) <= MAX_SAFE_INTEGER) {
+        r = intPow(Ctor, x, k, pr);
+        return y.s < 0 ? new Ctor(1).div(r) : finalise(r, pr, rm);
+      }
+
+      s = x.s;
+
+      // if x is negative
+      if (s < 0) {
+
+        // if y is not an integer
+        if (e < y.d.length - 1) return new Ctor(NaN);
+
+        // Result is positive if x is negative and the last digit of integer y is even.
+        if ((y.d[e] & 1) == 0) s = 1;
+
+        // if x.eq(-1)
+        if (x.e == 0 && x.d[0] == 1 && x.d.length == 1) {
+          x.s = s;
+          return x;
+        }
+      }
+
+      // Estimate result exponent.
+      // x^y = 10^e,  where e = y * log10(x)
+      // log10(x) = log10(x_significand) + x_exponent
+      // log10(x_significand) = ln(x_significand) / ln(10)
+      k = mathpow(+x, yn);
+      e = k == 0 || !isFinite(k)
+        ? mathfloor(yn * (Math.log('0.' + digitsToString(x.d)) / Math.LN10 + x.e + 1))
+        : new Ctor(k + '').e;
+
+      // Exponent estimate may be incorrect e.g. x: 0.999999999999999999, y: 2.29, e: 0, r.e: -1.
+
+      // Overflow/underflow?
+      if (e > Ctor.maxE + 1 || e < Ctor.minE - 1) return new Ctor(e > 0 ? s / 0 : 0);
+
+      external = false;
+      Ctor.rounding = x.s = 1;
+
+      // Estimate the extra guard digits needed to ensure five correct rounding digits from
+      // naturalLogarithm(x). Example of failure without these extra digits (precision: 10):
+      // new Decimal(2.32456).pow('2087987436534566.46411')
+      // should be 1.162377823e+764914905173815, but is 1.162355823e+764914905173815
+      k = Math.min(12, (e + '').length);
+
+      // r = x^y = exp(y*ln(x))
+      r = naturalExponential(y.times(naturalLogarithm(x, pr + k)), pr);
+
+      // r may be Infinity, e.g. (0.9999999999999999).pow(-1e+40)
+      if (r.d) {
+
+        // Truncate to the required precision plus five rounding digits.
+        r = finalise(r, pr + 5, 1);
+
+        // If the rounding digits are [49]9999 or [50]0000 increase the precision by 10 and recalculate
+        // the result.
+        if (checkRoundingDigits(r.d, pr, rm)) {
+          e = pr + 10;
+
+          // Truncate to the increased precision plus five rounding digits.
+          r = finalise(naturalExponential(y.times(naturalLogarithm(x, e + k)), e), e + 5, 1);
+
+          // Check for 14 nines from the 2nd rounding digit (the first rounding digit may be 4 or 9).
+          if (+digitsToString(r.d).slice(pr + 1, pr + 15) + 1 == 1e14) {
+            r = finalise(r, pr + 1, 0);
+          }
+        }
+      }
+
+      r.s = s;
+      external = true;
+      Ctor.rounding = rm;
+
+      return finalise(r, pr, rm);
+    };
+
+
+    /*
+     * Return a string representing the value of this Decimal rounded to `sd` significant digits
+     * using rounding mode `rounding`.
+     *
+     * Return exponential notation if `sd` is less than the number of digits necessary to represent
+     * the integer part of the value in normal notation.
+     *
+     * [sd] {number} Significant digits. Integer, 1 to MAX_DIGITS inclusive.
+     * [rm] {number} Rounding mode. Integer, 0 to 8 inclusive.
+     *
+     */
+    P.toPrecision = function (sd, rm) {
+      var str,
+        x = this,
+        Ctor = x.constructor;
+
+      if (sd === void 0) {
+        str = finiteToString(x, x.e <= Ctor.toExpNeg || x.e >= Ctor.toExpPos);
+      } else {
+        checkInt32(sd, 1, MAX_DIGITS);
+
+        if (rm === void 0) rm = Ctor.rounding;
+        else checkInt32(rm, 0, 8);
+
+        x = finalise(new Ctor(x), sd, rm);
+        str = finiteToString(x, sd <= x.e || x.e <= Ctor.toExpNeg, sd);
+      }
+
+      return x.isNeg() && !x.isZero() ? '-' + str : str;
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the value of this Decimal rounded to a maximum of `sd`
+     * significant digits using rounding mode `rm`, or to `precision` and `rounding` respectively if
+     * omitted.
+     *
+     * [sd] {number} Significant digits. Integer, 1 to MAX_DIGITS inclusive.
+     * [rm] {number} Rounding mode. Integer, 0 to 8 inclusive.
+     *
+     * 'toSD() digits out of range: {sd}'
+     * 'toSD() digits not an integer: {sd}'
+     * 'toSD() rounding mode not an integer: {rm}'
+     * 'toSD() rounding mode out of range: {rm}'
+     *
+     */
+    P.toSignificantDigits = P.toSD = function (sd, rm) {
+      var x = this,
+        Ctor = x.constructor;
+
+      if (sd === void 0) {
+        sd = Ctor.precision;
+        rm = Ctor.rounding;
+      } else {
+        checkInt32(sd, 1, MAX_DIGITS);
+
+        if (rm === void 0) rm = Ctor.rounding;
+        else checkInt32(rm, 0, 8);
+      }
+
+      return finalise(new Ctor(x), sd, rm);
+    };
+
+
+    /*
+     * Return a string representing the value of this Decimal.
+     *
+     * Return exponential notation if this Decimal has a positive exponent equal to or greater than
+     * `toExpPos`, or a negative exponent equal to or less than `toExpNeg`.
+     *
+     */
+    P.toString = function () {
+      var x = this,
+        Ctor = x.constructor,
+        str = finiteToString(x, x.e <= Ctor.toExpNeg || x.e >= Ctor.toExpPos);
+
+      return x.isNeg() && !x.isZero() ? '-' + str : str;
+    };
+
+
+    /*
+     * Return a new Decimal whose value is the value of this Decimal truncated to a whole number.
+     *
+     */
+    P.truncated = P.trunc = function () {
+      return finalise(new this.constructor(this), this.e + 1, 1);
+    };
+
+
+    /*
+     * Return a string representing the value of this Decimal.
+     * Unlike `toString`, negative zero will include the minus sign.
+     *
+     */
+    P.valueOf = P.toJSON = function () {
+      var x = this,
+        Ctor = x.constructor,
+        str = finiteToString(x, x.e <= Ctor.toExpNeg || x.e >= Ctor.toExpPos);
+
+      return x.isNeg() ? '-' + str : str;
+    };
+
+
+    // Helper functions for Decimal.prototype (P) and/or Decimal methods, and their callers.
+
+
+    /*
+     *  digitsToString           P.cubeRoot, P.logarithm, P.squareRoot, P.toFraction, P.toPower,
+     *                           finiteToString, naturalExponential, naturalLogarithm
+     *  checkInt32               P.toDecimalPlaces, P.toExponential, P.toFixed, P.toNearest,
+     *                           P.toPrecision, P.toSignificantDigits, toStringBinary, random
+     *  checkRoundingDigits      P.logarithm, P.toPower, naturalExponential, naturalLogarithm
+     *  convertBase              toStringBinary, parseOther
+     *  cos                      P.cos
+     *  divide                   P.atanh, P.cubeRoot, P.dividedBy, P.dividedToIntegerBy,
+     *                           P.logarithm, P.modulo, P.squareRoot, P.tan, P.tanh, P.toFraction,
+     *                           P.toNearest, toStringBinary, naturalExponential, naturalLogarithm,
+     *                           taylorSeries, atan2, parseOther
+     *  finalise                 P.absoluteValue, P.atan, P.atanh, P.ceil, P.cos, P.cosh,
+     *                           P.cubeRoot, P.dividedToIntegerBy, P.floor, P.logarithm, P.minus,
+     *                           P.modulo, P.negated, P.plus, P.round, P.sin, P.sinh, P.squareRoot,
+     *                           P.tan, P.times, P.toDecimalPlaces, P.toExponential, P.toFixed,
+     *                           P.toNearest, P.toPower, P.toPrecision, P.toSignificantDigits,
+     *                           P.truncated, divide, getLn10, getPi, naturalExponential,
+     *                           naturalLogarithm, ceil, floor, round, trunc
+     *  finiteToString           P.toExponential, P.toFixed, P.toPrecision, P.toString, P.valueOf,
+     *                           toStringBinary
+     *  getBase10Exponent        P.minus, P.plus, P.times, parseOther
+     *  getLn10                  P.logarithm, naturalLogarithm
+     *  getPi                    P.acos, P.asin, P.atan, toLessThanHalfPi, atan2
+     *  getPrecision             P.precision, P.toFraction
+     *  getZeroString            digitsToString, finiteToString
+     *  intPow                   P.toPower, parseOther
+     *  isOdd                    toLessThanHalfPi
+     *  maxOrMin                 max, min
+     *  naturalExponential       P.naturalExponential, P.toPower
+     *  naturalLogarithm         P.acosh, P.asinh, P.atanh, P.logarithm, P.naturalLogarithm,
+     *                           P.toPower, naturalExponential
+     *  nonFiniteToString        finiteToString, toStringBinary
+     *  parseDecimal             Decimal
+     *  parseOther               Decimal
+     *  sin                      P.sin
+     *  taylorSeries             P.cosh, P.sinh, cos, sin
+     *  toLessThanHalfPi         P.cos, P.sin
+     *  toStringBinary           P.toBinary, P.toHexadecimal, P.toOctal
+     *  truncate                 intPow
+     *
+     *  Throws:                  P.logarithm, P.precision, P.toFraction, checkInt32, getLn10, getPi,
+     *                           naturalLogarithm, config, parseOther, random, Decimal
+     */
+
+
+    function digitsToString(d) {
+      var i, k, ws,
+        indexOfLastWord = d.length - 1,
+        str = '',
+        w = d[0];
+
+      if (indexOfLastWord > 0) {
+        str += w;
+        for (i = 1; i < indexOfLastWord; i++) {
+          ws = d[i] + '';
+          k = LOG_BASE - ws.length;
+          if (k) str += getZeroString(k);
+          str += ws;
+        }
+
+        w = d[i];
+        ws = w + '';
+        k = LOG_BASE - ws.length;
+        if (k) str += getZeroString(k);
+      } else if (w === 0) {
+        return '0';
+      }
+
+      // Remove trailing zeros of last w.
+      for (; w % 10 === 0;) w /= 10;
+
+      return str + w;
+    }
+
+
+    function checkInt32(i, min, max) {
+      if (i !== ~~i || i < min || i > max) {
+        throw Error(invalidArgument + i);
+      }
+    }
+
+
+    /*
+     * Check 5 rounding digits if `repeating` is null, 4 otherwise.
+     * `repeating == null` if caller is `log` or `pow`,
+     * `repeating != null` if caller is `naturalLogarithm` or `naturalExponential`.
+     */
+    function checkRoundingDigits(d, i, rm, repeating) {
+      var di, k, r, rd;
+
+      // Get the length of the first word of the array d.
+      for (k = d[0]; k >= 10; k /= 10) --i;
+
+      // Is the rounding digit in the first word of d?
+      if (--i < 0) {
+        i += LOG_BASE;
+        di = 0;
+      } else {
+        di = Math.ceil((i + 1) / LOG_BASE);
+        i %= LOG_BASE;
+      }
+
+      // i is the index (0 - 6) of the rounding digit.
+      // E.g. if within the word 3487563 the first rounding digit is 5,
+      // then i = 4, k = 1000, rd = 3487563 % 1000 = 563
+      k = mathpow(10, LOG_BASE - i);
+      rd = d[di] % k | 0;
+
+      if (repeating == null) {
+        if (i < 3) {
+          if (i == 0) rd = rd / 100 | 0;
+          else if (i == 1) rd = rd / 10 | 0;
+          r = rm < 4 && rd == 99999 || rm > 3 && rd == 49999 || rd == 50000 || rd == 0;
+        } else {
+          r = (rm < 4 && rd + 1 == k || rm > 3 && rd + 1 == k / 2) &&
+            (d[di + 1] / k / 100 | 0) == mathpow(10, i - 2) - 1 ||
+              (rd == k / 2 || rd == 0) && (d[di + 1] / k / 100 | 0) == 0;
+        }
+      } else {
+        if (i < 4) {
+          if (i == 0) rd = rd / 1000 | 0;
+          else if (i == 1) rd = rd / 100 | 0;
+          else if (i == 2) rd = rd / 10 | 0;
+          r = (repeating || rm < 4) && rd == 9999 || !repeating && rm > 3 && rd == 4999;
+        } else {
+          r = ((repeating || rm < 4) && rd + 1 == k ||
+          (!repeating && rm > 3) && rd + 1 == k / 2) &&
+            (d[di + 1] / k / 1000 | 0) == mathpow(10, i - 3) - 1;
+        }
+      }
+
+      return r;
+    }
+
+
+    // Convert string of `baseIn` to an array of numbers of `baseOut`.
+    // Eg. convertBase('255', 10, 16) returns [15, 15].
+    // Eg. convertBase('ff', 16, 10) returns [2, 5, 5].
+    function convertBase(str, baseIn, baseOut) {
+      var j,
+        arr = [0],
+        arrL,
+        i = 0,
+        strL = str.length;
+
+      for (; i < strL;) {
+        for (arrL = arr.length; arrL--;) arr[arrL] *= baseIn;
+        arr[0] += NUMERALS.indexOf(str.charAt(i++));
+        for (j = 0; j < arr.length; j++) {
+          if (arr[j] > baseOut - 1) {
+            if (arr[j + 1] === void 0) arr[j + 1] = 0;
+            arr[j + 1] += arr[j] / baseOut | 0;
+            arr[j] %= baseOut;
+          }
+        }
+      }
+
+      return arr.reverse();
+    }
+
+
+    /*
+     * cos(x) = 1 - x^2/2! + x^4/4! - ...
+     * |x| < pi/2
+     *
+     */
+    function cosine(Ctor, x) {
+      var k, len, y;
+
+      if (x.isZero()) return x;
+
+      // Argument reduction: cos(4x) = 8*(cos^4(x) - cos^2(x)) + 1
+      // i.e. cos(x) = 8*(cos^4(x/4) - cos^2(x/4)) + 1
+
+      // Estimate the optimum number of times to use the argument reduction.
+      len = x.d.length;
+      if (len < 32) {
+        k = Math.ceil(len / 3);
+        y = (1 / tinyPow(4, k)).toString();
+      } else {
+        k = 16;
+        y = '2.3283064365386962890625e-10';
+      }
+
+      Ctor.precision += k;
+
+      x = taylorSeries(Ctor, 1, x.times(y), new Ctor(1));
+
+      // Reverse argument reduction
+      for (var i = k; i--;) {
+        var cos2x = x.times(x);
+        x = cos2x.times(cos2x).minus(cos2x).times(8).plus(1);
+      }
+
+      Ctor.precision -= k;
+
+      return x;
+    }
+
+
+    /*
+     * Perform division in the specified base.
+     */
+    var divide = (function () {
+
+      // Assumes non-zero x and k, and hence non-zero result.
+      function multiplyInteger(x, k, base) {
+        var temp,
+          carry = 0,
+          i = x.length;
+
+        for (x = x.slice(); i--;) {
+          temp = x[i] * k + carry;
+          x[i] = temp % base | 0;
+          carry = temp / base | 0;
+        }
+
+        if (carry) x.unshift(carry);
+
+        return x;
+      }
+
+      function compare(a, b, aL, bL) {
+        var i, r;
+
+        if (aL != bL) {
+          r = aL > bL ? 1 : -1;
+        } else {
+          for (i = r = 0; i < aL; i++) {
+            if (a[i] != b[i]) {
+              r = a[i] > b[i] ? 1 : -1;
+              break;
+            }
+          }
+        }
+
+        return r;
+      }
+
+      function subtract(a, b, aL, base) {
+        var i = 0;
+
+        // Subtract b from a.
+        for (; aL--;) {
+          a[aL] -= i;
+          i = a[aL] < b[aL] ? 1 : 0;
+          a[aL] = i * base + a[aL] - b[aL];
+        }
+
+        // Remove leading zeros.
+        for (; !a[0] && a.length > 1;) a.shift();
+      }
+
+      return function (x, y, pr, rm, dp, base) {
+        var cmp, e, i, k, logBase, more, prod, prodL, q, qd, rem, remL, rem0, sd, t, xi, xL, yd0,
+          yL, yz,
+          Ctor = x.constructor,
+          sign = x.s == y.s ? 1 : -1,
+          xd = x.d,
+          yd = y.d;
+
+        // Either NaN, Infinity or 0?
+        if (!xd || !xd[0] || !yd || !yd[0]) {
+
+          return new Ctor(// Return NaN if either NaN, or both Infinity or 0.
+            !x.s || !y.s || (xd ? yd && xd[0] == yd[0] : !yd) ? NaN :
+
+            // Return ±0 if x is 0 or y is ±Infinity, or return ±Infinity as y is 0.
+            xd && xd[0] == 0 || !yd ? sign * 0 : sign / 0);
+        }
+
+        if (base) {
+          logBase = 1;
+          e = x.e - y.e;
+        } else {
+          base = BASE;
+          logBase = LOG_BASE;
+          e = mathfloor(x.e / logBase) - mathfloor(y.e / logBase);
+        }
+
+        yL = yd.length;
+        xL = xd.length;
+        q = new Ctor(sign);
+        qd = q.d = [];
+
+        // Result exponent may be one less than e.
+        // The digit array of a Decimal from toStringBinary may have trailing zeros.
+        for (i = 0; yd[i] == (xd[i] || 0); i++);
+
+        if (yd[i] > (xd[i] || 0)) e--;
+
+        if (pr == null) {
+          sd = pr = Ctor.precision;
+          rm = Ctor.rounding;
+        } else if (dp) {
+          sd = pr + (x.e - y.e) + 1;
+        } else {
+          sd = pr;
+        }
+
+        if (sd < 0) {
+          qd.push(1);
+          more = true;
+        } else {
+
+          // Convert precision in number of base 10 digits to base 1e7 digits.
+          sd = sd / logBase + 2 | 0;
+          i = 0;
+
+          // divisor < 1e7
+          if (yL == 1) {
+            k = 0;
+            yd = yd[0];
+            sd++;
+
+            // k is the carry.
+            for (; (i < xL || k) && sd--; i++) {
+              t = k * base + (xd[i] || 0);
+              qd[i] = t / yd | 0;
+              k = t % yd | 0;
+            }
+
+            more = k || i < xL;
+
+          // divisor >= 1e7
+          } else {
+
+            // Normalise xd and yd so highest order digit of yd is >= base/2
+            k = base / (yd[0] + 1) | 0;
+
+            if (k > 1) {
+              yd = multiplyInteger(yd, k, base);
+              xd = multiplyInteger(xd, k, base);
+              yL = yd.length;
+              xL = xd.length;
+            }
+
+            xi = yL;
+            rem = xd.slice(0, yL);
+            remL = rem.length;
+
+            // Add zeros to make remainder as long as divisor.
+            for (; remL < yL;) rem[remL++] = 0;
+
+            yz = yd.slice();
+            yz.unshift(0);
+            yd0 = yd[0];
+
+            if (yd[1] >= base / 2) ++yd0;
+
+            do {
+              k = 0;
+
+              // Compare divisor and remainder.
+              cmp = compare(yd, rem, yL, remL);
+
+              // If divisor < remainder.
+              if (cmp < 0) {
+
+                // Calculate trial digit, k.
+                rem0 = rem[0];
+                if (yL != remL) rem0 = rem0 * base + (rem[1] || 0);
+
+                // k will be how many times the divisor goes into the current remainder.
+                k = rem0 / yd0 | 0;
+
+                //  Algorithm:
+                //  1. product = divisor * trial digit (k)
+                //  2. if product > remainder: product -= divisor, k--
+                //  3. remainder -= product
+                //  4. if product was < remainder at 2:
+                //    5. compare new remainder and divisor
+                //    6. If remainder > divisor: remainder -= divisor, k++
+
+                if (k > 1) {
+                  if (k >= base) k = base - 1;
+
+                  // product = divisor * trial digit.
+                  prod = multiplyInteger(yd, k, base);
+                  prodL = prod.length;
+                  remL = rem.length;
+
+                  // Compare product and remainder.
+                  cmp = compare(prod, rem, prodL, remL);
+
+                  // product > remainder.
+                  if (cmp == 1) {
+                    k--;
+
+                    // Subtract divisor from product.
+                    subtract(prod, yL < prodL ? yz : yd, prodL, base);
+                  }
+                } else {
+
+                  // cmp is -1.
+                  // If k is 0, there is no need to compare yd and rem again below, so change cmp to 1
+                  // to avoid it. If k is 1 there is a need to compare yd and rem again below.
+                  if (k == 0) cmp = k = 1;
+                  prod = yd.slice();
+                }
+
+                prodL = prod.length;
+                if (prodL < remL) prod.unshift(0);
+
+                // Subtract product from remainder.
+                subtract(rem, prod, remL, base);
+
+                // If product was < previous remainder.
+                if (cmp == -1) {
+                  remL = rem.length;
+
+                  // Compare divisor and new remainder.
+                  cmp = compare(yd, rem, yL, remL);
+
+                  // If divisor < new remainder, subtract divisor from remainder.
+                  if (cmp < 1) {
+                    k++;
+
+                    // Subtract divisor from remainder.
+                    subtract(rem, yL < remL ? yz : yd, remL, base);
+                  }
+                }
+
+                remL = rem.length;
+              } else if (cmp === 0) {
+                k++;
+                rem = [0];
+              }    // if cmp === 1, k will be 0
+
+              // Add the next digit, k, to the result array.
+              qd[i++] = k;
+
+              // Update the remainder.
+              if (cmp && rem[0]) {
+                rem[remL++] = xd[xi] || 0;
+              } else {
+                rem = [xd[xi]];
+                remL = 1;
+              }
+
+            } while ((xi++ < xL || rem[0] !== void 0) && sd--);
+
+            more = rem[0] !== void 0;
+          }
+
+          // Leading zero?
+          if (!qd[0]) qd.shift();
+        }
+
+        // logBase is 1 when divide is being used for base conversion.
+        if (logBase == 1) {
+          q.e = e;
+          inexact = more;
+        } else {
+
+          // To calculate q.e, first get the number of digits of qd[0].
+          for (i = 1, k = qd[0]; k >= 10; k /= 10) i++;
+          q.e = i + e * logBase - 1;
+
+          finalise(q, dp ? pr + q.e + 1 : pr, rm, more);
+        }
+
+        return q;
+      };
+    })();
+
+
+    /*
+     * Round `x` to `sd` significant digits using rounding mode `rm`.
+     * Check for over/under-flow.
+     */
+     function finalise(x, sd, rm, isTruncated) {
+      var digits, i, j, k, rd, roundUp, w, xd, xdi,
+        Ctor = x.constructor;
+
+      // Don't round if sd is null or undefined.
+      out: if (sd != null) {
+        xd = x.d;
+
+        // Infinity/NaN.
+        if (!xd) return x;
+
+        // rd: the rounding digit, i.e. the digit after the digit that may be rounded up.
+        // w: the word of xd containing rd, a base 1e7 number.
+        // xdi: the index of w within xd.
+        // digits: the number of digits of w.
+        // i: what would be the index of rd within w if all the numbers were 7 digits long (i.e. if
+        // they had leading zeros)
+        // j: if > 0, the actual index of rd within w (if < 0, rd is a leading zero).
+
+        // Get the length of the first word of the digits array xd.
+        for (digits = 1, k = xd[0]; k >= 10; k /= 10) digits++;
+        i = sd - digits;
+
+        // Is the rounding digit in the first word of xd?
+        if (i < 0) {
+          i += LOG_BASE;
+          j = sd;
+          w = xd[xdi = 0];
+
+          // Get the rounding digit at index j of w.
+          rd = w / mathpow(10, digits - j - 1) % 10 | 0;
+        } else {
+          xdi = Math.ceil((i + 1) / LOG_BASE);
+          k = xd.length;
+          if (xdi >= k) {
+            if (isTruncated) {
+
+              // Needed by `naturalExponential`, `naturalLogarithm` and `squareRoot`.
+              for (; k++ <= xdi;) xd.push(0);
+              w = rd = 0;
+              digits = 1;
+              i %= LOG_BASE;
+              j = i - LOG_BASE + 1;
+            } else {
+              break out;
+            }
+          } else {
+            w = k = xd[xdi];
+
+            // Get the number of digits of w.
+            for (digits = 1; k >= 10; k /= 10) digits++;
+
+            // Get the index of rd within w.
+            i %= LOG_BASE;
+
+            // Get the index of rd within w, adjusted for leading zeros.
+            // The number of leading zeros of w is given by LOG_BASE - digits.
+            j = i - LOG_BASE + digits;
+
+            // Get the rounding digit at index j of w.
+            rd = j < 0 ? 0 : w / mathpow(10, digits - j - 1) % 10 | 0;
+          }
+        }
+
+        // Are there any non-zero digits after the rounding digit?
+        isTruncated = isTruncated || sd < 0 ||
+          xd[xdi + 1] !== void 0 || (j < 0 ? w : w % mathpow(10, digits - j - 1));
+
+        // The expression `w % mathpow(10, digits - j - 1)` returns all the digits of w to the right
+        // of the digit at (left-to-right) index j, e.g. if w is 908714 and j is 2, the expression
+        // will give 714.
+
+        roundUp = rm < 4
+          ? (rd || isTruncated) && (rm == 0 || rm == (x.s < 0 ? 3 : 2))
+          : rd > 5 || rd == 5 && (rm == 4 || isTruncated || rm == 6 &&
+
+            // Check whether the digit to the left of the rounding digit is odd.
+            ((i > 0 ? j > 0 ? w / mathpow(10, digits - j) : 0 : xd[xdi - 1]) % 10) & 1 ||
+              rm == (x.s < 0 ? 8 : 7));
+
+        if (sd < 1 || !xd[0]) {
+          xd.length = 0;
+          if (roundUp) {
+
+            // Convert sd to decimal places.
+            sd -= x.e + 1;
+
+            // 1, 0.1, 0.01, 0.001, 0.0001 etc.
+            xd[0] = mathpow(10, (LOG_BASE - sd % LOG_BASE) % LOG_BASE);
+            x.e = -sd || 0;
+          } else {
+
+            // Zero.
+            xd[0] = x.e = 0;
+          }
+
+          return x;
+        }
+
+        // Remove excess digits.
+        if (i == 0) {
+          xd.length = xdi;
+          k = 1;
+          xdi--;
+        } else {
+          xd.length = xdi + 1;
+          k = mathpow(10, LOG_BASE - i);
+
+          // E.g. 56700 becomes 56000 if 7 is the rounding digit.
+          // j > 0 means i > number of leading zeros of w.
+          xd[xdi] = j > 0 ? (w / mathpow(10, digits - j) % mathpow(10, j) | 0) * k : 0;
+        }
+
+        if (roundUp) {
+          for (;;) {
+
+            // Is the digit to be rounded up in the first word of xd?
+            if (xdi == 0) {
+
+              // i will be the length of xd[0] before k is added.
+              for (i = 1, j = xd[0]; j >= 10; j /= 10) i++;
+              j = xd[0] += k;
+              for (k = 1; j >= 10; j /= 10) k++;
+
+              // if i != k the length has increased.
+              if (i != k) {
+                x.e++;
+                if (xd[0] == BASE) xd[0] = 1;
+              }
+
+              break;
+            } else {
+              xd[xdi] += k;
+              if (xd[xdi] != BASE) break;
+              xd[xdi--] = 0;
+              k = 1;
+            }
+          }
+        }
+
+        // Remove trailing zeros.
+        for (i = xd.length; xd[--i] === 0;) xd.pop();
+      }
+
+      if (external) {
+
+        // Overflow?
+        if (x.e > Ctor.maxE) {
+
+          // Infinity.
+          x.d = null;
+          x.e = NaN;
+
+        // Underflow?
+        } else if (x.e < Ctor.minE) {
+
+          // Zero.
+          x.e = 0;
+          x.d = [0];
+          // Ctor.underflow = true;
+        } // else Ctor.underflow = false;
+      }
+
+      return x;
+    }
+
+
+    function finiteToString(x, isExp, sd) {
+      if (!x.isFinite()) return nonFiniteToString(x);
+      var k,
+        e = x.e,
+        str = digitsToString(x.d),
+        len = str.length;
+
+      if (isExp) {
+        if (sd && (k = sd - len) > 0) {
+          str = str.charAt(0) + '.' + str.slice(1) + getZeroString(k);
+        } else if (len > 1) {
+          str = str.charAt(0) + '.' + str.slice(1);
+        }
+
+        str = str + (x.e < 0 ? 'e' : 'e+') + x.e;
+      } else if (e < 0) {
+        str = '0.' + getZeroString(-e - 1) + str;
+        if (sd && (k = sd - len) > 0) str += getZeroString(k);
+      } else if (e >= len) {
+        str += getZeroString(e + 1 - len);
+        if (sd && (k = sd - e - 1) > 0) str = str + '.' + getZeroString(k);
+      } else {
+        if ((k = e + 1) < len) str = str.slice(0, k) + '.' + str.slice(k);
+        if (sd && (k = sd - len) > 0) {
+          if (e + 1 === len) str += '.';
+          str += getZeroString(k);
+        }
+      }
+
+      return str;
+    }
+
+
+    // Calculate the base 10 exponent from the base 1e7 exponent.
+    function getBase10Exponent(digits, e) {
+      var w = digits[0];
+
+      // Add the number of digits of the first word of the digits array.
+      for ( e *= LOG_BASE; w >= 10; w /= 10) e++;
+      return e;
+    }
+
+
+    function getLn10(Ctor, sd, pr) {
+      if (sd > LN10_PRECISION) {
+
+        // Reset global state in case the exception is caught.
+        external = true;
+        if (pr) Ctor.precision = pr;
+        throw Error(precisionLimitExceeded);
+      }
+      return finalise(new Ctor(LN10), sd, 1, true);
+    }
+
+
+    function getPi(Ctor, sd, rm) {
+      if (sd > PI_PRECISION) throw Error(precisionLimitExceeded);
+      return finalise(new Ctor(PI), sd, rm, true);
+    }
+
+
+    function getPrecision(digits) {
+      var w = digits.length - 1,
+        len = w * LOG_BASE + 1;
+
+      w = digits[w];
+
+      // If non-zero...
+      if (w) {
+
+        // Subtract the number of trailing zeros of the last word.
+        for (; w % 10 == 0; w /= 10) len--;
+
+        // Add the number of digits of the first word.
+        for (w = digits[0]; w >= 10; w /= 10) len++;
+      }
+
+      return len;
+    }
+
+
+    function getZeroString(k) {
+      var zs = '';
+      for (; k--;) zs += '0';
+      return zs;
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the value of Decimal `x` to the power `n`, where `n` is an
+     * integer of type number.
+     *
+     * Implements 'exponentiation by squaring'. Called by `pow` and `parseOther`.
+     *
+     */
+    function intPow(Ctor, x, n, pr) {
+      var isTruncated,
+        r = new Ctor(1),
+
+        // Max n of 9007199254740991 takes 53 loop iterations.
+        // Maximum digits array length; leaves [28, 34] guard digits.
+        k = Math.ceil(pr / LOG_BASE + 4);
+
+      external = false;
+
+      for (;;) {
+        if (n % 2) {
+          r = r.times(x);
+          if (truncate(r.d, k)) isTruncated = true;
+        }
+
+        n = mathfloor(n / 2);
+        if (n === 0) {
+
+          // To ensure correct rounding when r.d is truncated, increment the last word if it is zero.
+          n = r.d.length - 1;
+          if (isTruncated && r.d[n] === 0) ++r.d[n];
+          break;
+        }
+
+        x = x.times(x);
+        truncate(x.d, k);
+      }
+
+      external = true;
+
+      return r;
+    }
+
+
+    function isOdd(n) {
+      return n.d[n.d.length - 1] & 1;
+    }
+
+
+    /*
+     * Handle `max` and `min`. `ltgt` is 'lt' or 'gt'.
+     */
+    function maxOrMin(Ctor, args, ltgt) {
+      var y,
+        x = new Ctor(args[0]),
+        i = 0;
+
+      for (; ++i < args.length;) {
+        y = new Ctor(args[i]);
+        if (!y.s) {
+          x = y;
+          break;
+        } else if (x[ltgt](y)) {
+          x = y;
+        }
+      }
+
+      return x;
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the natural exponential of `x` rounded to `sd` significant
+     * digits.
+     *
+     * Taylor/Maclaurin series.
+     *
+     * exp(x) = x^0/0! + x^1/1! + x^2/2! + x^3/3! + ...
+     *
+     * Argument reduction:
+     *   Repeat x = x / 32, k += 5, until |x| < 0.1
+     *   exp(x) = exp(x / 2^k)^(2^k)
+     *
+     * Previously, the argument was initially reduced by
+     * exp(x) = exp(r) * 10^k  where r = x - k * ln10, k = floor(x / ln10)
+     * to first put r in the range [0, ln10], before dividing by 32 until |x| < 0.1, but this was
+     * found to be slower than just dividing repeatedly by 32 as above.
+     *
+     * Max integer argument: exp('20723265836946413') = 6.3e+9000000000000000
+     * Min integer argument: exp('-20723265836946411') = 1.2e-9000000000000000
+     * (Math object integer min/max: Math.exp(709) = 8.2e+307, Math.exp(-745) = 5e-324)
+     *
+     *  exp(Infinity)  = Infinity
+     *  exp(-Infinity) = 0
+     *  exp(NaN)       = NaN
+     *  exp(±0)        = 1
+     *
+     *  exp(x) is non-terminating for any finite, non-zero x.
+     *
+     *  The result will always be correctly rounded.
+     *
+     */
+    function naturalExponential(x, sd) {
+      var denominator, guard, j, pow, sum, t, wpr,
+        rep = 0,
+        i = 0,
+        k = 0,
+        Ctor = x.constructor,
+        rm = Ctor.rounding,
+        pr = Ctor.precision;
+
+      // 0/NaN/Infinity?
+      if (!x.d || !x.d[0] || x.e > 17) {
+
+        return new Ctor(x.d
+          ? !x.d[0] ? 1 : x.s < 0 ? 0 : 1 / 0
+          : x.s ? x.s < 0 ? 0 : x : 0 / 0);
+      }
+
+      if (sd == null) {
+        external = false;
+        wpr = pr;
+      } else {
+        wpr = sd;
+      }
+
+      t = new Ctor(0.03125);
+
+      // while abs(x) >= 0.1
+      while (x.e > -2) {
+
+        // x = x / 2^5
+        x = x.times(t);
+        k += 5;
+      }
+
+      // Use 2 * log10(2^k) + 5 (empirically derived) to estimate the increase in precision
+      // necessary to ensure the first 4 rounding digits are correct.
+      guard = Math.log(mathpow(2, k)) / Math.LN10 * 2 + 5 | 0;
+      wpr += guard;
+      denominator = pow = sum = new Ctor(1);
+      Ctor.precision = wpr;
+
+      for (;;) {
+        pow = finalise(pow.times(x), wpr, 1);
+        denominator = denominator.times(++i);
+        t = sum.plus(divide(pow, denominator, wpr, 1));
+
+        if (digitsToString(t.d).slice(0, wpr) === digitsToString(sum.d).slice(0, wpr)) {
+          j = k;
+          while (j--) sum = finalise(sum.times(sum), wpr, 1);
+
+          // Check to see if the first 4 rounding digits are [49]999.
+          // If so, repeat the summation with a higher precision, otherwise
+          // e.g. with precision: 18, rounding: 1
+          // exp(18.404272462595034083567793919843761) = 98372560.1229999999 (should be 98372560.123)
+          // `wpr - guard` is the index of first rounding digit.
+          if (sd == null) {
+
+            if (rep < 3 && checkRoundingDigits(sum.d, wpr - guard, rm, rep)) {
+              Ctor.precision = wpr += 10;
+              denominator = pow = t = new Ctor(1);
+              i = 0;
+              rep++;
+            } else {
+              return finalise(sum, Ctor.precision = pr, rm, external = true);
+            }
+          } else {
+            Ctor.precision = pr;
+            return sum;
+          }
+        }
+
+        sum = t;
+      }
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the natural logarithm of `x` rounded to `sd` significant
+     * digits.
+     *
+     *  ln(-n)        = NaN
+     *  ln(0)         = -Infinity
+     *  ln(-0)        = -Infinity
+     *  ln(1)         = 0
+     *  ln(Infinity)  = Infinity
+     *  ln(-Infinity) = NaN
+     *  ln(NaN)       = NaN
+     *
+     *  ln(n) (n != 1) is non-terminating.
+     *
+     */
+    function naturalLogarithm(y, sd) {
+      var c, c0, denominator, e, numerator, rep, sum, t, wpr, x1, x2,
+        n = 1,
+        guard = 10,
+        x = y,
+        xd = x.d,
+        Ctor = x.constructor,
+        rm = Ctor.rounding,
+        pr = Ctor.precision;
+
+      // Is x negative or Infinity, NaN, 0 or 1?
+      if (x.s < 0 || !xd || !xd[0] || !x.e && xd[0] == 1 && xd.length == 1) {
+        return new Ctor(xd && !xd[0] ? -1 / 0 : x.s != 1 ? NaN : xd ? 0 : x);
+      }
+
+      if (sd == null) {
+        external = false;
+        wpr = pr;
+      } else {
+        wpr = sd;
+      }
+
+      Ctor.precision = wpr += guard;
+      c = digitsToString(xd);
+      c0 = c.charAt(0);
+
+      if (Math.abs(e = x.e) < 1.5e15) {
+
+        // Argument reduction.
+        // The series converges faster the closer the argument is to 1, so using
+        // ln(a^b) = b * ln(a),   ln(a) = ln(a^b) / b
+        // multiply the argument by itself until the leading digits of the significand are 7, 8, 9,
+        // 10, 11, 12 or 13, recording the number of multiplications so the sum of the series can
+        // later be divided by this number, then separate out the power of 10 using
+        // ln(a*10^b) = ln(a) + b*ln(10).
+
+        // max n is 21 (gives 0.9, 1.0 or 1.1) (9e15 / 21 = 4.2e14).
+        //while (c0 < 9 && c0 != 1 || c0 == 1 && c.charAt(1) > 1) {
+        // max n is 6 (gives 0.7 - 1.3)
+        while (c0 < 7 && c0 != 1 || c0 == 1 && c.charAt(1) > 3) {
+          x = x.times(y);
+          c = digitsToString(x.d);
+          c0 = c.charAt(0);
+          n++;
+        }
+
+        e = x.e;
+
+        if (c0 > 1) {
+          x = new Ctor('0.' + c);
+          e++;
+        } else {
+          x = new Ctor(c0 + '.' + c.slice(1));
+        }
+      } else {
+
+        // The argument reduction method above may result in overflow if the argument y is a massive
+        // number with exponent >= 1500000000000000 (9e15 / 6 = 1.5e15), so instead recall this
+        // function using ln(x*10^e) = ln(x) + e*ln(10).
+        t = getLn10(Ctor, wpr + 2, pr).times(e + '');
+        x = naturalLogarithm(new Ctor(c0 + '.' + c.slice(1)), wpr - guard).plus(t);
+        Ctor.precision = pr;
+
+        return sd == null ? finalise(x, pr, rm, external = true) : x;
+      }
+
+      // x1 is x reduced to a value near 1.
+      x1 = x;
+
+      // Taylor series.
+      // ln(y) = ln((1 + x)/(1 - x)) = 2(x + x^3/3 + x^5/5 + x^7/7 + ...)
+      // where x = (y - 1)/(y + 1)    (|x| < 1)
+      sum = numerator = x = divide(x.minus(1), x.plus(1), wpr, 1);
+      x2 = finalise(x.times(x), wpr, 1);
+      denominator = 3;
+
+      for (;;) {
+        numerator = finalise(numerator.times(x2), wpr, 1);
+        t = sum.plus(divide(numerator, new Ctor(denominator), wpr, 1));
+
+        if (digitsToString(t.d).slice(0, wpr) === digitsToString(sum.d).slice(0, wpr)) {
+          sum = sum.times(2);
+
+          // Reverse the argument reduction. Check that e is not 0 because, besides preventing an
+          // unnecessary calculation, -0 + 0 = +0 and to ensure correct rounding -0 needs to stay -0.
+          if (e !== 0) sum = sum.plus(getLn10(Ctor, wpr + 2, pr).times(e + ''));
+          sum = divide(sum, new Ctor(n), wpr, 1);
+
+          // Is rm > 3 and the first 4 rounding digits 4999, or rm < 4 (or the summation has
+          // been repeated previously) and the first 4 rounding digits 9999?
+          // If so, restart the summation with a higher precision, otherwise
+          // e.g. with precision: 12, rounding: 1
+          // ln(135520028.6126091714265381533) = 18.7246299999 when it should be 18.72463.
+          // `wpr - guard` is the index of first rounding digit.
+          if (sd == null) {
+            if (checkRoundingDigits(sum.d, wpr - guard, rm, rep)) {
+              Ctor.precision = wpr += guard;
+              t = numerator = x = divide(x1.minus(1), x1.plus(1), wpr, 1);
+              x2 = finalise(x.times(x), wpr, 1);
+              denominator = rep = 1;
+            } else {
+              return finalise(sum, Ctor.precision = pr, rm, external = true);
+            }
+          } else {
+            Ctor.precision = pr;
+            return sum;
+          }
+        }
+
+        sum = t;
+        denominator += 2;
+      }
+    }
+
+
+    // ±Infinity, NaN.
+    function nonFiniteToString(x) {
+      // Unsigned.
+      return String(x.s * x.s / 0);
+    }
+
+
+    /*
+     * Parse the value of a new Decimal `x` from string `str`.
+     */
+    function parseDecimal$1(x, str) {
+      var e, i, len;
+
+      // Decimal point?
+      if ((e = str.indexOf('.')) > -1) str = str.replace('.', '');
+
+      // Exponential form?
+      if ((i = str.search(/e/i)) > 0) {
+
+        // Determine exponent.
+        if (e < 0) e = i;
+        e += +str.slice(i + 1);
+        str = str.substring(0, i);
+      } else if (e < 0) {
+
+        // Integer.
+        e = str.length;
+      }
+
+      // Determine leading zeros.
+      for (i = 0; str.charCodeAt(i) === 48; i++);
+
+      // Determine trailing zeros.
+      for (len = str.length; str.charCodeAt(len - 1) === 48; --len);
+      str = str.slice(i, len);
+
+      if (str) {
+        len -= i;
+        x.e = e = e - i - 1;
+        x.d = [];
+
+        // Transform base
+
+        // e is the base 10 exponent.
+        // i is where to slice str to get the first word of the digits array.
+        i = (e + 1) % LOG_BASE;
+        if (e < 0) i += LOG_BASE;
+
+        if (i < len) {
+          if (i) x.d.push(+str.slice(0, i));
+          for (len -= LOG_BASE; i < len;) x.d.push(+str.slice(i, i += LOG_BASE));
+          str = str.slice(i);
+          i = LOG_BASE - str.length;
+        } else {
+          i -= len;
+        }
+
+        for (; i--;) str += '0';
+        x.d.push(+str);
+
+        if (external) {
+
+          // Overflow?
+          if (x.e > x.constructor.maxE) {
+
+            // Infinity.
+            x.d = null;
+            x.e = NaN;
+
+          // Underflow?
+          } else if (x.e < x.constructor.minE) {
+
+            // Zero.
+            x.e = 0;
+            x.d = [0];
+            // x.constructor.underflow = true;
+          } // else x.constructor.underflow = false;
+        }
+      } else {
+
+        // Zero.
+        x.e = 0;
+        x.d = [0];
+      }
+
+      return x;
+    }
+
+
+    /*
+     * Parse the value of a new Decimal `x` from a string `str`, which is not a decimal value.
+     */
+    function parseOther(x, str) {
+      var base, Ctor, divisor, i, isFloat, len, p, xd, xe;
+
+      if (str.indexOf('_') > -1) {
+        str = str.replace(/(\d)_(?=\d)/g, '$1');
+        if (isDecimal.test(str)) return parseDecimal$1(x, str);
+      } else if (str === 'Infinity' || str === 'NaN') {
+        if (!+str) x.s = NaN;
+        x.e = NaN;
+        x.d = null;
+        return x;
+      }
+
+      if (isHex.test(str))  {
+        base = 16;
+        str = str.toLowerCase();
+      } else if (isBinary.test(str))  {
+        base = 2;
+      } else if (isOctal.test(str))  {
+        base = 8;
+      } else {
+        throw Error(invalidArgument + str);
+      }
+
+      // Is there a binary exponent part?
+      i = str.search(/p/i);
+
+      if (i > 0) {
+        p = +str.slice(i + 1);
+        str = str.substring(2, i);
+      } else {
+        str = str.slice(2);
+      }
+
+      // Convert `str` as an integer then divide the result by `base` raised to a power such that the
+      // fraction part will be restored.
+      i = str.indexOf('.');
+      isFloat = i >= 0;
+      Ctor = x.constructor;
+
+      if (isFloat) {
+        str = str.replace('.', '');
+        len = str.length;
+        i = len - i;
+
+        // log[10](16) = 1.2041... , log[10](88) = 1.9444....
+        divisor = intPow(Ctor, new Ctor(base), i, i * 2);
+      }
+
+      xd = convertBase(str, base, BASE);
+      xe = xd.length - 1;
+
+      // Remove trailing zeros.
+      for (i = xe; xd[i] === 0; --i) xd.pop();
+      if (i < 0) return new Ctor(x.s * 0);
+      x.e = getBase10Exponent(xd, xe);
+      x.d = xd;
+      external = false;
+
+      // At what precision to perform the division to ensure exact conversion?
+      // maxDecimalIntegerPartDigitCount = ceil(log[10](b) * otherBaseIntegerPartDigitCount)
+      // log[10](2) = 0.30103, log[10](8) = 0.90309, log[10](16) = 1.20412
+      // E.g. ceil(1.2 * 3) = 4, so up to 4 decimal digits are needed to represent 3 hex int digits.
+      // maxDecimalFractionPartDigitCount = {Hex:4|Oct:3|Bin:1} * otherBaseFractionPartDigitCount
+      // Therefore using 4 * the number of digits of str will always be enough.
+      if (isFloat) x = divide(x, divisor, len * 4);
+
+      // Multiply by the binary exponent part if present.
+      if (p) x = x.times(Math.abs(p) < 54 ? mathpow(2, p) : Decimal.pow(2, p));
+      external = true;
+
+      return x;
+    }
+
+
+    /*
+     * sin(x) = x - x^3/3! + x^5/5! - ...
+     * |x| < pi/2
+     *
+     */
+    function sine(Ctor, x) {
+      var k,
+        len = x.d.length;
+
+      if (len < 3) {
+        return x.isZero() ? x : taylorSeries(Ctor, 2, x, x);
+      }
+
+      // Argument reduction: sin(5x) = 16*sin^5(x) - 20*sin^3(x) + 5*sin(x)
+      // i.e. sin(x) = 16*sin^5(x/5) - 20*sin^3(x/5) + 5*sin(x/5)
+      // and  sin(x) = sin(x/5)(5 + sin^2(x/5)(16sin^2(x/5) - 20))
+
+      // Estimate the optimum number of times to use the argument reduction.
+      k = 1.4 * Math.sqrt(len);
+      k = k > 16 ? 16 : k | 0;
+
+      x = x.times(1 / tinyPow(5, k));
+      x = taylorSeries(Ctor, 2, x, x);
+
+      // Reverse argument reduction
+      var sin2_x,
+        d5 = new Ctor(5),
+        d16 = new Ctor(16),
+        d20 = new Ctor(20);
+      for (; k--;) {
+        sin2_x = x.times(x);
+        x = x.times(d5.plus(sin2_x.times(d16.times(sin2_x).minus(d20))));
+      }
+
+      return x;
+    }
+
+
+    // Calculate Taylor series for `cos`, `cosh`, `sin` and `sinh`.
+    function taylorSeries(Ctor, n, x, y, isHyperbolic) {
+      var j, t, u, x2,
+        pr = Ctor.precision,
+        k = Math.ceil(pr / LOG_BASE);
+
+      external = false;
+      x2 = x.times(x);
+      u = new Ctor(y);
+
+      for (;;) {
+        t = divide(u.times(x2), new Ctor(n++ * n++), pr, 1);
+        u = isHyperbolic ? y.plus(t) : y.minus(t);
+        y = divide(t.times(x2), new Ctor(n++ * n++), pr, 1);
+        t = u.plus(y);
+
+        if (t.d[k] !== void 0) {
+          for (j = k; t.d[j] === u.d[j] && j--;);
+          if (j == -1) break;
+        }
+
+        j = u;
+        u = y;
+        y = t;
+        t = j;
+      }
+
+      external = true;
+      t.d.length = k + 1;
+
+      return t;
+    }
+
+
+    // Exponent e must be positive and non-zero.
+    function tinyPow(b, e) {
+      var n = b;
+      while (--e) n *= b;
+      return n;
+    }
+
+
+    // Return the absolute value of `x` reduced to less than or equal to half pi.
+    function toLessThanHalfPi(Ctor, x) {
+      var t,
+        isNeg = x.s < 0,
+        pi = getPi(Ctor, Ctor.precision, 1),
+        halfPi = pi.times(0.5);
+
+      x = x.abs();
+
+      if (x.lte(halfPi)) {
+        quadrant = isNeg ? 4 : 1;
+        return x;
+      }
+
+      t = x.divToInt(pi);
+
+      if (t.isZero()) {
+        quadrant = isNeg ? 3 : 2;
+      } else {
+        x = x.minus(t.times(pi));
+
+        // 0 <= x < pi
+        if (x.lte(halfPi)) {
+          quadrant = isOdd(t) ? (isNeg ? 2 : 3) : (isNeg ? 4 : 1);
+          return x;
+        }
+
+        quadrant = isOdd(t) ? (isNeg ? 1 : 4) : (isNeg ? 3 : 2);
+      }
+
+      return x.minus(pi).abs();
+    }
+
+
+    /*
+     * Return the value of Decimal `x` as a string in base `baseOut`.
+     *
+     * If the optional `sd` argument is present include a binary exponent suffix.
+     */
+    function toStringBinary(x, baseOut, sd, rm) {
+      var base, e, i, k, len, roundUp, str, xd, y,
+        Ctor = x.constructor,
+        isExp = sd !== void 0;
+
+      if (isExp) {
+        checkInt32(sd, 1, MAX_DIGITS);
+        if (rm === void 0) rm = Ctor.rounding;
+        else checkInt32(rm, 0, 8);
+      } else {
+        sd = Ctor.precision;
+        rm = Ctor.rounding;
+      }
+
+      if (!x.isFinite()) {
+        str = nonFiniteToString(x);
+      } else {
+        str = finiteToString(x);
+        i = str.indexOf('.');
+
+        // Use exponential notation according to `toExpPos` and `toExpNeg`? No, but if required:
+        // maxBinaryExponent = floor((decimalExponent + 1) * log[2](10))
+        // minBinaryExponent = floor(decimalExponent * log[2](10))
+        // log[2](10) = 3.321928094887362347870319429489390175864
+
+        if (isExp) {
+          base = 2;
+          if (baseOut == 16) {
+            sd = sd * 4 - 3;
+          } else if (baseOut == 8) {
+            sd = sd * 3 - 2;
+          }
+        } else {
+          base = baseOut;
+        }
+
+        // Convert the number as an integer then divide the result by its base raised to a power such
+        // that the fraction part will be restored.
+
+        // Non-integer.
+        if (i >= 0) {
+          str = str.replace('.', '');
+          y = new Ctor(1);
+          y.e = str.length - i;
+          y.d = convertBase(finiteToString(y), 10, base);
+          y.e = y.d.length;
+        }
+
+        xd = convertBase(str, 10, base);
+        e = len = xd.length;
+
+        // Remove trailing zeros.
+        for (; xd[--len] == 0;) xd.pop();
+
+        if (!xd[0]) {
+          str = isExp ? '0p+0' : '0';
+        } else {
+          if (i < 0) {
+            e--;
+          } else {
+            x = new Ctor(x);
+            x.d = xd;
+            x.e = e;
+            x = divide(x, y, sd, rm, 0, base);
+            xd = x.d;
+            e = x.e;
+            roundUp = inexact;
+          }
+
+          // The rounding digit, i.e. the digit after the digit that may be rounded up.
+          i = xd[sd];
+          k = base / 2;
+          roundUp = roundUp || xd[sd + 1] !== void 0;
+
+          roundUp = rm < 4
+            ? (i !== void 0 || roundUp) && (rm === 0 || rm === (x.s < 0 ? 3 : 2))
+            : i > k || i === k && (rm === 4 || roundUp || rm === 6 && xd[sd - 1] & 1 ||
+              rm === (x.s < 0 ? 8 : 7));
+
+          xd.length = sd;
+
+          if (roundUp) {
+
+            // Rounding up may mean the previous digit has to be rounded up and so on.
+            for (; ++xd[--sd] > base - 1;) {
+              xd[sd] = 0;
+              if (!sd) {
+                ++e;
+                xd.unshift(1);
+              }
+            }
+          }
+
+          // Determine trailing zeros.
+          for (len = xd.length; !xd[len - 1]; --len);
+
+          // E.g. [4, 11, 15] becomes 4bf.
+          for (i = 0, str = ''; i < len; i++) str += NUMERALS.charAt(xd[i]);
+
+          // Add binary exponent suffix?
+          if (isExp) {
+            if (len > 1) {
+              if (baseOut == 16 || baseOut == 8) {
+                i = baseOut == 16 ? 4 : 3;
+                for (--len; len % i; len++) str += '0';
+                xd = convertBase(str, base, baseOut);
+                for (len = xd.length; !xd[len - 1]; --len);
+
+                // xd[0] will always be be 1
+                for (i = 1, str = '1.'; i < len; i++) str += NUMERALS.charAt(xd[i]);
+              } else {
+                str = str.charAt(0) + '.' + str.slice(1);
+              }
+            }
+
+            str =  str + (e < 0 ? 'p' : 'p+') + e;
+          } else if (e < 0) {
+            for (; ++e;) str = '0' + str;
+            str = '0.' + str;
+          } else {
+            if (++e > len) for (e -= len; e-- ;) str += '0';
+            else if (e < len) str = str.slice(0, e) + '.' + str.slice(e);
+          }
+        }
+
+        str = (baseOut == 16 ? '0x' : baseOut == 2 ? '0b' : baseOut == 8 ? '0o' : '') + str;
+      }
+
+      return x.s < 0 ? '-' + str : str;
+    }
+
+
+    // Does not strip trailing zeros.
+    function truncate(arr, len) {
+      if (arr.length > len) {
+        arr.length = len;
+        return true;
+      }
+    }
+
+
+    // Decimal methods
+
+
+    /*
+     *  abs
+     *  acos
+     *  acosh
+     *  add
+     *  asin
+     *  asinh
+     *  atan
+     *  atanh
+     *  atan2
+     *  cbrt
+     *  ceil
+     *  clamp
+     *  clone
+     *  config
+     *  cos
+     *  cosh
+     *  div
+     *  exp
+     *  floor
+     *  hypot
+     *  ln
+     *  log
+     *  log2
+     *  log10
+     *  max
+     *  min
+     *  mod
+     *  mul
+     *  pow
+     *  random
+     *  round
+     *  set
+     *  sign
+     *  sin
+     *  sinh
+     *  sqrt
+     *  sub
+     *  sum
+     *  tan
+     *  tanh
+     *  trunc
+     */
+
+
+    /*
+     * Return a new Decimal whose value is the absolute value of `x`.
+     *
+     * x {number|string|Decimal}
+     *
+     */
+    function abs(x) {
+      return new this(x).abs();
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the arccosine in radians of `x`.
+     *
+     * x {number|string|Decimal}
+     *
+     */
+    function acos(x) {
+      return new this(x).acos();
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the inverse of the hyperbolic cosine of `x`, rounded to
+     * `precision` significant digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal} A value in radians.
+     *
+     */
+    function acosh(x) {
+      return new this(x).acosh();
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the sum of `x` and `y`, rounded to `precision` significant
+     * digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal}
+     * y {number|string|Decimal}
+     *
+     */
+    function add(x, y) {
+      return new this(x).plus(y);
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the arcsine in radians of `x`, rounded to `precision`
+     * significant digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal}
+     *
+     */
+    function asin(x) {
+      return new this(x).asin();
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the inverse of the hyperbolic sine of `x`, rounded to
+     * `precision` significant digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal} A value in radians.
+     *
+     */
+    function asinh(x) {
+      return new this(x).asinh();
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the arctangent in radians of `x`, rounded to `precision`
+     * significant digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal}
+     *
+     */
+    function atan(x) {
+      return new this(x).atan();
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the inverse of the hyperbolic tangent of `x`, rounded to
+     * `precision` significant digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal} A value in radians.
+     *
+     */
+    function atanh(x) {
+      return new this(x).atanh();
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the arctangent in radians of `y/x` in the range -pi to pi
+     * (inclusive), rounded to `precision` significant digits using rounding mode `rounding`.
+     *
+     * Domain: [-Infinity, Infinity]
+     * Range: [-pi, pi]
+     *
+     * y {number|string|Decimal} The y-coordinate.
+     * x {number|string|Decimal} The x-coordinate.
+     *
+     * atan2(±0, -0)               = ±pi
+     * atan2(±0, +0)               = ±0
+     * atan2(±0, -x)               = ±pi for x > 0
+     * atan2(±0, x)                = ±0 for x > 0
+     * atan2(-y, ±0)               = -pi/2 for y > 0
+     * atan2(y, ±0)                = pi/2 for y > 0
+     * atan2(±y, -Infinity)        = ±pi for finite y > 0
+     * atan2(±y, +Infinity)        = ±0 for finite y > 0
+     * atan2(±Infinity, x)         = ±pi/2 for finite x
+     * atan2(±Infinity, -Infinity) = ±3*pi/4
+     * atan2(±Infinity, +Infinity) = ±pi/4
+     * atan2(NaN, x) = NaN
+     * atan2(y, NaN) = NaN
+     *
+     */
+    function atan2(y, x) {
+      y = new this(y);
+      x = new this(x);
+      var r,
+        pr = this.precision,
+        rm = this.rounding,
+        wpr = pr + 4;
+
+      // Either NaN
+      if (!y.s || !x.s) {
+        r = new this(NaN);
+
+      // Both ±Infinity
+      } else if (!y.d && !x.d) {
+        r = getPi(this, wpr, 1).times(x.s > 0 ? 0.25 : 0.75);
+        r.s = y.s;
+
+      // x is ±Infinity or y is ±0
+      } else if (!x.d || y.isZero()) {
+        r = x.s < 0 ? getPi(this, pr, rm) : new this(0);
+        r.s = y.s;
+
+      // y is ±Infinity or x is ±0
+      } else if (!y.d || x.isZero()) {
+        r = getPi(this, wpr, 1).times(0.5);
+        r.s = y.s;
+
+      // Both non-zero and finite
+      } else if (x.s < 0) {
+        this.precision = wpr;
+        this.rounding = 1;
+        r = this.atan(divide(y, x, wpr, 1));
+        x = getPi(this, wpr, 1);
+        this.precision = pr;
+        this.rounding = rm;
+        r = y.s < 0 ? r.minus(x) : r.plus(x);
+      } else {
+        r = this.atan(divide(y, x, wpr, 1));
+      }
+
+      return r;
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the cube root of `x`, rounded to `precision` significant
+     * digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal}
+     *
+     */
+    function cbrt(x) {
+      return new this(x).cbrt();
+    }
+
+
+    /*
+     * Return a new Decimal whose value is `x` rounded to an integer using `ROUND_CEIL`.
+     *
+     * x {number|string|Decimal}
+     *
+     */
+    function ceil(x) {
+      return finalise(x = new this(x), x.e + 1, 2);
+    }
+
+
+    /*
+     * Return a new Decimal whose value is `x` clamped to the range delineated by `min` and `max`.
+     *
+     * x {number|string|Decimal}
+     * min {number|string|Decimal}
+     * max {number|string|Decimal}
+     *
+     */
+    function clamp(x, min, max) {
+      return new this(x).clamp(min, max);
+    }
+
+
+    /*
+     * Configure global settings for a Decimal constructor.
+     *
+     * `obj` is an object with one or more of the following properties,
+     *
+     *   precision  {number}
+     *   rounding   {number}
+     *   toExpNeg   {number}
+     *   toExpPos   {number}
+     *   maxE       {number}
+     *   minE       {number}
+     *   modulo     {number}
+     *   crypto     {boolean|number}
+     *   defaults   {true}
+     *
+     * E.g. Decimal.config({ precision: 20, rounding: 4 })
+     *
+     */
+    function config(obj) {
+      if (!obj || typeof obj !== 'object') throw Error(decimalError + 'Object expected');
+      var i, p, v,
+        useDefaults = obj.defaults === true,
+        ps = [
+          'precision', 1, MAX_DIGITS,
+          'rounding', 0, 8,
+          'toExpNeg', -EXP_LIMIT, 0,
+          'toExpPos', 0, EXP_LIMIT,
+          'maxE', 0, EXP_LIMIT,
+          'minE', -EXP_LIMIT, 0,
+          'modulo', 0, 9
+        ];
+
+      for (i = 0; i < ps.length; i += 3) {
+        if (p = ps[i], useDefaults) this[p] = DEFAULTS[p];
+        if ((v = obj[p]) !== void 0) {
+          if (mathfloor(v) === v && v >= ps[i + 1] && v <= ps[i + 2]) this[p] = v;
+          else throw Error(invalidArgument + p + ': ' + v);
+        }
+      }
+
+      if (p = 'crypto', useDefaults) this[p] = DEFAULTS[p];
+      if ((v = obj[p]) !== void 0) {
+        if (v === true || v === false || v === 0 || v === 1) {
+          if (v) {
+            if (typeof crypto != 'undefined' && crypto &&
+              (crypto.getRandomValues || crypto.randomBytes)) {
+              this[p] = true;
+            } else {
+              throw Error(cryptoUnavailable);
+            }
+          } else {
+            this[p] = false;
+          }
+        } else {
+          throw Error(invalidArgument + p + ': ' + v);
+        }
+      }
+
+      return this;
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the cosine of `x`, rounded to `precision` significant
+     * digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal} A value in radians.
+     *
+     */
+    function cos(x) {
+      return new this(x).cos();
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the hyperbolic cosine of `x`, rounded to precision
+     * significant digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal} A value in radians.
+     *
+     */
+    function cosh(x) {
+      return new this(x).cosh();
+    }
+
+
+    /*
+     * Create and return a Decimal constructor with the same configuration properties as this Decimal
+     * constructor.
+     *
+     */
+    function clone(obj) {
+      var i, p, ps;
+
+      /*
+       * The Decimal constructor and exported function.
+       * Return a new Decimal instance.
+       *
+       * v {number|string|Decimal} A numeric value.
+       *
+       */
+      function Decimal(v) {
+        var e, i, t,
+          x = this;
+
+        // Decimal called without new.
+        if (!(x instanceof Decimal)) return new Decimal(v);
+
+        // Retain a reference to this Decimal constructor, and shadow Decimal.prototype.constructor
+        // which points to Object.
+        x.constructor = Decimal;
+
+        // Duplicate.
+        if (isDecimalInstance(v)) {
+          x.s = v.s;
+
+          if (external) {
+            if (!v.d || v.e > Decimal.maxE) {
+
+              // Infinity.
+              x.e = NaN;
+              x.d = null;
+            } else if (v.e < Decimal.minE) {
+
+              // Zero.
+              x.e = 0;
+              x.d = [0];
+            } else {
+              x.e = v.e;
+              x.d = v.d.slice();
+            }
+          } else {
+            x.e = v.e;
+            x.d = v.d ? v.d.slice() : v.d;
+          }
+
+          return;
+        }
+
+        t = typeof v;
+
+        if (t === 'number') {
+          if (v === 0) {
+            x.s = 1 / v < 0 ? -1 : 1;
+            x.e = 0;
+            x.d = [0];
+            return;
+          }
+
+          if (v < 0) {
+            v = -v;
+            x.s = -1;
+          } else {
+            x.s = 1;
+          }
+
+          // Fast path for small integers.
+          if (v === ~~v && v < 1e7) {
+            for (e = 0, i = v; i >= 10; i /= 10) e++;
+
+            if (external) {
+              if (e > Decimal.maxE) {
+                x.e = NaN;
+                x.d = null;
+              } else if (e < Decimal.minE) {
+                x.e = 0;
+                x.d = [0];
+              } else {
+                x.e = e;
+                x.d = [v];
+              }
+            } else {
+              x.e = e;
+              x.d = [v];
+            }
+
+            return;
+
+          // Infinity, NaN.
+          } else if (v * 0 !== 0) {
+            if (!v) x.s = NaN;
+            x.e = NaN;
+            x.d = null;
+            return;
+          }
+
+          return parseDecimal$1(x, v.toString());
+
+        } else if (t !== 'string') {
+          throw Error(invalidArgument + v);
+        }
+
+        // Minus sign?
+        if ((i = v.charCodeAt(0)) === 45) {
+          v = v.slice(1);
+          x.s = -1;
+        } else {
+          // Plus sign?
+          if (i === 43) v = v.slice(1);
+          x.s = 1;
+        }
+
+        return isDecimal.test(v) ? parseDecimal$1(x, v) : parseOther(x, v);
+      }
+
+      Decimal.prototype = P;
+
+      Decimal.ROUND_UP = 0;
+      Decimal.ROUND_DOWN = 1;
+      Decimal.ROUND_CEIL = 2;
+      Decimal.ROUND_FLOOR = 3;
+      Decimal.ROUND_HALF_UP = 4;
+      Decimal.ROUND_HALF_DOWN = 5;
+      Decimal.ROUND_HALF_EVEN = 6;
+      Decimal.ROUND_HALF_CEIL = 7;
+      Decimal.ROUND_HALF_FLOOR = 8;
+      Decimal.EUCLID = 9;
+
+      Decimal.config = Decimal.set = config;
+      Decimal.clone = clone;
+      Decimal.isDecimal = isDecimalInstance;
+
+      Decimal.abs = abs;
+      Decimal.acos = acos;
+      Decimal.acosh = acosh;        // ES6
+      Decimal.add = add;
+      Decimal.asin = asin;
+      Decimal.asinh = asinh;        // ES6
+      Decimal.atan = atan;
+      Decimal.atanh = atanh;        // ES6
+      Decimal.atan2 = atan2;
+      Decimal.cbrt = cbrt;          // ES6
+      Decimal.ceil = ceil;
+      Decimal.clamp = clamp;
+      Decimal.cos = cos;
+      Decimal.cosh = cosh;          // ES6
+      Decimal.div = div;
+      Decimal.exp = exp;
+      Decimal.floor = floor;
+      Decimal.hypot = hypot;        // ES6
+      Decimal.ln = ln;
+      Decimal.log = log;
+      Decimal.log10 = log10;        // ES6
+      Decimal.log2 = log2;          // ES6
+      Decimal.max = max;
+      Decimal.min = min;
+      Decimal.mod = mod;
+      Decimal.mul = mul;
+      Decimal.pow = pow;
+      Decimal.random = random;
+      Decimal.round = round;
+      Decimal.sign = sign;          // ES6
+      Decimal.sin = sin;
+      Decimal.sinh = sinh;          // ES6
+      Decimal.sqrt = sqrt;
+      Decimal.sub = sub;
+      Decimal.sum = sum;
+      Decimal.tan = tan;
+      Decimal.tanh = tanh;          // ES6
+      Decimal.trunc = trunc;        // ES6
+
+      if (obj === void 0) obj = {};
+      if (obj) {
+        if (obj.defaults !== true) {
+          ps = ['precision', 'rounding', 'toExpNeg', 'toExpPos', 'maxE', 'minE', 'modulo', 'crypto'];
+          for (i = 0; i < ps.length;) if (!obj.hasOwnProperty(p = ps[i++])) obj[p] = this[p];
+        }
+      }
+
+      Decimal.config(obj);
+
+      return Decimal;
+    }
+
+
+    /*
+     * Return a new Decimal whose value is `x` divided by `y`, rounded to `precision` significant
+     * digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal}
+     * y {number|string|Decimal}
+     *
+     */
+    function div(x, y) {
+      return new this(x).div(y);
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the natural exponential of `x`, rounded to `precision`
+     * significant digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal} The power to which to raise the base of the natural log.
+     *
+     */
+    function exp(x) {
+      return new this(x).exp();
+    }
+
+
+    /*
+     * Return a new Decimal whose value is `x` round to an integer using `ROUND_FLOOR`.
+     *
+     * x {number|string|Decimal}
+     *
+     */
+    function floor(x) {
+      return finalise(x = new this(x), x.e + 1, 3);
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the square root of the sum of the squares of the arguments,
+     * rounded to `precision` significant digits using rounding mode `rounding`.
+     *
+     * hypot(a, b, ...) = sqrt(a^2 + b^2 + ...)
+     *
+     * arguments {number|string|Decimal}
+     *
+     */
+    function hypot() {
+      var i, n,
+        t = new this(0);
+
+      external = false;
+
+      for (i = 0; i < arguments.length;) {
+        n = new this(arguments[i++]);
+        if (!n.d) {
+          if (n.s) {
+            external = true;
+            return new this(1 / 0);
+          }
+          t = n;
+        } else if (t.d) {
+          t = t.plus(n.times(n));
+        }
+      }
+
+      external = true;
+
+      return t.sqrt();
+    }
+
+
+    /*
+     * Return true if object is a Decimal instance (where Decimal is any Decimal constructor),
+     * otherwise return false.
+     *
+     */
+    function isDecimalInstance(obj) {
+      return obj instanceof Decimal || obj && obj.toStringTag === tag || false;
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the natural logarithm of `x`, rounded to `precision`
+     * significant digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal}
+     *
+     */
+    function ln(x) {
+      return new this(x).ln();
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the log of `x` to the base `y`, or to base 10 if no base
+     * is specified, rounded to `precision` significant digits using rounding mode `rounding`.
+     *
+     * log[y](x)
+     *
+     * x {number|string|Decimal} The argument of the logarithm.
+     * y {number|string|Decimal} The base of the logarithm.
+     *
+     */
+    function log(x, y) {
+      return new this(x).log(y);
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the base 2 logarithm of `x`, rounded to `precision`
+     * significant digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal}
+     *
+     */
+    function log2(x) {
+      return new this(x).log(2);
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the base 10 logarithm of `x`, rounded to `precision`
+     * significant digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal}
+     *
+     */
+    function log10(x) {
+      return new this(x).log(10);
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the maximum of the arguments.
+     *
+     * arguments {number|string|Decimal}
+     *
+     */
+    function max() {
+      return maxOrMin(this, arguments, 'lt');
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the minimum of the arguments.
+     *
+     * arguments {number|string|Decimal}
+     *
+     */
+    function min() {
+      return maxOrMin(this, arguments, 'gt');
+    }
+
+
+    /*
+     * Return a new Decimal whose value is `x` modulo `y`, rounded to `precision` significant digits
+     * using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal}
+     * y {number|string|Decimal}
+     *
+     */
+    function mod(x, y) {
+      return new this(x).mod(y);
+    }
+
+
+    /*
+     * Return a new Decimal whose value is `x` multiplied by `y`, rounded to `precision` significant
+     * digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal}
+     * y {number|string|Decimal}
+     *
+     */
+    function mul(x, y) {
+      return new this(x).mul(y);
+    }
+
+
+    /*
+     * Return a new Decimal whose value is `x` raised to the power `y`, rounded to precision
+     * significant digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal} The base.
+     * y {number|string|Decimal} The exponent.
+     *
+     */
+    function pow(x, y) {
+      return new this(x).pow(y);
+    }
+
+
+    /*
+     * Returns a new Decimal with a random value equal to or greater than 0 and less than 1, and with
+     * `sd`, or `Decimal.precision` if `sd` is omitted, significant digits (or less if trailing zeros
+     * are produced).
+     *
+     * [sd] {number} Significant digits. Integer, 0 to MAX_DIGITS inclusive.
+     *
+     */
+    function random(sd) {
+      var d, e, k, n,
+        i = 0,
+        r = new this(1),
+        rd = [];
+
+      if (sd === void 0) sd = this.precision;
+      else checkInt32(sd, 1, MAX_DIGITS);
+
+      k = Math.ceil(sd / LOG_BASE);
+
+      if (!this.crypto) {
+        for (; i < k;) rd[i++] = Math.random() * 1e7 | 0;
+
+      // Browsers supporting crypto.getRandomValues.
+      } else if (crypto.getRandomValues) {
+        d = crypto.getRandomValues(new Uint32Array(k));
+
+        for (; i < k;) {
+          n = d[i];
+
+          // 0 <= n < 4294967296
+          // Probability n >= 4.29e9, is 4967296 / 4294967296 = 0.00116 (1 in 865).
+          if (n >= 4.29e9) {
+            d[i] = crypto.getRandomValues(new Uint32Array(1))[0];
+          } else {
+
+            // 0 <= n <= 4289999999
+            // 0 <= (n % 1e7) <= 9999999
+            rd[i++] = n % 1e7;
+          }
+        }
+
+      // Node.js supporting crypto.randomBytes.
+      } else if (crypto.randomBytes) {
+
+        // buffer
+        d = crypto.randomBytes(k *= 4);
+
+        for (; i < k;) {
+
+          // 0 <= n < 2147483648
+          n = d[i] + (d[i + 1] << 8) + (d[i + 2] << 16) + ((d[i + 3] & 0x7f) << 24);
+
+          // Probability n >= 2.14e9, is 7483648 / 2147483648 = 0.0035 (1 in 286).
+          if (n >= 2.14e9) {
+            crypto.randomBytes(4).copy(d, i);
+          } else {
+
+            // 0 <= n <= 2139999999
+            // 0 <= (n % 1e7) <= 9999999
+            rd.push(n % 1e7);
+            i += 4;
+          }
+        }
+
+        i = k / 4;
+      } else {
+        throw Error(cryptoUnavailable);
+      }
+
+      k = rd[--i];
+      sd %= LOG_BASE;
+
+      // Convert trailing digits to zeros according to sd.
+      if (k && sd) {
+        n = mathpow(10, LOG_BASE - sd);
+        rd[i] = (k / n | 0) * n;
+      }
+
+      // Remove trailing words which are zero.
+      for (; rd[i] === 0; i--) rd.pop();
+
+      // Zero?
+      if (i < 0) {
+        e = 0;
+        rd = [0];
+      } else {
+        e = -1;
+
+        // Remove leading words which are zero and adjust exponent accordingly.
+        for (; rd[0] === 0; e -= LOG_BASE) rd.shift();
+
+        // Count the digits of the first word of rd to determine leading zeros.
+        for (k = 1, n = rd[0]; n >= 10; n /= 10) k++;
+
+        // Adjust the exponent for leading zeros of the first word of rd.
+        if (k < LOG_BASE) e -= LOG_BASE - k;
+      }
+
+      r.e = e;
+      r.d = rd;
+
+      return r;
+    }
+
+
+    /*
+     * Return a new Decimal whose value is `x` rounded to an integer using rounding mode `rounding`.
+     *
+     * To emulate `Math.round`, set rounding to 7 (ROUND_HALF_CEIL).
+     *
+     * x {number|string|Decimal}
+     *
+     */
+    function round(x) {
+      return finalise(x = new this(x), x.e + 1, this.rounding);
+    }
+
+
+    /*
+     * Return
+     *   1    if x > 0,
+     *  -1    if x < 0,
+     *   0    if x is 0,
+     *  -0    if x is -0,
+     *   NaN  otherwise
+     *
+     * x {number|string|Decimal}
+     *
+     */
+    function sign(x) {
+      x = new this(x);
+      return x.d ? (x.d[0] ? x.s : 0 * x.s) : x.s || NaN;
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the sine of `x`, rounded to `precision` significant digits
+     * using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal} A value in radians.
+     *
+     */
+    function sin(x) {
+      return new this(x).sin();
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the hyperbolic sine of `x`, rounded to `precision`
+     * significant digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal} A value in radians.
+     *
+     */
+    function sinh(x) {
+      return new this(x).sinh();
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the square root of `x`, rounded to `precision` significant
+     * digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal}
+     *
+     */
+    function sqrt(x) {
+      return new this(x).sqrt();
+    }
+
+
+    /*
+     * Return a new Decimal whose value is `x` minus `y`, rounded to `precision` significant digits
+     * using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal}
+     * y {number|string|Decimal}
+     *
+     */
+    function sub(x, y) {
+      return new this(x).sub(y);
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the sum of the arguments, rounded to `precision`
+     * significant digits using rounding mode `rounding`.
+     *
+     * Only the result is rounded, not the intermediate calculations.
+     *
+     * arguments {number|string|Decimal}
+     *
+     */
+    function sum() {
+      var i = 0,
+        args = arguments,
+        x = new this(args[i]);
+
+      external = false;
+      for (; x.s && ++i < args.length;) x = x.plus(args[i]);
+      external = true;
+
+      return finalise(x, this.precision, this.rounding);
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the tangent of `x`, rounded to `precision` significant
+     * digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal} A value in radians.
+     *
+     */
+    function tan(x) {
+      return new this(x).tan();
+    }
+
+
+    /*
+     * Return a new Decimal whose value is the hyperbolic tangent of `x`, rounded to `precision`
+     * significant digits using rounding mode `rounding`.
+     *
+     * x {number|string|Decimal} A value in radians.
+     *
+     */
+    function tanh(x) {
+      return new this(x).tanh();
+    }
+
+
+    /*
+     * Return a new Decimal whose value is `x` truncated to an integer.
+     *
+     * x {number|string|Decimal}
+     *
+     */
+    function trunc(x) {
+      return finalise(x = new this(x), x.e + 1, 1);
+    }
+
+
+    P[Symbol.for('nodejs.util.inspect.custom')] = P.toString;
+    P[Symbol.toStringTag] = 'Decimal';
+
+    // Create and configure initial Decimal constructor.
+    var Decimal = P.constructor = clone(DEFAULTS);
+
+    // Create the internal constants from their string values.
+    LN10 = new Decimal(LN10);
+    PI = new Decimal(PI);
+
+    /**
      * @license Fraction.js v4.2.0 05/03/2022
      * https://www.xarg.org/2014/03/rational-numbers-in-javascript/
      *
      * Copyright (c) 2021, Robert Eisele (robert@xarg.org)
      * Dual licensed under the MIT or GPL Version 2 licenses.
      **/
-var Dn=Be((function(e,t){!function(t){var n={s:1,n:0,d:1};function u(e,t){if(isNaN(e=parseInt(e,10)))throw a.InvalidParameter;return e*t}function r(e,t){if(0===t)throw a.DivisionByZero;var n=Object.create(a.prototype);n.s=e<0?-1:1;var u=s(e=e<0?-e:e,t);return n.n=e/u,n.d=t/u,n}function i(e){for(var t={},n=e,u=2,r=4;r<=n;){for(;n%u==0;)n/=u,t[u]=(t[u]||0)+1;r+=1+2*u++}return n!==e?n>1&&(t[n]=(t[n]||0)+1):t[e]=(t[e]||0)+1,t}var o=function(e,t){var r,i=0,o=1,s=1,c=0,l=0,f=0,d=1,D=1,p=0,g=1,h=1,m=1,F=1e7;if(null==e);else if(void 0!==t){if(s=(i=e)*(o=t),i%1!=0||o%1!=0)throw a.NonIntegerParameter}else switch(typeof e){case"object":if("d"in e&&"n"in e)i=e.n,o=e.d,"s"in e&&(i*=e.s);else{if(!(0 in e))throw a.InvalidParameter;i=e[0],1 in e&&(o=e[1])}s=i*o;break;case"number":if(e<0&&(s=e,e=-e),e%1==0)i=e;else if(e>0){for(e>=1&&(e/=D=Math.pow(10,Math.floor(1+Math.log(e)/Math.LN10)));g<=F&&m<=F;){if(e===(r=(p+h)/(g+m))){g+m<=F?(i=p+h,o=g+m):m>g?(i=h,o=m):(i=p,o=g);break}e>r?(p+=h,g+=m):(h+=p,m+=g),g>F?(i=h,o=m):(i=p,o=g)}i*=D}else(isNaN(e)||isNaN(t))&&(o=i=NaN);break;case"string":if(null===(g=e.match(/\d+|./g)))throw a.InvalidParameter;if("-"===g[p]?(s=-1,p++):"+"===g[p]&&p++,g.length===p+1?l=u(g[p++],s):"."===g[p+1]||"."===g[p]?("."!==g[p]&&(c=u(g[p++],s)),(++p+1===g.length||"("===g[p+1]&&")"===g[p+3]||"'"===g[p+1]&&"'"===g[p+3])&&(l=u(g[p],s),d=Math.pow(10,g[p].length),p++),("("===g[p]&&")"===g[p+2]||"'"===g[p]&&"'"===g[p+2])&&(f=u(g[p+1],s),D=Math.pow(10,g[p+1].length)-1,p+=3)):"/"===g[p+1]||":"===g[p+1]?(l=u(g[p],s),d=u(g[p+2],1),p+=3):"/"===g[p+3]&&" "===g[p+1]&&(c=u(g[p],s),l=u(g[p+2],s),d=u(g[p+4],1),p+=5),g.length<=p){s=i=f+(o=d*D)*c+D*l;break}default:throw a.InvalidParameter}if(0===o)throw a.DivisionByZero;n.s=s<0?-1:1,n.n=Math.abs(i),n.d=Math.abs(o)};function s(e,t){if(!e)return t;if(!t)return e;for(;;){if(!(e%=t))return t;if(!(t%=e))return e}}function a(e,t){if(o(e,t),!(this instanceof a))return r(n.s*n.n,n.d);e=s(n.d,n.n),this.s=n.s,this.n=n.n/e,this.d=n.d/e}a.DivisionByZero=new Error("Division by Zero"),a.InvalidParameter=new Error("Invalid argument"),a.NonIntegerParameter=new Error("Parameters must be integer"),a.prototype={s:1,n:0,d:1,abs:function(){return r(this.n,this.d)},neg:function(){return r(-this.s*this.n,this.d)},add:function(e,t){return o(e,t),r(this.s*this.n*n.d+n.s*this.d*n.n,this.d*n.d)},sub:function(e,t){return o(e,t),r(this.s*this.n*n.d-n.s*this.d*n.n,this.d*n.d)},mul:function(e,t){return o(e,t),r(this.s*n.s*this.n*n.n,this.d*n.d)},div:function(e,t){return o(e,t),r(this.s*n.s*this.n*n.d,this.d*n.n)},clone:function(){return r(this.s*this.n,this.d)},mod:function(e,t){if(isNaN(this.n)||isNaN(this.d))return new a(NaN);if(void 0===e)return r(this.s*this.n%this.d,1);if(o(e,t),0===n.n&&0===this.d)throw a.DivisionByZero;return r(this.s*(n.d*this.n)%(n.n*this.d),n.d*this.d)},gcd:function(e,t){return o(e,t),r(s(n.n,this.n)*s(n.d,this.d),n.d*this.d)},lcm:function(e,t){return o(e,t),0===n.n&&0===this.n?r(0,1):r(n.n*this.n,s(n.n,this.n)*s(n.d,this.d))},ceil:function(e){return e=Math.pow(10,e||0),isNaN(this.n)||isNaN(this.d)?new a(NaN):r(Math.ceil(e*this.s*this.n/this.d),e)},floor:function(e){return e=Math.pow(10,e||0),isNaN(this.n)||isNaN(this.d)?new a(NaN):r(Math.floor(e*this.s*this.n/this.d),e)},round:function(e){return e=Math.pow(10,e||0),isNaN(this.n)||isNaN(this.d)?new a(NaN):r(Math.round(e*this.s*this.n/this.d),e)},inverse:function(){return r(this.s*this.d,this.n)},pow:function(e,t){if(o(e,t),1===n.d)return n.s<0?r(Math.pow(this.s*this.d,n.n),Math.pow(this.n,n.n)):r(Math.pow(this.s*this.n,n.n),Math.pow(this.d,n.n));if(this.s<0)return null;var u=i(this.n),s=i(this.d),a=1,c=1;for(var l in u)if("1"!==l){if("0"===l){a=0;break}if(u[l]*=n.n,u[l]%n.d!=0)return null;u[l]/=n.d,a*=Math.pow(l,u[l])}for(var l in s)if("1"!==l){if(s[l]*=n.n,s[l]%n.d!=0)return null;s[l]/=n.d,c*=Math.pow(l,s[l])}return n.s<0?r(c,a):r(a,c)},equals:function(e,t){return o(e,t),this.s*this.n*n.d==n.s*n.n*this.d},compare:function(e,t){o(e,t);var u=this.s*this.n*n.d-n.s*n.n*this.d;return(0<u)-(u<0)},simplify:function(e){if(isNaN(this.n)||isNaN(this.d))return this;e=e||.001;for(var t=this.abs(),n=t.toContinued(),u=1;u<n.length;u++){for(var i=r(n[u-1],1),o=u-2;o>=0;o--)i=i.inverse().add(n[o]);if(i.sub(t).abs().valueOf()<e)return i.mul(this.s)}return this},divisible:function(e,t){return o(e,t),!(!(n.n*this.d)||this.n*n.d%(n.n*this.d))},valueOf:function(){return this.s*this.n/this.d},toFraction:function(e){var t,n="",u=this.n,r=this.d;return this.s<0&&(n+="-"),1===r?n+=u:(e&&(t=Math.floor(u/r))>0&&(n+=t,n+=" ",u%=r),n+=u,n+="/",n+=r),n},toLatex:function(e){var t,n="",u=this.n,r=this.d;return this.s<0&&(n+="-"),1===r?n+=u:(e&&(t=Math.floor(u/r))>0&&(n+=t,u%=r),n+="\\frac{",n+=u,n+="}{",n+=r,n+="}"),n},toContinued:function(){var e,t=this.n,n=this.d,u=[];if(isNaN(t)||isNaN(n))return u;do{u.push(Math.floor(t/n)),e=t%n,t=n,n=e}while(1!==t);return u},toString:function(e){var t=this.n,n=this.d;if(isNaN(t)||isNaN(n))return"NaN";e=e||15;var u=function(e,t){for(;t%2==0;t/=2);for(;t%5==0;t/=5);if(1===t)return 0;for(var n=10%t,u=1;1!==n;u++)if(n=10*n%t,u>2e3)return 0;return u}(0,n),r=function(e,t,n){for(var u=1,r=function(e,t,n){for(var u=1;t>0;e=e*e%n,t>>=1)1&t&&(u=u*e%n);return u}(10,n,t),i=0;i<300;i++){if(u===r)return i;u=10*u%t,r=10*r%t}return 0}(0,n,u),i=this.s<0?"-":"";if(i+=t/n|0,t%=n,(t*=10)&&(i+="."),u){for(var o=r;o--;)i+=t/n|0,t%=n,t*=10;i+="(";for(o=u;o--;)i+=t/n|0,t%=n,t*=10;i+=")"}else for(o=e;t&&o--;)i+=t/n|0,t%=n,t*=10;return i}},Object.defineProperty(a,"__esModule",{value:!0}),a.default=a,a.Fraction=a,e.exports=a}()})),pn=xe(Dn);function gn(e,t){return e=Math.ceil(e),t=Math.floor(t+1),Math.floor(Math.random()*(t-e)+e)}function hn(e){return e[gn(0,e.length-1)]}function mn(e,t){let n=e.filter(t);return n[gn(0,n.length-1)]}const Fn=()=>0==gn(0,1),Cn=()=>0==gn(0,1)?1:-1;function vn(e){let t=0==gn(0,1)?1:-1;return"number"==typeof e?e*t:e.mul(t)}function An(e,t){t??="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";for(var n="",u=0;u<e;u++){var r=Math.floor(Math.random()*t.length);n+=t.charAt(r)}return n}function En(e){let t=[...e];for(let e=t.length-1;e>0;e--){const n=Math.floor(Math.random()*(e+1));[t[e],t[n]]=[t[n],t[e]]}return t}new AudioContext;const $n=e=>setTimeout(e,0),wn=e=>new Promise((t=>setTimeout(t,e))),yn=(e,t)=>Array.from({length:t-e},((t,n)=>n+e));function bn(e){try{return e()}catch(t){let n=e.name;""===n&&(n="unknown"),le(`Error in ${n}`,t)}}const xn=(e,t)=>e.split(t??" ").filter(Boolean).map((e=>e.trim()));function Bn(e){return"number"==typeof e?new dn(e):Array.isArray(e)?e.map((e=>"number"==typeof e?new dn(e):e)):e}function Nn(e){return"number"==typeof e?e:Array.isArray(e)?e.map((e=>"number"==typeof e?e:e.toNumber())):e.toNumber()}function kn(e,t=!0){return e.toFraction()[1].eq(1)?e.toNumber().toLocaleString("en"):new pn(e.toNumber()).toFraction(t)}const Mn=(e,t)=>new pn(e.toNumber(),t.toNumber()),Sn=e=>Bn(e.n).div(e.d);function zn(e){let t=new Set;for(let n of e){let e=`${n}`;if(t.has(e))return!1;t.add(e)}return!0}const qn=new class{hideLoader(){document.getElementById("loader").style.display="none"}getCard(){return ankiCard}getConfig(){try{return Me.parse(ankiCard.config)}catch(e){return le(e),{}}}*commands(){if(!ankiCard.content.replaceAll("\n"," ").includes(";"))return;let e=ankiCard.content.split(";")[0];for(let t of xn(e,","))yield xn(t," ")}tokens(){let e=ankiCard.content.replaceAll("\n"," "),t=e.includes(";")?e.split(";")[1]:e;return xn(t,",")}};let On=!1,In=!1;function Pn(){In&&(In=!1,bn((()=>MathJax.typeset())))}function Ln(){In=!0,On&&$n(Pn)}const _n=["yes","no","done","idle","sound-on","sound-off","on-drag-start","on-drag-end","time-is-up"];let Tn=new Map,Hn=!0;function Vn(e){function t(e,n,u){let r=new Audio(""===e?`${n}-${u}.mp3`:`${e}/${n}-${u}.mp3`);r.addEventListener("canplaythrough",(i=>{Tn.get(n).push(r),$n((()=>t(e,n,u+1)))}),{once:!0})}_n.forEach((n=>{Tn.set(n,[]),$n((()=>t(e,n,1)))}))}function Rn(e){let t=Tn.get(e);t&&0!==t.length&&hn(t).play().catch((e=>{}))}const jn=new class{play(e){Hn&&Rn(e)}buildMp3Library(e,t){Hn=t,$n((()=>Vn(""))),$n((()=>Vn(e)))}soundSwitch(e){Hn!==e&&(Rn(e?"sound-on":"sound-off"),Hn=e)}playRandom(){Hn&&Rn(hn(_n))}get soundIsOn(){return Hn}};let Zn=new Set;function Un(e){return Zn.has(e)}function Jn(e,t){let n={id:t?.id??An(5),snapTo:t?.snapTo??[1,1]},u=-1,r={x:0,y:0},i={x:0,y:0},o=0;function s(t,n){switch(t){case"drag:start":Zn.add(e);break;case"drag:end":Zn.delete(e)}e.dispatchEvent(new CustomEvent(t,{detail:n}))}function a(e,t){let u={x:.5+e.clientX|0,y:.5+e.clientY|0};t??=u;let r={x:u.x-t.x,y:u.y-t.y};return{id:n.id,start:t,offset:r}}function c(e){if(-1!==u)return s("drag:other");let t=e.changedTouches[0],n=a(t);u=t.identifier,r=n.start,i=n.offset,o=0,s("drag:start",n)}function l(e){let t=e.changedTouches[0];if(u!==t.identifier)return o++;let c=a(t,r);if(!function(e,t){return!(Math.abs(t.x-e.offset.x)<n.snapTo[0]&&Math.abs(t.y-e.offset.y)<n.snapTo[1]||(e.offset.x-=e.offset.x%n.snapTo[0],e.offset.y-=e.offset.y%n.snapTo[1],0))}(c,i))return o++;i=c.offset,s("drag:move",c)}async function f(e){let t=e.changedTouches[0];if(u!==t.identifier)return s("drag:other");let n=a(t,r);u=-1,s("drag:end",n)}return e.addEventListener("touchstart",c,{passive:!0}),e.addEventListener("touchmove",l,{passive:!0}),e.addEventListener("touchend",f,{passive:!0}),e.addEventListener("touchcancel",f,{passive:!0}),{destroy(){e.removeEventListener("touchstart",c),e.removeEventListener("touchmove",l),e.removeEventListener("touchend",f),e.removeEventListener("touchcancel",f)}}}let Wn={duration:500,interval:1e4,jitter:7e3},Xn=[[{transform:"scale(1, 1)"},{transform:"scale(1.03, 1.03)"},{transform:"scale(1, 1)"}],[{transform:"scale(1, 1)"},{transform:"scale(0.98, 0.98)"},{transform:"scale(1, 1)"}],[{transform:"translate(0px, 0px)"},{transform:"translate(-1px, 0px)"},{transform:"translate(+1px, 0px)"},{transform:"translate(0px, 0px)"}],[{transform:"translate(0px, 0px)"},{transform:"translate(0px, -1px)"},{transform:"translate(0px, +1px)"},{transform:"translate(0px, 0px)"}],[{transform:"translate(0px, 0px)"},{transform:"translate(-1px, -1px)"},{transform:"translate(+1px, +1px)"},{transform:"translate(0px, 0px)"}],[{transform:"translate(0px, 0px)"},{transform:"translate(+1px, -1px)"},{transform:"translate(-1px, +1px)"},{transform:"translate(0px, 0px)"}],[{transform:"rotate(0deg)"},{transform:"rotate(-2deg)"},{transform:"rotate(+2deg)"},{transform:"rotate(0deg)"}]];function Gn(e,t){$n((()=>async function(e,t){for(;;){let{interval:n,jitter:u,duration:r}=t,i=gn(n-u,n+u);if(await wn(i),Un(e))continue;let o=hn(Xn);e.animate(o,r)}}(e,t??Wn)))}function Yn(e,t){function n(t){let n=[{transform:"translate3d(0px, 0px, 0px)"}];e.animate(n,{duration:100,easing:"cubic-bezier(.87,.74,.96,1.83)"}).onfinish=()=>{e.style.transform=null}}function u(e){jn.play("on-drag-start")}function r(t){var n;n=t.detail.offset,e.style.transform=`translate3d(${n.x}px, ${n.y}px, 0px)`}function i(e){jn.play("on-drag-end"),n(e.detail.offset)}t??={},t.snapTo??=[5,5],e.addEventListener("drag:start",u),e.addEventListener("drag:move",r),e.addEventListener("drag:end",i);let o=Jn(e,t);return{destroy(){o.destroy(),e.removeEventListener("drag:start",u),e.removeEventListener("drag:move",r),e.removeEventListener("drag:end",i)}}}function Qn(e,t){function n(e){jn.play(t.get("drag:start"))}function u(e){jn.play(t.get("drag:end"))}t??=new Map,e.addEventListener("drag:start",n),e.addEventListener("drag:end",u);let r=Jn(e);return{destroy(){r.destroy(),e.removeEventListener("drag:start",n),e.removeEventListener("drag:end",u)}}}function Kn(e,t,n){const u=e.slice();return u[7]=t[n],u}function eu(e,t,n){const u=e.slice();return u[10]=t[n],u}function tu(t){let n;return{c(){n=h("line"),A(n,"class","minor svelte-3bw95i"),A(n,"y1","42"),A(n,"y2","45"),A(n,"transform","rotate("+6*(t[7]+t[10])+")")},m(e,t){d(e,n,t)},p:e,d(e){e&&D(n)}}}function nu(t){let n,u,r=[1,2,3,4],i=[];for(let e=0;e<4;e+=1)i[e]=tu(eu(t,r,e));return{c(){n=h("line");for(let e=0;e<4;e+=1)i[e].c();u=C(),A(n,"class","major svelte-3bw95i"),A(n,"y1","35"),A(n,"y2","45"),A(n,"transform","rotate("+30*t[7]+")")},m(e,t){d(e,n,t);for(let n=0;n<4;n+=1)i[n].m(e,t);d(e,u,t)},p:e,d(e){e&&D(n),p(i,e),e&&D(u)}}}function uu(t){let n,r,i,o,s,a,g,m,F,C,E,w,y,b=[0,5,10,15,20,25,30,35,40,45,50,55],x=[];for(let e=0;e<12;e+=1)x[e]=nu(Kn(t,b,e));return{c(){n=h("svg"),r=h("circle");for(let e=0;e<12;e+=1)x[e].c();o=h("line"),a=h("line"),m=h("g"),F=h("line"),C=h("line"),A(r,"class",i=c(t[1]?"clock-face-enabled":"clock-face-disabled")+" svelte-3bw95i"),A(r,"r","48"),A(o,"class","hour svelte-3bw95i"),A(o,"y1","2"),A(o,"y2","-20"),A(o,"transform",s="rotate("+(30*t[4]+t[3]/2)+")"),A(a,"class","minute svelte-3bw95i"),A(a,"y1","4"),A(a,"y2","-30"),A(a,"transform",g="rotate("+(6*t[3]+t[2]/10)+")"),A(F,"class","second svelte-3bw95i"),A(F,"y1","10"),A(F,"y2","-38"),A(C,"class","second-counterweight svelte-3bw95i"),A(C,"y1","10"),A(C,"y2","2"),A(m,"transform",E="rotate("+6*t[2]+")"),A(n,"viewBox","-50 -50 100 100"),$(n,"grid-area",t[0]),A(n,"class","svelte-3bw95i")},m(e,u){d(e,n,u),f(n,r);for(let e=0;e<12;e+=1)x[e].m(n,null);f(n,o),f(n,a),f(n,m),f(m,F),f(m,C),w||(y=[v(n,"click",t[5]),l(Gn.call(null,n)),l(Yn.call(null,n))],w=!0)},p(e,[t]){2&t&&i!==(i=c(e[1]?"clock-face-enabled":"clock-face-disabled")+" svelte-3bw95i")&&A(r,"class",i),24&t&&s!==(s="rotate("+(30*e[4]+e[3]/2)+")")&&A(o,"transform",s),12&t&&g!==(g="rotate("+(6*e[3]+e[2]/10)+")")&&A(a,"transform",g),4&t&&E!==(E="rotate("+6*e[2]+")")&&A(m,"transform",E),1&t&&$(n,"grid-area",e[0])},i:e,o:e,d(e){e&&D(n),p(x,e),w=!1,u(y)}}}function ru(e,t,n){let u,r,i,{ga:o}=t,s=jn.soundIsOn,a=new Date;return N((()=>{const e=setInterval((()=>{n(6,a=new Date)}),1e3);return()=>{clearInterval(e)}})),e.$$set=e=>{"ga"in e&&n(0,o=e.ga)},e.$$.update=()=>{64&e.$$.dirty&&n(4,u=a.getHours()),64&e.$$.dirty&&n(3,r=a.getMinutes()),64&e.$$.dirty&&n(2,i=a.getSeconds())},[o,s,i,r,u,function(){n(1,s^=!0),jn.soundSwitch(s)},a]}class iu extends ne{constructor(e){super(),te(this,e,ru,uu,i,{ga:0})}}var ou={update:null,begin:null,loopBegin:null,changeBegin:null,change:null,changeComplete:null,loopComplete:null,complete:null,loop:1,direction:"normal",autoplay:!0,timelineOffset:0},su={duration:1e3,delay:0,endDelay:0,easing:"easeOutElastic(1, .5)",round:0},au=["translateX","translateY","translateZ","rotate","rotateX","rotateY","rotateZ","scale","scaleX","scaleY","scaleZ","skew","skewX","skewY","perspective","matrix","matrix3d"],cu={CSS:{},springs:{}};function lu(e,t,n){return Math.min(Math.max(e,t),n)}function fu(e,t){return e.indexOf(t)>-1}function du(e,t){return e.apply(null,t)}var Du={arr:function(e){return Array.isArray(e)},obj:function(e){return fu(Object.prototype.toString.call(e),"Object")},pth:function(e){return Du.obj(e)&&e.hasOwnProperty("totalLength")},svg:function(e){return e instanceof SVGElement},inp:function(e){return e instanceof HTMLInputElement},dom:function(e){return e.nodeType||Du.svg(e)},str:function(e){return"string"==typeof e},fnc:function(e){return"function"==typeof e},und:function(e){return void 0===e},nil:function(e){return Du.und(e)||null===e},hex:function(e){return/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(e)},rgb:function(e){return/^rgb/.test(e)},hsl:function(e){return/^hsl/.test(e)},col:function(e){return Du.hex(e)||Du.rgb(e)||Du.hsl(e)},key:function(e){return!ou.hasOwnProperty(e)&&!su.hasOwnProperty(e)&&"targets"!==e&&"keyframes"!==e}};function pu(e){var t=/\(([^)]+)\)/.exec(e);return t?t[1].split(",").map((function(e){return parseFloat(e)})):[]}function gu(e,t){var n=pu(e),u=lu(Du.und(n[0])?1:n[0],.1,100),r=lu(Du.und(n[1])?100:n[1],.1,100),i=lu(Du.und(n[2])?10:n[2],.1,100),o=lu(Du.und(n[3])?0:n[3],.1,100),s=Math.sqrt(r/u),a=i/(2*Math.sqrt(r*u)),c=a<1?s*Math.sqrt(1-a*a):0,l=a<1?(a*s-o)/c:-o+s;function f(e){var n=t?t*e/1e3:e;return n=a<1?Math.exp(-n*a*s)*(1*Math.cos(c*n)+l*Math.sin(c*n)):(1+l*n)*Math.exp(-n*s),0===e||1===e?e:1-n}return t?f:function(){var t=cu.springs[e];if(t)return t;for(var n=1/6,u=0,r=0;;)if(1===f(u+=n)){if(++r>=16)break}else r=0;var i=u*n*1e3;return cu.springs[e]=i,i}}function hu(e){return void 0===e&&(e=10),function(t){return Math.ceil(lu(t,1e-6,1)*e)*(1/e)}}var mu,Fu,Cu=function(){var e=.1;function t(e,t){return 1-3*t+3*e}function n(e,t){return 3*t-6*e}function u(e){return 3*e}function r(e,r,i){return((t(r,i)*e+n(r,i))*e+u(r))*e}function i(e,r,i){return 3*t(r,i)*e*e+2*n(r,i)*e+u(r)}return function(t,n,u,o){if(0<=t&&t<=1&&0<=u&&u<=1){var s=new Float32Array(11);if(t!==n||u!==o)for(var a=0;a<11;++a)s[a]=r(a*e,t,u);return function(e){return t===n&&u===o||0===e||1===e?e:r(c(e),n,o)}}function c(n){for(var o=0,a=1;10!==a&&s[a]<=n;++a)o+=e;--a;var c=o+(n-s[a])/(s[a+1]-s[a])*e,l=i(c,t,u);return l>=.001?function(e,t,n,u){for(var o=0;o<4;++o){var s=i(t,n,u);if(0===s)return t;t-=(r(t,n,u)-e)/s}return t}(n,c,t,u):0===l?c:function(e,t,n,u,i){var o,s,a=0;do{(o=r(s=t+(n-t)/2,u,i)-e)>0?n=s:t=s}while(Math.abs(o)>1e-7&&++a<10);return s}(n,o,o+e,t,u)}}}(),vu=(mu={linear:function(){return function(e){return e}}},Fu={Sine:function(){return function(e){return 1-Math.cos(e*Math.PI/2)}},Circ:function(){return function(e){return 1-Math.sqrt(1-e*e)}},Back:function(){return function(e){return e*e*(3*e-2)}},Bounce:function(){return function(e){for(var t,n=4;e<((t=Math.pow(2,--n))-1)/11;);return 1/Math.pow(4,3-n)-7.5625*Math.pow((3*t-2)/22-e,2)}},Elastic:function(e,t){void 0===e&&(e=1),void 0===t&&(t=.5);var n=lu(e,1,10),u=lu(t,.1,2);return function(e){return 0===e||1===e?e:-n*Math.pow(2,10*(e-1))*Math.sin((e-1-u/(2*Math.PI)*Math.asin(1/n))*(2*Math.PI)/u)}}},["Quad","Cubic","Quart","Quint","Expo"].forEach((function(e,t){Fu[e]=function(){return function(e){return Math.pow(e,t+2)}}})),Object.keys(Fu).forEach((function(e){var t=Fu[e];mu["easeIn"+e]=t,mu["easeOut"+e]=function(e,n){return function(u){return 1-t(e,n)(1-u)}},mu["easeInOut"+e]=function(e,n){return function(u){return u<.5?t(e,n)(2*u)/2:1-t(e,n)(-2*u+2)/2}},mu["easeOutIn"+e]=function(e,n){return function(u){return u<.5?(1-t(e,n)(1-2*u))/2:(t(e,n)(2*u-1)+1)/2}}})),mu);function Au(e,t){if(Du.fnc(e))return e;var n=e.split("(")[0],u=vu[n],r=pu(e);switch(n){case"spring":return gu(e,t);case"cubicBezier":return du(Cu,r);case"steps":return du(hu,r);default:return du(u,r)}}function Eu(e){try{return document.querySelectorAll(e)}catch(e){return}}function $u(e,t){for(var n=e.length,u=arguments.length>=2?arguments[1]:void 0,r=[],i=0;i<n;i++)if(i in e){var o=e[i];t.call(u,o,i,e)&&r.push(o)}return r}function wu(e){return e.reduce((function(e,t){return e.concat(Du.arr(t)?wu(t):t)}),[])}function yu(e){return Du.arr(e)?e:(Du.str(e)&&(e=Eu(e)||e),e instanceof NodeList||e instanceof HTMLCollection?[].slice.call(e):[e])}function bu(e,t){return e.some((function(e){return e===t}))}function xu(e){var t={};for(var n in e)t[n]=e[n];return t}function Bu(e,t){var n=xu(e);for(var u in e)n[u]=t.hasOwnProperty(u)?t[u]:e[u];return n}function Nu(e,t){var n=xu(e);for(var u in t)n[u]=Du.und(e[u])?t[u]:e[u];return n}function ku(e){return Du.rgb(e)?(n=/rgb\((\d+,\s*[\d]+,\s*[\d]+)\)/g.exec(t=e))?"rgba("+n[1]+",1)":t:Du.hex(e)?function(e){var t=e.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i,(function(e,t,n,u){return t+t+n+n+u+u})),n=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(t);return"rgba("+parseInt(n[1],16)+","+parseInt(n[2],16)+","+parseInt(n[3],16)+",1)"}(e):Du.hsl(e)?function(e){var t,n,u,r=/hsl\((\d+),\s*([\d.]+)%,\s*([\d.]+)%\)/g.exec(e)||/hsla\((\d+),\s*([\d.]+)%,\s*([\d.]+)%,\s*([\d.]+)\)/g.exec(e),i=parseInt(r[1],10)/360,o=parseInt(r[2],10)/100,s=parseInt(r[3],10)/100,a=r[4]||1;function c(e,t,n){return n<0&&(n+=1),n>1&&(n-=1),n<1/6?e+6*(t-e)*n:n<.5?t:n<2/3?e+(t-e)*(2/3-n)*6:e}if(0==o)t=n=u=s;else{var l=s<.5?s*(1+o):s+o-s*o,f=2*s-l;t=c(f,l,i+1/3),n=c(f,l,i),u=c(f,l,i-1/3)}return"rgba("+255*t+","+255*n+","+255*u+","+a+")"}(e):void 0;var t,n}function Mu(e){var t=/[+-]?\d*\.?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?(%|px|pt|em|rem|in|cm|mm|ex|ch|pc|vw|vh|vmin|vmax|deg|rad|turn)?$/.exec(e);if(t)return t[1]}function Su(e,t){return Du.fnc(e)?e(t.target,t.id,t.total):e}function zu(e,t){return e.getAttribute(t)}function qu(e,t,n){if(bu([n,"deg","rad","turn"],Mu(t)))return t;var u=cu.CSS[t+n];if(!Du.und(u))return u;var r=document.createElement(e.tagName),i=e.parentNode&&e.parentNode!==document?e.parentNode:document.body;i.appendChild(r),r.style.position="absolute",r.style.width=100+n;var o=100/r.offsetWidth;i.removeChild(r);var s=o*parseFloat(t);return cu.CSS[t+n]=s,s}function Ou(e,t,n){if(t in e.style){var u=t.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase(),r=e.style[t]||getComputedStyle(e).getPropertyValue(u)||"0";return n?qu(e,r,n):r}}function Iu(e,t){return Du.dom(e)&&!Du.inp(e)&&(!Du.nil(zu(e,t))||Du.svg(e)&&e[t])?"attribute":Du.dom(e)&&bu(au,t)?"transform":Du.dom(e)&&"transform"!==t&&Ou(e,t)?"css":null!=e[t]?"object":void 0}function Pu(e){if(Du.dom(e)){for(var t,n=e.style.transform||"",u=/(\w+)\(([^)]*)\)/g,r=new Map;t=u.exec(n);)r.set(t[1],t[2]);return r}}function Lu(e,t,n,u){var r=fu(t,"scale")?1:0+function(e){return fu(e,"translate")||"perspective"===e?"px":fu(e,"rotate")||fu(e,"skew")?"deg":void 0}(t),i=Pu(e).get(t)||r;return n&&(n.transforms.list.set(t,i),n.transforms.last=t),u?qu(e,i,u):i}function _u(e,t,n,u){switch(Iu(e,t)){case"transform":return Lu(e,t,u,n);case"css":return Ou(e,t,n);case"attribute":return zu(e,t);default:return e[t]||0}}function Tu(e,t){var n=/^(\*=|\+=|-=)/.exec(e);if(!n)return e;var u=Mu(e)||0,r=parseFloat(t),i=parseFloat(e.replace(n[0],""));switch(n[0][0]){case"+":return r+i+u;case"-":return r-i+u;case"*":return r*i+u}}function Hu(e,t){if(Du.col(e))return ku(e);if(/\s/g.test(e))return e;var n=Mu(e),u=n?e.substr(0,e.length-n.length):e;return t?u+t:u}function Vu(e,t){return Math.sqrt(Math.pow(t.x-e.x,2)+Math.pow(t.y-e.y,2))}function Ru(e){for(var t,n=e.points,u=0,r=0;r<n.numberOfItems;r++){var i=n.getItem(r);r>0&&(u+=Vu(t,i)),t=i}return u}function ju(e){if(e.getTotalLength)return e.getTotalLength();switch(e.tagName.toLowerCase()){case"circle":return function(e){return 2*Math.PI*zu(e,"r")}(e);case"rect":return function(e){return 2*zu(e,"width")+2*zu(e,"height")}(e);case"line":return function(e){return Vu({x:zu(e,"x1"),y:zu(e,"y1")},{x:zu(e,"x2"),y:zu(e,"y2")})}(e);case"polyline":return Ru(e);case"polygon":return function(e){var t=e.points;return Ru(e)+Vu(t.getItem(t.numberOfItems-1),t.getItem(0))}(e)}}function Zu(e,t){var n=t||{},u=n.el||function(e){for(var t=e.parentNode;Du.svg(t)&&Du.svg(t.parentNode);)t=t.parentNode;return t}(e),r=u.getBoundingClientRect(),i=zu(u,"viewBox"),o=r.width,s=r.height,a=n.viewBox||(i?i.split(" "):[0,0,o,s]);return{el:u,viewBox:a,x:a[0]/1,y:a[1]/1,w:o,h:s,vW:a[2],vH:a[3]}}function Uu(e,t,n){function u(n){void 0===n&&(n=0);var u=t+n>=1?t+n:0;return e.el.getPointAtLength(u)}var r=Zu(e.el,e.svg),i=u(),o=u(-1),s=u(1),a=n?1:r.w/r.vW,c=n?1:r.h/r.vH;switch(e.property){case"x":return(i.x-r.x)*a;case"y":return(i.y-r.y)*c;case"angle":return 180*Math.atan2(s.y-o.y,s.x-o.x)/Math.PI}}function Ju(e,t){var n=/[+-]?\d*\.?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/g,u=Hu(Du.pth(e)?e.totalLength:e,t)+"";return{original:u,numbers:u.match(n)?u.match(n).map(Number):[0],strings:Du.str(e)||t?u.split(n):[]}}function Wu(e){return $u(e?wu(Du.arr(e)?e.map(yu):yu(e)):[],(function(e,t,n){return n.indexOf(e)===t}))}function Xu(e){var t=Wu(e);return t.map((function(e,n){return{target:e,id:n,total:t.length,transforms:{list:Pu(e)}}}))}function Gu(e,t){var n=xu(t);if(/^spring/.test(n.easing)&&(n.duration=gu(n.easing)),Du.arr(e)){var u=e.length;2===u&&!Du.obj(e[0])?e={value:e}:Du.fnc(t.duration)||(n.duration=t.duration/u)}var r=Du.arr(e)?e:[e];return r.map((function(e,n){var u=Du.obj(e)&&!Du.pth(e)?e:{value:e};return Du.und(u.delay)&&(u.delay=n?0:t.delay),Du.und(u.endDelay)&&(u.endDelay=n===r.length-1?t.endDelay:0),u})).map((function(e){return Nu(e,n)}))}function Yu(e,t){var n=[],u=t.keyframes;for(var r in u&&(t=Nu(function(e){for(var t=$u(wu(e.map((function(e){return Object.keys(e)}))),(function(e){return Du.key(e)})).reduce((function(e,t){return e.indexOf(t)<0&&e.push(t),e}),[]),n={},u=function(u){var r=t[u];n[r]=e.map((function(e){var t={};for(var n in e)Du.key(n)?n==r&&(t.value=e[n]):t[n]=e[n];return t}))},r=0;r<t.length;r++)u(r);return n}(u),t)),t)Du.key(r)&&n.push({name:r,tweens:Gu(t[r],e)});return n}function Qu(e,t){var n;return e.tweens.map((function(u){var r=function(e,t){var n={};for(var u in e){var r=Su(e[u],t);Du.arr(r)&&1===(r=r.map((function(e){return Su(e,t)}))).length&&(r=r[0]),n[u]=r}return n.duration=parseFloat(n.duration),n.delay=parseFloat(n.delay),n}(u,t),i=r.value,o=Du.arr(i)?i[1]:i,s=Mu(o),a=_u(t.target,e.name,s,t),c=n?n.to.original:a,l=Du.arr(i)?i[0]:c,f=Mu(l)||Mu(a),d=s||f;return Du.und(o)&&(o=c),r.from=Ju(l,d),r.to=Ju(Tu(o,l),d),r.start=n?n.end:0,r.end=r.start+r.delay+r.duration+r.endDelay,r.easing=Au(r.easing,r.duration),r.isPath=Du.pth(i),r.isPathTargetInsideSVG=r.isPath&&Du.svg(t.target),r.isColor=Du.col(r.from.original),r.isColor&&(r.round=1),n=r,r}))}var Ku={css:function(e,t,n){return e.style[t]=n},attribute:function(e,t,n){return e.setAttribute(t,n)},object:function(e,t,n){return e[t]=n},transform:function(e,t,n,u,r){if(u.list.set(t,n),t===u.last||r){var i="";u.list.forEach((function(e,t){i+=t+"("+e+") "})),e.style.transform=i}}};function er(e,t){Xu(e).forEach((function(e){for(var n in t){var u=Su(t[n],e),r=e.target,i=Mu(u),o=_u(r,n,i,e),s=Tu(Hu(u,i||Mu(o)),o),a=Iu(r,n);Ku[a](r,n,s,e.transforms,!0)}}))}function tr(e,t){return $u(wu(e.map((function(e){return t.map((function(t){return function(e,t){var n=Iu(e.target,t.name);if(n){var u=Qu(t,e),r=u[u.length-1];return{type:n,property:t.name,animatable:e,tweens:u,duration:r.end,delay:u[0].delay,endDelay:r.endDelay}}}(e,t)}))}))),(function(e){return!Du.und(e)}))}function nr(e,t){var n=e.length,u=function(e){return e.timelineOffset?e.timelineOffset:0},r={};return r.duration=n?Math.max.apply(Math,e.map((function(e){return u(e)+e.duration}))):t.duration,r.delay=n?Math.min.apply(Math,e.map((function(e){return u(e)+e.delay}))):t.delay,r.endDelay=n?r.duration-Math.max.apply(Math,e.map((function(e){return u(e)+e.duration-e.endDelay}))):t.endDelay,r}var ur=0;var rr=[],ir=function(){var e;function t(n){for(var u=rr.length,r=0;r<u;){var i=rr[r];i.paused?(rr.splice(r,1),u--):(i.tick(n),r++)}e=r>0?requestAnimationFrame(t):void 0}return"undefined"!=typeof document&&document.addEventListener("visibilitychange",(function(){sr.suspendWhenDocumentHidden&&(or()?e=cancelAnimationFrame(e):(rr.forEach((function(e){return e._onDocumentVisibility()})),ir()))})),function(){e||or()&&sr.suspendWhenDocumentHidden||!(rr.length>0)||(e=requestAnimationFrame(t))}}();function or(){return!!document&&document.hidden}function sr(e){void 0===e&&(e={});var t,n=0,u=0,r=0,i=0,o=null;function s(e){var t=window.Promise&&new Promise((function(e){return o=e}));return e.finished=t,t}var a=function(e){var t=Bu(ou,e),n=Bu(su,e),u=Yu(n,e),r=Xu(e.targets),i=tr(r,u),o=nr(i,n),s=ur;return ur++,Nu(t,{id:s,children:[],animatables:r,animations:i,duration:o.duration,delay:o.delay,endDelay:o.endDelay})}(e);function c(){var e=a.direction;"alternate"!==e&&(a.direction="normal"!==e?"normal":"reverse"),a.reversed=!a.reversed,t.forEach((function(e){return e.reversed=a.reversed}))}function l(e){return a.reversed?a.duration-e:e}function f(){n=0,u=l(a.currentTime)*(1/sr.speed)}function d(e,t){t&&t.seek(e-t.timelineOffset)}function D(e){for(var t=0,n=a.animations,u=n.length;t<u;){var r=n[t],i=r.animatable,o=r.tweens,s=o.length-1,c=o[s];s&&(c=$u(o,(function(t){return e<t.end}))[0]||c);for(var l=lu(e-c.start-c.delay,0,c.duration)/c.duration,f=isNaN(l)?1:c.easing(l),d=c.to.strings,D=c.round,p=[],g=c.to.numbers.length,h=void 0,m=0;m<g;m++){var F=void 0,C=c.to.numbers[m],v=c.from.numbers[m]||0;F=c.isPath?Uu(c.value,f*C,c.isPathTargetInsideSVG):v+f*(C-v),D&&(c.isColor&&m>2||(F=Math.round(F*D)/D)),p.push(F)}var A=d.length;if(A){h=d[0];for(var E=0;E<A;E++){d[E];var $=d[E+1],w=p[E];isNaN(w)||(h+=$?w+$:w+" ")}}else h=p[0];Ku[r.type](i.target,r.property,h,i.transforms),r.currentValue=h,t++}}function p(e){a[e]&&!a.passThrough&&a[e](a)}function g(e){var f=a.duration,g=a.delay,h=f-a.endDelay,m=l(e);a.progress=lu(m/f*100,0,100),a.reversePlayback=m<a.currentTime,t&&function(e){if(a.reversePlayback)for(var n=i;n--;)d(e,t[n]);else for(var u=0;u<i;u++)d(e,t[u])}(m),!a.began&&a.currentTime>0&&(a.began=!0,p("begin")),!a.loopBegan&&a.currentTime>0&&(a.loopBegan=!0,p("loopBegin")),m<=g&&0!==a.currentTime&&D(0),(m>=h&&a.currentTime!==f||!f)&&D(f),m>g&&m<h?(a.changeBegan||(a.changeBegan=!0,a.changeCompleted=!1,p("changeBegin")),p("change"),D(m)):a.changeBegan&&(a.changeCompleted=!0,a.changeBegan=!1,p("changeComplete")),a.currentTime=lu(m,0,f),a.began&&p("update"),e>=f&&(u=0,a.remaining&&!0!==a.remaining&&a.remaining--,a.remaining?(n=r,p("loopComplete"),a.loopBegan=!1,"alternate"===a.direction&&c()):(a.paused=!0,a.completed||(a.completed=!0,p("loopComplete"),p("complete"),!a.passThrough&&"Promise"in window&&(o(),s(a)))))}return s(a),a.reset=function(){var e=a.direction;a.passThrough=!1,a.currentTime=0,a.progress=0,a.paused=!0,a.began=!1,a.loopBegan=!1,a.changeBegan=!1,a.completed=!1,a.changeCompleted=!1,a.reversePlayback=!1,a.reversed="reverse"===e,a.remaining=a.loop,t=a.children;for(var n=i=t.length;n--;)a.children[n].reset();(a.reversed&&!0!==a.loop||"alternate"===e&&1===a.loop)&&a.remaining++,D(a.reversed?a.duration:0)},a._onDocumentVisibility=f,a.set=function(e,t){return er(e,t),a},a.tick=function(e){r=e,n||(n=r),g((r+(u-n))*sr.speed)},a.seek=function(e){g(l(e))},a.pause=function(){a.paused=!0,f()},a.play=function(){a.paused&&(a.completed&&a.reset(),a.paused=!1,rr.push(a),f(),ir())},a.reverse=function(){c(),a.completed=!a.reversed,f()},a.restart=function(){a.reset(),a.play()},a.remove=function(e){cr(Wu(e),a)},a.reset(),a.autoplay&&a.play(),a}function ar(e,t){for(var n=t.length;n--;)bu(e,t[n].animatable.target)&&t.splice(n,1)}function cr(e,t){var n=t.animations,u=t.children;ar(e,n);for(var r=u.length;r--;){var i=u[r],o=i.animations;ar(e,o),o.length||i.children.length||u.splice(r,1)}n.length||u.length||t.pause()}function lr(e,t,n){const u=e.slice();return u[7]=t[n],u[8]=t,u[9]=n,u}function fr(e){let t,n,u,r,i,o,s=e[8],a=e[9];const c=()=>e[5](t,s,a),l=()=>e[5](null,s,a);return{c(){t=g("div"),n=h("svg"),u=h("polygon"),o=F(),A(u,"fill",r=e[7].color),A(u,"stroke",i=e[7].color),A(u,"stroke-width","37.6152"),A(u,"stroke-linecap","round"),A(u,"stroke-linejoin","round"),A(u,"stroke-miterlimit","10"),A(u,"points","259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 \r\n                            401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08 \r\n                            29.274,197.007 188.165,173.919"),A(n,"xmlns","http://www.w3.org/2000/svg"),A(n,"viewBox","0 0 512 512"),A(t,"class","box svelte-moqp60"),$(t,"--size",e[2].size+"px"),$(t,"--left",e[2].pos[0]+"px"),$(t,"--top",e[2].pos[1]+"px")},m(e,r){d(e,t,r),f(t,n),f(n,u),f(t,o),c()},p(t,n){e=t,1&n&&r!==(r=e[7].color)&&A(u,"fill",r),1&n&&i!==(i=e[7].color)&&A(u,"stroke",i),s===e[8]&&a===e[9]||(l(),s=e[8],a=e[9],c())},d(e){e&&D(t),l()}}}function dr(t){let n,u=t[0],r=[];for(let e=0;e<u.length;e+=1)r[e]=fr(lr(t,u,e));return{c(){n=g("div");for(let e=0;e<r.length;e+=1)r[e].c();A(n,"class","svelte-moqp60"),w(n,"hidden",t[1])},m(e,t){d(e,n,t);for(let e=0;e<r.length;e+=1)r[e].m(n,null)},p(e,[t]){if(5&t){let i;for(u=e[0],i=0;i<u.length;i+=1){const o=lr(e,u,i);r[i]?r[i].p(o,t):(r[i]=fr(o),r[i].c(),r[i].m(n,null))}for(;i<r.length;i+=1)r[i].d(1);r.length=u.length}2&t&&w(n,"hidden",e[1])},i:e,o:e,d(e){e&&D(n),p(r,e)}}}function Dr(e,t,n){let u,r={size:18,pos:[100,120],xSeed:[20,100],ySeed:[20,120],duration:1500},i=!0;function o(){sr({targets:u.map((e=>e.box)),translateX:0,translateY:0,rotate:0,opacity:1,duration:0})}let{noOfStars:s=150}=t;return u=yn(0,s).map((()=>({box:void 0,color:hn(["yellow","orange","red"])}))),N(o),e.$$set=e=>{"noOfStars"in e&&n(4,s=e.noOfStars)},[u,i,r,function(){o(),n(1,i=!1),sr({targets:u.map((e=>e.box)),translateX:()=>hn([1,-1])*(r.xSeed[0]+gn(0,r.xSeed[1])),translateY:()=>hn([1,-1])*(r.ySeed[0]+gn(0,r.ySeed[1])),rotate:()=>gn(200,360),scale:()=>1+gn(1,10)/10,delay:()=>gn(150,300),opacity:{value:0,easing:"linear",delay:r.duration-200,duration:500},easing:"easeOutElastic",duration:r.duration,complete:()=>n(1,i=!0)})},s,function(e,t,r){S[e?"unshift":"push"]((()=>{t[r].box=e,n(0,u)}))}]}sr.version="3.2.1",sr.speed=1,sr.suspendWhenDocumentHidden=!0,sr.running=rr,sr.remove=function(e){for(var t=Wu(e),n=rr.length;n--;){cr(t,rr[n])}},sr.get=_u,sr.set=er,sr.convertPx=qu,sr.path=function(e,t){var n=Du.str(e)?Eu(e)[0]:e,u=t||100;return function(e){return{property:e,el:n,svg:Zu(n),totalLength:ju(n)*(u/100)}}},sr.setDashoffset=function(e){var t=ju(e);return e.setAttribute("stroke-dasharray",t),t},sr.stagger=function(e,t){void 0===t&&(t={});var n=t.direction||"normal",u=t.easing?Au(t.easing):null,r=t.grid,i=t.axis,o=t.from||0,s="first"===o,a="center"===o,c="last"===o,l=Du.arr(e),f=l?parseFloat(e[0]):parseFloat(e),d=l?parseFloat(e[1]):0,D=Mu(l?e[1]:e)||0,p=t.start||0+(l?f:0),g=[],h=0;return function(e,t,m){if(s&&(o=0),a&&(o=(m-1)/2),c&&(o=m-1),!g.length){for(var F=0;F<m;F++){if(r){var C=a?(r[0]-1)/2:o%r[0],v=a?(r[1]-1)/2:Math.floor(o/r[0]),A=C-F%r[0],E=v-Math.floor(F/r[0]),$=Math.sqrt(A*A+E*E);"x"===i&&($=-A),"y"===i&&($=-E),g.push($)}else g.push(Math.abs(o-F));h=Math.max.apply(Math,g)}u&&(g=g.map((function(e){return u(e/h)*h}))),"reverse"===n&&(g=g.map((function(e){return i?e<0?-1*e:-e:Math.abs(h-e)})))}return p+(l?(d-f)/h:f)*(Math.round(100*g[t])/100)+D}},sr.timeline=function(e){void 0===e&&(e={});var t=sr(e);return t.duration=0,t.add=function(n,u){var r=rr.indexOf(t),i=t.children;function o(e){e.passThrough=!0}r>-1&&rr.splice(r,1);for(var s=0;s<i.length;s++)o(i[s]);var a=Nu(n,Bu(su,e));a.targets=a.targets||e.targets;var c=t.duration;a.autoplay=!1,a.direction=t.direction,a.timelineOffset=Du.und(u)?c:Tu(u,c),o(t),t.seek(a.timelineOffset);var l=sr(a);o(l),i.push(l);var f=nr(i,e);return t.delay=f.delay,t.endDelay=f.endDelay,t.duration=f.duration,t.seek(0),t.reset(),t.autoplay&&t.play(),t},t},sr.easing=Au,sr.penner=vu,sr.random=function(e,t){return Math.floor(Math.random()*(t-e+1))+e};class pr extends ne{constructor(e){super(),te(this,e,Dr,dr,i,{play:3,noOfStars:4})}get play(){return this.$$.ctx[3]}}let gr,hr={};function mr(e,t){let n=hr[e]??[];n.push(t),hr[e]=n}function Fr(e,t){(hr[e]??[]).forEach((e=>setTimeout((()=>e(t)),0)))}class Cr{constructor(e,t,n){this._cmd=e,this._timeout=t,this._jitter=n??0}set(){let e=gn(this._timeout-this._jitter,this._timeout+this._jitter);this._timeoutId=setTimeout((()=>Fr(this._cmd,{})),e)}cancel(){clearTimeout(this._timeoutId)}reset(){this.cancel(),this.set()}}function vr(e,t){mr(e,t)}function Ar(e,t){Fr(e,t)}function Er(e,t,n){return new Cr(e,t,n??0)}let $r=Er("--cmd-new-round",1e3),wr=Er("--cmd-idle",1e4,3e3),yr=[],br=-1,xr=[1,8];function Br(){let e=qn.tokens(),t=[];for(let n=0;n<e.length-1;n+=2)t.push([parseInt(e[n]),parseInt(e[n+1])]);return hn(t)}function Nr(){return hn(function(e){let t=[],n=[];for(let u of qn.tokens()){let r=parseInt(u);n.push(r),n.length==e&&(t.push(n),n=[])}return t}(4))}function kr(){switch(qn.getConfig().game.toLocaleLowerCase()){case"plus-over":!function(){let e=Br(),t=(e[0]+e[1])%10,n=e[0],u=gn(xr[0],xr[1]),r=10*u+n,i=e[1],o=10*gn(xr[0],xr[1]+1-u)+i,s=r+o,a=En([r,o]),c=En([s,s+Cn()*gn(1,9),s>50?s-10:s+10]),l=c.findIndex((e=>e==s));yr.push({pair:e,nums:a,op:"+",sumDigit:t,answers:c,rightAt:l})}(),function(){let e=Br(),t=(e[0]+e[1])%10,n=e[0],u=gn(xr[0],xr[1]+1),r=10*u+n,i=10*gn(xr[0],xr[1]+1-u)+e[1],o=r+i,s=[o,Fn()?r:i],a=o-s[1],c=En([a,a+gn(1,9)*Cn(),a>50?a-10:a+10]),l=c.findIndex((e=>e==a));yr.push({pair:e,nums:s,op:"-",sumDigit:t,answers:c,rightAt:l})}();break;case"mul-div":!function(){let e=Nr(),t=gn(e[0],e[1]),n=gn(e[2],e[3]),u=[t%10,n%10],r=En([t,n]),i=t*n,o=i%10,s=En([i,i+Cn()*Math.min(...r),i>50?i-10:i+10]),a=s.findIndex((e=>e==i));yr.push({pair:u,nums:r,op:"x",sumDigit:o,answers:s,rightAt:a})}(),function(){let e=Nr(),t=gn(e[0],e[1]),n=gn(e[2],e[3]),u=t*n,r=[t%10,n%10],i=[u,hn([t,n])],o=u/i[1],s=t*n%10,a=En([o,o>2?o+Cn():o+1,o>50?o-10:o+10]),c=a.findIndex((e=>e==o));yr.push({pair:r,nums:i,op:"/",sumDigit:s,answers:a,rightAt:c})}()}}const Mr=new class{constructor(){for(let e of qn.commands())if("m"===e[0].toLocaleLowerCase())xr=e.slice(1).map((e=>parseInt(e)))}newRound(){let e=qn.getConfig();wr.reset(),$r.cancel(),br++,br>=yr.length&&le(`Round index out of bound: ${br} length=${yr.length}`);let t=yr[br],n=yr.length-br,u=e.showHint??!0;gr={roundsLeft:n,clickedAt:0,state:"first-click",showHint:u,...t},Ar("--cmd-update-views",gr)}gotClicked(){switch(gr.state){case"first-click":Ar("--evt-answer");break;case"answered":Ar("--cmd-new-round")}}yesNo(){if("answered"!==gr.state)return;if(gr.roundsLeft<=0)return;Ar(gr.clickedAt===gr.rightAt?"--evt-yes":"--evt-no")}gotAnswer(e){switch(wr.reset(),gr.state){case"first-click":gr.state="active";break;case"active":gr.clickedAt=e.index,gr.state="answered",this.yesNo();break;case"answered":return void Ar("--cmd-new-round")}Ar("--cmd-update-views",gr)}yes(){1===gr.roundsLeft?Ar("--evt-done"):jn.play("yes"),$r.reset()}no(){jn.play("no"),kr()}done(){jn.play("done"),kr()}idle(){wr.reset(),jn.play("idle")}};function Sr(t){let n,r,i,o;return{c(){n=g("button"),r=m(t[2]),A(n,"class",t[3]),$(n,"grid-area",t[0]),$(n,"font-size",t[1])},m(e,t){d(e,n,t),f(n,r),i||(o=[l(Gn.call(null,n)),l(Yn.call(null,n))],i=!0)},p(e,[t]){4&t&&E(r,e[2]),1&t&&$(n,"grid-area",e[0]),2&t&&$(n,"font-size",e[1])},i:e,o:e,d(e){e&&D(n),i=!1,u(o)}}}function zr(e,t,n){let u,{ga:r}=t,{sz:i="30px"}=t;vr("--cmd-update-views",(function(e){n(2,u=e.roundsLeft.toString())}));let o=pe(r);return e.$$set=e=>{"ga"in e&&n(0,r=e.ga),"sz"in e&&n(1,i=e.sz)},[r,i,u,o]}!function(){for(let e=qn.getConfig().rounds??4;e-- >0;)kr()}();class qr extends ne{constructor(e){super(),te(this,e,zr,Sr,i,{ga:0,sz:1})}}function Or(t){let n,r,i,o;return{c(){n=g("button"),r=m(t[1]),A(n,"class",t[3]),$(n,"grid-area",t[0]),$(n,"font-size",t[2]+"px")},m(e,u){d(e,n,u),f(n,r),i||(o=[v(n,"click",t[4]),l(Gn.call(null,n)),l(Yn.call(null,n)),l(Qn.call(null,n,new Map([["drag:start","yes"],["drag:end","no"]])))],i=!0)},p(e,[t]){2&t&&E(r,e[1]),1&t&&$(n,"grid-area",e[0]),4&t&&$(n,"font-size",e[2]+"px")},i:e,o:e,d(e){e&&D(n),i=!1,u(o)}}}function Ir(e,t,n){let u,r,i,{ga:o}=t,{index:s}=t,{sz:a=30}=t,c=pe(o);return vr("--cmd-update-views",(function(e){n(1,u=e.nums[s].toLocaleString("en")),r=u.length<=3?1.2:2,n(2,i=a-r*u.length)})),e.$$set=e=>{"ga"in e&&n(0,o=e.ga),"index"in e&&n(5,s=e.index),"sz"in e&&n(6,a=e.sz)},[o,u,i,c,function(){Ar("--evt-click")},s,a]}class Pr extends ne{constructor(e){super(),te(this,e,Ir,Or,i,{ga:0,index:5,sz:6})}}function Lr(t){let n,r,i,o;return{c(){n=g("button"),r=m(t[2]),A(n,"class",t[3]),$(n,"grid-area",t[0]),$(n,"font-size",t[1])},m(e,u){d(e,n,u),f(n,r),i||(o=[v(n,"click",t[4]),l(Gn.call(null,n)),l(Yn.call(null,n))],i=!0)},p(e,[t]){4&t&&E(r,e[2]),1&t&&$(n,"grid-area",e[0]),2&t&&$(n,"font-size",e[1])},i:e,o:e,d(e){e&&D(n),i=!1,u(o)}}}function _r(e,t,n){let{ga:u}=t,{sz:r="30px"}=t,i="+",o=pe(u);vr("--cmd-update-views",(function(e){n(2,i=e.op)}));return e.$$set=e=>{"ga"in e&&n(0,u=e.ga),"sz"in e&&n(1,r=e.sz)},[u,r,i,o,()=>jn.playRandom()]}class Tr extends ne{constructor(e){super(),te(this,e,_r,Lr,i,{ga:0,sz:1})}}function Hr(t){let n,r,i,o;return{c(){n=g("button"),r=m(t[1]),A(n,"class",t[2]),$(n,"grid-area",t[0]),$(n,"font-size",t[3]+"px")},m(e,u){d(e,n,u),f(n,r),i||(o=[v(n,"click",t[4]),l(Gn.call(null,n)),l(Yn.call(null,n))],i=!0)},p(e,[t]){2&t&&E(r,e[1]),4&t&&A(n,"class",e[2]),1&t&&$(n,"grid-area",e[0]),8&t&&$(n,"font-size",e[3]+"px")},i:e,o:e,d(e){e&&D(n),i=!1,u(o)}}}function Vr(e,t,n){let u,r,i,o,{ga:s}=t,{index:a}=t,{sz:c=30}=t;return vr("--cmd-update-views",(function(e){n(1,u=function(e){return"first-click"===e.state?"??":e.answers[a].toLocaleString("en")}(e)),n(2,r=function(e){return"first-click"===e.state?"bg-gray-100":"active"===e.state?"bg-orange-200":e.rightAt===a?"bg-green-200":e.clickedAt!==a?"bg-gray-100":"bg-red-200"}(e)),i=u.length<=3?1.2:2,n(3,o=c-i*u.length)})),e.$$set=e=>{"ga"in e&&n(0,s=e.ga),"index"in e&&n(5,a=e.index),"sz"in e&&n(6,c=e.sz)},[s,u,r,o,function(){Ar("--evt-answer",{index:a})},a,c]}class Rr extends ne{constructor(e){super(),te(this,e,Vr,Hr,i,{ga:0,index:5,sz:6})}}function jr(t){let n,r,i,o,s,a,c,p;return{c(){n=g("div"),r=g("button"),i=m(t[2]),o=F(),s=g("button"),a=m(t[3]),A(r,"class",t[4]),A(s,"class",t[4]),$(n,"grid-area",t[0]),$(n,"font-size",t[1])},m(e,t){d(e,n,t),f(n,r),f(r,i),f(n,o),f(n,s),f(s,a),c||(p=[l(Gn.call(null,r)),l(Yn.call(null,r)),l(Gn.call(null,s)),l(Yn.call(null,s))],c=!0)},p(e,[t]){4&t&&E(i,e[2]),8&t&&E(a,e[3]),1&t&&$(n,"grid-area",e[0]),2&t&&$(n,"font-size",e[1])},i:e,o:e,d(e){e&&D(n),c=!1,u(p)}}}function Zr(e,t,n){let{ga:u}=t,{sz:r="15px"}=t,i=pe(u),o="?",s="?";return vr("--cmd-update-views",(function(e){n(2,o=e.showHint?e.pair[0].toString():"?"),n(3,s=e.showHint?e.pair[1].toString():"?")})),e.$$set=e=>{"ga"in e&&n(0,u=e.ga),"sz"in e&&n(1,r=e.sz)},[u,r,o,s,i]}class Ur extends ne{constructor(e){super(),te(this,e,Zr,jr,i,{ga:0,sz:1})}}function Jr(t){let n,r,i,o,s;return{c(){n=g("div"),r=g("button"),i=m(t[2]),A(r,"class",t[3]),$(n,"grid-area",t[0]),$(n,"font-size",t[1])},m(e,t){d(e,n,t),f(n,r),f(r,i),o||(s=[l(Gn.call(null,r)),l(Yn.call(null,r))],o=!0)},p(e,[t]){4&t&&E(i,e[2]),1&t&&$(n,"grid-area",e[0]),2&t&&$(n,"font-size",e[1])},i:e,o:e,d(e){e&&D(n),o=!1,u(s)}}}function Wr(e,t,n){let u,{ga:r}=t,{sz:i="15px"}=t,o=pe(r);return vr("--cmd-update-views",(function(e){n(2,u=e.showHint?e.sumDigit.toString():"?")})),e.$$set=e=>{"ga"in e&&n(0,r=e.ga),"sz"in e&&n(1,i=e.sz)},[r,i,u,o]}class Xr extends ne{constructor(e){super(),te(this,e,Wr,Jr,i,{ga:0,sz:1})}}function Gr(e){let t,n,u,r,i,o,s,a,c,l,f,p,g,h,m,C,v,A,E,$,w,y;t=new qr({props:{ga:"cnt"}}),u=new Ur({props:{ga:"p1"}}),i=new Xr({props:{ga:"p2"}}),s=new iu({props:{ga:"clk"}}),c=new Pr({props:{ga:"lhs",index:0}}),f=new Tr({props:{ga:"op"}}),g=new Pr({props:{ga:"rhs",index:1}}),m=new Rr({props:{ga:"a1",index:0}}),v=new Rr({props:{ga:"a2",index:1}}),E=new Rr({props:{ga:"a3",index:2}});return w=new pr({props:{}}),e[2](w),{c(){Q(t.$$.fragment),n=F(),Q(u.$$.fragment),r=F(),Q(i.$$.fragment),o=F(),Q(s.$$.fragment),a=F(),Q(c.$$.fragment),l=F(),Q(f.$$.fragment),p=F(),Q(g.$$.fragment),h=F(),Q(m.$$.fragment),C=F(),Q(v.$$.fragment),A=F(),Q(E.$$.fragment),$=F(),Q(w.$$.fragment)},m(e,D){K(t,e,D),d(e,n,D),K(u,e,D),d(e,r,D),K(i,e,D),d(e,o,D),K(s,e,D),d(e,a,D),K(c,e,D),d(e,l,D),K(f,e,D),d(e,p,D),K(g,e,D),d(e,h,D),K(m,e,D),d(e,C,D),K(v,e,D),d(e,A,D),K(E,e,D),d(e,$,D),K(w,e,D),y=!0},p(e,t){w.$set({})},i(e){y||(W(t.$$.fragment,e),W(u.$$.fragment,e),W(i.$$.fragment,e),W(s.$$.fragment,e),W(c.$$.fragment,e),W(f.$$.fragment,e),W(g.$$.fragment,e),W(m.$$.fragment,e),W(v.$$.fragment,e),W(E.$$.fragment,e),W(w.$$.fragment,e),y=!0)},o(e){X(t.$$.fragment,e),X(u.$$.fragment,e),X(i.$$.fragment,e),X(s.$$.fragment,e),X(c.$$.fragment,e),X(f.$$.fragment,e),X(g.$$.fragment,e),X(m.$$.fragment,e),X(v.$$.fragment,e),X(E.$$.fragment,e),X(w.$$.fragment,e),y=!1},d(d){ee(t,d),d&&D(n),ee(u,d),d&&D(r),ee(i,d),d&&D(o),ee(s,d),d&&D(a),ee(c,d),d&&D(l),ee(f,d),d&&D(p),ee(g,d),d&&D(h),ee(m,d),d&&D(C),ee(v,d),d&&D(A),ee(E,d),d&&D($),e[2](null),ee(w,d)}}}function Yr(e){let t,n;return t=new he({props:{layout:e[1],$$slots:{default:[Gr]},$$scope:{ctx:e}}}),t.$on("click",e[3]),{c(){Q(t.$$.fragment)},m(e,u){K(t,e,u),n=!0},p(e,[n]){const u={};33&n&&(u.$$scope={dirty:n,ctx:e}),t.$set(u)},i(e){n||(W(t.$$.fragment,e),n=!0)},o(e){X(t.$$.fragment,e),n=!1},d(e){ee(t,e)}}}function Qr(e,t,n){let u;vr("--cmd-new-round",(()=>Mr.newRound())),vr("--evt-answer",(e=>Mr.gotAnswer(e))),vr("--evt-click",(()=>Mr.gotClicked())),vr("--evt-done",(()=>(u.play(),void Mr.done()))),vr("--evt-yes",(()=>Mr.yes())),vr("--evt-no",(()=>Mr.no())),vr("--cmd-idle",(()=>Mr.idle())),Ar("--cmd-new-round");return[u,{areas:'\n            "cnt   p1   clk "\n            "cnt   p2   clk "\n            "lhs   op   rhs "\n            "a1    a2   a3  "\n        ',cols:"1fr 1fr 1fr",rows:"30px 30px 100px 100px",bgColors:{cnt:"bg-purple-300",p1:"bg-yellow-100",p2:"bg-pink-100",lhs:"bg-green-100",op:"bg-yellow-200",rhs:"bg-green-100"}},function(e){S[e?"unshift":"push"]((()=>{u=e,n(0,u)}))},()=>Ar("--evt-click")]}class Kr extends ne{constructor(e){super(),te(this,e,Qr,Yr,i,{})}}function ei(e,t){mr(e,t)}function ti(e,t){Fr(e,t)}let ni;const ui=new class{get game(){return ni}newRound(){ni={roundsLeft:2,nums:[4,5],divisors:[{factor:2,mxPow:3},{factor:3,mxPow:3},{factor:5,mxPow:2},{factor:7,mxPow:1}]},ti("--cmd-set-models",ni)}go(){}done(){}idle(){}};function ri(t){let n,r,i,o;return{c(){n=g("button"),r=m(ii),A(n,"class",t[2]),$(n,"grid-area",t[0]),$(n,"font-size",t[1])},m(e,u){d(e,n,u),f(n,r),i||(o=[v(n,"click",t[3]),l(Gn.call(null,n))],i=!0)},p(e,[t]){1&t&&$(n,"grid-area",e[0]),2&t&&$(n,"font-size",e[1])},i:e,o:e,d(e){e&&D(n),i=!1,u(o)}}}let ii="GO";function oi(e,t,n){let{ga:u}=t,{sz:r="30px"}=t,i=pe(u);return e.$$set=e=>{"ga"in e&&n(0,u=e.ga),"sz"in e&&n(1,r=e.sz)},[u,r,i,function(){ti("--evt-go"),jn.play(hn(["yes","no","idle"]))}]}class si extends ne{constructor(e){super(),te(this,e,oi,ri,i,{ga:0,sz:1})}}function ai(t){let n,u,r,i;return{c(){n=g("button"),u=m(t[2]),A(n,"class",t[3]),$(n,"grid-area",t[0]),$(n,"font-size",t[1])},m(e,t){d(e,n,t),f(n,u),r||(i=l(Gn.call(null,n)),r=!0)},p(e,[t]){4&t&&E(u,e[2]),1&t&&$(n,"grid-area",e[0]),2&t&&$(n,"font-size",e[1])},i:e,o:e,d(e){e&&D(n),r=!1,i()}}}function ci(e,t,n){let{ga:u}=t,{sz:r="30px"}=t,i=2,o=pe(u);return e.$$set=e=>{"ga"in e&&n(0,u=e.ga),"sz"in e&&n(1,r=e.sz)},[u,r,i,o,function(e){n(2,i=e)}]}class li extends ne{constructor(e){super(),te(this,e,ci,ai,i,{ga:0,sz:1,setModel:4})}get setModel(){return this.$$.ctx[4]}}function fi(t){let n,r,i,o,s=(t[2]>0?t[4]:t[3].factor)+"";return{c(){n=g("button"),r=m(s),A(n,"class",t[5]),$(n,"grid-area",t[0]),$(n,"font-size",t[1])},m(e,u){d(e,n,u),f(n,r),i||(o=[v(n,"click",t[6]),l(Gn.call(null,n))],i=!0)},p(e,[t]){28&t&&s!==(s=(e[2]>0?e[4]:e[3].factor)+"")&&E(r,s),32&t&&A(n,"class",e[5]),1&t&&$(n,"grid-area",e[0]),2&t&&$(n,"font-size",e[1])},i:e,o:e,d(e){e&&D(n),i=!1,u(o)}}}function di(e,t,n){let u,r,{ga:i}=t,{sz:o="30px"}=t,s={factor:2,mxPow:3,value:1,wrong:!1},a=!1,c=0;function l(){n(4,r=s.value),n(9,a=s.wrong)}return ei("--cmd-update-views",(()=>l())),e.$$set=e=>{"ga"in e&&n(0,i=e.ga),"sz"in e&&n(1,o=e.sz)},e.$$.update=()=>{516&e.$$.dirty&&n(5,u=a?"bg-red-100":c>0?"bg-green-100":"bg-gray-100")},[i,o,c,s,r,u,function(){n(2,c++,c)==s.mxPow&&n(2,c=0),n(3,s.value=s.factor**c,s),ti("--evt-acted"),l()},l,function(e){n(3,s=e)},a]}class Di extends ne{constructor(e){super(),te(this,e,di,fi,i,{ga:0,sz:1,update:7,setModel:8})}get update(){return this.$$.ctx[7]}get setModel(){return this.$$.ctx[8]}}function pi(t){let n,u,r,i;return{c(){n=g("button"),u=m(t[2]),A(n,"class",t[3]),$(n,"grid-area",t[0]),$(n,"font-size",t[1])},m(e,t){d(e,n,t),f(n,u),r||(i=l(Gn.call(null,n)),r=!0)},p(e,[t]){4&t&&E(u,e[2]),1&t&&$(n,"grid-area",e[0]),2&t&&$(n,"font-size",e[1])},i:e,o:e,d(e){e&&D(n),r=!1,i()}}}function gi(e,t,n){let u=1,{ga:r}=t,{sz:i="20px"}=t,o=pe(r);return e.$$set=e=>{"ga"in e&&n(0,r=e.ga),"sz"in e&&n(1,i=e.sz)},[r,i,u,o,function(e){n(2,u=e)}]}class hi extends ne{constructor(e){super(),te(this,e,gi,pi,i,{ga:0,sz:1,setModel:4})}get setModel(){return this.$$.ctx[4]}}function mi(e,t,n){const u=e.slice();return u[16]=t[n],u[17]=t,u[18]=n,u}function Fi(e){let t,n,u,r;return t=new hi({props:{ga:"cnt"}}),e[6](t),u=new iu({props:{ga:"clk"}}),{c(){Q(t.$$.fragment),n=F(),Q(u.$$.fragment)},m(e,i){K(t,e,i),d(e,n,i),K(u,e,i),r=!0},p(e,n){t.$set({})},i(e){r||(W(t.$$.fragment,e),W(u.$$.fragment,e),r=!0)},o(e){X(t.$$.fragment,e),X(u.$$.fragment,e),r=!1},d(r){e[6](null),ee(t,r),r&&D(n),ee(u,r)}}}function Ci(e){let t,n,u,r;t=new li({props:{ga:"lhs"}}),e[7](t);return u=new li({props:{ga:"rhs"}}),e[8](u),{c(){Q(t.$$.fragment),n=F(),Q(u.$$.fragment)},m(e,i){K(t,e,i),d(e,n,i),K(u,e,i),r=!0},p(e,n){t.$set({});u.$set({})},i(e){r||(W(t.$$.fragment,e),W(u.$$.fragment,e),r=!0)},o(e){X(t.$$.fragment,e),X(u.$$.fragment,e),r=!1},d(r){e[7](null),ee(t,r),r&&D(n),e[8](null),ee(u,r)}}}function vi(e){let t,n,u=e[16];const r=()=>e[9](t,u),i=()=>e[9](null,u);let o={ga:e[16]+","};return t=new Di({props:o}),r(),{c(){Q(t.$$.fragment)},m(e,u){K(t,e,u),n=!0},p(e,n){u!==e[16]&&(i(),u=e[16],r());t.$set({})},i(e){n||(W(t.$$.fragment,e),n=!0)},o(e){X(t.$$.fragment,e),n=!1},d(e){i(),ee(t,e)}}}function Ai(e){let t,n,u=yn(0,8),r=[];for(let t=0;t<u.length;t+=1)r[t]=vi(mi(e,u,t));const i=e=>X(r[e],1,1,(()=>{r[e]=null}));return{c(){for(let e=0;e<r.length;e+=1)r[e].c();t=C()},m(e,u){for(let t=0;t<r.length;t+=1)r[t].m(e,u);d(e,t,u),n=!0},p(e,n){if(2&n){let o;for(u=yn(0,8),o=0;o<u.length;o+=1){const i=mi(e,u,o);r[o]?(r[o].p(i,n),W(r[o],1)):(r[o]=vi(i),r[o].c(),W(r[o],1),r[o].m(t.parentNode,t))}for(U(),o=u.length;o<r.length;o+=1)i(o);J()}},i(e){if(!n){for(let e=0;e<u.length;e+=1)W(r[e]);n=!0}},o(e){r=r.filter(Boolean);for(let e=0;e<r.length;e+=1)X(r[e]);n=!1},d(e){p(r,e),e&&D(t)}}}function Ei(e){let t,n,u,r,i,o,s,a,c,l;t=new he({props:{layout:e[3],ga:"l1",$$slots:{default:[Fi]},$$scope:{ctx:e}}}),u=new he({props:{layout:e[4],ga:"l2",$$slots:{default:[Ci]},$$scope:{ctx:e}}}),i=new he({props:{layout:e[5],ga:"l3",$$slots:{default:[Ai]},$$scope:{ctx:e}}}),s=new si({props:{ga:"go"}}),s.$on("click",e[10]);return c=new pr({props:{}}),e[11](c),{c(){Q(t.$$.fragment),n=F(),Q(u.$$.fragment),r=F(),Q(i.$$.fragment),o=F(),Q(s.$$.fragment),a=F(),Q(c.$$.fragment)},m(e,f){K(t,e,f),d(e,n,f),K(u,e,f),d(e,r,f),K(i,e,f),d(e,o,f),K(s,e,f),d(e,a,f),K(c,e,f),l=!0},p(e,n){const r={};524290&n&&(r.$$scope={dirty:n,ctx:e}),t.$set(r);const o={};524290&n&&(o.$$scope={dirty:n,ctx:e}),u.$set(o);const s={};524290&n&&(s.$$scope={dirty:n,ctx:e}),i.$set(s);c.$set({})},i(e){l||(W(t.$$.fragment,e),W(u.$$.fragment,e),W(i.$$.fragment,e),W(s.$$.fragment,e),W(c.$$.fragment,e),l=!0)},o(e){X(t.$$.fragment,e),X(u.$$.fragment,e),X(i.$$.fragment,e),X(s.$$.fragment,e),X(c.$$.fragment,e),l=!1},d(l){ee(t,l),l&&D(n),ee(u,l),l&&D(r),ee(i,l),l&&D(o),ee(s,l),l&&D(a),e[11](null),ee(c,l)}}}function $i(e){let t,n;return t=new he({props:{layout:e[2],$$slots:{default:[Ei]},$$scope:{ctx:e}}}),{c(){Q(t.$$.fragment)},m(e,u){K(t,e,u),n=!0},p(e,[n]){const u={};524291&n&&(u.$$scope={dirty:n,ctx:e}),t.$set(u)},i(e){n||(W(t.$$.fragment,e),n=!0)},o(e){X(t.$$.fragment,e),n=!1},d(e){ee(t,e)}}}function wi(e,t,n){let u;ei("--cmd-new-round",(()=>ui.newRound())),ei("--evt-done",(()=>(u.play(),void ui.done()))),ei("--cmd-idle",(()=>ui.idle())),ti("--cmd-new-round");let r={areas:'\n            "l1"\n            "l2"\n            "l3"\n            "l4"\n            "go"\n        ',cols:"1fr",rows:"60px 80px 150px 150px 80px"},i={areas:'\n            "cnt . clk"\n        ',cols:"2fr 1fr 2fr",rows:"1fr"},o={areas:'\n            ". lhs rhs ."\n        ',cols:"1fr 1fr 1fr 1fr",rows:"1fr"},s={areas:'\n            "0 1 2 3"\n            "4 5 6 7"\n        ',cols:"1fr 1fr 1fr 1fr",rows:"1fr 1fr"},a={count:null,nums:new Array(2),factors:new Array(8),gcd:new Array(4),lcm:new Array(4)};ei("--evt-go",(()=>{hn(ui.game.divisors).wrong=!0,ti("--cmd-update-views")})),ei("--cmd-set-models",(e=>{a.count.setModel(e.roundsLeft),a.nums[0].setModel(e.nums[0]),a.nums[1].setModel(e.nums[1]),e.divisors.forEach(((e,t)=>a.factors[t].setModel(e)))}));return[u,a,r,i,o,s,function(e){S[e?"unshift":"push"]((()=>{a.count=e,n(1,a)}))},function(e){S[e?"unshift":"push"]((()=>{a.nums[0]=e,n(1,a)}))},function(e){S[e?"unshift":"push"]((()=>{a.nums[1]=e,n(1,a)}))},function(e,t){S[e?"unshift":"push"]((()=>{a.factors[t]=e,n(1,a)}))},()=>console.log("GO - main"),function(e){S[e?"unshift":"push"]((()=>{u=e,n(0,u)}))}]}class yi extends ne{constructor(e){super(),te(this,e,wi,$i,i,{})}}function bi(e,t){mr(e,t)}function xi(e,t){Fr(e,t)}function Bi(e,t,n){return new Cr(e,t,n??0)}function Ni(t){let n,r,i,o;return{c(){n=g("button"),r=m(t[1]),A(n,"class",t[3]),$(n,"grid-area",t[0]),$(n,"font-size",t[2])},m(e,t){d(e,n,t),f(n,r),i||(o=[l(Gn.call(null,n)),l(Yn.call(null,n))],i=!0)},p(e,[t]){2&t&&E(r,e[1]),1&t&&$(n,"grid-area",e[0]),4&t&&$(n,"font-size",e[2])},i:e,o:e,d(e){e&&D(n),i=!1,u(o)}}}function ki(e,t,n){let{ga:u}=t,{count:r}=t,{sz:i="20px"}=t,o=pe(u);return e.$$set=e=>{"ga"in e&&n(0,u=e.ga),"count"in e&&n(1,r=e.count),"sz"in e&&n(2,i=e.sz)},[u,r,i,o]}class Mi extends ne{constructor(e){super(),te(this,e,ki,Ni,i,{ga:0,count:1,sz:2})}}function Si(e=-1){setTimeout((()=>{bn((()=>MathJax.typeset()))}),-1===e?2e3:e)}function zi(e){return e.includes("`")?e:`\`${e}\``}function qi(e){let t=e.isNeg()?"-":"",n=e.trunc(),u=e.minus(n).abs();if(u.eq(0)){let t=e.toNumber().toLocaleString("en");return[!1,t,t.length]}let r=function(e){return new dn(e)}(1);for(;!u.toFraction()[1].eq(1);)u=u.mul(10),r=r.mul(10);let i=n.eq(0)?`${t}${u}/${r}`:`${n} ${u}/${r}`;return[!0,i,i.length]}function Oi(t){let n,r,i,o;return{c(){n=g("button"),r=m(t[2]),A(n,"class",t[3]),$(n,"grid-area",t[0]),$(n,"font-size",t[1]+"px")},m(e,t){d(e,n,t),f(n,r),i||(o=[l(Gn.call(null,n)),l(Yn.call(null,n))],i=!0)},p(e,[t]){4&t&&E(r,e[2]),1&t&&$(n,"grid-area",e[0]),2&t&&$(n,"font-size",e[1]+"px")},i:e,o:e,d(e){e&&D(n),i=!1,u(o)}}}function Ii(e,t,n){let u,r,i,{ga:o}=t,{num:s}=t,{asAsciiMath:a}=t,{sz:c=30}=t;let l=pe(o);return e.$$set=e=>{"ga"in e&&n(0,o=e.ga),"num"in e&&n(4,s=e.num),"asAsciiMath"in e&&n(5,a=e.asAsciiMath),"sz"in e&&n(6,c=e.sz)},e.$$.update=()=>{16&e.$$.dirty&&n(2,[u,r]=function(e){let t=e.toNumber().toLocaleString("en"),[n,u,r]=qi(e);return n&&a?(n&&(r+=2),[zi(u),r]):[t,t.length]}(s),u,(n(7,r),n(4,s))),192&e.$$.dirty&&n(1,i=c-1.2*r)},[o,i,u,l,s,a,c,r]}class Pi extends ne{constructor(e){super(),te(this,e,Ii,Oi,i,{ga:0,num:4,asAsciiMath:5,sz:6})}}function Li(t){let n,r,i,o;return{c(){n=g("button"),r=m(t[1]),A(n,"class",t[2]),$(n,"grid-area",t[0]),$(n,"font-size",t[3]+"px")},m(e,u){d(e,n,u),f(n,r),i||(o=[v(n,"click",t[10]),l(Gn.call(null,n)),l(Yn.call(null,n))],i=!0)},p(e,[t]){2&t&&E(r,e[1]),4&t&&A(n,"class",e[2]),1&t&&$(n,"grid-area",e[0]),8&t&&$(n,"font-size",e[3]+"px")},i:e,o:e,d(e){e&&D(n),i=!1,u(o)}}}function _i(e,t,n){let u,r,i,o,{ga:s}=t,{num:a}=t,{asAsciiMath:c}=t,{sz:l=30}=t;let f="bg-gray-100";return e.$$set=e=>{"ga"in e&&n(0,s=e.ga),"num"in e&&n(4,a=e.num),"asAsciiMath"in e&&n(5,c=e.asAsciiMath),"sz"in e&&n(6,l=e.sz)},e.$$.update=()=>{16&e.$$.dirty&&n(1,[u,r]=function(e){let t=e.toNumber().toLocaleString("en"),[n,u,r]=qi(e);return n&&c?[zi(u),r]:[t,t.length]}(a),u,(n(9,r),n(4,a))),512&e.$$.dirty&&n(8,i=r<5?1.2:1.5),322&e.$$.dirty&&n(3,o=l-i*u.length)},[s,u,f,o,a,c,l,function(e){n(2,f=e)},i,r,function(t){k.call(this,e,t)}]}class Ti extends ne{constructor(e){super(),te(this,e,_i,Li,i,{ga:0,num:4,asAsciiMath:5,sz:6,setBgColor:7})}get setBgColor(){return this.$$.ctx[7]}}function Hi(t){let n,r,i,o;return{c(){n=g("button"),r=m(t[1]),A(n,"class",t[3]),$(n,"grid-area",t[0]),$(n,"font-size",t[2])},m(e,u){d(e,n,u),f(n,r),i||(o=[v(n,"click",t[4]),l(Gn.call(null,n)),l(Yn.call(null,n))],i=!0)},p(e,[t]){2&t&&E(r,e[1]),1&t&&$(n,"grid-area",e[0]),4&t&&$(n,"font-size",e[2])},i:e,o:e,d(e){e&&D(n),i=!1,u(o)}}}function Vi(e,t,n){let{ga:u}=t,{op:r}=t,{sz:i="30px"}=t,o=pe(u);return e.$$set=e=>{"ga"in e&&n(0,u=e.ga),"op"in e&&n(1,r=e.op),"sz"in e&&n(2,i=e.sz)},[u,r,i,o,()=>jn.playRandom()]}class Ri extends ne{constructor(e){super(),te(this,e,Vi,Hi,i,{ga:0,op:1,sz:2})}}function ji(e,t,n){const u=e.slice();return u[37]=t[n],u[38]=t,u[39]=n,u}function Zi(e){let t,n;return t=new Pi({props:{ga:"lhs",num:e[1].nums[0],asAsciiMath:e[2]&&Fn()}}),{c(){Q(t.$$.fragment)},m(e,u){K(t,e,u),n=!0},p(e,n){const u={};2&n[0]&&(u.num=e[1].nums[0]),4&n[0]&&(u.asAsciiMath=e[2]&&Fn()),t.$set(u)},i(e){n||(W(t.$$.fragment,e),n=!0)},o(e){X(t.$$.fragment,e),n=!1},d(e){ee(t,e)}}}function Ui(e){let t,n;return t=new Pi({props:{ga:"rhs",num:e[1].nums[1],asAsciiMath:e[2]&&Fn()}}),{c(){Q(t.$$.fragment)},m(e,u){K(t,e,u),n=!0},p(e,n){const u={};2&n[0]&&(u.num=e[1].nums[1]),4&n[0]&&(u.asAsciiMath=e[2]&&Fn()),t.$set(u)},i(e){n||(W(t.$$.fragment,e),n=!0)},o(e){X(t.$$.fragment,e),n=!1},d(e){ee(t,e)}}}function Ji(e,t){let n,u,r,i=t[39];const o=()=>t[9](u,i),s=()=>t[9](null,i);let a={ga:`a${t[39]}`,num:t[37],asAsciiMath:t[2]&&t[1].asAsceeMath[t[39]]};return u=new Ti({props:a}),o(),u.$on("click",(function(){return t[10](t[39])})),{key:e,first:null,c(){n=C(),Q(u.$$.fragment),this.first=n},m(e,t){d(e,n,t),K(u,e,t),r=!0},p(e,n){i!==(t=e)[39]&&(s(),i=t[39],o());const r={};2&n[0]&&(r.ga=`a${t[39]}`),2&n[0]&&(r.num=t[37]),6&n[0]&&(r.asAsciiMath=t[2]&&t[1].asAsceeMath[t[39]]),u.$set(r)},i(e){r||(W(u.$$.fragment,e),r=!0)},o(e){X(u.$$.fragment,e),r=!1},d(e){e&&D(n),s(),ee(u,e)}}}function Wi(t){let n,u,r,o,s,a,c,l,f,p,g,h=t[4][0],m=t[4][0],C=[],v=new Map;n=new Mi({props:{ga:"cnt",count:t[5]}}),r=new iu({props:{ga:"clk"}});let A=Zi(t);a=new Ri({props:{ga:"op",op:t[1].op}});let E=Ui(t),$=t[1].answers;const w=e=>e[4][e[39]];for(let e=0;e<$.length;e+=1){let n=ji(t,$,e),u=w(n);v.set(u,C[e]=Ji(u,n))}return p=new pr({props:{}}),t[11](p),{c(){Q(n.$$.fragment),u=F(),Q(r.$$.fragment),o=F(),A.c(),s=F(),Q(a.$$.fragment),c=F(),E.c(),l=F();for(let e=0;e<C.length;e+=1)C[e].c();f=F(),Q(p.$$.fragment)},m(e,t){K(n,e,t),d(e,u,t),K(r,e,t),d(e,o,t),A.m(e,t),d(e,s,t),K(a,e,t),d(e,c,t),E.m(e,t),d(e,l,t);for(let n=0;n<C.length;n+=1)C[n].m(e,t);d(e,f,t),K(p,e,t),g=!0},p(t,u){const r={};32&u[0]&&(r.count=t[5]),n.$set(r),16&u[0]&&i(h,h=t[4][0])?(U(),X(A,1,1,e),J(),A=Zi(t),A.c(),W(A,1),A.m(s.parentNode,s)):A.p(t,u);const o={};2&u[0]&&(o.op=t[1].op),a.$set(o),16&u[0]&&i(m,m=t[4][0])?(U(),X(E,1,1,e),J(),E=Ui(t),E.c(),W(E,1),E.m(l.parentNode,l)):E.p(t,u),94&u[0]&&($=t[1].answers,U(),C=Y(C,u,w,1,t,$,v,f.parentNode,G,Ji,f,ji),J());p.$set({})},i(e){if(!g){W(n.$$.fragment,e),W(r.$$.fragment,e),W(A),W(a.$$.fragment,e),W(E);for(let e=0;e<$.length;e+=1)W(C[e]);W(p.$$.fragment,e),g=!0}},o(e){X(n.$$.fragment,e),X(r.$$.fragment,e),X(A),X(a.$$.fragment,e),X(E);for(let e=0;e<C.length;e+=1)X(C[e]);X(p.$$.fragment,e),g=!1},d(e){ee(n,e),e&&D(u),ee(r,e),e&&D(o),A.d(e),e&&D(s),ee(a,e),e&&D(c),E.d(e),e&&D(l);for(let t=0;t<C.length;t+=1)C[t].d(e);e&&D(f),t[11](null),ee(p,e)}}}function Xi(e){let t,n;return t=new he({props:{layout:e[7],$$slots:{default:[Wi]},$$scope:{ctx:e}}}),t.$on("click",e[12]),{c(){Q(t.$$.fragment)},m(e,u){K(t,e,u),n=!0},p(e,n){const u={};63&n[0]|512&n[1]&&(u.$$scope={dirty:n,ctx:e}),t.$set(u)},i(e){n||(W(t.$$.fragment,e),n=!0)},o(e){X(t.$$.fragment,e),n=!1},d(e){ee(t,e)}}}function Gi(e,t,n){let u,r,i,o=0,s=[],a=!1,c=qn.getConfig(),l=Bi("--cmd-next-round",1e3),f=Bi("--cmd-idle",7e3,3e3),d=[1,9],D=[2,9],p=[],g=[],h=null,m=[null,null,null],F=m.map((e=>new Object)),C=e=>new dn(e);function v(){return[C(p.length>0?hn(p):gn(d[0],d[1])),C(g.length>0?hn(g):gn(D[0],D[1]))]}function A(){let e=qn.tokens().map((e=>parseInt(e)));if(e[0]<0||e[1]<0)return function(e){let[t,n]=En(e),u=t<0?dn.pow(10,gn(t,-1)):dn.pow(10,gn(1,t)),r=n<0?dn.pow(10,gn(n,-1)):dn.pow(10,gn(1,n)),[i,o]=v(),s=o.plus(vn(1));return i=i.mul(u),o=o.mul(r),s=s.mul(r),{a:i,b:o,wrong:s,fa:u,fb:r}}(e);let[t,n]=v(),u=n.plus(vn(1)),r=C(1),i=C(1);for(let o=gn(e[0],e[1]);o-- >0;)if(t.equals(1))t=t.mul(10),r=r.mul(10);else switch(Fn()){case!0:t=t.mul(10),r=r.mul(10);break;case!1:n=n.mul(10),i=i.mul(10),u=u.mul(10)}return{a:t,b:n,wrong:u,fa:r,fb:i}}let E=e=>e.minus(e.mod(10)),$=e=>e.plus(C(10).minus(e.mod(10)));function w(){let[e,t]=v();for(;e.mod(10).eq(0)||t.mod(10).eq(0);)[e,t]=v();let n=e.mul(t),u=n.mod(10),r=E(e).mul(E(t)),i=$(e).mul($(t)),o=Bn(gn(1,10)).mul(10),a=Fn()?r.minus(o).plus(u):i.plus(o).plus(u),c=vn(gn(1,9)),l=n.plus(c),f=a.plus(c).plus(vn(hn([10,20,30]))),d=[e,t],D=En([n,a,l,f]),p=D.findIndex((e=>e===n)),g=D.map((e=>!1));s.push({nums:d,op:"x",answers:D,asAsceeMath:g,rightAt:p})}function y(){let[e,t]=v();for(;e.mod(10).eq(0)||t.mod(10).eq(0);)[e,t]=v();let n=e.mul(t),u=e,r=u.plus(vn(10)),i=u.plus(vn(gn(1,9)));for(;i.mul(t).mod(10).eq(n.mod(10));)i=u.plus(vn(gn(1,9)));let o=i.plus(vn(10)),a=[n,t],c=En([u,r,i,o]),l=c.findIndex((e=>e===u)),f=c.map((e=>!1));s.push({nums:a,op:":",answers:c,asAsceeMath:f,rightAt:l})}function b(){if(h){if(h.length>1){switch(Fn()){case!0:w(),y();break;case!1:y(),w()}return}if("*x".includes(h))return w(),void w();if("/\\:".includes(h))return y(),void y()}!function(){let e,t,{a:n,b:u,wrong:r}=A(),i=n,o=u,a=i.mul(o),c=i.mul(r);switch(Fn()){case!0:e=a.mul(10),t=c.mul(10);break;case!1:e=a.div(10),t=c.div(10)}let l=En([i,o]),f=En([a,c,e,t]),d=f.map((e=>Fn())),D=f.findIndex((e=>e==a));s.push({nums:l,op:"x",answers:f,asAsceeMath:d,rightAt:D})}(),function(){let e,t,{a:n,b:u,wrong:r}=A(),i=n.mul(u),o=n,a=u,c=r;switch(Fn()){case!0:e=a.mul(10),t=c.mul(10);break;case!1:e=a.div(10),t=c.div(10)}let l=[i,o],f=En([a,c,e,t]),d=f.map((e=>Fn())),D=f.findIndex((e=>e===a));s.push({nums:l,op:"/",answers:f,asAsceeMath:d,rightAt:D})}()}function x(e){f.reset(),void 0===i.clickedAt?(n(1,i.clickedAt=e,i),e===i.rightAt?(o==s.length-1?(jn.play("done"),r.play()):jn.play("yes"),l.reset()):(jn.play("no"),m[e].setBgColor("bg-red-200"),b(),n(5,u=s.length-o)),m[i.rightAt].setBgColor("bg-green-200")):xi("--cmd-next-round")}bi("--cmd-next-round",(()=>async function(){l.cancel(),f.reset(),n(8,++o)===s.length&&b(),n(1,i=s[o]),m.forEach((e=>e.setBgColor("bg-gray-100"))),n(4,F=m.map((e=>new Object))),await L(),Ln()}())),bi("--evt-click",(()=>{void 0!==i.clickedAt&&xi("--cmd-next-round")})),bi("--cmd-idle",(()=>(f.reset(),void jn.play("idle")))),function(){f.reset();let e=qn.commands();for(let t of e)switch(t[0]){case"dots":break;case"with-fractions":n(2,a=!0);break;case"last-digit":h=t[1];break;case"a":d=t.slice(1).map((e=>parseInt(e)));break;case"b":D=t.slice(1).map((e=>parseInt(e)));break;case"a[]":p=t.slice(1).map((e=>parseInt(e)));break;case"b[]":g=t.slice(1).map((e=>parseInt(e)))}for(let e=c.rounds??4;e-- >0;)b();n(1,i=s[o]),Ln()}();let B={areas:'\n            "cnt   .    clk "\n            "lhs   op   rhs "\n            "a0    .    a1  "\n            "a2    .    a3  "\n        ',cols:"2fr 1fr 2fr",rows:"60px 80px 80px 80px",bgColors:{cnt:"bg-purple-300",lhs:"bg-green-100",op:"bg-yellow-200",rhs:"bg-green-100"}};return e.$$.update=()=>{256&e.$$.dirty[0]&&n(5,u=s.length-o)},[r,i,a,m,F,u,x,B,o,function(e,t){S[e?"unshift":"push"]((()=>{m[t]=e,n(3,m)}))},e=>x(e),function(e){S[e?"unshift":"push"]((()=>{r=e,n(0,r)}))},()=>xi("--evt-click")]}class Yi extends ne{constructor(e){super(),te(this,e,Gi,Xi,i,{},null,[-1,-1])}}function Qi(t){let n,r,i,o;return{c(){n=g("p"),r=m(t[1]),A(n,"class",t[2]),$(n,"grid-area",t[0]),$(n,"font-size",t[4]+"px")},m(e,u){d(e,n,u),f(n,r),t[9](n),i||(o=[v(n,"click",t[8]),l(Yn.call(null,n))],i=!0)},p(e,[t]){2&t&&E(r,e[1]),4&t&&A(n,"class",e[2]),1&t&&$(n,"grid-area",e[0]),16&t&&$(n,"font-size",e[4]+"px")},i:e,o:e,d(e){e&&D(n),t[9](null),i=!1,u(o)}}}const Ki=1.4;function eo(e,t,n){let u,r,i,{ga:o}=t,{exp:s}=t,{scale:a=Ki}=t,{bgColor:c=pe(o)}=t,{sz:l=30}=t;return e.$$set=e=>{"ga"in e&&n(0,o=e.ga),"exp"in e&&n(1,s=e.exp),"scale"in e&&n(5,a=e.scale),"bgColor"in e&&n(2,c=e.bgColor),"sz"in e&&n(6,l=e.sz)},e.$$.update=()=>{32&e.$$.dirty&&n(7,u=a??Ki),194&e.$$.dirty&&n(4,r=l-u*s.length),2&e.$$.dirty&&async function(e){await L(),n(3,i.innerText="`"+e+"`",i),Ln(),await wn(1e3),i.querySelectorAll("mjx-c").forEach((e=>{Gn(e),Yn(e)}))}(s)},[o,s,c,i,r,a,l,u,function(t){k.call(this,e,t)},function(e){S[e?"unshift":"push"]((()=>{i=e,n(3,i)}))}]}class to extends ne{constructor(e){super(),te(this,e,eo,Qi,i,{ga:0,exp:1,scale:5,bgColor:2,sz:6})}}function no(t){let n,r,i,o,s,a;return{c(){n=g("div"),r=g("div"),i=g("span"),o=m(t[2]),A(r,"class","\\ text-xs text-center text-black \\ "+t[3]+" \\"),$(r,"width",t[1]+"%"),A(n,"class","w-full bg-red-50 text-right"),$(n,"grid-area",t[0])},m(e,t){d(e,n,t),f(n,r),f(r,i),f(i,o),s||(a=[l(Gn.call(null,i)),l(Gn.call(null,n)),l(Yn.call(null,n))],s=!0)},p(e,[t]){4&t&&E(o,e[2]),2&t&&$(r,"width",e[1]+"%"),1&t&&$(n,"grid-area",e[0])},i:e,o:e,d(e){e&&D(n),s=!1,u(a)}}}function uo(e,t,n){let u,r,i,o,{ga:s}=t,{values:a}=t,c=pe(s);return e.$$set=e=>{"ga"in e&&n(0,s=e.ga),"values"in e&&n(4,a=e.values)},e.$$.update=()=>{16&e.$$.dirty&&n(6,u=a[0]),16&e.$$.dirty&&n(5,r=a[1]),96&e.$$.dirty&&n(2,i=r-u),96&e.$$.dirty&&n(1,o=u/r*100)},[s,o,i,c,a,r,u]}class ro extends ne{constructor(e){super(),te(this,e,uo,no,i,{ga:0,values:4})}}function io(t){let n,u,r;return{c(){n=g("div"),u=g("div"),A(u,"class",r="h-full w-full "+t[1]),$(u,"width",t[2]+"%"),A(n,"class","w-full h-full "+t[3]),$(n,"grid-area",t[0])},m(e,t){d(e,n,t),f(n,u)},p(e,[t]){2&t&&r!==(r="h-full w-full "+e[1])&&A(u,"class",r),4&t&&$(u,"width",e[2]+"%"),1&t&&$(n,"grid-area",e[0])},i:e,o:e,d(e){e&&D(n)}}}function oo(e,t,n){let u,r,i,{ga:o}=t,{seconds:s}=t,{onExpiration:a}=t,{color:c="bg-red-500"}=t,{bit:l=30}=t,f=0,d=pe(o);function D(){clearInterval(i)}function p(){u=Date.now(),r=u+1e3*s,i=setInterval((()=>function(){let e=Date.now();n(2,f=(e-u)/(1e3*s)*100),e>=r&&(a(),D())}()),l)}var g;return N((()=>p())),g=()=>D(),B().$$.on_destroy.push(g),e.$$set=e=>{"ga"in e&&n(0,o=e.ga),"seconds"in e&&n(4,s=e.seconds),"onExpiration"in e&&n(5,a=e.onExpiration),"color"in e&&n(1,c=e.color),"bit"in e&&n(6,l=e.bit)},[o,c,f,d,s,a,l,function(){p()}]}class so extends ne{constructor(e){super(),te(this,e,oo,io,i,{ga:0,seconds:4,onExpiration:5,color:1,bit:6,restart:7})}get restart(){return this.$$.ctx[7]}}function ao(e){let t=Bn(e);return[t,t.plus(vn(1)),t.plus(vn(2)),t.plus(vn(3))]}function co(e){let t=e.split("/");if(1===t.length)return new dn(e);let[n,u]=[new dn(t[0]),new dn(t[1])];return n.div(u)}function lo(e,t){return t.length>0?hn(t):Bn(gn(e[0],e[1]))}function fo(e,t,n,u,r){let i=Bn([...n]),o=[],s=Bn(u??1);r??=!0;let a=20;do{let e=hn(i);if(!(s.mul(e).gt(t)&&a-- >0)&&(s=s.mul(e),o.push(e),r&&i.splice(i.indexOf(e),1),0===i.length))break}while(s.lt(e)||o.length<=1);return[s,o]}let Do,po,go,ho=qn.getConfig(),mo=ho.rounds,Fo="equ+-",Co=[10,90],vo=[10,90],Ao=[10,90],Eo=[10,90],$o=[1,1],wo=[],yo=[],bo=[],xo=[],Bo=[],No=["X"],ko=!1,Mo=!1,So=15*ho.rounds,zo=!1,qo=function(){return{abc:Bn([1,2,3,5,8,13]),answers:ao(34)}}(),Oo=[],Io=1;function Po(e,t){if("+-dots"===Fo){let e=vn(Bn(10)).div(Io),n=vn(Bn(gn(1,1))).div(Io),u=vn(Bn(gn(2,2))).div(Io);return En([t,t.plus(e),t.plus(n),t.plus(u)])}if("equ+-"===Fo)return En([t,t.plus(vn(10)),t.plus(vn(gn(1,1))),t.plus(vn(gn(2,2)))]);if("equ*/"===Fo)return En([t,t.plus(vn(gn(1,1))),t.plus(vn(gn(2,2))),t.plus(vn(gn(3,3)))]);if("ab+c=d"===Fo||"a*/(b+c)=d"===Fo||"a/b=c/d"===Fo)return En([t,t.plus(vn(gn(1,1))),t.plus(vn(gn(2,2))),t.plus(vn(gn(3,3)))]);if(Fo.includes("%"))return En([t,t.plus(vn(5)),t.plus(vn(10)),t.plus(vn(15))]);if(Fo.includes("fr+-")||"fr*/"===Fo){let n=(e,t)=>e.gt(t)?e.plus(t.mul(vn(1))):e.plus(t);for(let u=100;;){let r=[t,n(t,e[0]),n(t,e[1]),n(t,e[2])];if(zn(r)||!(u-- >0))return En(r)}}if("fr-reduction"===Fo){let e=(e,t)=>e>t?e+vn(t):e+t,n=new pn(t.toNumber());for(let u=100;;){let r=n.n,i=e(n.n,1),o=n.d,s=e(n.d,1),a=[t,Bn(i).div(o),Bn(r).div(s),Bn(i).div(s)];if(zn(a)||!(u-- >0))return En(a)}}if("dividers"===Fo){let e=Bo.filter((e=>!Oo.some((t=>e.eq(t))))),n=Oo.reduce(((e,t)=>e.mul(t)));[2,3].forEach((t=>{let u=Bn(t);for(;n.mod(u).eq(0);)u=u.mul(t);e.push(u)}));let u=()=>{for(let t=30;;){let n=hn(Oo);if(Oo.length>2&&Fn()&&(n=n.mul(hn(Oo))),n=n.mul(hn(e)),!(n.gt(Ao[1])&&t-- >0))return n}};for(let e=100;;){let n=[t,u(),u(),u()];if(zn(n)||!(e-- >0))return En(n)}}if("dividers-2"===Fo){let e,n=Oo.filter((e=>!e.eq(t)));n=[...n,...Bn([23,29])];for(let u=30;u-- >0;){let[u,r,i]=En(n);if(e=[t,u,r,i],zn(e))break}return En(e)}if("dividers+-"===Fo){let n=[t],u=e[0].plus(e[1]);for(let e=2;e<Nn(u)&&(t.eq(e)||u.mod(e).eq(0)||4===e||(n.push(Bn(e)),!(n.length>=4)));e++);return n=[...n,...Bn([11,13,17])].slice(0,4),En(n)}if("sequence"==Fo){return qo.answers}throw`Unknown game type '${Fo}'`}class Lo{constructor(){for(let e of qn.commands())switch(e[0].toLocaleLowerCase()){case"equ+-":Fo="equ+-";break;case"equ*/":Fo="equ*/";break;case"ab+c=d":Fo="ab+c=d";break;case"%-simple":Fo="%-simple";break;case"%-plus":Fo="%-plus";break;case"%-minus":Fo="%-minus";break;case"%-all":Fo="%-all";break;case"game":Fo=e[1];case"no-overflow":ko=!1;break;case"proper-only":Mo=!0;break;case"timer":So=parseInt(e[1]);break;case"m-scale":go=parseFloat(e[1]);break;case"no-ab-swap":zo=!0;break;case"dots-factor":Io=parseInt(e[1]);break;case"x":No=e.slice(1);break;case"a":Co=e.slice(1).map((e=>parseInt(e)));break;case"b":vo=e.slice(1).map((e=>parseInt(e)));break;case"c":Ao=e.slice(1).map((e=>parseInt(e)));break;case"d":Eo=e.slice(1).map((e=>parseInt(e)));break;case"n":$o=e.slice(1).map((e=>parseInt(e)));break;case"a[]":wo=e.slice(1).map((e=>co(e)));break;case"b[]":yo=e.slice(1).map((e=>co(e)));break;case"c[]":bo=e.slice(1).map((e=>co(e)));break;case"d[]":xo=e.slice(1).map((e=>co(e)));break;case"n[]":Bo=e.slice(1).map((e=>co(e)))}Do=qn.tokens(),po=-1}isLast(){return po+1>=mo}addRounds(e){mo+=e}nextRound(){po++;let e=Fo,t=Do[po%Do.length],n=function(e){let t=e=>e-e%10;if("+-dots"===Fo){let[e,n]=[lo(Co,wo),lo(vo,yo)],u=gn(1,9),r=ko?gn(0,9-u):gn(10-u,9),i=Bn(t(e)+u).div(Io),o=Bn(t(n)+r).div(Io),s=Bn(gn(1,10));i=i.plus(s.div(Io).div(10)),Fn()&&(o=o.plus(Bn(10).minus(s).div(Io).div(10)));let a=i.plus(o);return[...En([i,o]),a]}if("equ+-"===Fo){let[e,n]=[lo(Co,wo),lo(vo,yo)],u=gn(1,9),r=ko?gn(0,9-u):gn(10-u,9),i=Bn(t(e)+u),o=Bn(t(n)+r),s=i.plus(o);return[...En([i,o]),s]}if("equ*/"===Fo){let[e,t]=[lo(Co,wo),lo(vo,yo)],n=e.mul(t);return[...zo?[e,t]:En([e,t]),n]}if("ab+c=d"===Fo){let[e,t]=[lo(Co,wo),lo(vo,yo)],n=lo(Eo,xo),u=n.minus(e.mul(t));return[...En([e,t]),u,n]}if("a*/(b+c)=d"===Fo)for(let t=100;;){let n,[u,r]=[lo(Co,wo),lo(vo,yo)],i=lo(Ao,bo);if(e.includes("+")?n=u.mul(r).plus(u.mul(i)):(r.lt(i)&&([r,i]=[i,r]),n=u.mul(r).minus(u.mul(i))),!(e.includes("/")&&n.eq(0)&&t-- >0))return e.includes("/")&&([u,n]=[n,u]),[u,r,i,n]}if("a/b=c/d"===Fo)for(let e=100;;){let[t,n]=[lo(Co,wo),lo(vo,yo)],u=lo(Ao,bo),r=lo($o,Bo),i=lo($o,Bo);if(t.gt(n)&&Mo&&([t,n]=[n,t]),!(t.eq(n)&&e-- >0))return[t.mul(r),n.mul(r),t.mul(u).mul(i),n.mul(u).mul(i)]}if(n=e,Fo.includes("%")&&n.includes("*")){let e,t,n=lo(vo,yo),u=100;do{if(e=lo(Ao,bo),t=e.mul(100).div(n),0==--u)break}while(!t.trunc().eq(t));return 0===u&&console.log(Nn([t,n,e])),[t,n,e]}if(function(e,t){return e.includes("%")&&t.includes("+")}(Fo,e)){let e,t,n=mn(yo,(e=>e.gte(100))),u=100;do{if(e=lo(Ao,bo),t=e.mul(100).div(n),0==--u)break}while(!t.trunc().eq(t));return n=n.minus(100),0===u&&console.log(Nn([t,n,e])),[t,n,e]}if(function(e,t){return e.includes("%")&&t.includes("-")}(Fo,e)){let e,t,n=mn(yo,(e=>e.lt(100))),u=100;do{if(e=lo(Ao,bo),t=e.mul(100).div(n),0==--u)break}while(!t.trunc().eq(t));return 0===u&&console.log(Nn([t,n,e])),n=Bn(100).minus(n),[t,n,e]}var n;if("%-a-of-c"===Fo){let e,t,n=lo(vo,yo),u=100;do{if(e=lo(Ao,bo),t=n.mul(e).div(100),0==--u)break}while(!t.trunc().eq(t));return 0===u&&console.log(Nn([t,n,e])),[t,n,e]}if("%-b-is-c"===Fo){let e,t,n=lo(vo,yo),u=100;do{if(t=lo(Co,wo),e=t.mul(n).div(100),0==--u)break}while(!e.trunc().eq(e));return 0===u&&console.log(Nn([t,n,e])),[t,n,e]}if("fr+-"===Fo){let[e,t]=[lo(Co,wo),lo(vo,yo)],n=e.plus(t);return[...En([e,t]),n]}if("fr*/"===Fo){let[t,n]=En([lo(Co,wo),lo(vo,yo)]),u=e.includes("*")?t.mul(n):t.div(n);return[t,n,u]}if("fr+-ab"===Fo){let[t,n]=[lo(Co,wo),lo(vo,yo)];if(t.eq(n))return e.includes("+")?[t,n,t.plus(n)]:[t.plus(n),...En([n,t])];if(e.includes("+"))return[...En([t,n]),t.plus(n)];{let e=dn.max(t,n),u=dn.min(t,n),r=e.minus(u);return[e,u,r]}}if("fr-reduction"===Fo)for(let e=20;;){let[t,n]=[lo(Co,wo),lo(vo,yo)],u=lo(Eo,xo);t=t.mul(u),n=n.mul(u);let r=Mn(t,n),i=Sn(r);if(!(t.gte(n)&&Mo&&e-- >0))return[t,n,i]}if("dividers"===Fo)for(;;){let[e,t]=fo(Co[0],Co[1],Bo),[n,u]=fo(vo[0],vo[1],Bo);if(e.eq(n))continue;Oo=[...t,...u];let[r]=fo(Ao[0],Ao[1],Oo);if(!r.eq(e)&&!r.eq(n))return[e,n,r]}if("dividers-2"===Fo){let e;for(let t=50;t-- >0;){let[t,n]=fo(Co[0],Co[1],Bo),[u,r]=fo(vo[0],vo[1],Bo);if(t.eq(u))continue;let i=En([...n,...r]);Oo=i;let[o,s,a,c,l]=[];switch(i.length){default:continue;case 3:[o,s,a]=i,e=[t,u,s,a,o];break;case 4:[o,s,a,c]=i,[s,a]=s.lt(a)?[s.mul(c),a]:[s,a.mul(c)],e=[t,u,s,a,o];break;case 5:[o,s,a,c,l]=i,[s,a]=s.lt(a)?[s,a]:[a,s],[c,l]=c.lt(l)?[c,l]:[l,c],s=s.mul(l),a=a.mul(c),e=[t,u,s,a,o]}if(zn(e))break}return e}if("dividers+-"==Fo){let e=Co,t=new Map([[2,[2,7]],[3,[3,7]],[5,[5,7]],[6,[2,3]],[7,[7,11]],[9,[7,8]],[10,[2,5]]]),n=hn([...t.keys()]),u=t.get(n),r=fo(e[0],e[1],u,n,!1)[0],i=gn(e[0],Nn(r.minus(e[0])));return Bn([i,r.minus(i),n])}throw`Unknown game type '${Fo}'`}(t),[u,r]=function(e,t){let n=hn(e.match(/\b[A-Z]\b/g)),u=e;[[/_r/g,"color(red)"],[/_g/g,"color(green)"],[/_b/g,"color(blue)"]].forEach((e=>u=u.replace(e[0],e[1]))),u=u.replace(n,"$").replace("xx","@");let r=t[n.charCodeAt(0)-"A".charCodeAt(0)];if("ab+c=d"==Fo){let e=t[2];e.lt(0)&&(t[2]=e.neg(),u=u.replace("+","-")),r.lt(0)&&(r=r.neg())}if("dividers+-"===Fo&&Fn()){let e=t[0].plus(t[1].mul(2));t=[e,t[1],t[2],t[3]],u=u.replace("+","-")}let i="+-dots"===Fo;function o(e){return e>=t.length?"":t[e]?i?t[e].toString():kn(t[e]):""}return u=u.toLocaleLowerCase().replace(/\ba\b/,o(0)).replace(/\bb\b/,o(1)).replace(/\bc\b/,o(2)).replace(/\bd\b/,o(3)).replace(/\be\b/,o(4)).replace(/\bf\b/,o(5)).replace(/\bg\b/,o(6)).replace(/\bh\b/,o(7)),u=u.replace("@","xx").replace("$",hn(No)),[u,r]}(t,n),i=Po(n,r);return{seconds:So,gameType:e,progress:[po<mo?po:mo,mo],equ:u,mathScale:go,rightAns:r,answers:i}}}function _o(e,t){mr(e,t)}function To(e,t,n){return new Cr(e,t,n??0)}function Ho(t){let n,r,i,o;return{c(){n=g("button"),r=m(t[1]),A(n,"class",t[3]),$(n,"grid-area",t[0]),$(n,"font-size",t[2]+"px")},m(e,u){d(e,n,u),f(n,r),i||(o=[l(Gn.call(null,n)),l(Yn.call(null,n)),v(n,"click",t[10])],i=!0)},p(e,[t]){2&t&&E(r,e[1]),8&t&&A(n,"class",e[3]),1&t&&$(n,"grid-area",e[0]),4&t&&$(n,"font-size",e[2]+"px")},i:e,o:e,d(e){e&&D(n),i=!1,u(o)}}}function Vo(e,t,n){let u,r,i,{gameType:o}=t,{ga:s}=t,{value:a}=t,{units:c=""}=t,{bgColor:l=pe(s,"bg-gray-100")}=t,{sz:f=30}=t;function d(e){if(e.toFraction()[1].eq(1)&&!c)return e.toNumber().toLocaleString("en");let t="+-dots"===o?e.toString():kn(e,Fn());return c&&(t+=c),zi(t)}return e.$$set=e=>{"gameType"in e&&n(4,o=e.gameType),"ga"in e&&n(0,s=e.ga),"value"in e&&n(5,a=e.value),"units"in e&&n(6,c=e.units),"bgColor"in e&&n(7,l=e.bgColor),"sz"in e&&n(8,f=e.sz)},[s,u,r,i,o,a,c,l,f,function(e){switch(e){case"start":n(1,u="??"),n(3,i=l);break;case"clicked":n(1,u=d(a)),n(3,i=l);break;case"right":n(1,u=d(a)),n(3,i="bg-green-200");break;case"wrong":n(1,u=d(a)),n(3,i="bg-red-200")}n(2,r=f-1.2*u.length)},function(t){k.call(this,e,t)}]}class Ro extends ne{constructor(e){super(),te(this,e,Vo,Ho,i,{gameType:4,ga:0,value:5,units:6,bgColor:7,sz:8,setState:9})}get setState(){return this.$$.ctx[9]}}function jo(e,t,n){const u=e.slice();return u[25]=t[n],u[26]=t,u[27]=n,u}function Zo(e,t){let n,u,r,i=t[27];const o=()=>t[11](u,i),s=()=>t[11](null,i);let a={gameType:t[2].gameType,ga:`a${t[27]}`,value:t[25],units:Xo(t[2])};return u=new Ro({props:a}),o(),u.$on("click",(function(){return t[12](t[25])})),{key:e,first:null,c(){n=C(),Q(u.$$.fragment),this.first=n},m(e,t){d(e,n,t),K(u,e,t),r=!0},p(e,n){i!==(t=e)[27]&&(s(),i=t[27],o());const r={};4&n&&(r.gameType=t[2].gameType),4&n&&(r.ga=`a${t[27]}`),4&n&&(r.value=t[25]),4&n&&(r.units=Xo(t[2])),u.$set(r)},i(e){r||(W(u.$$.fragment,e),r=!0)},o(e){X(u.$$.fragment,e),r=!1},d(e){e&&D(n),s(),ee(u,e)}}}function Uo(e){let t,n,u,r,i,o,s,a,c,l,f,p=[],g=new Map;t=new ro({props:{ga:"prg",values:e[4]}}),u=new iu({props:{ga:"clk"}}),i=new to({props:{ga:"equ",sz:40,exp:e[2].equ,scale:Wo(e[2])}}),i.$on("click",e[10]);let h=e[2].answers;const m=e=>e[5][e[27]];for(let t=0;t<h.length;t+=1){let n=jo(e,h,t),u=m(n);g.set(u,p[t]=Zo(u,n))}let C={ga:"tm",seconds:e[2].seconds,onExpiration:e[13]};a=new so({props:C}),e[14](a);return l=new pr({props:{}}),e[15](l),{c(){Q(t.$$.fragment),n=F(),Q(u.$$.fragment),r=F(),Q(i.$$.fragment),o=F();for(let e=0;e<p.length;e+=1)p[e].c();s=F(),Q(a.$$.fragment),c=F(),Q(l.$$.fragment)},m(e,D){K(t,e,D),d(e,n,D),K(u,e,D),d(e,r,D),K(i,e,D),d(e,o,D);for(let t=0;t<p.length;t+=1)p[t].m(e,D);d(e,s,D),K(a,e,D),d(e,c,D),K(l,e,D),f=!0},p(e,n){const u={};16&n&&(u.values=e[4]),t.$set(u);const r={};4&n&&(r.exp=e[2].equ),4&n&&(r.scale=Wo(e[2])),i.$set(r),300&n&&(h=e[2].answers,U(),p=Y(p,n,m,1,e,h,g,s.parentNode,G,Zo,s,jo),J());const o={};4&n&&(o.seconds=e[2].seconds),a.$set(o);l.$set({})},i(e){if(!f){W(t.$$.fragment,e),W(u.$$.fragment,e),W(i.$$.fragment,e);for(let e=0;e<h.length;e+=1)W(p[e]);W(a.$$.fragment,e),W(l.$$.fragment,e),f=!0}},o(e){X(t.$$.fragment,e),X(u.$$.fragment,e),X(i.$$.fragment,e);for(let e=0;e<p.length;e+=1)X(p[e]);X(a.$$.fragment,e),X(l.$$.fragment,e),f=!1},d(f){ee(t,f),f&&D(n),ee(u,f),f&&D(r),ee(i,f),f&&D(o);for(let e=0;e<p.length;e+=1)p[e].d(f);f&&D(s),e[14](null),ee(a,f),f&&D(c),e[15](null),ee(l,f)}}}function Jo(e){let t,n;return t=new he({props:{layout:e[9],$$slots:{default:[Uo]},$$scope:{ctx:e}}}),t.$on("click",e[16]),{c(){Q(t.$$.fragment)},m(e,u){K(t,e,u),n=!0},p(e,[n]){const u={};268435487&n&&(u.$$scope={dirty:n,ctx:e}),t.$set(u)},i(e){n||(W(t.$$.fragment,e),n=!0)},o(e){X(t.$$.fragment,e),n=!1},d(e){ee(t,e)}}}function Wo(e){if(e.mathScale)return e.mathScale;switch(e.gameType){case"%-simple":case"%-plus":case"%-minus":case"%-all":return 1.2;case"dividers":return.3;case"dividers-2":return.4;case"dividers+-":case"sequence":return.35}}function Xo(e){return"%-a-of-c"===e.gameType?"%":""}function Go(e,t,n){let u,r,i,o=new Lo,s=o.nextRound(),a=[null,null,null,null],c=[1,10],l=To("--cmd-new-round",1e3),f=To("--cmd-idle",1e4,3e3),d=a.map((e=>new Object));function D(){switch(jn.playRandom(),s.gameType){case"sequence":case"dividers-2":h()}}function p(){return f.reset(),"start"==i?(i="clicked",a.forEach((e=>e.setState("clicked"))),$n((()=>Ln())),!0):"clicked"!==i&&("answered"!=i||(h(),!0))}function g(e){if(f.reset(),!p()&&"clicked"===i){i="answered";let t=s.answers.findIndex((t=>t.eq(e))),u=s.answers.findIndex((e=>e.eq(s.rightAns)));if(t===u){n(4,c[0]+=1,c);let e=o.isLast(s);jn.play(e?"done":"yes"),l.reset(),e&&r.play()}else a[t].setState("wrong"),jn.play("no"),o.addRounds(2),n(4,c[0]+=1,c),n(4,c[1]+=2,c);a[u].setState("right")}}async function h(){n(5,d=a.map((e=>new Object))),n(2,s=o.nextRound()),await L(),m()}function m(){switch(i="start",f.reset(),l.cancel(),a.forEach((e=>{e.setState("start")})),n(4,c=s.progress),s.gameType){case"dividers":case"dividers-2":case"dividers+-":case"sequence":p()}}N((()=>m())),_o("--cmd-new-round",(()=>h())),_o("--cmd-idle",(()=>(jn.play("idle"),void f.reset()))),_o("--evt-time-is-up",(()=>(o.addRounds(1),n(4,c[1]+=1,c),u.restart(),void jn.play("time-is-up"))));return[u,r,s,a,c,d,D,p,g,{areas:'\n            "prg   .    clk "\n            "equ   equ  equ "\n            "a0    .    a1  "\n            "a2    .    a3  "\n            "tm    tm   tm  "\n        ',cols:"2fr 1fr 2fr",rows:"50px 80px 80px 80px 5px",bgColors:{prg:"bg-green-300",equ:"bg-yellow-50",tm:"bg-blue-100"}},()=>D(),function(e,t){S[e?"unshift":"push"]((()=>{a[t]=e,n(3,a)}))},e=>g(e),()=>{var e;Fr("--evt-time-is-up",e)},function(e){S[e?"unshift":"push"]((()=>{u=e,n(0,u)}))},function(e){S[e?"unshift":"push"]((()=>{r=e,n(1,r)}))},()=>p()]}class Yo extends ne{constructor(e){super(),te(this,e,Go,Jo,i,{})}}function Qo(e,t){mr(e,t)}function Ko(e,t,n){return new Cr(e,t,n??0)}let es,ts,ns=qn.getConfig().rounds,us=e=>new dn(e);function rs(e,t){let n=us(10).pow(t);return us(e).mul(n).trunc().div(n)}class is{constructor(){for(let e of qn.commands())e[0].toLocaleLowerCase();es=qn.tokens().map((e=>new pn(e))).sort((function(e,t){return e.compare(t)})),ts=-1}isLast(){return ts+1>=ns}addRounds(e){ns+=e}nextRound(){ts++;let e=gn(0,es.length-4),t=En([0,1,2]),n=En([0,1,2,3].map((n=>function(e,t){let n=e.valueOf(),u=n.toFixed(5).length<n.toString().length,r=[e.toFraction(!1),rs(n,4).toString()+(u?"...":""),e.mul(100).toString(2)+"%"];return[r[t[0]],r[t[1]],r[t[2]]]}(es[e+n],t)))),u=n[0][0],r=En([n[0][1],n[1][1],n[2][2],n[3][2]]);return{fr:u,rightAt:r.findIndex((e=>e===n[0][1])),answers:r,progress:[ts<ns?ts:ns,ns]}}}function os(t){let n,r,i,o,s,a,c;return{c(){n=g("button"),r=m("`"),i=m(t[1]),o=m("`"),A(n,"class",s=t[2]+" py-0.5 my-1"),$(n,"grid-area",t[0]),$(n,"font-size",t[3]+"px")},m(e,u){d(e,n,u),f(n,r),f(n,i),f(n,o),a||(c=[l(Gn.call(null,n)),l(Yn.call(null,n)),v(n,"click",t[7])],a=!0)},p(e,[t]){2&t&&E(i,e[1]),4&t&&s!==(s=e[2]+" py-0.5 my-1")&&A(n,"class",s),1&t&&$(n,"grid-area",e[0]),8&t&&$(n,"font-size",e[3]+"px")},i:e,o:e,d(e){e&&D(n),a=!1,u(c)}}}function ss(e,t,n){let u,{ga:r}=t,{value:i}=t,{bgColor:o=pe(r,"bg-gray-100")}=t,{sz:s=24}=t,a=o;return e.$$set=e=>{"ga"in e&&n(0,r=e.ga),"value"in e&&n(1,i=e.value),"bgColor"in e&&n(4,o=e.bgColor),"sz"in e&&n(5,s=e.sz)},e.$$.update=()=>{34&e.$$.dirty&&n(3,u=s-1.1*i.length)},[r,i,a,u,o,s,function(e){switch(e){case"start":n(2,a=o);break;case"right":n(2,a="bg-green-200");break;case"wrong":n(2,a="bg-red-200")}},function(t){k.call(this,e,t)}]}class as extends ne{constructor(e){super(),te(this,e,ss,os,i,{ga:0,value:1,bgColor:4,sz:5,setState:6})}get setState(){return this.$$.ctx[6]}}function cs(t){let n,r,i,o,s,a;return{c(){n=g("p"),r=m("`"),i=m(t[1]),o=m("`"),A(n,"class",t[2]),$(n,"grid-area",t[0]),$(n,"font-size",t[3]+"px")},m(e,u){d(e,n,u),f(n,r),f(n,i),f(n,o),s||(a=[l(Gn.call(null,n)),l(Yn.call(null,n)),v(n,"click",t[6])],s=!0)},p(e,[t]){2&t&&E(i,e[1]),1&t&&$(n,"grid-area",e[0])},i:e,o:e,d(e){e&&D(n),s=!1,u(a)}}}function ls(e,t,n){let{ga:u}=t,{math:r}=t,{bgColor:i=pe(u,"bg-gray-100")}=t,{sz:o=30}=t,s=i,a=o;return e.$$set=e=>{"ga"in e&&n(0,u=e.ga),"math"in e&&n(1,r=e.math),"bgColor"in e&&n(4,i=e.bgColor),"sz"in e&&n(5,o=e.sz)},[u,r,s,a,i,o,function(t){k.call(this,e,t)}]}class fs extends ne{constructor(e){super(),te(this,e,ls,cs,i,{ga:0,math:1,bgColor:4,sz:5})}}function ds(e,t,n){const u=e.slice();return u[28]=t[n],u[29]=t,u[30]=n,u}function Ds(e){let t,n;return t=new fs({props:{ga:"que",math:e[5].fr,sz:36}}),t.$on("click",e[12]),{c(){Q(t.$$.fragment)},m(e,u){K(t,e,u),n=!0},p(e,n){const u={};32&n[0]&&(u.math=e[5].fr),t.$set(u)},i(e){n||(W(t.$$.fragment,e),n=!0)},o(e){X(t.$$.fragment,e),n=!1},d(e){ee(t,e)}}}function ps(e,t){let n,u,r,i=t[30];const o=()=>t[13](u,i),s=()=>t[13](null,i);let a={ga:`a${t[30]}`,value:t[28]};return u=new as({props:a}),o(),u.$on("click",(function(){return t[14](t[28])})),{key:e,first:null,c(){n=C(),Q(u.$$.fragment),this.first=n},m(e,t){d(e,n,t),K(u,e,t),r=!0},p(e,n){i!==(t=e)[30]&&(s(),i=t[30],o());const r={};32&n[0]&&(r.ga=`a${t[30]}`),32&n[0]&&(r.value=t[28]),u.$set(r)},i(e){r||(W(u.$$.fragment,e),r=!0)},o(e){X(u.$$.fragment,e),r=!1},d(e){e&&D(n),s(),ee(u,e)}}}function gs(t){let n,u,r,o,s,a,c,l,f,p,g=t[3][0],h=[],m=new Map;n=new ro({props:{ga:"prg",values:t[6]}}),r=new iu({props:{ga:"clk"}});let C=Ds(t),v=t[5].answers;const A=e=>e[3][e[30]];for(let e=0;e<v.length;e+=1){let n=ds(t,v,e),u=A(n);m.set(u,h[e]=ps(u,n))}let E={ga:"tm",seconds:t[4]*t[7].rounds,onExpiration:t[15]};c=new so({props:E}),t[16](c);return f=new pr({props:{}}),t[17](f),{c(){Q(n.$$.fragment),u=F(),Q(r.$$.fragment),o=F(),C.c(),s=F();for(let e=0;e<h.length;e+=1)h[e].c();a=F(),Q(c.$$.fragment),l=F(),Q(f.$$.fragment)},m(e,t){K(n,e,t),d(e,u,t),K(r,e,t),d(e,o,t),C.m(e,t),d(e,s,t);for(let n=0;n<h.length;n+=1)h[n].m(e,t);d(e,a,t),K(c,e,t),d(e,l,t),K(f,e,t),p=!0},p(t,u){const r={};64&u[0]&&(r.values=t[6]),n.$set(r),8&u[0]&&i(g,g=t[3][0])?(U(),X(C,1,1,e),J(),C=Ds(t),C.c(),W(C,1),C.m(s.parentNode,s)):C.p(t,u),1066&u[0]&&(v=t[5].answers,U(),h=Y(h,u,A,1,t,v,m,a.parentNode,G,ps,a,ds),J());const o={};16&u[0]&&(o.seconds=t[4]*t[7].rounds),c.$set(o);f.$set({})},i(e){if(!p){W(n.$$.fragment,e),W(r.$$.fragment,e),W(C);for(let e=0;e<v.length;e+=1)W(h[e]);W(c.$$.fragment,e),W(f.$$.fragment,e),p=!0}},o(e){X(n.$$.fragment,e),X(r.$$.fragment,e),X(C);for(let e=0;e<h.length;e+=1)X(h[e]);X(c.$$.fragment,e),X(f.$$.fragment,e),p=!1},d(e){ee(n,e),e&&D(u),ee(r,e),e&&D(o),C.d(e),e&&D(s);for(let t=0;t<h.length;t+=1)h[t].d(e);e&&D(a),t[16](null),ee(c,e),e&&D(l),t[17](null),ee(f,e)}}}function hs(e){let t,n;return t=new he({props:{layout:e[11],$$slots:{default:[gs]},$$scope:{ctx:e}}}),t.$on("click",e[18]),{c(){Q(t.$$.fragment)},m(e,u){K(t,e,u),n=!0},p(e,n){const u={};127&n[0]|1&n[1]&&(u.$$scope={dirty:n,ctx:e}),t.$set(u)},i(e){n||(W(t.$$.fragment,e),n=!0)},o(e){X(t.$$.fragment,e),n=!1},d(e){ee(t,e)}}}function ms(e,t,n){let u,r,i,o=[null,null,null,null],s=[{},{},{},{}],a=qn.getConfig(),c=12,l=new is,f=l.nextRound(),d=[1,10],D=Ko("--cmd-new-round",1e3),p=Ko("--cmd-idle",1e4,3e3);function g(){n(3,s=s.map((e=>new Object))),n(5,f=l.nextRound()),$n((()=>h()))}function h(){i="start",D.cancel(),p.reset(),o.forEach((e=>{e.setState("start")})),n(6,d=f.progress),$n((()=>Ln()))}function m(){jn.playRandom()}function F(){return p.reset(),"start"!=i&&("answered"==i?(g(),!0):void 0)}function C(e){if(p.reset(),F())return;i="answered";let t=f.answers.findIndex((t=>t===e)),u=f.rightAt;if(t===u){n(6,d[0]+=1,d);let e=l.isLast();jn.play(e?"done":"yes"),D.reset(),e&&r.play()}else o[t].setState("wrong"),jn.play("no"),l.addRounds(2),n(6,d[0]+=1,d),n(6,d[1]+=2,d);o[u].setState("right")}!function(){for(let e of qn.commands())if("secondsPerRound"===e[0].toLocaleLowerCase())n(4,c=parseInt(e[1]))}(),Qo("--cmd-new-round",(()=>g())),Qo("--cmd-idle",(()=>(jn.play("idle"),void p.reset()))),Qo("--evt-time-is-up",(()=>(l.addRounds(1),n(6,d[1]+=1,d),u.restart(),void jn.play("time-is-up")))),N((()=>h()));return[u,o,r,s,c,f,d,a,m,F,C,{areas:'\n            "prg   .    clk "\n            "que   que  que "\n            "a0    .    a1  "\n            ".     .    .   "\n            "a2    .    a3  "\n            ".     .    .   "\n            "tm    tm   tm  "\n        ',cols:"2fr 1fr 2fr",rows:"50px 80px 70px 10px 70px 15px 5px",bgColors:{prg:"bg-green-300",que:"bg-yellow-50 py-1",tm:"bg-blue-100"}},()=>m(),function(e,t){S[e?"unshift":"push"]((()=>{o[t]=e,n(1,o)}))},e=>C(e),()=>{var e;Fr("--evt-time-is-up",e)},function(e){S[e?"unshift":"push"]((()=>{u=e,n(0,u)}))},function(e){S[e?"unshift":"push"]((()=>{r=e,n(2,r)}))},()=>F()]}class Fs extends ne{constructor(e){super(),te(this,e,ms,hs,i,{},null,[-1,-1])}}function Cs(e){let t,n;return{c(){t=g("bdi"),n=m(e[1]),A(t,"dir","rtl"),$(t,"font-size","15px")},m(e,u){d(e,t,u),f(t,n)},p(e,t){2&t&&E(n,e[1])},d(e){e&&D(t)}}}function vs(e){let t;return{c(){t=m(e[1])},m(e,n){d(e,t,n)},p(e,n){2&n&&E(t,e[1])},d(e){e&&D(t)}}}function As(t){let n,r,i;function o(e,t){return e[3]?vs:Cs}let s=o(t),a=s(t);return{c(){n=g("button"),a.c(),A(n,"class",t[2]),$(n,"grid-area",t[0])},m(e,u){d(e,n,u),a.m(n,null),r||(i=[l(Gn.call(null,n)),l(Yn.call(null,n)),v(n,"click",t[10])],r=!0)},p(e,[t]){s===(s=o(e))&&a?a.p(e,t):(a.d(1),a=s(e),a&&(a.c(),a.m(n,null))),4&t&&A(n,"class",e[2]),1&t&&$(n,"grid-area",e[0])},i:e,o:e,d(e){e&&D(n),a.d(),r=!1,u(i)}}}function Es(e,t,n){let u,r,i,o,a,{ga:c}=t,{store:l}=t,{value:f,isClicked:d,isRight:D}=l;return s(e,f,(e=>n(1,i=e))),s(e,d,(e=>n(9,r=e))),s(e,D,(e=>n(8,u=e))),e.$$set=e=>{"ga"in e&&n(0,c=e.ga),"store"in e&&n(7,l=e.store)},e.$$.update=()=>{2&e.$$.dirty&&n(3,a=function(e){return/^-?\d+$/.test(e)}(i)),768&e.$$.dirty&&n(2,o=r?u?"bg-green-200":"bg-red-200":"bg-gray-100")},[c,i,o,a,f,d,D,l,u,r,function(t){k.call(this,e,t)}]}class $s extends ne{constructor(e){super(),te(this,e,Es,As,i,{ga:0,store:7})}}function ws(e,t,n){const u=e.slice();return u[4]=t[n],u}function ys(e){let t,n,u,r,i,o=e[4].line+"";return{c(){t=g("p"),n=g("bdi"),u=m(o),r=F(),A(t,"class",i=e[4].css)},m(e,i){d(e,t,i),f(t,n),f(n,u),f(t,r)},p(e,n){4&n&&o!==(o=e[4].line+"")&&E(u,o),4&n&&i!==(i=e[4].css)&&A(t,"class",i)},d(e){e&&D(t)}}}function bs(t){let n,u,r,i=t[2],o=[];for(let e=0;e<i.length;e+=1)o[e]=ys(ws(t,i,e));return{c(){n=g("div");for(let e=0;e<o.length;e+=1)o[e].c();$(n,"grid-area",t[0])},m(e,i){d(e,n,i);for(let e=0;e<o.length;e+=1)o[e].m(n,null);u||(r=v(n,"click",t[3]),u=!0)},p(e,[t]){if(4&t){let u;for(i=e[2],u=0;u<i.length;u+=1){const r=ws(e,i,u);o[u]?o[u].p(r,t):(o[u]=ys(r),o[u].c(),o[u].m(n,null))}for(;u<o.length;u+=1)o[u].d(1);o.length=i.length}1&t&&$(n,"grid-area",e[0])},i:e,o:e,d(e){e&&D(n),p(o,e),u=!1,r()}}}function xs(t,n,u){let r,i=e,s=()=>(i(),i=o(c,(e=>u(2,r=e))),c);t.$$.on_destroy.push((()=>i()));let{ga:a}=n,{text:c}=n;return s(),t.$$set=e=>{"ga"in e&&u(0,a=e.ga),"text"in e&&s(u(1,c=e.text))},[a,c,r,function(e){k.call(this,t,e)}]}class Bs extends ne{constructor(e){super(),te(this,e,xs,bs,i,{ga:0,text:1})}}let Ns=qn.getCard();function ks(e){var t=(e=e.replaceAll("\r","\n")).trim().replace("U+","&#x").replaceAll("\r","\n").split("\n").map((e=>e.trim())).filter((e=>""!==e));let n=[],u="";for(var r of t)if(r.startsWith("{")){if(!r.endsWith("}"))continue;u=r.slice(1,-1)}else n.push({line:r,css:u}),u="";return n}function Ms(e){return(e.includes("\t")?e.split("\t"):e.includes("\n")?e.split("\n"):e.includes(";")?e.split(";"):e.includes(",")?e.split(","):e.split(" ")).map((e=>e.trim()))}function Ss(e){return Ms(e).map((e=>{var[t,n]=e.split(":");return{name:t,fmt:n??""}}))}function zs(e){let t=e.includes("<br>")?e.split("<br>"):e.includes("\n")?e.split("\n"):e.includes("\r")?e.split("\r"):e.includes(";")?e.split(";"):[e];t=t.map((e=>e.trim())).filter((e=>""!=e));let n=t.map((e=>Ms(e)));return n}function qs(e){var t=Ms(e).map((e=>e.includes("=")?e.split("="):[e,""]));let n=!1;return t.forEach((e=>{if("heb-test"===e[0])n=!0;else console.log(`Unknown option '${e}'`)})),{hebTest:n}}let Os=e=>e.trim(),Is=qn.getCard();const Ps=function(){function e(e){return e.includes("/")?zi(e):e}let t=["1/2","1/3","2/3","1/4","3/4","1/5","2/5","3/5","4/5","1/6","5/6","1/10","3/10","7/10","9/10","1/12","5/12","7/12","11/12"];function n(e){let n=kn(e.div(60));return t.includes(n)}let u={revaShaa:"רבע שעה",heziShaa:"חצי שעה",fractionOfShaa:"`N/D` שעה",dakotOnly:"MM דקות",shaa:"שעה",shaaVeReva:"שעה ורבע",shaaVaHezi:"שעה וחצי",shaaVeFraction:"שעה ו-`N/D`",shaaVeDakot:"שעה ו-MM דקות",shaataim:"שעתיים",shaataimVeReva:"שעתיים ורבע",shaataimVaHezi:"שעתיים וחצי",shaataimVeFraction:"שעתיים ו- `N/D`",shaataimVeDakot:"שעתיים ו-MM דקות",shaotOnly:"HH שעות",shaotVeReva:"HH שעות ורבע",shaotVaHezi:"HH שעות וחצי",shaotVeFraction:"HH שעות ו- `N/D`",shaotVeDakot:"HH שעות ו-MM דקות"},r=[15,30,10,20,40,50,23,60,75,90,75,85,105,83,120,135,150,135,145,165,143,180,240,255,270,275,285,305,263].map((e=>i(kn(Bn(e).div(60))))).flat();function i(e){let t=[],r=Sn(new pn(e));let i=r.mul(60),o=r.trunc(),s=r.minus(o).mul(60),a=kn(s),c=kn(o);return function(){if(!i.gte(60)){if(s.eq(15))return t.push(u.revaShaa),t.push(u.dakotOnly.replace("MM","15")),void t.push(u.fractionOfShaa.replace("N/D","1/4"));if(s.eq(30))return t.push(u.heziShaa),t.push(u.dakotOnly.replace("MM","30")),void t.push(u.fractionOfShaa.replace("N/D","1/2"));if(n(s)){let e=kn(s.div(60));t.push(u.fractionOfShaa.replace("N/D",e))}t.push(u.dakotOnly.replace("MM",a))}}(),function(){if(!i.lt(60)&&!i.gte(120)){if(s.eq(0))return t.push(u.shaa),void t.push(u.dakotOnly.replace("MM","60"));if(s.eq(15))return t.push(u.shaaVeReva),t.push(u.shaaVeDakot.replace("MM","15")),void t.push(u.shaaVeFraction.replace("N/D","1/4"));if(s.eq(30))return t.push(u.shaaVaHezi),t.push(u.shaaVeDakot.replace("MM","30")),void t.push(u.shaaVeFraction.replace("N/D","1/2"));if(n(s)){let e=kn(s.div(60));t.push(u.shaaVeFraction.replace("N/D",e))}t.push(u.shaaVeDakot.replace("MM",a))}}(),function(){if(!i.lt(120)&&!i.gte(180)){if(s.eq(0))return t.push(u.shaataim),void t.push(u.dakotOnly.replace("MM","120"));if(s.eq(15))return t.push(u.shaataimVeReva),t.push(u.shaataimVeDakot.replace("MM","15")),void t.push(u.shaataimVeFraction.replace("N/D","1/4"));if(s.eq(30))return t.push(u.shaataimVaHezi),t.push(u.shaataimVeDakot.replace("MM","30")),void t.push(u.shaataimVeFraction.replace("N/D","1/2"));if(n(s)){let e=kn(s.div(60));t.push(u.shaataimVeFraction.replace("N/D",e))}t.push(u.shaataimVeDakot.replace("MM",a))}}(),function(){if(!i.lt(180)){if(s.eq(0))return t.push(u.shaotOnly.replace("HH",c)),void t.push(u.dakotOnly.replace("MM",kn(o.mul(60))));if(s.eq(15))return t.push(u.shaotVeReva.replace("HH",c)),t.push(u.shaotVeDakot.replace("HH",c).replace("MM","15")),void t.push(u.shaotVeFraction.replace("HH",c).replace("N/D","1/4"));if(s.eq(30))return t.push(u.shaotVaHezi.replace("HH",c)),t.push(u.shaotVeDakot.replace("HH",c).replace("MM","30")),void t.push(u.shaotVeFraction.replace("HH",c).replace("N/D","1/2"));if(n(s)){let e=kn(s.div(60));t.push(u.shaotVeFraction.replace("HH",c).replace("N/D",e))}t.push(u.shaotVeDakot.replace("HH",c).replace("MM",a))}}(),t}let o=new Map([["p",function(e){if(e.includes("/"))return zi(e);let t=Bn(parseFloat(e));if(t.isNaN())return e;switch(hn(["percents","fraction","dots"])){case"percents":return`${t.mul(100)}%`;case"fraction":return zi(kn(t));case"dots":return e}}],["k",function(e,t){if(e.includes("/"))return zi(e);let n=Bn(parseFloat(e));if(n.isNaN())return e;let u=t.split(",");if(3!=u.length)return e;switch(hn(["norm","kilo"])){case"norm":return`${e} ${u[1]}`;case"kilo":return`${n.div(1e3)} ${u[2]}`}}],["t",function(e){return hn(i(e))}]]);return{apply:(t,n)=>t.includes("`")?t:n&&""!==n&&o.has(n[0])?o.get(n[0])(t,n):e(t),tmHebrew:Object.keys(u).map((e=>u[e])),tmTest:r}}();function Ls(e,t,n){let u=t.map(((e,t)=>({$var:e,uniqueName:`__${t}__`,value:function(e,t){var n;return e.includes("`")?e:t&&""!==t?Ps.apply(e,t):(n=e).includes("/")?zi(n):n}(n[t],e.fmt)})));return u.sort(((e,t)=>t.$var.name.length-e.$var.name.length)),u.forEach((t=>e=e.replaceAll(t.$var.name,t.uniqueName))),u.forEach((t=>e=e.replaceAll(t.uniqueName,t.value))),u.forEach((t=>e=e.replaceAll(t.$var.name,t.uniqueName))),u.forEach((t=>e=e.replaceAll(t.uniqueName,t.value))),e}function _s(e,t){return e.text.map((n=>({line:Ls(n.line,e.variables,t),css:n.css})))}function Ts(e,t){return En(e.answers.map(((n,u)=>({name:e.answers[u],value:Ls(n,e.variables,t),isRight:0==u}))))}var Hs;function Vs(e,t,n){const u=e.slice();return u[15]=t[n],u}function Rs(e,t,n){const u=e.slice();return u[18]=t[n],u}function js(e,t,n){const u=e.slice();return u[21]=t[n],u[23]=n,u}function Zs(t){let n,u;return n=new Bs({props:{ga:"txt",text:t[2].text}}),n.$on("click",t[7]),{c(){Q(n.$$.fragment)},m(e,t){K(n,e,t),u=!0},p:e,i(e){u||(W(n.$$.fragment,e),u=!0)},o(e){X(n.$$.fragment,e),u=!1},d(e){ee(n,e)}}}function Us(e,t){let n,u,r;return u=new $s({props:{store:t[21],ga:`a${t[23]}`}}),u.$on("click",(function(){return t[8](t[23])})),{key:e,first:null,c(){n=C(),Q(u.$$.fragment),this.first=n},m(e,t){d(e,n,t),K(u,e,t),r=!0},p(e,n){t=e},i(e){r||(W(u.$$.fragment,e),r=!0)},o(e){X(u.$$.fragment,e),r=!1},d(e){e&&D(n),ee(u,e)}}}function Js(t){let n,u,r,o,s,a=t[0],c=[],l=new Map;n=new pr({props:{}}),t[6](n);let f=Zs(t),p=t[2].answers;const g=e=>({model:e[0]});for(let e=0;e<p.length;e+=1){let n=js(t,p,e),u=g(n);l.set(u,c[e]=Us(u,n))}return{c(){Q(n.$$.fragment),u=F(),f.c(),r=F();for(let e=0;e<c.length;e+=1)c[e].c();o=C()},m(e,t){K(n,e,t),d(e,u,t),f.m(e,t),d(e,r,t);for(let n=0;n<c.length;n+=1)c[n].m(e,t);d(e,o,t),s=!0},p(t,u){n.$set({}),1&u&&i(a,a=t[0])?(U(),X(f,1,1,e),J(),f=Zs(t),f.c(),W(f,1),f.m(r.parentNode,r)):f.p(t,u),13&u&&(p=t[2].answers,U(),c=Y(c,u,g,1,t,p,l,o.parentNode,G,Us,o,js),J())},i(e){if(!s){W(n.$$.fragment,e),W(f);for(let e=0;e<p.length;e+=1)W(c[e]);s=!0}},o(e){X(n.$$.fragment,e),X(f);for(let e=0;e<c.length;e+=1)X(c[e]);s=!1},d(e){t[6](null),ee(n,e),e&&D(u),f.d(e),e&&D(r);for(let t=0;t<c.length;t+=1)c[t].d(e);e&&D(o)}}}function Ws(e){let t,n,u=Ps.tmHebrew,r=[];for(let t=0;t<u.length;t+=1)r[t]=Xs(Rs(e,u,t));let i=Ps.tmTest,o=[];for(let t=0;t<i.length;t+=1)o[t]=Gs(Vs(e,i,t));return{c(){for(let e=0;e<r.length;e+=1)r[e].c();t=m("\r\n    -----------------------\r\n    ");for(let e=0;e<o.length;e+=1)o[e].c();n=C()},m(e,u){for(let t=0;t<r.length;t+=1)r[t].m(e,u);d(e,t,u);for(let t=0;t<o.length;t+=1)o[t].m(e,u);d(e,n,u)},p(e,s){if(0&s){let n;for(u=Ps.tmHebrew,n=0;n<u.length;n+=1){const i=Rs(e,u,n);r[n]?r[n].p(i,s):(r[n]=Xs(i),r[n].c(),r[n].m(t.parentNode,t))}for(;n<r.length;n+=1)r[n].d(1);r.length=u.length}if(0&s){let t;for(i=Ps.tmTest,t=0;t<i.length;t+=1){const u=Vs(e,i,t);o[t]?o[t].p(u,s):(o[t]=Gs(u),o[t].c(),o[t].m(n.parentNode,n))}for(;t<o.length;t+=1)o[t].d(1);o.length=i.length}},d(e){p(r,e),e&&D(t),p(o,e),e&&D(n)}}}function Xs(t){let n,u,r,i=t[18]+"";return{c(){n=g("p"),u=g("bdi"),r=m(i),A(u,"dir","rtl"),A(n,"class","text-xs")},m(e,t){d(e,n,t),f(n,u),f(u,r)},p:e,d(e){e&&D(n)}}}function Gs(t){let n,u,r,i,o=t[15]+"";return{c(){n=g("p"),u=g("bdi"),r=m(o),i=F(),A(u,"dir","rtl"),A(n,"class","text-xs")},m(e,t){d(e,n,t),f(n,u),f(u,r),f(n,i)},p:e,d(e){e&&D(n)}}}function Ys(e){let t,n,u,r;t=new he({props:{layout:e[5],$$slots:{default:[Js]},$$scope:{ctx:e}}}),t.$on("click",e[9]);let i=e[0].options.hebTest&&Ws(e);return{c(){Q(t.$$.fragment),n=F(),i&&i.c(),u=C()},m(e,o){K(t,e,o),d(e,n,o),i&&i.m(e,o),d(e,u,o),r=!0},p(e,[n]){const r={};16777219&n&&(r.$$scope={dirty:n,ctx:e}),t.$set(r),e[0].options.hebTest?i?i.p(e,n):(i=Ws(e),i.c(),i.m(u.parentNode,u)):i&&(i.d(1),i=null)},i(e){r||(W(t.$$.fragment,e),r=!0)},o(e){X(t.$$.fragment,e),r=!1},d(e){ee(t,e),e&&D(n),i&&i.d(e),e&&D(u)}}}function Qs(e,t,n){let u={problemId:Os(Is.problemId),text:ks(Os(Is.content)),answers:(r=Os(Is.answers),Ms(r)),variables:Ss(Os(Is.variables)),sets:zs(Os(Is.sets)),options:qs(Os(Is.options))};var r;console.log("template",u);let i=(e=>({makeModel:(t=-1)=>{let n=gn(0,e.sets.length-1);for(;n===t&&e.sets.length>1;)n=gn(0,e.sets.length-1);let u=e.sets[n];return{problemId:e.problemId,setId:n,text:_s(e,u),answers:Ts(e,u),options:e.options}}}))(u),o=i.makeModel();console.log("model",o);let s,a=(e=>({text:Ce(e.text),problemId:Fe(e.problemId),sets:Fe(Ns.sets),answers:e.answers.map((e=>({value:Ce(e.value),isRight:Ce(e.isRight),isClicked:Ce(!1)})))}))(o),c=!1,l=!1;function f(e){c?d():(a.answers.forEach(((e,t)=>e.isClicked.set(o.answers[t].isRight))),a.answers[e].isClicked.set(!0),c=!0,l=o.answers[e].isRight,l&&s.play())}function d(){n(0,o=i.makeModel(o.setId)),a.text.set(o.text),a.answers.forEach(((e,t)=>{e.value.set(o.answers[t].value),e.isRight.set(o.answers[t].isRight),e.isClicked.set(!1)})),c=!1,l=!1,Si(500)}function D(){c&&d()}ve.add(u.problemId),N((()=>{Si(1e3)}));return[o,s,a,f,D,{areas:'\n            "txt  txt  txt "\n            "txt  txt  txt "\n            "txt  txt  txt "\n            "txt  txt  txt "\n            "a0    .    a1 "\n            "a2    .    a3 "\n            ".     .    .  "\n        ',cols:"2fr 1fr 2fr",rows:"2fr 2fr 2fr 2fr 2fr 2fr 10px"},function(e){S[e?"unshift":"push"]((()=>{s=e,n(1,s)}))},()=>D(),e=>f(e),()=>D()]}!function(e){function t(e){return void 0===e?[]:Array.isArray(e)?e:[e]}function n(e){let t=e();return n=t,Boolean(n&&"function"==typeof n.then)?t:Promise.resolve(t);var n}e.callMappedHandlers=async function(e,u,r){let i;u=t(u);for(let e of u){let t=await n((()=>e(r)));"string"==typeof t&&(i=t)}return i},e.callTransitionHandlers=async function(e,u,r,i){let o;r=t(r);for(let e of r){let t=await n((()=>e(i)));"string"==typeof t&&(o=t)}return o},e.callEnterHandlers=async function(e,u,r){let i=t(e.config[u].onEnter);for(let e of i)await n((()=>e(r)))},e.callLeaveHandlers=async function(e,u){let r=t(e.config[u].onLeave);for(let e of r)await n((()=>e()))}}(Hs||(Hs={}));class Ks extends ne{constructor(e){super(),te(this,e,Qs,Ys,i,{})}}function ea(e){let t,n,u,r,i,o,s;var a=e[0]();return a&&(n=y(a,{})),r=new be({props:{ga:"pwrd",text:"Powered by gebemot.online"}}),o=new $e({props:{ga:"ver",v:"0.25.49"}}),{c(){t=g("div"),n&&Q(n.$$.fragment),u=F(),Q(r.$$.fragment),i=F(),Q(o.$$.fragment),A(t,"class","w-full h-full"),$(t,"grid-area","game")},m(e,a){d(e,t,a),n&&K(n,t,null),d(e,u,a),K(r,e,a),d(e,i,a),K(o,e,a),s=!0},p(e,u){if(a!==(a=e[0]())){if(n){U();const e=n;X(e.$$.fragment,1,0,(()=>{ee(e,1)})),J()}a?(n=y(a,{}),Q(n.$$.fragment),W(n.$$.fragment,1),K(n,t,null)):n=null}},i(e){s||(n&&W(n.$$.fragment,e),W(r.$$.fragment,e),W(o.$$.fragment,e),s=!0)},o(e){n&&X(n.$$.fragment,e),X(r.$$.fragment,e),X(o.$$.fragment,e),s=!1},d(e){e&&D(t),n&&ee(n),e&&D(u),ee(r,e),e&&D(i),ee(o,e)}}}function ta(e){let t,n,u,r;return t=new he({props:{layout:e[1],$$slots:{default:[ea]},$$scope:{ctx:e}}}),u=new de({}),{c(){Q(t.$$.fragment),n=F(),Q(u.$$.fragment)},m(e,i){K(t,e,i),d(e,n,i),K(u,e,i),r=!0},p(e,[n]){const u={};4&n&&(u.$$scope={dirty:n,ctx:e}),t.$set(u)},i(e){r||(W(t.$$.fragment,e),W(u.$$.fragment,e),r=!0)},o(e){X(t.$$.fragment,e),X(u.$$.fragment,e),r=!1},d(e){ee(t,e),e&&D(n),ee(u,e)}}}function na(e){return N((()=>{qn.hideLoader(),$n((async()=>{await wn(2e3),On=!0,Pn()}))})),[function(){try{let e=qn.getConfig();switch(jn.buildMp3Library("assets",e.soundOn),e.game){case"plus-over":case"mul-div":return Kr;case"gcd-lcm":return yi;case"zero":return Yi;case"equ-abc":return Yo;case"fr-pairs":return Fs;case"w-problem":return Ks;default:return le(`Unknown game type: '${e.game}'`),re}}catch(e){le("Failed to loadGame",e)}},{areas:'\n            "game  game  game  game"\n            "pwrd  pwrd  .     ver"\n        ',cols:"1fr 1fr 1ft 1fr",rows:"98fr 2fr"}]}return new class extends ne{constructor(e){super(),te(this,e,na,ta,i,{})}}({target:document.body})}();
+
+    var fraction = createCommonjsModule(function (module, exports) {
+    /**
+     *
+     * This class offers the possibility to calculate fractions.
+     * You can pass a fraction in different formats. Either as array, as double, as string or as an integer.
+     *
+     * Array/Object form
+     * [ 0 => <nominator>, 1 => <denominator> ]
+     * [ n => <nominator>, d => <denominator> ]
+     *
+     * Integer form
+     * - Single integer value
+     *
+     * Double form
+     * - Single double value
+     *
+     * String form
+     * 123.456 - a simple double
+     * 123/456 - a string fraction
+     * 123.'456' - a double with repeating decimal places
+     * 123.(456) - synonym
+     * 123.45'6' - a double with repeating last place
+     * 123.45(6) - synonym
+     *
+     * Example:
+     *
+     * var f = new Fraction("9.4'31'");
+     * f.mul([-4, 3]).div(4.9);
+     *
+     */
+
+    (function(root) {
+
+      // Maximum search depth for cyclic rational numbers. 2000 should be more than enough.
+      // Example: 1/7 = 0.(142857) has 6 repeating decimal places.
+      // If MAX_CYCLE_LEN gets reduced, long cycles will not be detected and toString() only gets the first 10 digits
+      var MAX_CYCLE_LEN = 2000;
+
+      // Parsed data to avoid calling "new" all the time
+      var P = {
+        "s": 1,
+        "n": 0,
+        "d": 1
+      };
+
+      function assign(n, s) {
+
+        if (isNaN(n = parseInt(n, 10))) {
+          throw Fraction['InvalidParameter'];
+        }
+        return n * s;
+      }
+
+      // Creates a new Fraction internally without the need of the bulky constructor
+      function newFraction(n, d) {
+
+        if (d === 0) {
+          throw Fraction['DivisionByZero'];
+        }
+
+        var f = Object.create(Fraction.prototype);
+        f["s"] = n < 0 ? -1 : 1;
+
+        n = n < 0 ? -n : n;
+
+        var a = gcd(n, d);
+
+        f["n"] = n / a;
+        f["d"] = d / a;
+        return f;
+      }
+
+      function factorize(num) {
+
+        var factors = {};
+
+        var n = num;
+        var i = 2;
+        var s = 4;
+
+        while (s <= n) {
+
+          while (n % i === 0) {
+            n/= i;
+            factors[i] = (factors[i] || 0) + 1;
+          }
+          s+= 1 + 2 * i++;
+        }
+
+        if (n !== num) {
+          if (n > 1)
+            factors[n] = (factors[n] || 0) + 1;
+        } else {
+          factors[num] = (factors[num] || 0) + 1;
+        }
+        return factors;
+      }
+
+      var parse = function(p1, p2) {
+
+        var n = 0, d = 1, s = 1;
+        var v = 0, w = 0, x = 0, y = 1, z = 1;
+
+        var A = 0, B = 1;
+        var C = 1, D = 1;
+
+        var N = 10000000;
+        var M;
+
+        if (p1 === undefined || p1 === null) ; else if (p2 !== undefined) {
+          n = p1;
+          d = p2;
+          s = n * d;
+
+          if (n % 1 !== 0 || d % 1 !== 0) {
+            throw Fraction['NonIntegerParameter'];
+          }
+
+        } else
+          switch (typeof p1) {
+
+            case "object":
+              {
+                if ("d" in p1 && "n" in p1) {
+                  n = p1["n"];
+                  d = p1["d"];
+                  if ("s" in p1)
+                    n*= p1["s"];
+                } else if (0 in p1) {
+                  n = p1[0];
+                  if (1 in p1)
+                    d = p1[1];
+                } else {
+                  throw Fraction['InvalidParameter'];
+                }
+                s = n * d;
+                break;
+              }
+            case "number":
+              {
+                if (p1 < 0) {
+                  s = p1;
+                  p1 = -p1;
+                }
+
+                if (p1 % 1 === 0) {
+                  n = p1;
+                } else if (p1 > 0) { // check for != 0, scale would become NaN (log(0)), which converges really slow
+
+                  if (p1 >= 1) {
+                    z = Math.pow(10, Math.floor(1 + Math.log(p1) / Math.LN10));
+                    p1/= z;
+                  }
+
+                  // Using Farey Sequences
+                  // http://www.johndcook.com/blog/2010/10/20/best-rational-approximation/
+
+                  while (B <= N && D <= N) {
+                    M = (A + C) / (B + D);
+
+                    if (p1 === M) {
+                      if (B + D <= N) {
+                        n = A + C;
+                        d = B + D;
+                      } else if (D > B) {
+                        n = C;
+                        d = D;
+                      } else {
+                        n = A;
+                        d = B;
+                      }
+                      break;
+
+                    } else {
+
+                      if (p1 > M) {
+                        A+= C;
+                        B+= D;
+                      } else {
+                        C+= A;
+                        D+= B;
+                      }
+
+                      if (B > N) {
+                        n = C;
+                        d = D;
+                      } else {
+                        n = A;
+                        d = B;
+                      }
+                    }
+                  }
+                  n*= z;
+                } else if (isNaN(p1) || isNaN(p2)) {
+                  d = n = NaN;
+                }
+                break;
+              }
+            case "string":
+              {
+                B = p1.match(/\d+|./g);
+
+                if (B === null)
+                  throw Fraction['InvalidParameter'];
+
+                if (B[A] === '-') {// Check for minus sign at the beginning
+                  s = -1;
+                  A++;
+                } else if (B[A] === '+') {// Check for plus sign at the beginning
+                  A++;
+                }
+
+                if (B.length === A + 1) { // Check if it's just a simple number "1234"
+                  w = assign(B[A++], s);
+                } else if (B[A + 1] === '.' || B[A] === '.') { // Check if it's a decimal number
+
+                  if (B[A] !== '.') { // Handle 0.5 and .5
+                    v = assign(B[A++], s);
+                  }
+                  A++;
+
+                  // Check for decimal places
+                  if (A + 1 === B.length || B[A + 1] === '(' && B[A + 3] === ')' || B[A + 1] === "'" && B[A + 3] === "'") {
+                    w = assign(B[A], s);
+                    y = Math.pow(10, B[A].length);
+                    A++;
+                  }
+
+                  // Check for repeating places
+                  if (B[A] === '(' && B[A + 2] === ')' || B[A] === "'" && B[A + 2] === "'") {
+                    x = assign(B[A + 1], s);
+                    z = Math.pow(10, B[A + 1].length) - 1;
+                    A+= 3;
+                  }
+
+                } else if (B[A + 1] === '/' || B[A + 1] === ':') { // Check for a simple fraction "123/456" or "123:456"
+                  w = assign(B[A], s);
+                  y = assign(B[A + 2], 1);
+                  A+= 3;
+                } else if (B[A + 3] === '/' && B[A + 1] === ' ') { // Check for a complex fraction "123 1/2"
+                  v = assign(B[A], s);
+                  w = assign(B[A + 2], s);
+                  y = assign(B[A + 4], 1);
+                  A+= 5;
+                }
+
+                if (B.length <= A) { // Check for more tokens on the stack
+                  d = y * z;
+                  s = /* void */
+                  n = x + d * v + z * w;
+                  break;
+                }
+
+                /* Fall through on error */
+              }
+            default:
+              throw Fraction['InvalidParameter'];
+          }
+
+        if (d === 0) {
+          throw Fraction['DivisionByZero'];
+        }
+
+        P["s"] = s < 0 ? -1 : 1;
+        P["n"] = Math.abs(n);
+        P["d"] = Math.abs(d);
+      };
+
+      function modpow(b, e, m) {
+
+        var r = 1;
+        for (; e > 0; b = (b * b) % m, e >>= 1) {
+
+          if (e & 1) {
+            r = (r * b) % m;
+          }
+        }
+        return r;
+      }
+
+
+      function cycleLen(n, d) {
+
+        for (; d % 2 === 0;
+          d/= 2) {
+        }
+
+        for (; d % 5 === 0;
+          d/= 5) {
+        }
+
+        if (d === 1) // Catch non-cyclic numbers
+          return 0;
+
+        // If we would like to compute really large numbers quicker, we could make use of Fermat's little theorem:
+        // 10^(d-1) % d == 1
+        // However, we don't need such large numbers and MAX_CYCLE_LEN should be the capstone,
+        // as we want to translate the numbers to strings.
+
+        var rem = 10 % d;
+        var t = 1;
+
+        for (; rem !== 1; t++) {
+          rem = rem * 10 % d;
+
+          if (t > MAX_CYCLE_LEN)
+            return 0; // Returning 0 here means that we don't print it as a cyclic number. It's likely that the answer is `d-1`
+        }
+        return t;
+      }
+
+
+      function cycleStart(n, d, len) {
+
+        var rem1 = 1;
+        var rem2 = modpow(10, len, d);
+
+        for (var t = 0; t < 300; t++) { // s < ~log10(Number.MAX_VALUE)
+          // Solve 10^s == 10^(s+t) (mod d)
+
+          if (rem1 === rem2)
+            return t;
+
+          rem1 = rem1 * 10 % d;
+          rem2 = rem2 * 10 % d;
+        }
+        return 0;
+      }
+
+      function gcd(a, b) {
+
+        if (!a)
+          return b;
+        if (!b)
+          return a;
+
+        while (1) {
+          a%= b;
+          if (!a)
+            return b;
+          b%= a;
+          if (!b)
+            return a;
+        }
+      }
+      /**
+       * Module constructor
+       *
+       * @constructor
+       * @param {number|Fraction=} a
+       * @param {number=} b
+       */
+      function Fraction(a, b) {
+
+        parse(a, b);
+
+        if (this instanceof Fraction) {
+          a = gcd(P["d"], P["n"]); // Abuse variable a
+          this["s"] = P["s"];
+          this["n"] = P["n"] / a;
+          this["d"] = P["d"] / a;
+        } else {
+          return newFraction(P['s'] * P['n'], P['d']);
+        }
+      }
+
+      Fraction['DivisionByZero'] = new Error("Division by Zero");
+      Fraction['InvalidParameter'] = new Error("Invalid argument");
+      Fraction['NonIntegerParameter'] = new Error("Parameters must be integer");
+
+      Fraction.prototype = {
+
+        "s": 1,
+        "n": 0,
+        "d": 1,
+
+        /**
+         * Calculates the absolute value
+         *
+         * Ex: new Fraction(-4).abs() => 4
+         **/
+        "abs": function() {
+
+          return newFraction(this["n"], this["d"]);
+        },
+
+        /**
+         * Inverts the sign of the current fraction
+         *
+         * Ex: new Fraction(-4).neg() => 4
+         **/
+        "neg": function() {
+
+          return newFraction(-this["s"] * this["n"], this["d"]);
+        },
+
+        /**
+         * Adds two rational numbers
+         *
+         * Ex: new Fraction({n: 2, d: 3}).add("14.9") => 467 / 30
+         **/
+        "add": function(a, b) {
+
+          parse(a, b);
+          return newFraction(
+            this["s"] * this["n"] * P["d"] + P["s"] * this["d"] * P["n"],
+            this["d"] * P["d"]
+          );
+        },
+
+        /**
+         * Subtracts two rational numbers
+         *
+         * Ex: new Fraction({n: 2, d: 3}).add("14.9") => -427 / 30
+         **/
+        "sub": function(a, b) {
+
+          parse(a, b);
+          return newFraction(
+            this["s"] * this["n"] * P["d"] - P["s"] * this["d"] * P["n"],
+            this["d"] * P["d"]
+          );
+        },
+
+        /**
+         * Multiplies two rational numbers
+         *
+         * Ex: new Fraction("-17.(345)").mul(3) => 5776 / 111
+         **/
+        "mul": function(a, b) {
+
+          parse(a, b);
+          return newFraction(
+            this["s"] * P["s"] * this["n"] * P["n"],
+            this["d"] * P["d"]
+          );
+        },
+
+        /**
+         * Divides two rational numbers
+         *
+         * Ex: new Fraction("-17.(345)").inverse().div(3)
+         **/
+        "div": function(a, b) {
+
+          parse(a, b);
+          return newFraction(
+            this["s"] * P["s"] * this["n"] * P["d"],
+            this["d"] * P["n"]
+          );
+        },
+
+        /**
+         * Clones the actual object
+         *
+         * Ex: new Fraction("-17.(345)").clone()
+         **/
+        "clone": function() {
+          return newFraction(this['s'] * this['n'], this['d']);
+        },
+
+        /**
+         * Calculates the modulo of two rational numbers - a more precise fmod
+         *
+         * Ex: new Fraction('4.(3)').mod([7, 8]) => (13/3) % (7/8) = (5/6)
+         **/
+        "mod": function(a, b) {
+
+          if (isNaN(this['n']) || isNaN(this['d'])) {
+            return new Fraction(NaN);
+          }
+
+          if (a === undefined) {
+            return newFraction(this["s"] * this["n"] % this["d"], 1);
+          }
+
+          parse(a, b);
+          if (0 === P["n"] && 0 === this["d"]) {
+            throw Fraction['DivisionByZero'];
+          }
+
+          /*
+           * First silly attempt, kinda slow
+           *
+           return that["sub"]({
+           "n": num["n"] * Math.floor((this.n / this.d) / (num.n / num.d)),
+           "d": num["d"],
+           "s": this["s"]
+           });*/
+
+          /*
+           * New attempt: a1 / b1 = a2 / b2 * q + r
+           * => b2 * a1 = a2 * b1 * q + b1 * b2 * r
+           * => (b2 * a1 % a2 * b1) / (b1 * b2)
+           */
+          return newFraction(
+            this["s"] * (P["d"] * this["n"]) % (P["n"] * this["d"]),
+            P["d"] * this["d"]
+          );
+        },
+
+        /**
+         * Calculates the fractional gcd of two rational numbers
+         *
+         * Ex: new Fraction(5,8).gcd(3,7) => 1/56
+         */
+        "gcd": function(a, b) {
+
+          parse(a, b);
+
+          // gcd(a / b, c / d) = gcd(a, c) / lcm(b, d)
+
+          return newFraction(gcd(P["n"], this["n"]) * gcd(P["d"], this["d"]), P["d"] * this["d"]);
+        },
+
+        /**
+         * Calculates the fractional lcm of two rational numbers
+         *
+         * Ex: new Fraction(5,8).lcm(3,7) => 15
+         */
+        "lcm": function(a, b) {
+
+          parse(a, b);
+
+          // lcm(a / b, c / d) = lcm(a, c) / gcd(b, d)
+
+          if (P["n"] === 0 && this["n"] === 0) {
+            return newFraction(0, 1);
+          }
+          return newFraction(P["n"] * this["n"], gcd(P["n"], this["n"]) * gcd(P["d"], this["d"]));
+        },
+
+        /**
+         * Calculates the ceil of a rational number
+         *
+         * Ex: new Fraction('4.(3)').ceil() => (5 / 1)
+         **/
+        "ceil": function(places) {
+
+          places = Math.pow(10, places || 0);
+
+          if (isNaN(this["n"]) || isNaN(this["d"])) {
+            return new Fraction(NaN);
+          }
+          return newFraction(Math.ceil(places * this["s"] * this["n"] / this["d"]), places);
+        },
+
+        /**
+         * Calculates the floor of a rational number
+         *
+         * Ex: new Fraction('4.(3)').floor() => (4 / 1)
+         **/
+        "floor": function(places) {
+
+          places = Math.pow(10, places || 0);
+
+          if (isNaN(this["n"]) || isNaN(this["d"])) {
+            return new Fraction(NaN);
+          }
+          return newFraction(Math.floor(places * this["s"] * this["n"] / this["d"]), places);
+        },
+
+        /**
+         * Rounds a rational numbers
+         *
+         * Ex: new Fraction('4.(3)').round() => (4 / 1)
+         **/
+        "round": function(places) {
+
+          places = Math.pow(10, places || 0);
+
+          if (isNaN(this["n"]) || isNaN(this["d"])) {
+            return new Fraction(NaN);
+          }
+          return newFraction(Math.round(places * this["s"] * this["n"] / this["d"]), places);
+        },
+
+        /**
+         * Gets the inverse of the fraction, means numerator and denominator are exchanged
+         *
+         * Ex: new Fraction([-3, 4]).inverse() => -4 / 3
+         **/
+        "inverse": function() {
+
+          return newFraction(this["s"] * this["d"], this["n"]);
+        },
+
+        /**
+         * Calculates the fraction to some rational exponent, if possible
+         *
+         * Ex: new Fraction(-1,2).pow(-3) => -8
+         */
+        "pow": function(a, b) {
+
+          parse(a, b);
+
+          // Trivial case when exp is an integer
+
+          if (P['d'] === 1) {
+
+            if (P['s'] < 0) {
+              return newFraction(Math.pow(this['s'] * this["d"], P['n']), Math.pow(this["n"], P['n']));
+            } else {
+              return newFraction(Math.pow(this['s'] * this["n"], P['n']), Math.pow(this["d"], P['n']));
+            }
+          }
+
+          // Negative roots become complex
+          //     (-a/b)^(c/d) = x
+          // <=> (-1)^(c/d) * (a/b)^(c/d) = x
+          // <=> (cos(pi) + i*sin(pi))^(c/d) * (a/b)^(c/d) = x         # rotate 1 by 180°
+          // <=> (cos(c*pi/d) + i*sin(c*pi/d)) * (a/b)^(c/d) = x       # DeMoivre's formula in Q ( https://proofwiki.org/wiki/De_Moivre%27s_Formula/Rational_Index )
+          // From which follows that only for c=0 the root is non-complex. c/d is a reduced fraction, so that sin(c/dpi)=0 occurs for d=1, which is handled by our trivial case.
+          if (this['s'] < 0) return null;
+
+          // Now prime factor n and d
+          var N = factorize(this['n']);
+          var D = factorize(this['d']);
+
+          // Exponentiate and take root for n and d individually
+          var n = 1;
+          var d = 1;
+          for (var k in N) {
+            if (k === '1') continue;
+            if (k === '0') {
+              n = 0;
+              break;
+            }
+            N[k]*= P['n'];
+
+            if (N[k] % P['d'] === 0) {
+              N[k]/= P['d'];
+            } else return null;
+            n*= Math.pow(k, N[k]);
+          }
+
+          for (var k in D) {
+            if (k === '1') continue;
+            D[k]*= P['n'];
+
+            if (D[k] % P['d'] === 0) {
+              D[k]/= P['d'];
+            } else return null;
+            d*= Math.pow(k, D[k]);
+          }
+
+          if (P['s'] < 0) {
+            return newFraction(d, n);
+          }
+          return newFraction(n, d);
+        },
+
+        /**
+         * Check if two rational numbers are the same
+         *
+         * Ex: new Fraction(19.6).equals([98, 5]);
+         **/
+        "equals": function(a, b) {
+
+          parse(a, b);
+          return this["s"] * this["n"] * P["d"] === P["s"] * P["n"] * this["d"]; // Same as compare() === 0
+        },
+
+        /**
+         * Check if two rational numbers are the same
+         *
+         * Ex: new Fraction(19.6).equals([98, 5]);
+         **/
+        "compare": function(a, b) {
+
+          parse(a, b);
+          var t = (this["s"] * this["n"] * P["d"] - P["s"] * P["n"] * this["d"]);
+          return (0 < t) - (t < 0);
+        },
+
+        "simplify": function(eps) {
+
+          if (isNaN(this['n']) || isNaN(this['d'])) {
+            return this;
+          }
+
+          eps = eps || 0.001;
+
+          var thisABS = this['abs']();
+          var cont = thisABS['toContinued']();
+
+          for (var i = 1; i < cont.length; i++) {
+
+            var s = newFraction(cont[i - 1], 1);
+            for (var k = i - 2; k >= 0; k--) {
+              s = s['inverse']()['add'](cont[k]);
+            }
+
+            if (s['sub'](thisABS)['abs']().valueOf() < eps) {
+              return s['mul'](this['s']);
+            }
+          }
+          return this;
+        },
+
+        /**
+         * Check if two rational numbers are divisible
+         *
+         * Ex: new Fraction(19.6).divisible(1.5);
+         */
+        "divisible": function(a, b) {
+
+          parse(a, b);
+          return !(!(P["n"] * this["d"]) || ((this["n"] * P["d"]) % (P["n"] * this["d"])));
+        },
+
+        /**
+         * Returns a decimal representation of the fraction
+         *
+         * Ex: new Fraction("100.'91823'").valueOf() => 100.91823918239183
+         **/
+        'valueOf': function() {
+
+          return this["s"] * this["n"] / this["d"];
+        },
+
+        /**
+         * Returns a string-fraction representation of a Fraction object
+         *
+         * Ex: new Fraction("1.'3'").toFraction(true) => "4 1/3"
+         **/
+        'toFraction': function(excludeWhole) {
+
+          var whole, str = "";
+          var n = this["n"];
+          var d = this["d"];
+          if (this["s"] < 0) {
+            str+= '-';
+          }
+
+          if (d === 1) {
+            str+= n;
+          } else {
+
+            if (excludeWhole && (whole = Math.floor(n / d)) > 0) {
+              str+= whole;
+              str+= " ";
+              n%= d;
+            }
+
+            str+= n;
+            str+= '/';
+            str+= d;
+          }
+          return str;
+        },
+
+        /**
+         * Returns a latex representation of a Fraction object
+         *
+         * Ex: new Fraction("1.'3'").toLatex() => "\frac{4}{3}"
+         **/
+        'toLatex': function(excludeWhole) {
+
+          var whole, str = "";
+          var n = this["n"];
+          var d = this["d"];
+          if (this["s"] < 0) {
+            str+= '-';
+          }
+
+          if (d === 1) {
+            str+= n;
+          } else {
+
+            if (excludeWhole && (whole = Math.floor(n / d)) > 0) {
+              str+= whole;
+              n%= d;
+            }
+
+            str+= "\\frac{";
+            str+= n;
+            str+= '}{';
+            str+= d;
+            str+= '}';
+          }
+          return str;
+        },
+
+        /**
+         * Returns an array of continued fraction elements
+         *
+         * Ex: new Fraction("7/8").toContinued() => [0,1,7]
+         */
+        'toContinued': function() {
+
+          var t;
+          var a = this['n'];
+          var b = this['d'];
+          var res = [];
+
+          if (isNaN(a) || isNaN(b)) {
+            return res;
+          }
+
+          do {
+            res.push(Math.floor(a / b));
+            t = a % b;
+            a = b;
+            b = t;
+          } while (a !== 1);
+
+          return res;
+        },
+
+        /**
+         * Creates a string representation of a fraction with all digits
+         *
+         * Ex: new Fraction("100.'91823'").toString() => "100.(91823)"
+         **/
+        'toString': function(dec) {
+
+          var N = this["n"];
+          var D = this["d"];
+
+          if (isNaN(N) || isNaN(D)) {
+            return "NaN";
+          }
+
+          dec = dec || 15; // 15 = decimal places when no repetation
+
+          var cycLen = cycleLen(N, D); // Cycle length
+          var cycOff = cycleStart(N, D, cycLen); // Cycle start
+
+          var str = this['s'] < 0 ? "-" : "";
+
+          str+= N / D | 0;
+
+          N%= D;
+          N*= 10;
+
+          if (N)
+            str+= ".";
+
+          if (cycLen) {
+
+            for (var i = cycOff; i--;) {
+              str+= N / D | 0;
+              N%= D;
+              N*= 10;
+            }
+            str+= "(";
+            for (var i = cycLen; i--;) {
+              str+= N / D | 0;
+              N%= D;
+              N*= 10;
+            }
+            str+= ")";
+          } else {
+            for (var i = dec; N && i--;) {
+              str+= N / D | 0;
+              N%= D;
+              N*= 10;
+            }
+          }
+          return str;
+        }
+      };
+
+      {
+        Object.defineProperty(Fraction, "__esModule", { 'value': true });
+        Fraction['default'] = Fraction;
+        Fraction['Fraction'] = Fraction;
+        module['exports'] = Fraction;
+      }
+
+    })();
+    });
+
+    var Fraction = /*@__PURE__*/getDefaultExportFromCjs(fraction);
+
+    // WARN: rand(min, max) is inclusive   min <= result <= max
+    function rand(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max + 1);
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+    function randFrom(arr) {
+        return arr[rand(0, arr.length - 1)];
+    }
+    function randFromIf(arr, iff) {
+        let filtered = arr.filter(iff);
+        // assert there is any number in filtered array
+        return filtered[rand(0, filtered.length - 1)];
+    }
+    const trueFalse = () => rand(0, 1) == 0;
+    const randSign = () => rand(0, 1) == 0 ? +1 : -1;
+    function pm(num) {
+        let plusOrMinus = (rand(0, 1) == 0 ? +1 : -1);
+        return typeof num === 'number' ?
+            num * plusOrMinus :
+            num.mul(plusOrMinus);
+    }
+    function randId(len, charSet) {
+        charSet ??= 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var str = '';
+        for (var i = 0; i < len; i++) {
+            var indx = Math.floor(Math.random() * charSet.length);
+            str += charSet.charAt(indx);
+        }
+        return str;
+    }
+    function shuffle(src) {
+        let dst = [...src];
+        for (let i = dst.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [dst[i], dst[j]] = [dst[j], dst[i]];
+        }
+        return dst;
+    }
+    new AudioContext();
+    const run = (task) => setTimeout(task, 0);
+    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+    const range = (start, end) => Array.from({ length: (end - start) }, (_, k) => k + start);
+    function safe(func) {
+        try {
+            return func();
+        }
+        catch (err) {
+            let name = func.name;
+            if (name === "")
+                name = "unknown";
+            error(`Error in ${name}`, err);
+        }
+    }
+    const splitNoEmpty = (str, delim) => str.split(delim ?? " ").filter(Boolean).map(x => x.trim());
+    const isFraction = (d) => !d.toFraction()[1].eq(1);
+    function n2d$2(arg) {
+        if (typeof arg === 'number')
+            return new Decimal(arg);
+        if (!Array.isArray(arg))
+            return arg;
+        return arg.map(x => typeof x === 'number' ? new Decimal(x) : x);
+    }
+    function d2n(arg) {
+        if (typeof arg === 'number')
+            return arg;
+        if (!Array.isArray(arg))
+            return arg.toNumber();
+        return arg.map(x => typeof x === 'number' ? x : x.toNumber());
+    }
+    function d2t(d, excludeWhole = true) {
+        let parts = d.toFraction();
+        if (parts[1].eq(1))
+            return d.toNumber().toLocaleString('en');
+        let fr = new Fraction(d.toNumber());
+        return fr.toFraction(excludeWhole);
+    }
+    const nd2f = (n, d) => new Fraction(n.toNumber(), d.toNumber());
+    const d2f = (d) => new Fraction(d.toNumber());
+    const f2d = (fr) => n2d$2(fr.n).div(fr.d);
+    const t2d = (str) => f2d(new Fraction(str));
+    function allAreUnique(arr) {
+        let set = new Set();
+        for (let x of arr) {
+            let str = `${x}`;
+            if (set.has(str))
+                return false;
+            set.add(str);
+        }
+        return true;
+    }
+    function isNumeric(value) {
+        return /^-?\d+$/.test(value);
+    }
+
+    class CAnki {
+        hideLoader() {
+            let loader = document.getElementById("loader");
+            loader.style.display = "none";
+        }
+        getCard() {
+            return ankiCard;
+        }
+        getConfig() {
+            try {
+                return dist.parse(ankiCard.config);
+            }
+            catch (err) {
+                error(err);
+                return {};
+            }
+        }
+        *commands() {
+            let content = ankiCard.content.replaceAll('\n', ' ');
+            if (!content.includes(';'))
+                return;
+            let cmds = ankiCard.content.split(';')[0];
+            for (let cmd of splitNoEmpty(cmds, ',')) {
+                yield splitNoEmpty(cmd, ' ');
+            }
+        }
+        tokens() {
+            let content = ankiCard.content.replaceAll('\n', ' ');
+            let tokens = content.includes(';') ?
+                content.split(';')[1] :
+                content;
+            return splitNoEmpty(tokens, ',');
+        }
+    }
+    const Anki = new CAnki();
+
+    /* src\core\MathJax.svelte generated by Svelte v3.52.0 */
+
+    let _initialized = false;
+    let _refreshIsRequested = false;
+
+    // refreshes are delayed on initialization
+    function refresh() {
+    	if (!_refreshIsRequested) return;
+    	_refreshIsRequested = false;
+    	safe(() => MathJax.typeset());
+    }
+
+    function refreshMath() {
+    	_refreshIsRequested = true;
+    	if (!_initialized) return;
+    	run(refresh);
+    }
+
+    function initMath() {
+    	run(async () => {
+    		await delay(2000);
+    		_initialized = true;
+    		refresh();
+    	});
+    }
+
+    /* src\core\Mp3.svelte generated by Svelte v3.52.0 */
+
+    const names = [
+    	"yes",
+    	"no",
+    	"done",
+    	"idle",
+    	"sound-on",
+    	"sound-off",
+    	"on-drag-start",
+    	"on-drag-end",
+    	"time-is-up"
+    ];
+
+    let _library = new Map();
+    let _soundOn = true;
+
+    function loadFrom(assetsFolder) {
+    	function loadNext(folder, name, no) {
+    		let fileName = folder === ""
+    		? `${name}-${no}.mp3`
+    		: `${folder}/${name}-${no}.mp3`;
+
+    		let audio = new Audio(fileName);
+
+    		audio.addEventListener(
+    			"canplaythrough",
+    			_ => {
+    				// console.log(`loaded: ${fileName}`);
+    				let tracks = _library.get(name);
+
+    				tracks.push(audio);
+    				run(() => loadNext(folder, name, no + 1));
+    			},
+    			{ once: true }
+    		);
+    	}
+
+    	names.forEach(name => {
+    		// console.log(`loading tracks of '${name}'`);
+    		_library.set(name, []);
+
+    		run(() => loadNext(assetsFolder, name, 1));
+    	});
+    }
+
+    function play(name) {
+    	let tracks = _library.get(name);
+    	if (!tracks || tracks.length === 0) return;
+    	let track = randFrom(tracks);
+
+    	track.play().catch(err => {
+    		
+    	});
+    }
+
+    class CMp3 {
+    	play(name) {
+    		if (!_soundOn) return;
+    		play(name);
+    	}
+
+    	buildMp3Library(assetsFolder, soundOn) {
+    		_soundOn = soundOn;
+    		run(() => loadFrom(""));
+    		run(() => loadFrom(assetsFolder));
+    	}
+
+    	soundSwitch(soundOn) {
+    		if (_soundOn === soundOn) return;
+    		play(soundOn ? "sound-on" : "sound-off");
+    		_soundOn = soundOn;
+    	}
+
+    	playRandom() {
+    		if (!_soundOn) return;
+    		play(randFrom(names));
+    	}
+
+    	get soundIsOn() {
+    		return _soundOn;
+    	}
+    }
+
+    const Mp3 = new CMp3();
+
+    /* src\core\DragHandler.svelte generated by Svelte v3.52.0 */
+    let _activeDrags = new Set();
+
+    function beingDragged(elem) {
+    	return _activeDrags.has(elem);
+    }
+
+    function handleDragEvents(elem, options) {
+    	let _config = {
+    		id: options?.id ?? randId(5),
+    		snapTo: options?.snapTo ?? [1, 1]
+    	};
+
+    	let _myId = -1;
+    	let _start = { x: 0, y: 0 };
+    	let _last = { x: 0, y: 0 };
+    	let _skippedMoves = 0;
+
+    	function fire(name, args) {
+    		switch (name) {
+    			case "drag:start":
+    				_activeDrags.add(elem);
+    				break;
+    			case "drag:end":
+    				_activeDrags.delete(elem);
+    				break;
+    		}
+
+    		elem.dispatchEvent(new CustomEvent(name, { detail: args }));
+    	}
+
+    	function makeArgs(touch, start) {
+    		let pnt = {
+    			x: .5 + touch.clientX | 0,
+    			y: .5 + touch.clientY | 0
+    		};
+
+    		start ??= pnt;
+    		let offset = { x: pnt.x - start.x, y: pnt.y - start.y };
+    		return { id: _config.id, start, offset };
+    	}
+
+    	function snapToGrid(args, last) {
+    		let sameCell = Math.abs(last.x - args.offset.x) < _config.snapTo[0] && Math.abs(last.y - args.offset.y) < _config.snapTo[1];
+    		if (sameCell) return false;
+    		args.offset.x -= args.offset.x % _config.snapTo[0];
+    		args.offset.y -= args.offset.y % _config.snapTo[1];
+    		return true;
+    	}
+
+    	function onTouchStart(ev) {
+    		if (_myId !== -1) return fire("drag:other");
+    		let touch = ev.changedTouches[0];
+    		let args = makeArgs(touch);
+    		_myId = touch.identifier;
+    		_start = args.start;
+    		_last = args.offset;
+    		_skippedMoves = 0;
+
+    		// console.log(`touch start on ${_config.id} (${_myId}) at ${str(_start)}`);
+    		fire("drag:start", args);
+    	}
+
+    	function onTouchMove(ev) {
+    		let touch = ev.changedTouches[0];
+    		if (_myId !== touch.identifier) return _skippedMoves++;
+    		let args = makeArgs(touch, _start);
+    		if (!snapToGrid(args, _last)) return _skippedMoves++;
+    		_last = args.offset;
+    		fire("drag:move", args);
+    	}
+
+    	async function onTouchEnd(ev) {
+    		let touch = ev.changedTouches[0];
+    		if (_myId !== touch.identifier) return fire("drag:other");
+    		let args = makeArgs(touch, _start);
+
+    		// console.log(`touch end on ${_config.id} (${_myId}) at ${str(args.offset)} moves=${_moves} (skipped ${_skippedMoves})`);
+    		_myId = -1;
+
+    		fire("drag:end", args);
+    	}
+
+    	elem.addEventListener("touchstart", onTouchStart, { passive: true });
+    	elem.addEventListener("touchmove", onTouchMove, { passive: true });
+    	elem.addEventListener("touchend", onTouchEnd, { passive: true });
+    	elem.addEventListener("touchcancel", onTouchEnd, { passive: true });
+
+    	return {
+    		destroy() {
+    			elem.removeEventListener("touchstart", onTouchStart);
+    			elem.removeEventListener("touchmove", onTouchMove);
+    			elem.removeEventListener("touchend", onTouchEnd);
+    			elem.removeEventListener("touchcancel", onTouchEnd);
+    		}
+    	};
+    }
+
+    /* src\core\Pulse.svelte generated by Svelte v3.52.0 */
+
+    let Config = {
+    	duration: 500,
+    	interval: 10000,
+    	jitter: 7000
+    };
+
+    let zoomOut = [
+    	{ transform: 'scale(1, 1)' },
+    	{ transform: 'scale(1.03, 1.03)' },
+    	{ transform: 'scale(1, 1)' }
+    ];
+
+    let zoomIn = [
+    	{ transform: 'scale(1, 1)' },
+    	{ transform: 'scale(0.98, 0.98)' },
+    	{ transform: 'scale(1, 1)' }
+    ];
+
+    let xShift = [
+    	{ transform: 'translate(0px, 0px)' },
+    	{ transform: 'translate(-1px, 0px)' },
+    	{ transform: 'translate(+1px, 0px)' },
+    	{ transform: 'translate(0px, 0px)' }
+    ];
+
+    let yShift = [
+    	{ transform: 'translate(0px, 0px)' },
+    	{ transform: 'translate(0px, -1px)' },
+    	{ transform: 'translate(0px, +1px)' },
+    	{ transform: 'translate(0px, 0px)' }
+    ];
+
+    let xyShift = [
+    	{ transform: 'translate(0px, 0px)' },
+    	{ transform: 'translate(-1px, -1px)' },
+    	{ transform: 'translate(+1px, +1px)' },
+    	{ transform: 'translate(0px, 0px)' }
+    ];
+
+    let yxShift = [
+    	{ transform: 'translate(0px, 0px)' },
+    	{ transform: 'translate(+1px, -1px)' },
+    	{ transform: 'translate(-1px, +1px)' },
+    	{ transform: 'translate(0px, 0px)' }
+    ];
+
+    let rotate = [
+    	{ transform: 'rotate(0deg)' },
+    	{ transform: 'rotate(-2deg)' },
+    	{ transform: 'rotate(+2deg)' },
+    	{ transform: 'rotate(0deg)' }
+    ];
+
+    let pulses = [zoomOut, zoomIn, xShift, yShift, xyShift, yxShift, rotate];
+
+    async function startPulsing(elem, config) {
+    	for (; ; ) {
+    		let { interval, jitter, duration } = config;
+    		let timeout = rand(interval - jitter, interval + jitter);
+    		await delay(timeout);
+    		if (beingDragged(elem)) continue;
+    		let pulse = randFrom(pulses);
+    		elem.animate(pulse, duration);
+    	}
+    }
+
+    function pulse(elem, config) {
+    	run(() => startPulsing(elem, config ?? Config));
+    }
+
+    /* src\core\OnDrag.svelte generated by Svelte v3.52.0 */
+
+    function bounceOnDrag(elem, options) {
+    	options ??= {};
+    	options.snapTo ??= [5, 5];
+
+    	function setTranslate(pnt) {
+    		elem.style.transform = `translate3d(${pnt.x}px, ${pnt.y}px, 0px)`;
+    	}
+
+    	function removeTranslation() {
+    		elem.style.transform = null;
+    	}
+
+    	function bounceBack(from) {
+    		let back = [{ transform: `translate3d(0px, 0px, 0px)` }];
+
+    		elem.animate(back, {
+    			duration: 100,
+    			easing: "cubic-bezier(.87,.74,.96,1.83)"
+    		}).onfinish = () => removeTranslation();
+    	}
+
+    	function onDragStart(ev) {
+    		Mp3.play("on-drag-start");
+    	}
+
+    	function onDragMove(ev) {
+    		setTranslate(ev.detail.offset);
+    	}
+
+    	function onDragEnd(ev) {
+    		Mp3.play("on-drag-end");
+    		bounceBack(ev.detail.offset);
+    	}
+
+    	elem.addEventListener("drag:start", onDragStart);
+    	elem.addEventListener("drag:move", onDragMove);
+    	elem.addEventListener("drag:end", onDragEnd);
+    	let drag = handleDragEvents(elem, options);
+
+    	return {
+    		destroy() {
+    			drag.destroy();
+    			elem.removeEventListener("drag:start", onDragStart);
+    			elem.removeEventListener("drag:move", onDragMove);
+    			elem.removeEventListener("drag:end", onDragEnd);
+    		}
+    	};
+    }
+
+    function soundsOnDrag(elem, map) {
+    	map ??= new Map();
+
+    	function onDragStart(ev) {
+    		Mp3.play(map.get("drag:start"));
+    	}
+
+    	function onDragEnd(ev) {
+    		Mp3.play(map.get("drag:end"));
+    	}
+
+    	elem.addEventListener("drag:start", onDragStart);
+    	elem.addEventListener("drag:end", onDragEnd);
+    	let drag = handleDragEvents(elem);
+
+    	return {
+    		destroy() {
+    			drag.destroy();
+    			elem.removeEventListener("drag:start", onDragStart);
+    			elem.removeEventListener("drag:end", onDragEnd);
+    		}
+    	};
+    }
+
+    /* src\core\Clock.svelte generated by Svelte v3.52.0 */
+    const file$p = "src\\core\\Clock.svelte";
+
+    function get_each_context$7(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[7] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_1$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[10] = list[i];
+    	return child_ctx;
+    }
+
+    // (50:2) {#each [1, 2, 3, 4] as offset}
+    function create_each_block_1$1(ctx) {
+    	let line;
+
+    	const block = {
+    		c: function create() {
+    			line = svg_element("line");
+    			attr_dev(line, "class", "minor svelte-drk22q");
+    			attr_dev(line, "y1", "42");
+    			attr_dev(line, "y2", "45");
+    			attr_dev(line, "transform", "rotate(" + 6 * (/*minute*/ ctx[7] + /*offset*/ ctx[10]) + ")");
+    			add_location(line, file$p, 50, 3, 1149);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, line, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(line);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_1$1.name,
+    		type: "each",
+    		source: "(50:2) {#each [1, 2, 3, 4] as offset}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (42:1) {#each [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55] as minute}
+    function create_each_block$7(ctx) {
+    	let line;
+    	let each_1_anchor;
+    	let each_value_1 = [1, 2, 3, 4];
+    	validate_each_argument(each_value_1);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < 4; i += 1) {
+    		each_blocks[i] = create_each_block_1$1(get_each_context_1$1(ctx, each_value_1, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			line = svg_element("line");
+
+    			for (let i = 0; i < 4; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    			attr_dev(line, "class", "major svelte-drk22q");
+    			attr_dev(line, "y1", "35");
+    			attr_dev(line, "y2", "45");
+    			attr_dev(line, "transform", "rotate(" + 30 * /*minute*/ ctx[7] + ")");
+    			add_location(line, file$p, 42, 2, 1017);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, line, anchor);
+
+    			for (let i = 0; i < 4; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each_1_anchor, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(line);
+    			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(each_1_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$7.name,
+    		type: "each",
+    		source: "(42:1) {#each [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55] as minute}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$u(ctx) {
+    	let svg;
+    	let circle;
+    	let circle_class_value;
+    	let line0;
+    	let line0_transform_value;
+    	let line1;
+    	let line1_transform_value;
+    	let g;
+    	let line2;
+    	let line3;
+    	let g_transform_value;
+    	let mounted;
+    	let dispose;
+    	let each_value = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < 12; i += 1) {
+    		each_blocks[i] = create_each_block$7(get_each_context$7(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			svg = svg_element("svg");
+    			circle = svg_element("circle");
+
+    			for (let i = 0; i < 12; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			line0 = svg_element("line");
+    			line1 = svg_element("line");
+    			g = svg_element("g");
+    			line2 = svg_element("line");
+    			line3 = svg_element("line");
+
+    			attr_dev(circle, "class", circle_class_value = "" + (null_to_empty(/*soundOn*/ ctx[1]
+    			? 'clock-face-enabled'
+    			: 'clock-face-disabled') + " svelte-drk22q"));
+
+    			attr_dev(circle, "r", "48");
+    			add_location(circle, file$p, 38, 1, 846);
+    			attr_dev(line0, "class", "hour svelte-drk22q");
+    			attr_dev(line0, "y1", "2");
+    			attr_dev(line0, "y2", "-20");
+    			attr_dev(line0, "transform", line0_transform_value = "rotate(" + (30 * /*hours*/ ctx[4] + /*minutes*/ ctx[3] / 2) + ")");
+    			add_location(line0, file$p, 60, 1, 1302);
+    			attr_dev(line1, "class", "minute svelte-drk22q");
+    			attr_dev(line1, "y1", "4");
+    			attr_dev(line1, "y2", "-30");
+    			attr_dev(line1, "transform", line1_transform_value = "rotate(" + (6 * /*minutes*/ ctx[3] + /*seconds*/ ctx[2] / 10) + ")");
+    			add_location(line1, file$p, 68, 1, 1428);
+    			attr_dev(line2, "class", "second svelte-drk22q");
+    			attr_dev(line2, "y1", "10");
+    			attr_dev(line2, "y2", "-38");
+    			add_location(line2, file$p, 77, 2, 1599);
+    			attr_dev(line3, "class", "second-counterweight svelte-drk22q");
+    			attr_dev(line3, "y1", "10");
+    			attr_dev(line3, "y2", "2");
+    			add_location(line3, file$p, 78, 2, 1642);
+    			attr_dev(g, "transform", g_transform_value = "rotate(" + 6 * /*seconds*/ ctx[2] + ")");
+    			add_location(g, file$p, 76, 1, 1558);
+    			attr_dev(svg, "viewBox", "-50 -50 100 100");
+    			set_style(svg, "grid-area", /*ga*/ ctx[0]);
+    			attr_dev(svg, "class", "svelte-drk22q");
+    			add_location(svg, file$p, 33, 0, 722);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, svg, anchor);
+    			append_dev(svg, circle);
+
+    			for (let i = 0; i < 12; i += 1) {
+    				each_blocks[i].m(svg, null);
+    			}
+
+    			append_dev(svg, line0);
+    			append_dev(svg, line1);
+    			append_dev(svg, g);
+    			append_dev(g, line2);
+    			append_dev(g, line3);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(svg, "click", /*soundSwitch*/ ctx[5], false, false, false),
+    					action_destroyer(pulse.call(null, svg)),
+    					action_destroyer(bounceOnDrag.call(null, svg))
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*soundOn*/ 2 && circle_class_value !== (circle_class_value = "" + (null_to_empty(/*soundOn*/ ctx[1]
+    			? 'clock-face-enabled'
+    			: 'clock-face-disabled') + " svelte-drk22q"))) {
+    				attr_dev(circle, "class", circle_class_value);
+    			}
+
+    			if (dirty & /*hours, minutes*/ 24 && line0_transform_value !== (line0_transform_value = "rotate(" + (30 * /*hours*/ ctx[4] + /*minutes*/ ctx[3] / 2) + ")")) {
+    				attr_dev(line0, "transform", line0_transform_value);
+    			}
+
+    			if (dirty & /*minutes, seconds*/ 12 && line1_transform_value !== (line1_transform_value = "rotate(" + (6 * /*minutes*/ ctx[3] + /*seconds*/ ctx[2] / 10) + ")")) {
+    				attr_dev(line1, "transform", line1_transform_value);
+    			}
+
+    			if (dirty & /*seconds*/ 4 && g_transform_value !== (g_transform_value = "rotate(" + 6 * /*seconds*/ ctx[2] + ")")) {
+    				attr_dev(g, "transform", g_transform_value);
+    			}
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(svg, "grid-area", /*ga*/ ctx[0]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(svg);
+    			destroy_each(each_blocks, detaching);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$u.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$u($$self, $$props, $$invalidate) {
+    	let hours;
+    	let minutes;
+    	let seconds;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Clock', slots, []);
+    	let { ga } = $$props;
+    	let soundOn = Mp3.soundIsOn;
+    	let time = new Date();
+
+    	onMount(() => {
+    		const interval = setInterval(
+    			() => {
+    				$$invalidate(6, time = new Date());
+    			},
+    			1000
+    		);
+
+    		return () => {
+    			clearInterval(interval);
+    		};
+    	});
+
+    	function soundSwitch() {
+    		$$invalidate(1, soundOn ^= true);
+    		Mp3.soundSwitch(soundOn);
+    	}
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Clock> was created without expected prop 'ga'");
+    		}
+    	});
+
+    	const writable_props = ['ga'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Clock> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		onMount,
+    		pulse,
+    		Mp3,
+    		bounceOnDrag,
+    		ga,
+    		soundOn,
+    		time,
+    		soundSwitch,
+    		seconds,
+    		minutes,
+    		hours
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('soundOn' in $$props) $$invalidate(1, soundOn = $$props.soundOn);
+    		if ('time' in $$props) $$invalidate(6, time = $$props.time);
+    		if ('seconds' in $$props) $$invalidate(2, seconds = $$props.seconds);
+    		if ('minutes' in $$props) $$invalidate(3, minutes = $$props.minutes);
+    		if ('hours' in $$props) $$invalidate(4, hours = $$props.hours);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*time*/ 64) {
+    			// these automatically update when `time`
+    			// changes, because of the `$:` prefix
+    			$$invalidate(4, hours = time.getHours());
+    		}
+
+    		if ($$self.$$.dirty & /*time*/ 64) {
+    			$$invalidate(3, minutes = time.getMinutes());
+    		}
+
+    		if ($$self.$$.dirty & /*time*/ 64) {
+    			$$invalidate(2, seconds = time.getSeconds());
+    		}
+    	};
+
+    	return [ga, soundOn, seconds, minutes, hours, soundSwitch, time];
+    }
+
+    class Clock extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$u, create_fragment$u, safe_not_equal, { ga: 0 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Clock",
+    			options,
+    			id: create_fragment$u.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Clock>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Clock>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /*
+     * anime.js v3.2.1
+     * (c) 2020 Julian Garnier
+     * Released under the MIT license
+     * animejs.com
+     */
+
+    // Defaults
+
+    var defaultInstanceSettings = {
+      update: null,
+      begin: null,
+      loopBegin: null,
+      changeBegin: null,
+      change: null,
+      changeComplete: null,
+      loopComplete: null,
+      complete: null,
+      loop: 1,
+      direction: 'normal',
+      autoplay: true,
+      timelineOffset: 0
+    };
+
+    var defaultTweenSettings = {
+      duration: 1000,
+      delay: 0,
+      endDelay: 0,
+      easing: 'easeOutElastic(1, .5)',
+      round: 0
+    };
+
+    var validTransforms = ['translateX', 'translateY', 'translateZ', 'rotate', 'rotateX', 'rotateY', 'rotateZ', 'scale', 'scaleX', 'scaleY', 'scaleZ', 'skew', 'skewX', 'skewY', 'perspective', 'matrix', 'matrix3d'];
+
+    // Caching
+
+    var cache = {
+      CSS: {},
+      springs: {}
+    };
+
+    // Utils
+
+    function minMax(val, min, max) {
+      return Math.min(Math.max(val, min), max);
+    }
+
+    function stringContains(str, text) {
+      return str.indexOf(text) > -1;
+    }
+
+    function applyArguments(func, args) {
+      return func.apply(null, args);
+    }
+
+    var is = {
+      arr: function (a) { return Array.isArray(a); },
+      obj: function (a) { return stringContains(Object.prototype.toString.call(a), 'Object'); },
+      pth: function (a) { return is.obj(a) && a.hasOwnProperty('totalLength'); },
+      svg: function (a) { return a instanceof SVGElement; },
+      inp: function (a) { return a instanceof HTMLInputElement; },
+      dom: function (a) { return a.nodeType || is.svg(a); },
+      str: function (a) { return typeof a === 'string'; },
+      fnc: function (a) { return typeof a === 'function'; },
+      und: function (a) { return typeof a === 'undefined'; },
+      nil: function (a) { return is.und(a) || a === null; },
+      hex: function (a) { return /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(a); },
+      rgb: function (a) { return /^rgb/.test(a); },
+      hsl: function (a) { return /^hsl/.test(a); },
+      col: function (a) { return (is.hex(a) || is.rgb(a) || is.hsl(a)); },
+      key: function (a) { return !defaultInstanceSettings.hasOwnProperty(a) && !defaultTweenSettings.hasOwnProperty(a) && a !== 'targets' && a !== 'keyframes'; },
+    };
+
+    // Easings
+
+    function parseEasingParameters(string) {
+      var match = /\(([^)]+)\)/.exec(string);
+      return match ? match[1].split(',').map(function (p) { return parseFloat(p); }) : [];
+    }
+
+    // Spring solver inspired by Webkit Copyright © 2016 Apple Inc. All rights reserved. https://webkit.org/demos/spring/spring.js
+
+    function spring(string, duration) {
+
+      var params = parseEasingParameters(string);
+      var mass = minMax(is.und(params[0]) ? 1 : params[0], .1, 100);
+      var stiffness = minMax(is.und(params[1]) ? 100 : params[1], .1, 100);
+      var damping = minMax(is.und(params[2]) ? 10 : params[2], .1, 100);
+      var velocity =  minMax(is.und(params[3]) ? 0 : params[3], .1, 100);
+      var w0 = Math.sqrt(stiffness / mass);
+      var zeta = damping / (2 * Math.sqrt(stiffness * mass));
+      var wd = zeta < 1 ? w0 * Math.sqrt(1 - zeta * zeta) : 0;
+      var a = 1;
+      var b = zeta < 1 ? (zeta * w0 + -velocity) / wd : -velocity + w0;
+
+      function solver(t) {
+        var progress = duration ? (duration * t) / 1000 : t;
+        if (zeta < 1) {
+          progress = Math.exp(-progress * zeta * w0) * (a * Math.cos(wd * progress) + b * Math.sin(wd * progress));
+        } else {
+          progress = (a + b * progress) * Math.exp(-progress * w0);
+        }
+        if (t === 0 || t === 1) { return t; }
+        return 1 - progress;
+      }
+
+      function getDuration() {
+        var cached = cache.springs[string];
+        if (cached) { return cached; }
+        var frame = 1/6;
+        var elapsed = 0;
+        var rest = 0;
+        while(true) {
+          elapsed += frame;
+          if (solver(elapsed) === 1) {
+            rest++;
+            if (rest >= 16) { break; }
+          } else {
+            rest = 0;
+          }
+        }
+        var duration = elapsed * frame * 1000;
+        cache.springs[string] = duration;
+        return duration;
+      }
+
+      return duration ? solver : getDuration;
+
+    }
+
+    // Basic steps easing implementation https://developer.mozilla.org/fr/docs/Web/CSS/transition-timing-function
+
+    function steps(steps) {
+      if ( steps === void 0 ) steps = 10;
+
+      return function (t) { return Math.ceil((minMax(t, 0.000001, 1)) * steps) * (1 / steps); };
+    }
+
+    // BezierEasing https://github.com/gre/bezier-easing
+
+    var bezier = (function () {
+
+      var kSplineTableSize = 11;
+      var kSampleStepSize = 1.0 / (kSplineTableSize - 1.0);
+
+      function A(aA1, aA2) { return 1.0 - 3.0 * aA2 + 3.0 * aA1 }
+      function B(aA1, aA2) { return 3.0 * aA2 - 6.0 * aA1 }
+      function C(aA1)      { return 3.0 * aA1 }
+
+      function calcBezier(aT, aA1, aA2) { return ((A(aA1, aA2) * aT + B(aA1, aA2)) * aT + C(aA1)) * aT }
+      function getSlope(aT, aA1, aA2) { return 3.0 * A(aA1, aA2) * aT * aT + 2.0 * B(aA1, aA2) * aT + C(aA1) }
+
+      function binarySubdivide(aX, aA, aB, mX1, mX2) {
+        var currentX, currentT, i = 0;
+        do {
+          currentT = aA + (aB - aA) / 2.0;
+          currentX = calcBezier(currentT, mX1, mX2) - aX;
+          if (currentX > 0.0) { aB = currentT; } else { aA = currentT; }
+        } while (Math.abs(currentX) > 0.0000001 && ++i < 10);
+        return currentT;
+      }
+
+      function newtonRaphsonIterate(aX, aGuessT, mX1, mX2) {
+        for (var i = 0; i < 4; ++i) {
+          var currentSlope = getSlope(aGuessT, mX1, mX2);
+          if (currentSlope === 0.0) { return aGuessT; }
+          var currentX = calcBezier(aGuessT, mX1, mX2) - aX;
+          aGuessT -= currentX / currentSlope;
+        }
+        return aGuessT;
+      }
+
+      function bezier(mX1, mY1, mX2, mY2) {
+
+        if (!(0 <= mX1 && mX1 <= 1 && 0 <= mX2 && mX2 <= 1)) { return; }
+        var sampleValues = new Float32Array(kSplineTableSize);
+
+        if (mX1 !== mY1 || mX2 !== mY2) {
+          for (var i = 0; i < kSplineTableSize; ++i) {
+            sampleValues[i] = calcBezier(i * kSampleStepSize, mX1, mX2);
+          }
+        }
+
+        function getTForX(aX) {
+
+          var intervalStart = 0;
+          var currentSample = 1;
+          var lastSample = kSplineTableSize - 1;
+
+          for (; currentSample !== lastSample && sampleValues[currentSample] <= aX; ++currentSample) {
+            intervalStart += kSampleStepSize;
+          }
+
+          --currentSample;
+
+          var dist = (aX - sampleValues[currentSample]) / (sampleValues[currentSample + 1] - sampleValues[currentSample]);
+          var guessForT = intervalStart + dist * kSampleStepSize;
+          var initialSlope = getSlope(guessForT, mX1, mX2);
+
+          if (initialSlope >= 0.001) {
+            return newtonRaphsonIterate(aX, guessForT, mX1, mX2);
+          } else if (initialSlope === 0.0) {
+            return guessForT;
+          } else {
+            return binarySubdivide(aX, intervalStart, intervalStart + kSampleStepSize, mX1, mX2);
+          }
+
+        }
+
+        return function (x) {
+          if (mX1 === mY1 && mX2 === mY2) { return x; }
+          if (x === 0 || x === 1) { return x; }
+          return calcBezier(getTForX(x), mY1, mY2);
+        }
+
+      }
+
+      return bezier;
+
+    })();
+
+    var penner = (function () {
+
+      // Based on jQuery UI's implemenation of easing equations from Robert Penner (http://www.robertpenner.com/easing)
+
+      var eases = { linear: function () { return function (t) { return t; }; } };
+
+      var functionEasings = {
+        Sine: function () { return function (t) { return 1 - Math.cos(t * Math.PI / 2); }; },
+        Circ: function () { return function (t) { return 1 - Math.sqrt(1 - t * t); }; },
+        Back: function () { return function (t) { return t * t * (3 * t - 2); }; },
+        Bounce: function () { return function (t) {
+          var pow2, b = 4;
+          while (t < (( pow2 = Math.pow(2, --b)) - 1) / 11) {}
+          return 1 / Math.pow(4, 3 - b) - 7.5625 * Math.pow(( pow2 * 3 - 2 ) / 22 - t, 2)
+        }; },
+        Elastic: function (amplitude, period) {
+          if ( amplitude === void 0 ) amplitude = 1;
+          if ( period === void 0 ) period = .5;
+
+          var a = minMax(amplitude, 1, 10);
+          var p = minMax(period, .1, 2);
+          return function (t) {
+            return (t === 0 || t === 1) ? t : 
+              -a * Math.pow(2, 10 * (t - 1)) * Math.sin((((t - 1) - (p / (Math.PI * 2) * Math.asin(1 / a))) * (Math.PI * 2)) / p);
+          }
+        }
+      };
+
+      var baseEasings = ['Quad', 'Cubic', 'Quart', 'Quint', 'Expo'];
+
+      baseEasings.forEach(function (name, i) {
+        functionEasings[name] = function () { return function (t) { return Math.pow(t, i + 2); }; };
+      });
+
+      Object.keys(functionEasings).forEach(function (name) {
+        var easeIn = functionEasings[name];
+        eases['easeIn' + name] = easeIn;
+        eases['easeOut' + name] = function (a, b) { return function (t) { return 1 - easeIn(a, b)(1 - t); }; };
+        eases['easeInOut' + name] = function (a, b) { return function (t) { return t < 0.5 ? easeIn(a, b)(t * 2) / 2 : 
+          1 - easeIn(a, b)(t * -2 + 2) / 2; }; };
+        eases['easeOutIn' + name] = function (a, b) { return function (t) { return t < 0.5 ? (1 - easeIn(a, b)(1 - t * 2)) / 2 : 
+          (easeIn(a, b)(t * 2 - 1) + 1) / 2; }; };
+      });
+
+      return eases;
+
+    })();
+
+    function parseEasings(easing, duration) {
+      if (is.fnc(easing)) { return easing; }
+      var name = easing.split('(')[0];
+      var ease = penner[name];
+      var args = parseEasingParameters(easing);
+      switch (name) {
+        case 'spring' : return spring(easing, duration);
+        case 'cubicBezier' : return applyArguments(bezier, args);
+        case 'steps' : return applyArguments(steps, args);
+        default : return applyArguments(ease, args);
+      }
+    }
+
+    // Strings
+
+    function selectString(str) {
+      try {
+        var nodes = document.querySelectorAll(str);
+        return nodes;
+      } catch(e) {
+        return;
+      }
+    }
+
+    // Arrays
+
+    function filterArray(arr, callback) {
+      var len = arr.length;
+      var thisArg = arguments.length >= 2 ? arguments[1] : void 0;
+      var result = [];
+      for (var i = 0; i < len; i++) {
+        if (i in arr) {
+          var val = arr[i];
+          if (callback.call(thisArg, val, i, arr)) {
+            result.push(val);
+          }
+        }
+      }
+      return result;
+    }
+
+    function flattenArray(arr) {
+      return arr.reduce(function (a, b) { return a.concat(is.arr(b) ? flattenArray(b) : b); }, []);
+    }
+
+    function toArray(o) {
+      if (is.arr(o)) { return o; }
+      if (is.str(o)) { o = selectString(o) || o; }
+      if (o instanceof NodeList || o instanceof HTMLCollection) { return [].slice.call(o); }
+      return [o];
+    }
+
+    function arrayContains(arr, val) {
+      return arr.some(function (a) { return a === val; });
+    }
+
+    // Objects
+
+    function cloneObject(o) {
+      var clone = {};
+      for (var p in o) { clone[p] = o[p]; }
+      return clone;
+    }
+
+    function replaceObjectProps(o1, o2) {
+      var o = cloneObject(o1);
+      for (var p in o1) { o[p] = o2.hasOwnProperty(p) ? o2[p] : o1[p]; }
+      return o;
+    }
+
+    function mergeObjects(o1, o2) {
+      var o = cloneObject(o1);
+      for (var p in o2) { o[p] = is.und(o1[p]) ? o2[p] : o1[p]; }
+      return o;
+    }
+
+    // Colors
+
+    function rgbToRgba(rgbValue) {
+      var rgb = /rgb\((\d+,\s*[\d]+,\s*[\d]+)\)/g.exec(rgbValue);
+      return rgb ? ("rgba(" + (rgb[1]) + ",1)") : rgbValue;
+    }
+
+    function hexToRgba(hexValue) {
+      var rgx = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+      var hex = hexValue.replace(rgx, function (m, r, g, b) { return r + r + g + g + b + b; } );
+      var rgb = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      var r = parseInt(rgb[1], 16);
+      var g = parseInt(rgb[2], 16);
+      var b = parseInt(rgb[3], 16);
+      return ("rgba(" + r + "," + g + "," + b + ",1)");
+    }
+
+    function hslToRgba(hslValue) {
+      var hsl = /hsl\((\d+),\s*([\d.]+)%,\s*([\d.]+)%\)/g.exec(hslValue) || /hsla\((\d+),\s*([\d.]+)%,\s*([\d.]+)%,\s*([\d.]+)\)/g.exec(hslValue);
+      var h = parseInt(hsl[1], 10) / 360;
+      var s = parseInt(hsl[2], 10) / 100;
+      var l = parseInt(hsl[3], 10) / 100;
+      var a = hsl[4] || 1;
+      function hue2rgb(p, q, t) {
+        if (t < 0) { t += 1; }
+        if (t > 1) { t -= 1; }
+        if (t < 1/6) { return p + (q - p) * 6 * t; }
+        if (t < 1/2) { return q; }
+        if (t < 2/3) { return p + (q - p) * (2/3 - t) * 6; }
+        return p;
+      }
+      var r, g, b;
+      if (s == 0) {
+        r = g = b = l;
+      } else {
+        var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+        var p = 2 * l - q;
+        r = hue2rgb(p, q, h + 1/3);
+        g = hue2rgb(p, q, h);
+        b = hue2rgb(p, q, h - 1/3);
+      }
+      return ("rgba(" + (r * 255) + "," + (g * 255) + "," + (b * 255) + "," + a + ")");
+    }
+
+    function colorToRgb(val) {
+      if (is.rgb(val)) { return rgbToRgba(val); }
+      if (is.hex(val)) { return hexToRgba(val); }
+      if (is.hsl(val)) { return hslToRgba(val); }
+    }
+
+    // Units
+
+    function getUnit(val) {
+      var split = /[+-]?\d*\.?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?(%|px|pt|em|rem|in|cm|mm|ex|ch|pc|vw|vh|vmin|vmax|deg|rad|turn)?$/.exec(val);
+      if (split) { return split[1]; }
+    }
+
+    function getTransformUnit(propName) {
+      if (stringContains(propName, 'translate') || propName === 'perspective') { return 'px'; }
+      if (stringContains(propName, 'rotate') || stringContains(propName, 'skew')) { return 'deg'; }
+    }
+
+    // Values
+
+    function getFunctionValue(val, animatable) {
+      if (!is.fnc(val)) { return val; }
+      return val(animatable.target, animatable.id, animatable.total);
+    }
+
+    function getAttribute(el, prop) {
+      return el.getAttribute(prop);
+    }
+
+    function convertPxToUnit(el, value, unit) {
+      var valueUnit = getUnit(value);
+      if (arrayContains([unit, 'deg', 'rad', 'turn'], valueUnit)) { return value; }
+      var cached = cache.CSS[value + unit];
+      if (!is.und(cached)) { return cached; }
+      var baseline = 100;
+      var tempEl = document.createElement(el.tagName);
+      var parentEl = (el.parentNode && (el.parentNode !== document)) ? el.parentNode : document.body;
+      parentEl.appendChild(tempEl);
+      tempEl.style.position = 'absolute';
+      tempEl.style.width = baseline + unit;
+      var factor = baseline / tempEl.offsetWidth;
+      parentEl.removeChild(tempEl);
+      var convertedUnit = factor * parseFloat(value);
+      cache.CSS[value + unit] = convertedUnit;
+      return convertedUnit;
+    }
+
+    function getCSSValue(el, prop, unit) {
+      if (prop in el.style) {
+        var uppercasePropName = prop.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+        var value = el.style[prop] || getComputedStyle(el).getPropertyValue(uppercasePropName) || '0';
+        return unit ? convertPxToUnit(el, value, unit) : value;
+      }
+    }
+
+    function getAnimationType(el, prop) {
+      if (is.dom(el) && !is.inp(el) && (!is.nil(getAttribute(el, prop)) || (is.svg(el) && el[prop]))) { return 'attribute'; }
+      if (is.dom(el) && arrayContains(validTransforms, prop)) { return 'transform'; }
+      if (is.dom(el) && (prop !== 'transform' && getCSSValue(el, prop))) { return 'css'; }
+      if (el[prop] != null) { return 'object'; }
+    }
+
+    function getElementTransforms(el) {
+      if (!is.dom(el)) { return; }
+      var str = el.style.transform || '';
+      var reg  = /(\w+)\(([^)]*)\)/g;
+      var transforms = new Map();
+      var m; while (m = reg.exec(str)) { transforms.set(m[1], m[2]); }
+      return transforms;
+    }
+
+    function getTransformValue(el, propName, animatable, unit) {
+      var defaultVal = stringContains(propName, 'scale') ? 1 : 0 + getTransformUnit(propName);
+      var value = getElementTransforms(el).get(propName) || defaultVal;
+      if (animatable) {
+        animatable.transforms.list.set(propName, value);
+        animatable.transforms['last'] = propName;
+      }
+      return unit ? convertPxToUnit(el, value, unit) : value;
+    }
+
+    function getOriginalTargetValue(target, propName, unit, animatable) {
+      switch (getAnimationType(target, propName)) {
+        case 'transform': return getTransformValue(target, propName, animatable, unit);
+        case 'css': return getCSSValue(target, propName, unit);
+        case 'attribute': return getAttribute(target, propName);
+        default: return target[propName] || 0;
+      }
+    }
+
+    function getRelativeValue(to, from) {
+      var operator = /^(\*=|\+=|-=)/.exec(to);
+      if (!operator) { return to; }
+      var u = getUnit(to) || 0;
+      var x = parseFloat(from);
+      var y = parseFloat(to.replace(operator[0], ''));
+      switch (operator[0][0]) {
+        case '+': return x + y + u;
+        case '-': return x - y + u;
+        case '*': return x * y + u;
+      }
+    }
+
+    function validateValue(val, unit) {
+      if (is.col(val)) { return colorToRgb(val); }
+      if (/\s/g.test(val)) { return val; }
+      var originalUnit = getUnit(val);
+      var unitLess = originalUnit ? val.substr(0, val.length - originalUnit.length) : val;
+      if (unit) { return unitLess + unit; }
+      return unitLess;
+    }
+
+    // getTotalLength() equivalent for circle, rect, polyline, polygon and line shapes
+    // adapted from https://gist.github.com/SebLambla/3e0550c496c236709744
+
+    function getDistance(p1, p2) {
+      return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
+    }
+
+    function getCircleLength(el) {
+      return Math.PI * 2 * getAttribute(el, 'r');
+    }
+
+    function getRectLength(el) {
+      return (getAttribute(el, 'width') * 2) + (getAttribute(el, 'height') * 2);
+    }
+
+    function getLineLength(el) {
+      return getDistance(
+        {x: getAttribute(el, 'x1'), y: getAttribute(el, 'y1')}, 
+        {x: getAttribute(el, 'x2'), y: getAttribute(el, 'y2')}
+      );
+    }
+
+    function getPolylineLength(el) {
+      var points = el.points;
+      var totalLength = 0;
+      var previousPos;
+      for (var i = 0 ; i < points.numberOfItems; i++) {
+        var currentPos = points.getItem(i);
+        if (i > 0) { totalLength += getDistance(previousPos, currentPos); }
+        previousPos = currentPos;
+      }
+      return totalLength;
+    }
+
+    function getPolygonLength(el) {
+      var points = el.points;
+      return getPolylineLength(el) + getDistance(points.getItem(points.numberOfItems - 1), points.getItem(0));
+    }
+
+    // Path animation
+
+    function getTotalLength(el) {
+      if (el.getTotalLength) { return el.getTotalLength(); }
+      switch(el.tagName.toLowerCase()) {
+        case 'circle': return getCircleLength(el);
+        case 'rect': return getRectLength(el);
+        case 'line': return getLineLength(el);
+        case 'polyline': return getPolylineLength(el);
+        case 'polygon': return getPolygonLength(el);
+      }
+    }
+
+    function setDashoffset(el) {
+      var pathLength = getTotalLength(el);
+      el.setAttribute('stroke-dasharray', pathLength);
+      return pathLength;
+    }
+
+    // Motion path
+
+    function getParentSvgEl(el) {
+      var parentEl = el.parentNode;
+      while (is.svg(parentEl)) {
+        if (!is.svg(parentEl.parentNode)) { break; }
+        parentEl = parentEl.parentNode;
+      }
+      return parentEl;
+    }
+
+    function getParentSvg(pathEl, svgData) {
+      var svg = svgData || {};
+      var parentSvgEl = svg.el || getParentSvgEl(pathEl);
+      var rect = parentSvgEl.getBoundingClientRect();
+      var viewBoxAttr = getAttribute(parentSvgEl, 'viewBox');
+      var width = rect.width;
+      var height = rect.height;
+      var viewBox = svg.viewBox || (viewBoxAttr ? viewBoxAttr.split(' ') : [0, 0, width, height]);
+      return {
+        el: parentSvgEl,
+        viewBox: viewBox,
+        x: viewBox[0] / 1,
+        y: viewBox[1] / 1,
+        w: width,
+        h: height,
+        vW: viewBox[2],
+        vH: viewBox[3]
+      }
+    }
+
+    function getPath(path, percent) {
+      var pathEl = is.str(path) ? selectString(path)[0] : path;
+      var p = percent || 100;
+      return function(property) {
+        return {
+          property: property,
+          el: pathEl,
+          svg: getParentSvg(pathEl),
+          totalLength: getTotalLength(pathEl) * (p / 100)
+        }
+      }
+    }
+
+    function getPathProgress(path, progress, isPathTargetInsideSVG) {
+      function point(offset) {
+        if ( offset === void 0 ) offset = 0;
+
+        var l = progress + offset >= 1 ? progress + offset : 0;
+        return path.el.getPointAtLength(l);
+      }
+      var svg = getParentSvg(path.el, path.svg);
+      var p = point();
+      var p0 = point(-1);
+      var p1 = point(+1);
+      var scaleX = isPathTargetInsideSVG ? 1 : svg.w / svg.vW;
+      var scaleY = isPathTargetInsideSVG ? 1 : svg.h / svg.vH;
+      switch (path.property) {
+        case 'x': return (p.x - svg.x) * scaleX;
+        case 'y': return (p.y - svg.y) * scaleY;
+        case 'angle': return Math.atan2(p1.y - p0.y, p1.x - p0.x) * 180 / Math.PI;
+      }
+    }
+
+    // Decompose value
+
+    function decomposeValue(val, unit) {
+      // const rgx = /-?\d*\.?\d+/g; // handles basic numbers
+      // const rgx = /[+-]?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/g; // handles exponents notation
+      var rgx = /[+-]?\d*\.?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/g; // handles exponents notation
+      var value = validateValue((is.pth(val) ? val.totalLength : val), unit) + '';
+      return {
+        original: value,
+        numbers: value.match(rgx) ? value.match(rgx).map(Number) : [0],
+        strings: (is.str(val) || unit) ? value.split(rgx) : []
+      }
+    }
+
+    // Animatables
+
+    function parseTargets(targets) {
+      var targetsArray = targets ? (flattenArray(is.arr(targets) ? targets.map(toArray) : toArray(targets))) : [];
+      return filterArray(targetsArray, function (item, pos, self) { return self.indexOf(item) === pos; });
+    }
+
+    function getAnimatables(targets) {
+      var parsed = parseTargets(targets);
+      return parsed.map(function (t, i) {
+        return {target: t, id: i, total: parsed.length, transforms: { list: getElementTransforms(t) } };
+      });
+    }
+
+    // Properties
+
+    function normalizePropertyTweens(prop, tweenSettings) {
+      var settings = cloneObject(tweenSettings);
+      // Override duration if easing is a spring
+      if (/^spring/.test(settings.easing)) { settings.duration = spring(settings.easing); }
+      if (is.arr(prop)) {
+        var l = prop.length;
+        var isFromTo = (l === 2 && !is.obj(prop[0]));
+        if (!isFromTo) {
+          // Duration divided by the number of tweens
+          if (!is.fnc(tweenSettings.duration)) { settings.duration = tweenSettings.duration / l; }
+        } else {
+          // Transform [from, to] values shorthand to a valid tween value
+          prop = {value: prop};
+        }
+      }
+      var propArray = is.arr(prop) ? prop : [prop];
+      return propArray.map(function (v, i) {
+        var obj = (is.obj(v) && !is.pth(v)) ? v : {value: v};
+        // Default delay value should only be applied to the first tween
+        if (is.und(obj.delay)) { obj.delay = !i ? tweenSettings.delay : 0; }
+        // Default endDelay value should only be applied to the last tween
+        if (is.und(obj.endDelay)) { obj.endDelay = i === propArray.length - 1 ? tweenSettings.endDelay : 0; }
+        return obj;
+      }).map(function (k) { return mergeObjects(k, settings); });
+    }
+
+
+    function flattenKeyframes(keyframes) {
+      var propertyNames = filterArray(flattenArray(keyframes.map(function (key) { return Object.keys(key); })), function (p) { return is.key(p); })
+      .reduce(function (a,b) { if (a.indexOf(b) < 0) { a.push(b); } return a; }, []);
+      var properties = {};
+      var loop = function ( i ) {
+        var propName = propertyNames[i];
+        properties[propName] = keyframes.map(function (key) {
+          var newKey = {};
+          for (var p in key) {
+            if (is.key(p)) {
+              if (p == propName) { newKey.value = key[p]; }
+            } else {
+              newKey[p] = key[p];
+            }
+          }
+          return newKey;
+        });
+      };
+
+      for (var i = 0; i < propertyNames.length; i++) loop( i );
+      return properties;
+    }
+
+    function getProperties(tweenSettings, params) {
+      var properties = [];
+      var keyframes = params.keyframes;
+      if (keyframes) { params = mergeObjects(flattenKeyframes(keyframes), params); }
+      for (var p in params) {
+        if (is.key(p)) {
+          properties.push({
+            name: p,
+            tweens: normalizePropertyTweens(params[p], tweenSettings)
+          });
+        }
+      }
+      return properties;
+    }
+
+    // Tweens
+
+    function normalizeTweenValues(tween, animatable) {
+      var t = {};
+      for (var p in tween) {
+        var value = getFunctionValue(tween[p], animatable);
+        if (is.arr(value)) {
+          value = value.map(function (v) { return getFunctionValue(v, animatable); });
+          if (value.length === 1) { value = value[0]; }
+        }
+        t[p] = value;
+      }
+      t.duration = parseFloat(t.duration);
+      t.delay = parseFloat(t.delay);
+      return t;
+    }
+
+    function normalizeTweens(prop, animatable) {
+      var previousTween;
+      return prop.tweens.map(function (t) {
+        var tween = normalizeTweenValues(t, animatable);
+        var tweenValue = tween.value;
+        var to = is.arr(tweenValue) ? tweenValue[1] : tweenValue;
+        var toUnit = getUnit(to);
+        var originalValue = getOriginalTargetValue(animatable.target, prop.name, toUnit, animatable);
+        var previousValue = previousTween ? previousTween.to.original : originalValue;
+        var from = is.arr(tweenValue) ? tweenValue[0] : previousValue;
+        var fromUnit = getUnit(from) || getUnit(originalValue);
+        var unit = toUnit || fromUnit;
+        if (is.und(to)) { to = previousValue; }
+        tween.from = decomposeValue(from, unit);
+        tween.to = decomposeValue(getRelativeValue(to, from), unit);
+        tween.start = previousTween ? previousTween.end : 0;
+        tween.end = tween.start + tween.delay + tween.duration + tween.endDelay;
+        tween.easing = parseEasings(tween.easing, tween.duration);
+        tween.isPath = is.pth(tweenValue);
+        tween.isPathTargetInsideSVG = tween.isPath && is.svg(animatable.target);
+        tween.isColor = is.col(tween.from.original);
+        if (tween.isColor) { tween.round = 1; }
+        previousTween = tween;
+        return tween;
+      });
+    }
+
+    // Tween progress
+
+    var setProgressValue = {
+      css: function (t, p, v) { return t.style[p] = v; },
+      attribute: function (t, p, v) { return t.setAttribute(p, v); },
+      object: function (t, p, v) { return t[p] = v; },
+      transform: function (t, p, v, transforms, manual) {
+        transforms.list.set(p, v);
+        if (p === transforms.last || manual) {
+          var str = '';
+          transforms.list.forEach(function (value, prop) { str += prop + "(" + value + ") "; });
+          t.style.transform = str;
+        }
+      }
+    };
+
+    // Set Value helper
+
+    function setTargetsValue(targets, properties) {
+      var animatables = getAnimatables(targets);
+      animatables.forEach(function (animatable) {
+        for (var property in properties) {
+          var value = getFunctionValue(properties[property], animatable);
+          var target = animatable.target;
+          var valueUnit = getUnit(value);
+          var originalValue = getOriginalTargetValue(target, property, valueUnit, animatable);
+          var unit = valueUnit || getUnit(originalValue);
+          var to = getRelativeValue(validateValue(value, unit), originalValue);
+          var animType = getAnimationType(target, property);
+          setProgressValue[animType](target, property, to, animatable.transforms, true);
+        }
+      });
+    }
+
+    // Animations
+
+    function createAnimation(animatable, prop) {
+      var animType = getAnimationType(animatable.target, prop.name);
+      if (animType) {
+        var tweens = normalizeTweens(prop, animatable);
+        var lastTween = tweens[tweens.length - 1];
+        return {
+          type: animType,
+          property: prop.name,
+          animatable: animatable,
+          tweens: tweens,
+          duration: lastTween.end,
+          delay: tweens[0].delay,
+          endDelay: lastTween.endDelay
+        }
+      }
+    }
+
+    function getAnimations(animatables, properties) {
+      return filterArray(flattenArray(animatables.map(function (animatable) {
+        return properties.map(function (prop) {
+          return createAnimation(animatable, prop);
+        });
+      })), function (a) { return !is.und(a); });
+    }
+
+    // Create Instance
+
+    function getInstanceTimings(animations, tweenSettings) {
+      var animLength = animations.length;
+      var getTlOffset = function (anim) { return anim.timelineOffset ? anim.timelineOffset : 0; };
+      var timings = {};
+      timings.duration = animLength ? Math.max.apply(Math, animations.map(function (anim) { return getTlOffset(anim) + anim.duration; })) : tweenSettings.duration;
+      timings.delay = animLength ? Math.min.apply(Math, animations.map(function (anim) { return getTlOffset(anim) + anim.delay; })) : tweenSettings.delay;
+      timings.endDelay = animLength ? timings.duration - Math.max.apply(Math, animations.map(function (anim) { return getTlOffset(anim) + anim.duration - anim.endDelay; })) : tweenSettings.endDelay;
+      return timings;
+    }
+
+    var instanceID = 0;
+
+    function createNewInstance(params) {
+      var instanceSettings = replaceObjectProps(defaultInstanceSettings, params);
+      var tweenSettings = replaceObjectProps(defaultTweenSettings, params);
+      var properties = getProperties(tweenSettings, params);
+      var animatables = getAnimatables(params.targets);
+      var animations = getAnimations(animatables, properties);
+      var timings = getInstanceTimings(animations, tweenSettings);
+      var id = instanceID;
+      instanceID++;
+      return mergeObjects(instanceSettings, {
+        id: id,
+        children: [],
+        animatables: animatables,
+        animations: animations,
+        duration: timings.duration,
+        delay: timings.delay,
+        endDelay: timings.endDelay
+      });
+    }
+
+    // Core
+
+    var activeInstances = [];
+
+    var engine = (function () {
+      var raf;
+
+      function play() {
+        if (!raf && (!isDocumentHidden() || !anime.suspendWhenDocumentHidden) && activeInstances.length > 0) {
+          raf = requestAnimationFrame(step);
+        }
+      }
+      function step(t) {
+        // memo on algorithm issue:
+        // dangerous iteration over mutable `activeInstances`
+        // (that collection may be updated from within callbacks of `tick`-ed animation instances)
+        var activeInstancesLength = activeInstances.length;
+        var i = 0;
+        while (i < activeInstancesLength) {
+          var activeInstance = activeInstances[i];
+          if (!activeInstance.paused) {
+            activeInstance.tick(t);
+            i++;
+          } else {
+            activeInstances.splice(i, 1);
+            activeInstancesLength--;
+          }
+        }
+        raf = i > 0 ? requestAnimationFrame(step) : undefined;
+      }
+
+      function handleVisibilityChange() {
+        if (!anime.suspendWhenDocumentHidden) { return; }
+
+        if (isDocumentHidden()) {
+          // suspend ticks
+          raf = cancelAnimationFrame(raf);
+        } else { // is back to active tab
+          // first adjust animations to consider the time that ticks were suspended
+          activeInstances.forEach(
+            function (instance) { return instance ._onDocumentVisibility(); }
+          );
+          engine();
+        }
+      }
+      if (typeof document !== 'undefined') {
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+      }
+
+      return play;
+    })();
+
+    function isDocumentHidden() {
+      return !!document && document.hidden;
+    }
+
+    // Public Instance
+
+    function anime(params) {
+      if ( params === void 0 ) params = {};
+
+
+      var startTime = 0, lastTime = 0, now = 0;
+      var children, childrenLength = 0;
+      var resolve = null;
+
+      function makePromise(instance) {
+        var promise = window.Promise && new Promise(function (_resolve) { return resolve = _resolve; });
+        instance.finished = promise;
+        return promise;
+      }
+
+      var instance = createNewInstance(params);
+      makePromise(instance);
+
+      function toggleInstanceDirection() {
+        var direction = instance.direction;
+        if (direction !== 'alternate') {
+          instance.direction = direction !== 'normal' ? 'normal' : 'reverse';
+        }
+        instance.reversed = !instance.reversed;
+        children.forEach(function (child) { return child.reversed = instance.reversed; });
+      }
+
+      function adjustTime(time) {
+        return instance.reversed ? instance.duration - time : time;
+      }
+
+      function resetTime() {
+        startTime = 0;
+        lastTime = adjustTime(instance.currentTime) * (1 / anime.speed);
+      }
+
+      function seekChild(time, child) {
+        if (child) { child.seek(time - child.timelineOffset); }
+      }
+
+      function syncInstanceChildren(time) {
+        if (!instance.reversePlayback) {
+          for (var i = 0; i < childrenLength; i++) { seekChild(time, children[i]); }
+        } else {
+          for (var i$1 = childrenLength; i$1--;) { seekChild(time, children[i$1]); }
+        }
+      }
+
+      function setAnimationsProgress(insTime) {
+        var i = 0;
+        var animations = instance.animations;
+        var animationsLength = animations.length;
+        while (i < animationsLength) {
+          var anim = animations[i];
+          var animatable = anim.animatable;
+          var tweens = anim.tweens;
+          var tweenLength = tweens.length - 1;
+          var tween = tweens[tweenLength];
+          // Only check for keyframes if there is more than one tween
+          if (tweenLength) { tween = filterArray(tweens, function (t) { return (insTime < t.end); })[0] || tween; }
+          var elapsed = minMax(insTime - tween.start - tween.delay, 0, tween.duration) / tween.duration;
+          var eased = isNaN(elapsed) ? 1 : tween.easing(elapsed);
+          var strings = tween.to.strings;
+          var round = tween.round;
+          var numbers = [];
+          var toNumbersLength = tween.to.numbers.length;
+          var progress = (void 0);
+          for (var n = 0; n < toNumbersLength; n++) {
+            var value = (void 0);
+            var toNumber = tween.to.numbers[n];
+            var fromNumber = tween.from.numbers[n] || 0;
+            if (!tween.isPath) {
+              value = fromNumber + (eased * (toNumber - fromNumber));
+            } else {
+              value = getPathProgress(tween.value, eased * toNumber, tween.isPathTargetInsideSVG);
+            }
+            if (round) {
+              if (!(tween.isColor && n > 2)) {
+                value = Math.round(value * round) / round;
+              }
+            }
+            numbers.push(value);
+          }
+          // Manual Array.reduce for better performances
+          var stringsLength = strings.length;
+          if (!stringsLength) {
+            progress = numbers[0];
+          } else {
+            progress = strings[0];
+            for (var s = 0; s < stringsLength; s++) {
+              strings[s];
+              var b = strings[s + 1];
+              var n$1 = numbers[s];
+              if (!isNaN(n$1)) {
+                if (!b) {
+                  progress += n$1 + ' ';
+                } else {
+                  progress += n$1 + b;
+                }
+              }
+            }
+          }
+          setProgressValue[anim.type](animatable.target, anim.property, progress, animatable.transforms);
+          anim.currentValue = progress;
+          i++;
+        }
+      }
+
+      function setCallback(cb) {
+        if (instance[cb] && !instance.passThrough) { instance[cb](instance); }
+      }
+
+      function countIteration() {
+        if (instance.remaining && instance.remaining !== true) {
+          instance.remaining--;
+        }
+      }
+
+      function setInstanceProgress(engineTime) {
+        var insDuration = instance.duration;
+        var insDelay = instance.delay;
+        var insEndDelay = insDuration - instance.endDelay;
+        var insTime = adjustTime(engineTime);
+        instance.progress = minMax((insTime / insDuration) * 100, 0, 100);
+        instance.reversePlayback = insTime < instance.currentTime;
+        if (children) { syncInstanceChildren(insTime); }
+        if (!instance.began && instance.currentTime > 0) {
+          instance.began = true;
+          setCallback('begin');
+        }
+        if (!instance.loopBegan && instance.currentTime > 0) {
+          instance.loopBegan = true;
+          setCallback('loopBegin');
+        }
+        if (insTime <= insDelay && instance.currentTime !== 0) {
+          setAnimationsProgress(0);
+        }
+        if ((insTime >= insEndDelay && instance.currentTime !== insDuration) || !insDuration) {
+          setAnimationsProgress(insDuration);
+        }
+        if (insTime > insDelay && insTime < insEndDelay) {
+          if (!instance.changeBegan) {
+            instance.changeBegan = true;
+            instance.changeCompleted = false;
+            setCallback('changeBegin');
+          }
+          setCallback('change');
+          setAnimationsProgress(insTime);
+        } else {
+          if (instance.changeBegan) {
+            instance.changeCompleted = true;
+            instance.changeBegan = false;
+            setCallback('changeComplete');
+          }
+        }
+        instance.currentTime = minMax(insTime, 0, insDuration);
+        if (instance.began) { setCallback('update'); }
+        if (engineTime >= insDuration) {
+          lastTime = 0;
+          countIteration();
+          if (!instance.remaining) {
+            instance.paused = true;
+            if (!instance.completed) {
+              instance.completed = true;
+              setCallback('loopComplete');
+              setCallback('complete');
+              if (!instance.passThrough && 'Promise' in window) {
+                resolve();
+                makePromise(instance);
+              }
+            }
+          } else {
+            startTime = now;
+            setCallback('loopComplete');
+            instance.loopBegan = false;
+            if (instance.direction === 'alternate') {
+              toggleInstanceDirection();
+            }
+          }
+        }
+      }
+
+      instance.reset = function() {
+        var direction = instance.direction;
+        instance.passThrough = false;
+        instance.currentTime = 0;
+        instance.progress = 0;
+        instance.paused = true;
+        instance.began = false;
+        instance.loopBegan = false;
+        instance.changeBegan = false;
+        instance.completed = false;
+        instance.changeCompleted = false;
+        instance.reversePlayback = false;
+        instance.reversed = direction === 'reverse';
+        instance.remaining = instance.loop;
+        children = instance.children;
+        childrenLength = children.length;
+        for (var i = childrenLength; i--;) { instance.children[i].reset(); }
+        if (instance.reversed && instance.loop !== true || (direction === 'alternate' && instance.loop === 1)) { instance.remaining++; }
+        setAnimationsProgress(instance.reversed ? instance.duration : 0);
+      };
+
+      // internal method (for engine) to adjust animation timings before restoring engine ticks (rAF)
+      instance._onDocumentVisibility = resetTime;
+
+      // Set Value helper
+
+      instance.set = function(targets, properties) {
+        setTargetsValue(targets, properties);
+        return instance;
+      };
+
+      instance.tick = function(t) {
+        now = t;
+        if (!startTime) { startTime = now; }
+        setInstanceProgress((now + (lastTime - startTime)) * anime.speed);
+      };
+
+      instance.seek = function(time) {
+        setInstanceProgress(adjustTime(time));
+      };
+
+      instance.pause = function() {
+        instance.paused = true;
+        resetTime();
+      };
+
+      instance.play = function() {
+        if (!instance.paused) { return; }
+        if (instance.completed) { instance.reset(); }
+        instance.paused = false;
+        activeInstances.push(instance);
+        resetTime();
+        engine();
+      };
+
+      instance.reverse = function() {
+        toggleInstanceDirection();
+        instance.completed = instance.reversed ? false : true;
+        resetTime();
+      };
+
+      instance.restart = function() {
+        instance.reset();
+        instance.play();
+      };
+
+      instance.remove = function(targets) {
+        var targetsArray = parseTargets(targets);
+        removeTargetsFromInstance(targetsArray, instance);
+      };
+
+      instance.reset();
+
+      if (instance.autoplay) { instance.play(); }
+
+      return instance;
+
+    }
+
+    // Remove targets from animation
+
+    function removeTargetsFromAnimations(targetsArray, animations) {
+      for (var a = animations.length; a--;) {
+        if (arrayContains(targetsArray, animations[a].animatable.target)) {
+          animations.splice(a, 1);
+        }
+      }
+    }
+
+    function removeTargetsFromInstance(targetsArray, instance) {
+      var animations = instance.animations;
+      var children = instance.children;
+      removeTargetsFromAnimations(targetsArray, animations);
+      for (var c = children.length; c--;) {
+        var child = children[c];
+        var childAnimations = child.animations;
+        removeTargetsFromAnimations(targetsArray, childAnimations);
+        if (!childAnimations.length && !child.children.length) { children.splice(c, 1); }
+      }
+      if (!animations.length && !children.length) { instance.pause(); }
+    }
+
+    function removeTargetsFromActiveInstances(targets) {
+      var targetsArray = parseTargets(targets);
+      for (var i = activeInstances.length; i--;) {
+        var instance = activeInstances[i];
+        removeTargetsFromInstance(targetsArray, instance);
+      }
+    }
+
+    // Stagger helpers
+
+    function stagger(val, params) {
+      if ( params === void 0 ) params = {};
+
+      var direction = params.direction || 'normal';
+      var easing = params.easing ? parseEasings(params.easing) : null;
+      var grid = params.grid;
+      var axis = params.axis;
+      var fromIndex = params.from || 0;
+      var fromFirst = fromIndex === 'first';
+      var fromCenter = fromIndex === 'center';
+      var fromLast = fromIndex === 'last';
+      var isRange = is.arr(val);
+      var val1 = isRange ? parseFloat(val[0]) : parseFloat(val);
+      var val2 = isRange ? parseFloat(val[1]) : 0;
+      var unit = getUnit(isRange ? val[1] : val) || 0;
+      var start = params.start || 0 + (isRange ? val1 : 0);
+      var values = [];
+      var maxValue = 0;
+      return function (el, i, t) {
+        if (fromFirst) { fromIndex = 0; }
+        if (fromCenter) { fromIndex = (t - 1) / 2; }
+        if (fromLast) { fromIndex = t - 1; }
+        if (!values.length) {
+          for (var index = 0; index < t; index++) {
+            if (!grid) {
+              values.push(Math.abs(fromIndex - index));
+            } else {
+              var fromX = !fromCenter ? fromIndex%grid[0] : (grid[0]-1)/2;
+              var fromY = !fromCenter ? Math.floor(fromIndex/grid[0]) : (grid[1]-1)/2;
+              var toX = index%grid[0];
+              var toY = Math.floor(index/grid[0]);
+              var distanceX = fromX - toX;
+              var distanceY = fromY - toY;
+              var value = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+              if (axis === 'x') { value = -distanceX; }
+              if (axis === 'y') { value = -distanceY; }
+              values.push(value);
+            }
+            maxValue = Math.max.apply(Math, values);
+          }
+          if (easing) { values = values.map(function (val) { return easing(val / maxValue) * maxValue; }); }
+          if (direction === 'reverse') { values = values.map(function (val) { return axis ? (val < 0) ? val * -1 : -val : Math.abs(maxValue - val); }); }
+        }
+        var spacing = isRange ? (val2 - val1) / maxValue : val1;
+        return start + (spacing * (Math.round(values[i] * 100) / 100)) + unit;
+      }
+    }
+
+    // Timeline
+
+    function timeline(params) {
+      if ( params === void 0 ) params = {};
+
+      var tl = anime(params);
+      tl.duration = 0;
+      tl.add = function(instanceParams, timelineOffset) {
+        var tlIndex = activeInstances.indexOf(tl);
+        var children = tl.children;
+        if (tlIndex > -1) { activeInstances.splice(tlIndex, 1); }
+        function passThrough(ins) { ins.passThrough = true; }
+        for (var i = 0; i < children.length; i++) { passThrough(children[i]); }
+        var insParams = mergeObjects(instanceParams, replaceObjectProps(defaultTweenSettings, params));
+        insParams.targets = insParams.targets || params.targets;
+        var tlDuration = tl.duration;
+        insParams.autoplay = false;
+        insParams.direction = tl.direction;
+        insParams.timelineOffset = is.und(timelineOffset) ? tlDuration : getRelativeValue(timelineOffset, tlDuration);
+        passThrough(tl);
+        tl.seek(insParams.timelineOffset);
+        var ins = anime(insParams);
+        passThrough(ins);
+        children.push(ins);
+        var timings = getInstanceTimings(children, params);
+        tl.delay = timings.delay;
+        tl.endDelay = timings.endDelay;
+        tl.duration = timings.duration;
+        tl.seek(0);
+        tl.reset();
+        if (tl.autoplay) { tl.play(); }
+        return tl;
+      };
+      return tl;
+    }
+
+    anime.version = '3.2.1';
+    anime.speed = 1;
+    // TODO:#review: naming, documentation
+    anime.suspendWhenDocumentHidden = true;
+    anime.running = activeInstances;
+    anime.remove = removeTargetsFromActiveInstances;
+    anime.get = getOriginalTargetValue;
+    anime.set = setTargetsValue;
+    anime.convertPx = convertPxToUnit;
+    anime.path = getPath;
+    anime.setDashoffset = setDashoffset;
+    anime.stagger = stagger;
+    anime.timeline = timeline;
+    anime.easing = parseEasings;
+    anime.penner = penner;
+    anime.random = function (min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; };
+
+    /* src\core\Congrats.svelte generated by Svelte v3.52.0 */
+    const file$o = "src\\core\\Congrats.svelte";
+
+    function get_each_context$6(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[7] = list[i];
+    	child_ctx[8] = list;
+    	child_ctx[9] = i;
+    	return child_ctx;
+    }
+
+    // (61:4) {#each stars as star}
+    function create_each_block$6(ctx) {
+    	let div;
+    	let svg;
+    	let polygon;
+    	let polygon_fill_value;
+    	let polygon_stroke_value;
+    	let t;
+    	let each_value = /*each_value*/ ctx[8];
+    	let star_index = /*star_index*/ ctx[9];
+    	const assign_div = () => /*div_binding*/ ctx[5](div, each_value, star_index);
+    	const unassign_div = () => /*div_binding*/ ctx[5](null, each_value, star_index);
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			svg = svg_element("svg");
+    			polygon = svg_element("polygon");
+    			t = space();
+    			attr_dev(polygon, "fill", polygon_fill_value = /*star*/ ctx[7].color);
+    			attr_dev(polygon, "stroke", polygon_stroke_value = /*star*/ ctx[7].color);
+    			attr_dev(polygon, "stroke-width", "37.6152");
+    			attr_dev(polygon, "stroke-linecap", "round");
+    			attr_dev(polygon, "stroke-linejoin", "round");
+    			attr_dev(polygon, "stroke-miterlimit", "10");
+    			attr_dev(polygon, "points", "259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 \r\n                            401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08 \r\n                            29.274,197.007 188.165,173.919");
+    			add_location(polygon, file$o, 71, 16, 1908);
+    			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
+    			attr_dev(svg, "viewBox", "0 0 512 512");
+    			add_location(svg, file$o, 69, 12, 1810);
+    			attr_dev(div, "class", "box svelte-1nasn8");
+    			set_style(div, "--size", /*config*/ ctx[2].size + "px");
+    			set_style(div, "--left", /*config*/ ctx[2].pos[0] + "px");
+    			set_style(div, "--top", /*config*/ ctx[2].pos[1] + "px");
+    			add_location(div, file$o, 61, 8, 1570);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, svg);
+    			append_dev(svg, polygon);
+    			append_dev(div, t);
+    			assign_div();
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+
+    			if (dirty & /*stars*/ 1 && polygon_fill_value !== (polygon_fill_value = /*star*/ ctx[7].color)) {
+    				attr_dev(polygon, "fill", polygon_fill_value);
+    			}
+
+    			if (dirty & /*stars*/ 1 && polygon_stroke_value !== (polygon_stroke_value = /*star*/ ctx[7].color)) {
+    				attr_dev(polygon, "stroke", polygon_stroke_value);
+    			}
+
+    			if (each_value !== /*each_value*/ ctx[8] || star_index !== /*star_index*/ ctx[9]) {
+    				unassign_div();
+    				each_value = /*each_value*/ ctx[8];
+    				star_index = /*star_index*/ ctx[9];
+    				assign_div();
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			unassign_div();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$6.name,
+    		type: "each",
+    		source: "(61:4) {#each stars as star}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$t(ctx) {
+    	let div;
+    	let each_value = /*stars*/ ctx[0];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$6(get_each_context$6(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr_dev(div, "class", "svelte-1nasn8");
+    			toggle_class(div, "hidden", /*hidden*/ ctx[1]);
+    			add_location(div, file$o, 59, 0, 1515);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div, null);
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*config, stars*/ 5) {
+    				each_value = /*stars*/ ctx[0];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$6(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$6(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(div, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+
+    			if (dirty & /*hidden*/ 2) {
+    				toggle_class(div, "hidden", /*hidden*/ ctx[1]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$t.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$t($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Congrats', slots, []);
+
+    	let config = {
+    		size: 18,
+    		pos: [100, 120],
+    		xSeed: [20, 100],
+    		ySeed: [20, 120],
+    		duration: 1500
+    	};
+
+    	let stars;
+    	let hidden = true;
+
+    	function reset() {
+    		anime({
+    			targets: stars.map(star => star.box),
+    			translateX: 0,
+    			translateY: 0,
+    			rotate: 0,
+    			opacity: 1,
+    			duration: 0
+    		});
+    	}
+
+    	function play() {
+    		let delay = () => rand(150, 300);
+    		let translateX = () => randFrom([1, -1]) * (config.xSeed[0] + rand(0, config.xSeed[1]));
+    		let translateY = () => randFrom([1, -1]) * (config.ySeed[0] + rand(0, config.ySeed[1]));
+    		let rotate = () => rand(200, 360);
+    		let scale = () => 1 + rand(1, 10) / 10;
+    		reset();
+    		$$invalidate(1, hidden = false);
+
+    		anime({
+    			targets: stars.map(star => star.box),
+    			translateX,
+    			translateY,
+    			rotate,
+    			scale,
+    			delay,
+    			opacity: {
+    				value: 0,
+    				easing: 'linear',
+    				delay: config.duration - 200,
+    				duration: 500
+    			},
+    			easing: 'easeOutElastic',
+    			duration: config.duration,
+    			complete: () => $$invalidate(1, hidden = true)
+    		});
+    	}
+
+    	let { noOfStars = 150 } = $$props;
+
+    	stars = range(0, noOfStars).map(() => {
+    		return {
+    			box: undefined,
+    			color: randFrom(['yellow', 'orange', 'red'])
+    		};
+    	});
+
+    	onMount(reset);
+    	const writable_props = ['noOfStars'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Congrats> was created with unknown prop '${key}'`);
+    	});
+
+    	function div_binding($$value, each_value, star_index) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			each_value[star_index].box = $$value;
+    			$$invalidate(0, stars);
+    		});
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('noOfStars' in $$props) $$invalidate(4, noOfStars = $$props.noOfStars);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		onMount,
+    		rand,
+    		randFrom,
+    		range,
+    		anime,
+    		config,
+    		stars,
+    		hidden,
+    		reset,
+    		play,
+    		noOfStars
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('config' in $$props) $$invalidate(2, config = $$props.config);
+    		if ('stars' in $$props) $$invalidate(0, stars = $$props.stars);
+    		if ('hidden' in $$props) $$invalidate(1, hidden = $$props.hidden);
+    		if ('noOfStars' in $$props) $$invalidate(4, noOfStars = $$props.noOfStars);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [stars, hidden, config, play, noOfStars, div_binding];
+    }
+
+    class Congrats extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$t, create_fragment$t, safe_not_equal, { play: 3, noOfStars: 4 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Congrats",
+    			options,
+    			id: create_fragment$t.name
+    		});
+    	}
+
+    	get play() {
+    		return this.$$.ctx[3];
+    	}
+
+    	set play(value) {
+    		throw new Error("<Congrats>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get noOfStars() {
+    		throw new Error("<Congrats>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set noOfStars(value) {
+    		throw new Error("<Congrats>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\core\IoBus.svelte generated by Svelte v3.52.0 */
+
+    let callbacks = {};
+
+    function onAny(name, cb) {
+    	let funcs = callbacks[name] ?? [];
+    	funcs.push(cb);
+    	callbacks[name] = funcs;
+    }
+
+    function fireAny(name, args) {
+    	let funcs = callbacks[name] ?? [];
+    	funcs.forEach(func => setTimeout(() => func(args), 0));
+    }
+
+    /* src\core\TimedCmd.svelte generated by Svelte v3.52.0 */
+
+    class CTimedCmd {
+    	constructor(cmd, timeout, jitter) {
+    		this._cmd = cmd;
+    		this._timeout = timeout;
+    		this._jitter = jitter ?? 0;
+    	}
+
+    	set() {
+    		let timeout = rand(this._timeout - this._jitter, this._timeout + this._jitter);
+    		this._timeoutId = setTimeout(() => fireAny(this._cmd, {}), timeout);
+    	}
+
+    	cancel() {
+    		clearTimeout(this._timeoutId);
+    	}
+
+    	reset() {
+    		this.cancel();
+    		this.set();
+    	}
+    }
+
+    /* src\plus-over\Model.svelte generated by Svelte v3.52.0 */
+
+    function on$4(name, cb) {
+    	onAny(name, cb);
+    }
+
+    function fire$4(name, args) {
+    	fireAny(name, args);
+    }
+
+    function newTimedCmd$3(cmd, timeout, jitter) {
+    	return new CTimedCmd(cmd, timeout, jitter ?? 0);
+    }
+
+    /* src\plus-over\PlusOver.svelte generated by Svelte v3.52.0 */
+
+    let _game$1;
+    let _tcNewRound = newTimedCmd$3("--cmd-new-round", 1000);
+    let _tcIdle = newTimedCmd$3("--cmd-idle", 10000, 3000);
+    let _playbook = [];
+    let _roundNo = -1;
+    let _m = [1, 8];
+
+    function getPair() {
+    	let nums = Anki.tokens();
+    	let pairs = [];
+
+    	for (let i = 0; i < nums.length - 1; i += 2) {
+    		pairs.push([parseInt(nums[i]), parseInt(nums[i + 1])]);
+    	}
+
+    	let pair = randFrom(pairs);
+    	return pair;
+    }
+
+    function splitToLines(numsInLine) {
+    	let lines = [];
+    	let line = [];
+
+    	for (let token of Anki.tokens()) {
+    		let num = parseInt(token);
+    		line.push(num);
+
+    		if (line.length == numsInLine) {
+    			lines.push(line);
+    			line = [];
+    		}
+    	}
+
+    	return lines;
+    }
+
+    function getLine() {
+    	return randFrom(splitToLines(4));
+    }
+
+    function addPlusRound() {
+    	let pair = getPair();
+    	let sumDigit = (pair[0] + pair[1]) % 10;
+    	let op = '+';
+    	let a0 = pair[0];
+    	let a1 = rand(_m[0], _m[1]);
+    	let a = 10 * a1 + a0;
+    	let b0 = pair[1];
+    	let b1 = rand(_m[0], _m[1] + 1 - a1);
+    	let b = 10 * b1 + b0;
+    	let ans = a + b;
+    	let nums = shuffle([a, b]);
+    	let answers = shuffle([ans, ans + randSign() * rand(1, 9), ans > 50 ? ans - 10 : ans + 10]);
+    	let rightAt = answers.findIndex(x => x == ans);
+
+    	_playbook.push({
+    		pair,
+    		nums,
+    		op,
+    		sumDigit,
+    		answers,
+    		rightAt
+    	});
+    }
+
+    function addMinusRound() {
+    	let pair = getPair();
+    	let sumDigit = (pair[0] + pair[1]) % 10;
+    	let op = '-';
+    	let a0 = pair[0];
+    	let a1 = rand(_m[0], _m[1] + 1);
+    	let a = 10 * a1 + a0;
+    	let b1 = rand(_m[0], _m[1] + 1 - a1);
+    	let b0 = pair[1];
+    	let b = 10 * b1 + b0;
+    	let sum = a + b;
+    	let nums = [sum, trueFalse() ? a : b];
+    	let ans = sum - nums[1];
+    	let answers = shuffle([ans, ans + rand(1, 9) * randSign(), ans > 50 ? ans - 10 : ans + 10]);
+    	let rightAt = answers.findIndex(x => x == ans);
+
+    	_playbook.push({
+    		pair,
+    		nums,
+    		op,
+    		sumDigit,
+    		answers,
+    		rightAt
+    	});
+    }
+
+    function addMulRound() {
+    	let line = getLine();
+    	let a = rand(line[0], line[1]);
+    	let b = rand(line[2], line[3]);
+    	let pair = [a % 10, b % 10];
+    	let nums = shuffle([a, b]);
+    	let op = "x";
+    	let ans = a * b;
+    	let sumDigit = ans % 10;
+    	let answers = shuffle([ans, ans + randSign() * Math.min(...nums), ans > 50 ? ans - 10 : ans + 10]);
+    	let rightAt = answers.findIndex(x => x == ans);
+
+    	_playbook.push({
+    		pair,
+    		nums,
+    		op,
+    		sumDigit,
+    		answers,
+    		rightAt
+    	});
+    }
+
+    function addDivRound() {
+    	let line = getLine();
+    	let a = rand(line[0], line[1]);
+    	let b = rand(line[2], line[3]);
+    	let prod = a * b;
+    	let pair = [a % 10, b % 10];
+    	let nums = [prod, randFrom([a, b])];
+    	let op = '/';
+    	let ans = prod / nums[1];
+    	let sumDigit = a * b % 10;
+    	let answers = shuffle([ans, ans > 2 ? ans + randSign() : ans + 1, ans > 50 ? ans - 10 : ans + 10]);
+    	let rightAt = answers.findIndex(x => x == ans);
+
+    	_playbook.push({
+    		pair,
+    		nums,
+    		op,
+    		sumDigit,
+    		answers,
+    		rightAt
+    	});
+    }
+
+    function addNextRounds() {
+    	let config = Anki.getConfig();
+
+    	switch (config.game.toLocaleLowerCase()) {
+    		case "plus-over":
+    			addPlusRound();
+    			addMinusRound();
+    			break;
+    		case "mul-div":
+    			addMulRound();
+    			addDivRound();
+    			break;
+    	}
+    }
+
+    function fillRoundsAtStart() {
+    	let config = Anki.getConfig();
+    	let noOfRounds = config.rounds ?? 4;
+
+    	for (let cnt = noOfRounds; cnt-- > 0; ) {
+    		addNextRounds();
+    	}
+    }
+
+    class CPlusOver {
+    	constructor() {
+    		for (let cmd of Anki.commands()) {
+    			switch (cmd[0].toLocaleLowerCase()) {
+    				case "m":
+    					_m = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    			}
+    		}
+    	}
+
+    	newRound() {
+    		let config = Anki.getConfig();
+    		_tcIdle.reset();
+    		_tcNewRound.cancel();
+    		_roundNo++;
+    		if (_roundNo >= _playbook.length) error(`Round index out of bound: ${_roundNo} length=${_playbook.length}`);
+    		let round = _playbook[_roundNo];
+    		let count = _playbook.length - _roundNo;
+    		let showHint = config.showHint ?? true;
+
+    		_game$1 = {
+    			roundsLeft: count,
+    			clickedAt: 0,
+    			state: "first-click",
+    			showHint,
+    			...round
+    		};
+
+    		fire$4("--cmd-update-views", _game$1);
+    	}
+
+    	gotClicked() {
+    		switch (_game$1.state) {
+    			case "first-click":
+    				fire$4("--evt-answer");
+    				break;
+    			case "answered":
+    				fire$4("--cmd-new-round");
+    				break;
+    		}
+    	}
+
+    	yesNo() {
+    		if (_game$1.state !== "answered") return;
+    		if (_game$1.roundsLeft <= 0) return;
+    		let correct = _game$1.clickedAt === _game$1.rightAt;
+    		fire$4(correct ? "--evt-yes" : "--evt-no");
+    	}
+
+    	gotAnswer(args) {
+    		_tcIdle.reset();
+
+    		switch (_game$1.state) {
+    			case "first-click":
+    				_game$1.state = "active";
+    				break;
+    			case "active":
+    				_game$1.clickedAt = args.index;
+    				_game$1.state = "answered";
+    				this.yesNo();
+    				break;
+    			case "answered":
+    				fire$4("--cmd-new-round");
+    				return;
+    		}
+
+    		fire$4("--cmd-update-views", _game$1);
+    	}
+
+    	yes() {
+    		if (_game$1.roundsLeft === 1) {
+    			fire$4("--evt-done");
+    		} else {
+    			Mp3.play("yes");
+    		}
+
+    		_tcNewRound.reset();
+    	}
+
+    	no() {
+    		Mp3.play("no");
+    		addNextRounds();
+    	}
+
+    	done() {
+    		Mp3.play("done");
+    		addNextRounds();
+    	}
+
+    	idle() {
+    		_tcIdle.reset();
+    		Mp3.play("idle");
+    	}
+    }
+
+    const PlusOver = new CPlusOver();
+    fillRoundsAtStart();
+
+    /* src\plus-over\Count.svelte generated by Svelte v3.52.0 */
+    const file$n = "src\\plus-over\\Count.svelte";
+
+    function create_fragment$s(ctx) {
+    	let button;
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t = text(/*_count*/ ctx[2]);
+    			attr_dev(button, "class", /*_bgColor*/ ctx[3]);
+    			set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			set_style(button, "font-size", /*sz*/ ctx[1]);
+    			add_location(button, file$n, 14, 0, 421);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t);
+
+    			if (!mounted) {
+    				dispose = [
+    					action_destroyer(pulse.call(null, button)),
+    					action_destroyer(bounceOnDrag.call(null, button))
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*_count*/ 4) set_data_dev(t, /*_count*/ ctx[2]);
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			}
+
+    			if (dirty & /*sz*/ 2) {
+    				set_style(button, "font-size", /*sz*/ ctx[1]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$s.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$s($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Count', slots, []);
+    	let _count;
+    	let { ga } = $$props;
+    	let { sz = "30px" } = $$props;
+
+    	function updateView(game) {
+    		$$invalidate(2, _count = game.roundsLeft.toString());
+    	}
+
+    	on$4("--cmd-update-views", updateView);
+    	let _bgColor = getBgColor(ga);
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Count> was created without expected prop 'ga'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Count> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('sz' in $$props) $$invalidate(1, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		pulse,
+    		getBgColor,
+    		bounceOnDrag,
+    		on: on$4,
+    		_count,
+    		ga,
+    		sz,
+    		updateView,
+    		_bgColor
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('_count' in $$props) $$invalidate(2, _count = $$props._count);
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('sz' in $$props) $$invalidate(1, sz = $$props.sz);
+    		if ('_bgColor' in $$props) $$invalidate(3, _bgColor = $$props._bgColor);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [ga, sz, _count, _bgColor];
+    }
+
+    class Count$2 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$s, create_fragment$s, safe_not_equal, { ga: 0, sz: 1 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Count",
+    			options,
+    			id: create_fragment$s.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Count>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Count>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<Count>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<Count>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\plus-over\Num.svelte generated by Svelte v3.52.0 */
+    const file$m = "src\\plus-over\\Num.svelte";
+
+    function create_fragment$r(ctx) {
+    	let button;
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t = text(/*_num*/ ctx[1]);
+    			attr_dev(button, "class", /*_bgColor*/ ctx[3]);
+    			set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			set_style(button, "font-size", /*_sz*/ ctx[2] + "px");
+    			add_location(button, file$m, 22, 0, 620);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button, "click", /*onClick*/ ctx[4], false, false, false),
+    					action_destroyer(pulse.call(null, button)),
+    					action_destroyer(bounceOnDrag.call(null, button)),
+    					action_destroyer(soundsOnDrag.call(null, button, new Map([["drag:start", "yes"], ["drag:end", "no"]])))
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*_num*/ 2) set_data_dev(t, /*_num*/ ctx[1]);
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			}
+
+    			if (dirty & /*_sz*/ 4) {
+    				set_style(button, "font-size", /*_sz*/ ctx[2] + "px");
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$r.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$r($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Num', slots, []);
+    	let { ga } = $$props;
+    	let { index } = $$props;
+    	let { sz = 30 } = $$props;
+    	let _num;
+    	let _bgColor = getBgColor(ga);
+    	let _scale;
+    	let _sz;
+
+    	function onClick() {
+    		fire$4("--evt-click");
+    	}
+
+    	function updateView(game) {
+    		$$invalidate(1, _num = game.nums[index].toLocaleString('en'));
+    		_scale = _num.length <= 3 ? 1.2 : 2.0;
+    		$$invalidate(2, _sz = sz - _scale * _num.length);
+    	}
+
+    	on$4("--cmd-update-views", updateView);
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Num> was created without expected prop 'ga'");
+    		}
+
+    		if (index === undefined && !('index' in $$props || $$self.$$.bound[$$self.$$.props['index']])) {
+    			console.warn("<Num> was created without expected prop 'index'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'index', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Num> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('index' in $$props) $$invalidate(5, index = $$props.index);
+    		if ('sz' in $$props) $$invalidate(6, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		pulse,
+    		getBgColor,
+    		bounceOnDrag,
+    		soundsOnDrag,
+    		on: on$4,
+    		fire: fire$4,
+    		ga,
+    		index,
+    		sz,
+    		_num,
+    		_bgColor,
+    		_scale,
+    		_sz,
+    		onClick,
+    		updateView
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('index' in $$props) $$invalidate(5, index = $$props.index);
+    		if ('sz' in $$props) $$invalidate(6, sz = $$props.sz);
+    		if ('_num' in $$props) $$invalidate(1, _num = $$props._num);
+    		if ('_bgColor' in $$props) $$invalidate(3, _bgColor = $$props._bgColor);
+    		if ('_scale' in $$props) _scale = $$props._scale;
+    		if ('_sz' in $$props) $$invalidate(2, _sz = $$props._sz);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [ga, _num, _sz, _bgColor, onClick, index, sz];
+    }
+
+    class Num$2 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$r, create_fragment$r, safe_not_equal, { ga: 0, index: 5, sz: 6 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Num",
+    			options,
+    			id: create_fragment$r.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Num>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Num>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get index() {
+    		throw new Error("<Num>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set index(value) {
+    		throw new Error("<Num>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<Num>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<Num>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\plus-over\Op.svelte generated by Svelte v3.52.0 */
+    const file$l = "src\\plus-over\\Op.svelte";
+
+    function create_fragment$q(ctx) {
+    	let button;
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t = text(/*_op*/ ctx[2]);
+    			attr_dev(button, "class", /*_bgColor*/ ctx[3]);
+    			set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			set_style(button, "font-size", /*sz*/ ctx[1]);
+    			add_location(button, file$l, 15, 0, 447);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button, "click", /*click_handler*/ ctx[4], false, false, false),
+    					action_destroyer(pulse.call(null, button)),
+    					action_destroyer(bounceOnDrag.call(null, button))
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*_op*/ 4) set_data_dev(t, /*_op*/ ctx[2]);
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			}
+
+    			if (dirty & /*sz*/ 2) {
+    				set_style(button, "font-size", /*sz*/ ctx[1]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$q.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$q($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Op', slots, []);
+    	let { ga } = $$props;
+    	let { sz = "30px" } = $$props;
+    	let _op = "+";
+    	let _bgColor = getBgColor(ga);
+
+    	function updateView(game) {
+    		$$invalidate(2, _op = game.op);
+    	}
+
+    	on$4("--cmd-update-views", updateView);
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Op> was created without expected prop 'ga'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Op> was created with unknown prop '${key}'`);
+    	});
+
+    	const click_handler = () => Mp3.playRandom();
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('sz' in $$props) $$invalidate(1, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		pulse,
+    		Mp3,
+    		getBgColor,
+    		bounceOnDrag,
+    		on: on$4,
+    		ga,
+    		sz,
+    		_op,
+    		_bgColor,
+    		updateView
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('sz' in $$props) $$invalidate(1, sz = $$props.sz);
+    		if ('_op' in $$props) $$invalidate(2, _op = $$props._op);
+    		if ('_bgColor' in $$props) $$invalidate(3, _bgColor = $$props._bgColor);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [ga, sz, _op, _bgColor, click_handler];
+    }
+
+    class Op$1 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$q, create_fragment$q, safe_not_equal, { ga: 0, sz: 1 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Op",
+    			options,
+    			id: create_fragment$q.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Op>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Op>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<Op>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<Op>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\plus-over\Ans.svelte generated by Svelte v3.52.0 */
+    const file$k = "src\\plus-over\\Ans.svelte";
+
+    function create_fragment$p(ctx) {
+    	let button;
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t = text(/*_text*/ ctx[1]);
+    			attr_dev(button, "class", /*_class*/ ctx[2]);
+    			set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			set_style(button, "font-size", /*_sz*/ ctx[3] + "px");
+    			add_location(button, file$k, 38, 0, 1026);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button, "click", /*onClick*/ ctx[4], false, false, false),
+    					action_destroyer(pulse.call(null, button)),
+    					action_destroyer(bounceOnDrag.call(null, button))
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*_text*/ 2) set_data_dev(t, /*_text*/ ctx[1]);
+
+    			if (dirty & /*_class*/ 4) {
+    				attr_dev(button, "class", /*_class*/ ctx[2]);
+    			}
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			}
+
+    			if (dirty & /*_sz*/ 8) {
+    				set_style(button, "font-size", /*_sz*/ ctx[3] + "px");
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$p.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$p($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Ans', slots, []);
+    	let _text;
+    	let _class;
+    	let _scale;
+    	let _sz;
+    	let { ga } = $$props;
+    	let { index } = $$props;
+    	let { sz = 30 } = $$props;
+
+    	function onClick() {
+    		fire$4("--evt-answer", { index });
+    	}
+
+    	function getText(game) {
+    		if (game.state === "first-click") return "??";
+    		return game.answers[index].toLocaleString('en');
+    	}
+
+    	function getClass(game) {
+    		if (game.state === "first-click") return "bg-gray-100";
+    		if (game.state === "active") return "bg-orange-200";
+    		if (game.rightAt === index) return "bg-green-200";
+    		if (game.clickedAt !== index) return "bg-gray-100";
+    		return "bg-red-200";
+    	}
+
+    	function updateView(game) {
+    		$$invalidate(1, _text = getText(game));
+    		$$invalidate(2, _class = getClass(game));
+    		_scale = _text.length <= 3 ? 1.2 : 2.0;
+    		$$invalidate(3, _sz = sz - _scale * _text.length);
+    	}
+
+    	on$4("--cmd-update-views", updateView);
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Ans> was created without expected prop 'ga'");
+    		}
+
+    		if (index === undefined && !('index' in $$props || $$self.$$.bound[$$self.$$.props['index']])) {
+    			console.warn("<Ans> was created without expected prop 'index'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'index', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Ans> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('index' in $$props) $$invalidate(5, index = $$props.index);
+    		if ('sz' in $$props) $$invalidate(6, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		pulse,
+    		bounceOnDrag,
+    		on: on$4,
+    		fire: fire$4,
+    		_text,
+    		_class,
+    		_scale,
+    		_sz,
+    		ga,
+    		index,
+    		sz,
+    		onClick,
+    		getText,
+    		getClass,
+    		updateView
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('_text' in $$props) $$invalidate(1, _text = $$props._text);
+    		if ('_class' in $$props) $$invalidate(2, _class = $$props._class);
+    		if ('_scale' in $$props) _scale = $$props._scale;
+    		if ('_sz' in $$props) $$invalidate(3, _sz = $$props._sz);
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('index' in $$props) $$invalidate(5, index = $$props.index);
+    		if ('sz' in $$props) $$invalidate(6, sz = $$props.sz);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [ga, _text, _class, _sz, onClick, index, sz];
+    }
+
+    class Ans$3 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$p, create_fragment$p, safe_not_equal, { ga: 0, index: 5, sz: 6 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Ans",
+    			options,
+    			id: create_fragment$p.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get index() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set index(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\plus-over\Pair.svelte generated by Svelte v3.52.0 */
+    const file$j = "src\\plus-over\\Pair.svelte";
+
+    function create_fragment$o(ctx) {
+    	let div;
+    	let button0;
+    	let t0;
+    	let t1;
+    	let button1;
+    	let t2;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			button0 = element("button");
+    			t0 = text(/*p1*/ ctx[2]);
+    			t1 = space();
+    			button1 = element("button");
+    			t2 = text(/*p2*/ ctx[3]);
+    			attr_dev(button0, "class", /*_bgColor*/ ctx[4]);
+    			add_location(button0, file$j, 17, 4, 559);
+    			attr_dev(button1, "class", /*_bgColor*/ ctx[4]);
+    			add_location(button1, file$j, 24, 4, 678);
+    			set_style(div, "grid-area", /*ga*/ ctx[0]);
+    			set_style(div, "font-size", /*sz*/ ctx[1]);
+    			add_location(div, file$j, 16, 0, 510);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, button0);
+    			append_dev(button0, t0);
+    			append_dev(div, t1);
+    			append_dev(div, button1);
+    			append_dev(button1, t2);
+
+    			if (!mounted) {
+    				dispose = [
+    					action_destroyer(pulse.call(null, button0)),
+    					action_destroyer(bounceOnDrag.call(null, button0)),
+    					action_destroyer(pulse.call(null, button1)),
+    					action_destroyer(bounceOnDrag.call(null, button1))
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*p1*/ 4) set_data_dev(t0, /*p1*/ ctx[2]);
+    			if (dirty & /*p2*/ 8) set_data_dev(t2, /*p2*/ ctx[3]);
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(div, "grid-area", /*ga*/ ctx[0]);
+    			}
+
+    			if (dirty & /*sz*/ 2) {
+    				set_style(div, "font-size", /*sz*/ ctx[1]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$o.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$o($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Pair', slots, []);
+    	let { ga } = $$props;
+    	let { sz = "15px" } = $$props;
+    	let _bgColor = getBgColor(ga);
+    	let p1 = "?";
+    	let p2 = "?";
+
+    	function updateView(game) {
+    		$$invalidate(2, p1 = game.showHint ? game.pair[0].toString() : "?");
+    		$$invalidate(3, p2 = game.showHint ? game.pair[1].toString() : "?");
+    	}
+
+    	on$4("--cmd-update-views", updateView);
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Pair> was created without expected prop 'ga'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Pair> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('sz' in $$props) $$invalidate(1, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		pulse,
+    		getBgColor,
+    		bounceOnDrag,
+    		on: on$4,
+    		ga,
+    		sz,
+    		_bgColor,
+    		p1,
+    		p2,
+    		updateView
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('sz' in $$props) $$invalidate(1, sz = $$props.sz);
+    		if ('_bgColor' in $$props) $$invalidate(4, _bgColor = $$props._bgColor);
+    		if ('p1' in $$props) $$invalidate(2, p1 = $$props.p1);
+    		if ('p2' in $$props) $$invalidate(3, p2 = $$props.p2);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [ga, sz, p1, p2, _bgColor];
+    }
+
+    class Pair extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$o, create_fragment$o, safe_not_equal, { ga: 0, sz: 1 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Pair",
+    			options,
+    			id: create_fragment$o.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Pair>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Pair>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<Pair>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<Pair>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\plus-over\Digit.svelte generated by Svelte v3.52.0 */
+    const file$i = "src\\plus-over\\Digit.svelte";
+
+    function create_fragment$n(ctx) {
+    	let div;
+    	let button;
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			button = element("button");
+    			t = text(/*_digit*/ ctx[2]);
+    			attr_dev(button, "class", /*_bgColor*/ ctx[3]);
+    			add_location(button, file$i, 16, 4, 499);
+    			set_style(div, "grid-area", /*ga*/ ctx[0]);
+    			set_style(div, "font-size", /*sz*/ ctx[1]);
+    			add_location(div, file$i, 15, 0, 450);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, button);
+    			append_dev(button, t);
+
+    			if (!mounted) {
+    				dispose = [
+    					action_destroyer(pulse.call(null, button)),
+    					action_destroyer(bounceOnDrag.call(null, button))
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*_digit*/ 4) set_data_dev(t, /*_digit*/ ctx[2]);
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(div, "grid-area", /*ga*/ ctx[0]);
+    			}
+
+    			if (dirty & /*sz*/ 2) {
+    				set_style(div, "font-size", /*sz*/ ctx[1]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$n.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$n($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Digit', slots, []);
+    	let { ga } = $$props;
+    	let { sz = "15px" } = $$props;
+    	let _digit;
+    	let _bgColor = getBgColor(ga);
+
+    	function updateView(game) {
+    		$$invalidate(2, _digit = game.showHint ? game.sumDigit.toString() : "?");
+    	}
+
+    	on$4("--cmd-update-views", updateView);
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Digit> was created without expected prop 'ga'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Digit> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('sz' in $$props) $$invalidate(1, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		pulse,
+    		getBgColor,
+    		bounceOnDrag,
+    		on: on$4,
+    		ga,
+    		sz,
+    		_digit,
+    		_bgColor,
+    		updateView
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('sz' in $$props) $$invalidate(1, sz = $$props.sz);
+    		if ('_digit' in $$props) $$invalidate(2, _digit = $$props._digit);
+    		if ('_bgColor' in $$props) $$invalidate(3, _bgColor = $$props._bgColor);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [ga, sz, _digit, _bgColor];
+    }
+
+    class Digit extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$n, create_fragment$n, safe_not_equal, { ga: 0, sz: 1 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Digit",
+    			options,
+    			id: create_fragment$n.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Digit>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Digit>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<Digit>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<Digit>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\plus-over\Main.svelte generated by Svelte v3.52.0 */
+
+    // (45:0) <Grid {layout}      on:click={() => fire("--evt-click")}  >
+    function create_default_slot$6(ctx) {
+    	let count;
+    	let t0;
+    	let pair;
+    	let t1;
+    	let digit;
+    	let t2;
+    	let clock;
+    	let t3;
+    	let num0;
+    	let t4;
+    	let op;
+    	let t5;
+    	let num1;
+    	let t6;
+    	let ans0;
+    	let t7;
+    	let ans1;
+    	let t8;
+    	let ans2;
+    	let t9;
+    	let congrats_1;
+    	let current;
+    	count = new Count$2({ props: { ga: "cnt" }, $$inline: true });
+    	pair = new Pair({ props: { ga: "p1" }, $$inline: true });
+    	digit = new Digit({ props: { ga: "p2" }, $$inline: true });
+    	clock = new Clock({ props: { ga: "clk" }, $$inline: true });
+
+    	num0 = new Num$2({
+    			props: { ga: "lhs", index: 0 },
+    			$$inline: true
+    		});
+
+    	op = new Op$1({ props: { ga: "op" }, $$inline: true });
+
+    	num1 = new Num$2({
+    			props: { ga: "rhs", index: 1 },
+    			$$inline: true
+    		});
+
+    	ans0 = new Ans$3({
+    			props: { ga: "a1", index: 0 },
+    			$$inline: true
+    		});
+
+    	ans1 = new Ans$3({
+    			props: { ga: "a2", index: 1 },
+    			$$inline: true
+    		});
+
+    	ans2 = new Ans$3({
+    			props: { ga: "a3", index: 2 },
+    			$$inline: true
+    		});
+
+    	let congrats_1_props = {};
+    	congrats_1 = new Congrats({ props: congrats_1_props, $$inline: true });
+    	/*congrats_1_binding*/ ctx[2](congrats_1);
+
+    	const block = {
+    		c: function create() {
+    			create_component(count.$$.fragment);
+    			t0 = space();
+    			create_component(pair.$$.fragment);
+    			t1 = space();
+    			create_component(digit.$$.fragment);
+    			t2 = space();
+    			create_component(clock.$$.fragment);
+    			t3 = space();
+    			create_component(num0.$$.fragment);
+    			t4 = space();
+    			create_component(op.$$.fragment);
+    			t5 = space();
+    			create_component(num1.$$.fragment);
+    			t6 = space();
+    			create_component(ans0.$$.fragment);
+    			t7 = space();
+    			create_component(ans1.$$.fragment);
+    			t8 = space();
+    			create_component(ans2.$$.fragment);
+    			t9 = space();
+    			create_component(congrats_1.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(count, target, anchor);
+    			insert_dev(target, t0, anchor);
+    			mount_component(pair, target, anchor);
+    			insert_dev(target, t1, anchor);
+    			mount_component(digit, target, anchor);
+    			insert_dev(target, t2, anchor);
+    			mount_component(clock, target, anchor);
+    			insert_dev(target, t3, anchor);
+    			mount_component(num0, target, anchor);
+    			insert_dev(target, t4, anchor);
+    			mount_component(op, target, anchor);
+    			insert_dev(target, t5, anchor);
+    			mount_component(num1, target, anchor);
+    			insert_dev(target, t6, anchor);
+    			mount_component(ans0, target, anchor);
+    			insert_dev(target, t7, anchor);
+    			mount_component(ans1, target, anchor);
+    			insert_dev(target, t8, anchor);
+    			mount_component(ans2, target, anchor);
+    			insert_dev(target, t9, anchor);
+    			mount_component(congrats_1, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const congrats_1_changes = {};
+    			congrats_1.$set(congrats_1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(count.$$.fragment, local);
+    			transition_in(pair.$$.fragment, local);
+    			transition_in(digit.$$.fragment, local);
+    			transition_in(clock.$$.fragment, local);
+    			transition_in(num0.$$.fragment, local);
+    			transition_in(op.$$.fragment, local);
+    			transition_in(num1.$$.fragment, local);
+    			transition_in(ans0.$$.fragment, local);
+    			transition_in(ans1.$$.fragment, local);
+    			transition_in(ans2.$$.fragment, local);
+    			transition_in(congrats_1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(count.$$.fragment, local);
+    			transition_out(pair.$$.fragment, local);
+    			transition_out(digit.$$.fragment, local);
+    			transition_out(clock.$$.fragment, local);
+    			transition_out(num0.$$.fragment, local);
+    			transition_out(op.$$.fragment, local);
+    			transition_out(num1.$$.fragment, local);
+    			transition_out(ans0.$$.fragment, local);
+    			transition_out(ans1.$$.fragment, local);
+    			transition_out(ans2.$$.fragment, local);
+    			transition_out(congrats_1.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(count, detaching);
+    			if (detaching) detach_dev(t0);
+    			destroy_component(pair, detaching);
+    			if (detaching) detach_dev(t1);
+    			destroy_component(digit, detaching);
+    			if (detaching) detach_dev(t2);
+    			destroy_component(clock, detaching);
+    			if (detaching) detach_dev(t3);
+    			destroy_component(num0, detaching);
+    			if (detaching) detach_dev(t4);
+    			destroy_component(op, detaching);
+    			if (detaching) detach_dev(t5);
+    			destroy_component(num1, detaching);
+    			if (detaching) detach_dev(t6);
+    			destroy_component(ans0, detaching);
+    			if (detaching) detach_dev(t7);
+    			destroy_component(ans1, detaching);
+    			if (detaching) detach_dev(t8);
+    			destroy_component(ans2, detaching);
+    			if (detaching) detach_dev(t9);
+    			/*congrats_1_binding*/ ctx[2](null);
+    			destroy_component(congrats_1, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$6.name,
+    		type: "slot",
+    		source: "(45:0) <Grid {layout}      on:click={() => fire(\\\"--evt-click\\\")}  >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$m(ctx) {
+    	let grid;
+    	let current;
+
+    	grid = new Grid({
+    			props: {
+    				layout: /*layout*/ ctx[1],
+    				$$slots: { default: [create_default_slot$6] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	grid.$on("click", /*click_handler*/ ctx[3]);
+
+    	const block = {
+    		c: function create() {
+    			create_component(grid.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(grid, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			const grid_changes = {};
+
+    			if (dirty & /*$$scope, congrats*/ 33) {
+    				grid_changes.$$scope = { dirty, ctx };
+    			}
+
+    			grid.$set(grid_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(grid.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(grid.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(grid, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$m.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$m($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Main', slots, []);
+    	let congrats;
+
+    	function done() {
+    		congrats.play();
+    		PlusOver.done();
+    	}
+
+    	on$4("--cmd-new-round", () => PlusOver.newRound());
+    	on$4("--evt-answer", args => PlusOver.gotAnswer(args));
+    	on$4("--evt-click", () => PlusOver.gotClicked());
+    	on$4("--evt-done", () => done());
+    	on$4("--evt-yes", () => PlusOver.yes());
+    	on$4("--evt-no", () => PlusOver.no());
+    	on$4("--cmd-idle", () => PlusOver.idle());
+    	fire$4("--cmd-new-round");
+
+    	let layout = {
+    		areas: `
+            "cnt   p1   clk "
+            "cnt   p2   clk "
+            "lhs   op   rhs "
+            "a1    a2   a3  "
+        `,
+    		cols: `1fr 1fr 1fr`,
+    		rows: `30px 30px 100px 100px`,
+    		bgColors: {
+    			cnt: "bg-purple-300",
+    			p1: "bg-yellow-100",
+    			p2: "bg-pink-100",
+    			lhs: "bg-green-100",
+    			op: "bg-yellow-200",
+    			rhs: "bg-green-100"
+    		}
+    	};
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Main> was created with unknown prop '${key}'`);
+    	});
+
+    	function congrats_1_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			congrats = $$value;
+    			$$invalidate(0, congrats);
+    		});
+    	}
+
+    	const click_handler = () => fire$4("--evt-click");
+
+    	$$self.$capture_state = () => ({
+    		Grid,
+    		Clock,
+    		Congrats,
+    		self: PlusOver,
+    		on: on$4,
+    		fire: fire$4,
+    		Count: Count$2,
+    		Num: Num$2,
+    		Op: Op$1,
+    		Ans: Ans$3,
+    		Pair,
+    		Digit,
+    		congrats,
+    		done,
+    		layout
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('congrats' in $$props) $$invalidate(0, congrats = $$props.congrats);
+    		if ('layout' in $$props) $$invalidate(1, layout = $$props.layout);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [congrats, layout, congrats_1_binding, click_handler];
+    }
+
+    class Main$4 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$m, create_fragment$m, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Main",
+    			options,
+    			id: create_fragment$m.name
+    		});
+    	}
+    }
+
+    /* src\gcd-lcm\Model.svelte generated by Svelte v3.52.0 */
+
+    function on$3(name, cb) {
+    	onAny(name, cb);
+    }
+
+    function fire$3(name, args) {
+    	fireAny(name, args);
+    }
+
+    /* src\gcd-lcm\GcdLcm.svelte generated by Svelte v3.52.0 */
+
+    let _game;
+
+    class CGcdLcm {
+    	get game() {
+    		return _game;
+    	}
+
+    	newRound() {
+    		_game = {
+    			roundsLeft: 2,
+    			nums: [4, 5],
+    			divisors: [
+    				{ factor: 2, mxPow: 3 },
+    				{ factor: 3, mxPow: 3 },
+    				{ factor: 5, mxPow: 2 },
+    				{ factor: 7, mxPow: 1 }
+    			]
+    		};
+
+    		fire$3("--cmd-set-models", _game);
+    	}
+
+    	go() {
+    		
+    	}
+
+    	done() {
+    		
+    	}
+
+    	idle() {
+    		
+    	}
+    }
+
+    const GcdLcm = new CGcdLcm();
+
+    /* src\gcd-lcm\Go.svelte generated by Svelte v3.52.0 */
+    const file$h = "src\\gcd-lcm\\Go.svelte";
+
+    function create_fragment$l(ctx) {
+    	let button;
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t = text(/*_go*/ ctx[2]);
+    			attr_dev(button, "class", /*_bgColor*/ ctx[3]);
+    			set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			set_style(button, "font-size", /*sz*/ ctx[1]);
+    			add_location(button, file$h, 15, 0, 445);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button, "click", /*onClick*/ ctx[4], false, false, false),
+    					action_destroyer(pulse.call(null, button))
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*ga*/ 1) {
+    				set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			}
+
+    			if (dirty & /*sz*/ 2) {
+    				set_style(button, "font-size", /*sz*/ ctx[1]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$l.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$l($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Go', slots, []);
+    	let { ga } = $$props;
+    	let { sz = "30px" } = $$props;
+    	let _go = "GO";
+    	let _bgColor = getBgColor(ga);
+
+    	function onClick() {
+    		fire$3("--evt-go");
+    		Mp3.play(randFrom(["yes", "no", "idle"]));
+    	}
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Go> was created without expected prop 'ga'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Go> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('sz' in $$props) $$invalidate(1, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		randFrom,
+    		pulse,
+    		Mp3,
+    		getBgColor,
+    		fire: fire$3,
+    		ga,
+    		sz,
+    		_go,
+    		_bgColor,
+    		onClick
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('sz' in $$props) $$invalidate(1, sz = $$props.sz);
+    		if ('_go' in $$props) $$invalidate(2, _go = $$props._go);
+    		if ('_bgColor' in $$props) $$invalidate(3, _bgColor = $$props._bgColor);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [ga, sz, _go, _bgColor, onClick];
+    }
+
+    class Go extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$l, create_fragment$l, safe_not_equal, { ga: 0, sz: 1 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Go",
+    			options,
+    			id: create_fragment$l.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Go>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Go>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<Go>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<Go>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\gcd-lcm\Num.svelte generated by Svelte v3.52.0 */
+    const file$g = "src\\gcd-lcm\\Num.svelte";
+
+    function create_fragment$k(ctx) {
+    	let button;
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t = text(/*_num*/ ctx[2]);
+    			attr_dev(button, "class", /*_bgColor*/ ctx[3]);
+    			set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			set_style(button, "font-size", /*sz*/ ctx[1]);
+    			add_location(button, file$g, 12, 0, 272);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t);
+
+    			if (!mounted) {
+    				dispose = action_destroyer(pulse.call(null, button));
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*_num*/ 4) set_data_dev(t, /*_num*/ ctx[2]);
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			}
+
+    			if (dirty & /*sz*/ 2) {
+    				set_style(button, "font-size", /*sz*/ ctx[1]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$k.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$k($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Num', slots, []);
+    	let { ga } = $$props;
+    	let { sz = "30px" } = $$props;
+    	let _num = 2;
+    	let _bgColor = getBgColor(ga);
+
+    	function setModel(num) {
+    		$$invalidate(2, _num = num);
+    	}
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Num> was created without expected prop 'ga'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Num> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('sz' in $$props) $$invalidate(1, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		pulse,
+    		getBgColor,
+    		ga,
+    		sz,
+    		_num,
+    		_bgColor,
+    		setModel
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('sz' in $$props) $$invalidate(1, sz = $$props.sz);
+    		if ('_num' in $$props) $$invalidate(2, _num = $$props._num);
+    		if ('_bgColor' in $$props) $$invalidate(3, _bgColor = $$props._bgColor);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [ga, sz, _num, _bgColor, setModel];
+    }
+
+    class Num$1 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$k, create_fragment$k, safe_not_equal, { ga: 0, sz: 1, setModel: 4 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Num",
+    			options,
+    			id: create_fragment$k.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Num>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Num>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<Num>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<Num>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get setModel() {
+    		return this.$$.ctx[4];
+    	}
+
+    	set setModel(value) {
+    		throw new Error("<Num>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\gcd-lcm\Factor.svelte generated by Svelte v3.52.0 */
+    const file$f = "src\\gcd-lcm\\Factor.svelte";
+
+    function create_fragment$j(ctx) {
+    	let button;
+
+    	let t_value = (/*pow*/ ctx[2] > 0
+    	? /*value*/ ctx[4]
+    	: /*_*/ ctx[3].factor) + "";
+
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t = text(t_value);
+    			attr_dev(button, "class", /*bgColor*/ ctx[5]);
+    			set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			set_style(button, "font-size", /*sz*/ ctx[1]);
+    			add_location(button, file$f, 32, 0, 687);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button, "click", /*onClick*/ ctx[6], false, false, false),
+    					action_destroyer(pulse.call(null, button))
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*pow, value, _*/ 28 && t_value !== (t_value = (/*pow*/ ctx[2] > 0
+    			? /*value*/ ctx[4]
+    			: /*_*/ ctx[3].factor) + "")) set_data_dev(t, t_value);
+
+    			if (dirty & /*bgColor*/ 32) {
+    				attr_dev(button, "class", /*bgColor*/ ctx[5]);
+    			}
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			}
+
+    			if (dirty & /*sz*/ 2) {
+    				set_style(button, "font-size", /*sz*/ ctx[1]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$j.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$j($$self, $$props, $$invalidate) {
+    	let bgColor;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Factor', slots, []);
+    	let { ga } = $$props;
+    	let { sz = "30px" } = $$props;
+
+    	let _ = {
+    		factor: 2,
+    		mxPow: 3,
+    		value: 1,
+    		wrong: false
+    	};
+
+    	let value;
+    	let wrong = false;
+    	let pow = 0;
+
+    	function onClick() {
+    		if ($$invalidate(2, pow++, pow) == _.mxPow) $$invalidate(2, pow = 0);
+    		$$invalidate(3, _.value = _.factor ** pow, _);
+    		fire$3("--evt-acted");
+    		update();
+    	}
+
+    	function update() {
+    		$$invalidate(4, value = _.value);
+    		$$invalidate(9, wrong = _.wrong);
+    	}
+
+    	function setModel(model) {
+    		$$invalidate(3, _ = model);
+    	}
+
+    	on$3("--cmd-update-views", () => update());
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Factor> was created without expected prop 'ga'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Factor> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('sz' in $$props) $$invalidate(1, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		pulse,
+    		fire: fire$3,
+    		on: on$3,
+    		ga,
+    		sz,
+    		_,
+    		value,
+    		wrong,
+    		pow,
+    		onClick,
+    		update,
+    		setModel,
+    		bgColor
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('sz' in $$props) $$invalidate(1, sz = $$props.sz);
+    		if ('_' in $$props) $$invalidate(3, _ = $$props._);
+    		if ('value' in $$props) $$invalidate(4, value = $$props.value);
+    		if ('wrong' in $$props) $$invalidate(9, wrong = $$props.wrong);
+    		if ('pow' in $$props) $$invalidate(2, pow = $$props.pow);
+    		if ('bgColor' in $$props) $$invalidate(5, bgColor = $$props.bgColor);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*wrong, pow*/ 516) {
+    			$$invalidate(5, bgColor = wrong
+    			? "bg-red-100"
+    			: pow > 0 ? "bg-green-100" : "bg-gray-100");
+    		}
+    	};
+
+    	return [ga, sz, pow, _, value, bgColor, onClick, update, setModel, wrong];
+    }
+
+    class Factor extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$j, create_fragment$j, safe_not_equal, { ga: 0, sz: 1, update: 7, setModel: 8 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Factor",
+    			options,
+    			id: create_fragment$j.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Factor>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Factor>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<Factor>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<Factor>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get update() {
+    		return this.$$.ctx[7];
+    	}
+
+    	set update(value) {
+    		throw new Error("<Factor>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get setModel() {
+    		return this.$$.ctx[8];
+    	}
+
+    	set setModel(value) {
+    		throw new Error("<Factor>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\gcd-lcm\Count.svelte generated by Svelte v3.52.0 */
+    const file$e = "src\\gcd-lcm\\Count.svelte";
+
+    function create_fragment$i(ctx) {
+    	let button;
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t = text(/*_count*/ ctx[2]);
+    			attr_dev(button, "class", /*_bgColor*/ ctx[3]);
+    			set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			set_style(button, "font-size", /*sz*/ ctx[1]);
+    			add_location(button, file$e, 11, 0, 278);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t);
+
+    			if (!mounted) {
+    				dispose = action_destroyer(pulse.call(null, button));
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*_count*/ 4) set_data_dev(t, /*_count*/ ctx[2]);
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			}
+
+    			if (dirty & /*sz*/ 2) {
+    				set_style(button, "font-size", /*sz*/ ctx[1]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$i.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$i($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Count', slots, []);
+    	let _count = 1;
+    	let { ga } = $$props;
+    	let { sz = "20px" } = $$props;
+    	let _bgColor = getBgColor(ga);
+
+    	function setModel(count) {
+    		$$invalidate(2, _count = count);
+    	}
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Count> was created without expected prop 'ga'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Count> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('sz' in $$props) $$invalidate(1, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		pulse,
+    		getBgColor,
+    		_count,
+    		ga,
+    		sz,
+    		_bgColor,
+    		setModel
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('_count' in $$props) $$invalidate(2, _count = $$props._count);
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('sz' in $$props) $$invalidate(1, sz = $$props.sz);
+    		if ('_bgColor' in $$props) $$invalidate(3, _bgColor = $$props._bgColor);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [ga, sz, _count, _bgColor, setModel];
+    }
+
+    class Count$1 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$i, create_fragment$i, safe_not_equal, { ga: 0, sz: 1, setModel: 4 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Count",
+    			options,
+    			id: create_fragment$i.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Count>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Count>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<Count>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<Count>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get setModel() {
+    		return this.$$.ctx[4];
+    	}
+
+    	set setModel(value) {
+    		throw new Error("<Count>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\gcd-lcm\Main.svelte generated by Svelte v3.52.0 */
+
+    const { console: console_1$1 } = globals;
+
+    function get_each_context$5(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[16] = list[i];
+    	child_ctx[17] = list;
+    	child_ctx[18] = i;
+    	return child_ctx;
+    }
+
+    // (96:4) <Grid layout={l1} ga="l1">
+    function create_default_slot_3(ctx) {
+    	let count;
+    	let t;
+    	let clock;
+    	let current;
+    	let count_props = { ga: "cnt" };
+    	count = new Count$1({ props: count_props, $$inline: true });
+    	/*count_binding*/ ctx[6](count);
+    	clock = new Clock({ props: { ga: "clk" }, $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			create_component(count.$$.fragment);
+    			t = space();
+    			create_component(clock.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(count, target, anchor);
+    			insert_dev(target, t, anchor);
+    			mount_component(clock, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const count_changes = {};
+    			count.$set(count_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(count.$$.fragment, local);
+    			transition_in(clock.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(count.$$.fragment, local);
+    			transition_out(clock.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			/*count_binding*/ ctx[6](null);
+    			destroy_component(count, detaching);
+    			if (detaching) detach_dev(t);
+    			destroy_component(clock, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_3.name,
+    		type: "slot",
+    		source: "(96:4) <Grid layout={l1} ga=\\\"l1\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (101:4) <Grid layout={l2} ga="l2">
+    function create_default_slot_2(ctx) {
+    	let num0;
+    	let t;
+    	let num1;
+    	let current;
+    	let num0_props = { ga: "lhs" };
+    	num0 = new Num$1({ props: num0_props, $$inline: true });
+    	/*num0_binding*/ ctx[7](num0);
+    	let num1_props = { ga: "rhs" };
+    	num1 = new Num$1({ props: num1_props, $$inline: true });
+    	/*num1_binding*/ ctx[8](num1);
+
+    	const block = {
+    		c: function create() {
+    			create_component(num0.$$.fragment);
+    			t = space();
+    			create_component(num1.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(num0, target, anchor);
+    			insert_dev(target, t, anchor);
+    			mount_component(num1, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const num0_changes = {};
+    			num0.$set(num0_changes);
+    			const num1_changes = {};
+    			num1.$set(num1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(num0.$$.fragment, local);
+    			transition_in(num1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(num0.$$.fragment, local);
+    			transition_out(num1.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			/*num0_binding*/ ctx[7](null);
+    			destroy_component(num0, detaching);
+    			if (detaching) detach_dev(t);
+    			/*num1_binding*/ ctx[8](null);
+    			destroy_component(num1, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_2.name,
+    		type: "slot",
+    		source: "(101:4) <Grid layout={l2} ga=\\\"l2\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (107:8) {#each range(0, 8) as no}
+    function create_each_block$5(ctx) {
+    	let factor;
+    	let no = /*no*/ ctx[16];
+    	let current;
+    	const assign_factor = () => /*factor_binding*/ ctx[9](factor, no);
+    	const unassign_factor = () => /*factor_binding*/ ctx[9](null, no);
+    	let factor_props = { ga: "" + (/*no*/ ctx[16] + ",") };
+    	factor = new Factor({ props: factor_props, $$inline: true });
+    	assign_factor();
+
+    	const block = {
+    		c: function create() {
+    			create_component(factor.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(factor, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			if (no !== /*no*/ ctx[16]) {
+    				unassign_factor();
+    				no = /*no*/ ctx[16];
+    				assign_factor();
+    			}
+
+    			const factor_changes = {};
+    			factor.$set(factor_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(factor.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(factor.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			unassign_factor();
+    			destroy_component(factor, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$5.name,
+    		type: "each",
+    		source: "(107:8) {#each range(0, 8) as no}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (106:4) <Grid layout={l3} ga="l3">
+    function create_default_slot_1(ctx) {
+    	let each_1_anchor;
+    	let current;
+    	let each_value = range(0, 8);
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$5(get_each_context$5(ctx, each_value, i));
+    	}
+
+    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
+    		each_blocks[i] = null;
+    	});
+
+    	const block = {
+    		c: function create() {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each_1_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*range, view*/ 2) {
+    				each_value = range(0, 8);
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$5(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    						transition_in(each_blocks[i], 1);
+    					} else {
+    						each_blocks[i] = create_each_block$5(child_ctx);
+    						each_blocks[i].c();
+    						transition_in(each_blocks[i], 1);
+    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+    					}
+    				}
+
+    				group_outros();
+
+    				for (i = each_value.length; i < each_blocks.length; i += 1) {
+    					out(i);
+    				}
+
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			each_blocks = each_blocks.filter(Boolean);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(each_1_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1.name,
+    		type: "slot",
+    		source: "(106:4) <Grid layout={l3} ga=\\\"l3\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (95:0) <Grid {layout}>
+    function create_default_slot$5(ctx) {
+    	let grid0;
+    	let t0;
+    	let grid1;
+    	let t1;
+    	let grid2;
+    	let t2;
+    	let go;
+    	let t3;
+    	let congrats_1;
+    	let current;
+
+    	grid0 = new Grid({
+    			props: {
+    				layout: /*l1*/ ctx[3],
+    				ga: "l1",
+    				$$slots: { default: [create_default_slot_3] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	grid1 = new Grid({
+    			props: {
+    				layout: /*l2*/ ctx[4],
+    				ga: "l2",
+    				$$slots: { default: [create_default_slot_2] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	grid2 = new Grid({
+    			props: {
+    				layout: /*l3*/ ctx[5],
+    				ga: "l3",
+    				$$slots: { default: [create_default_slot_1] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	go = new Go({ props: { ga: "go" }, $$inline: true });
+    	go.$on("click", /*click_handler*/ ctx[10]);
+    	let congrats_1_props = {};
+    	congrats_1 = new Congrats({ props: congrats_1_props, $$inline: true });
+    	/*congrats_1_binding*/ ctx[11](congrats_1);
+
+    	const block = {
+    		c: function create() {
+    			create_component(grid0.$$.fragment);
+    			t0 = space();
+    			create_component(grid1.$$.fragment);
+    			t1 = space();
+    			create_component(grid2.$$.fragment);
+    			t2 = space();
+    			create_component(go.$$.fragment);
+    			t3 = space();
+    			create_component(congrats_1.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(grid0, target, anchor);
+    			insert_dev(target, t0, anchor);
+    			mount_component(grid1, target, anchor);
+    			insert_dev(target, t1, anchor);
+    			mount_component(grid2, target, anchor);
+    			insert_dev(target, t2, anchor);
+    			mount_component(go, target, anchor);
+    			insert_dev(target, t3, anchor);
+    			mount_component(congrats_1, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const grid0_changes = {};
+
+    			if (dirty & /*$$scope, view*/ 524290) {
+    				grid0_changes.$$scope = { dirty, ctx };
+    			}
+
+    			grid0.$set(grid0_changes);
+    			const grid1_changes = {};
+
+    			if (dirty & /*$$scope, view*/ 524290) {
+    				grid1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			grid1.$set(grid1_changes);
+    			const grid2_changes = {};
+
+    			if (dirty & /*$$scope, view*/ 524290) {
+    				grid2_changes.$$scope = { dirty, ctx };
+    			}
+
+    			grid2.$set(grid2_changes);
+    			const congrats_1_changes = {};
+    			congrats_1.$set(congrats_1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(grid0.$$.fragment, local);
+    			transition_in(grid1.$$.fragment, local);
+    			transition_in(grid2.$$.fragment, local);
+    			transition_in(go.$$.fragment, local);
+    			transition_in(congrats_1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(grid0.$$.fragment, local);
+    			transition_out(grid1.$$.fragment, local);
+    			transition_out(grid2.$$.fragment, local);
+    			transition_out(go.$$.fragment, local);
+    			transition_out(congrats_1.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(grid0, detaching);
+    			if (detaching) detach_dev(t0);
+    			destroy_component(grid1, detaching);
+    			if (detaching) detach_dev(t1);
+    			destroy_component(grid2, detaching);
+    			if (detaching) detach_dev(t2);
+    			destroy_component(go, detaching);
+    			if (detaching) detach_dev(t3);
+    			/*congrats_1_binding*/ ctx[11](null);
+    			destroy_component(congrats_1, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$5.name,
+    		type: "slot",
+    		source: "(95:0) <Grid {layout}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$h(ctx) {
+    	let grid;
+    	let current;
+
+    	grid = new Grid({
+    			props: {
+    				layout: /*layout*/ ctx[2],
+    				$$slots: { default: [create_default_slot$5] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(grid.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(grid, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			const grid_changes = {};
+
+    			if (dirty & /*$$scope, congrats, view*/ 524291) {
+    				grid_changes.$$scope = { dirty, ctx };
+    			}
+
+    			grid.$set(grid_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(grid.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(grid.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(grid, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$h.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$h($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Main', slots, []);
+    	let congrats;
+
+    	function done() {
+    		congrats.play();
+    		GcdLcm.done();
+    	}
+
+    	on$3("--cmd-new-round", () => GcdLcm.newRound());
+    	on$3("--evt-done", () => done());
+    	on$3("--cmd-idle", () => GcdLcm.idle());
+    	fire$3("--cmd-new-round");
+
+    	let layout = {
+    		areas: `
+            "l1"
+            "l2"
+            "l3"
+            "l4"
+            "go"
+        `,
+    		cols: `1fr`,
+    		rows: `60px 80px 150px 150px 80px`
+    	};
+
+    	let l1 = {
+    		areas: `
+            "cnt . clk"
+        `,
+    		cols: `2fr 1fr 2fr`,
+    		rows: `1fr`
+    	};
+
+    	let l2 = {
+    		areas: `
+            ". lhs rhs ."
+        `,
+    		cols: `1fr 1fr 1fr 1fr`,
+    		rows: `1fr`
+    	};
+
+    	let l3 = {
+    		areas: `
+            "0 1 2 3"
+            "4 5 6 7"
+        `,
+    		cols: `1fr 1fr 1fr 1fr`,
+    		rows: `1fr 1fr`
+    	};
+
+    	let l4 = {
+    		areas: `
+            "gcd lcm"
+        `,
+    		cols: `1fr 1fr`,
+    		rows: `1fr`
+    	};
+
+    	let gcd = {
+    		areas: `
+            "d1 d2"
+            "d3 d4"
+        `,
+    		cols: `1fr 1fr`,
+    		rows: `1fr 1fr`
+    	};
+
+    	let lcm = {
+    		areas: `
+            "m1 m2"
+            "m3 m4"
+        `,
+    		cols: `1fr 1fr`,
+    		rows: `1fr 1fr`
+    	};
+
+    	let view = {
+    		count: null,
+    		nums: new Array(2),
+    		factors: new Array(8),
+    		gcd: new Array(4),
+    		lcm: new Array(4)
+    	};
+
+    	on$3("--evt-go", () => {
+    		randFrom(GcdLcm.game.divisors).wrong = true;
+    		fire$3("--cmd-update-views");
+    	});
+
+    	on$3("--cmd-set-models", game => {
+    		view.count.setModel(game.roundsLeft);
+    		view.nums[0].setModel(game.nums[0]);
+    		view.nums[1].setModel(game.nums[1]);
+    		game.divisors.forEach((m, i) => view.factors[i].setModel(m));
+    	});
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1$1.warn(`<Main> was created with unknown prop '${key}'`);
+    	});
+
+    	function count_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			view.count = $$value;
+    			$$invalidate(1, view);
+    		});
+    	}
+
+    	function num0_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			view.nums[0] = $$value;
+    			$$invalidate(1, view);
+    		});
+    	}
+
+    	function num1_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			view.nums[1] = $$value;
+    			$$invalidate(1, view);
+    		});
+    	}
+
+    	function factor_binding($$value, no) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			view.factors[no] = $$value;
+    			$$invalidate(1, view);
+    		});
+    	}
+
+    	const click_handler = () => console.log("GO - main");
+
+    	function congrats_1_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			congrats = $$value;
+    			$$invalidate(0, congrats);
+    		});
+    	}
+
+    	$$self.$capture_state = () => ({
+    		Grid,
+    		Clock,
+    		randFrom,
+    		range,
+    		self: GcdLcm,
+    		on: on$3,
+    		fire: fire$3,
+    		Go,
+    		Num: Num$1,
+    		Factor,
+    		Count: Count$1,
+    		Congrats,
+    		congrats,
+    		done,
+    		layout,
+    		l1,
+    		l2,
+    		l3,
+    		l4,
+    		gcd,
+    		lcm,
+    		view
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('congrats' in $$props) $$invalidate(0, congrats = $$props.congrats);
+    		if ('layout' in $$props) $$invalidate(2, layout = $$props.layout);
+    		if ('l1' in $$props) $$invalidate(3, l1 = $$props.l1);
+    		if ('l2' in $$props) $$invalidate(4, l2 = $$props.l2);
+    		if ('l3' in $$props) $$invalidate(5, l3 = $$props.l3);
+    		if ('l4' in $$props) l4 = $$props.l4;
+    		if ('gcd' in $$props) gcd = $$props.gcd;
+    		if ('lcm' in $$props) lcm = $$props.lcm;
+    		if ('view' in $$props) $$invalidate(1, view = $$props.view);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		congrats,
+    		view,
+    		layout,
+    		l1,
+    		l2,
+    		l3,
+    		count_binding,
+    		num0_binding,
+    		num1_binding,
+    		factor_binding,
+    		click_handler,
+    		congrats_1_binding
+    	];
+    }
+
+    class Main$3 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$h, create_fragment$h, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Main",
+    			options,
+    			id: create_fragment$h.name
+    		});
+    	}
+    }
+
+    /* src\zero\Model.svelte generated by Svelte v3.52.0 */
+
+    function on$2(name, cb) {
+    	onAny(name, cb);
+    }
+
+    function fire$2(name, args) {
+    	fireAny(name, args);
+    }
+
+    function newTimedCmd$2(cmd, timeout, jitter) {
+    	return new CTimedCmd(cmd, timeout, jitter ?? 0);
+    }
+
+    /* src\zero\Count.svelte generated by Svelte v3.52.0 */
+    const file$d = "src\\zero\\Count.svelte";
+
+    function create_fragment$g(ctx) {
+    	let button;
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t = text(/*count*/ ctx[1]);
+    			attr_dev(button, "class", /*_bgColor*/ ctx[3]);
+    			set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			set_style(button, "font-size", /*sz*/ ctx[2]);
+    			add_location(button, file$d, 9, 0, 276);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t);
+
+    			if (!mounted) {
+    				dispose = [
+    					action_destroyer(pulse.call(null, button)),
+    					action_destroyer(bounceOnDrag.call(null, button))
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*count*/ 2) set_data_dev(t, /*count*/ ctx[1]);
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			}
+
+    			if (dirty & /*sz*/ 4) {
+    				set_style(button, "font-size", /*sz*/ ctx[2]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$g.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$g($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Count', slots, []);
+    	let { ga } = $$props;
+    	let { count } = $$props;
+    	let { sz = "20px" } = $$props;
+    	let _bgColor = getBgColor(ga);
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Count> was created without expected prop 'ga'");
+    		}
+
+    		if (count === undefined && !('count' in $$props || $$self.$$.bound[$$self.$$.props['count']])) {
+    			console.warn("<Count> was created without expected prop 'count'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'count', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Count> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('count' in $$props) $$invalidate(1, count = $$props.count);
+    		if ('sz' in $$props) $$invalidate(2, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		pulse,
+    		getBgColor,
+    		bounceOnDrag,
+    		ga,
+    		count,
+    		sz,
+    		_bgColor
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('count' in $$props) $$invalidate(1, count = $$props.count);
+    		if ('sz' in $$props) $$invalidate(2, sz = $$props.sz);
+    		if ('_bgColor' in $$props) $$invalidate(3, _bgColor = $$props._bgColor);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [ga, count, sz, _bgColor];
+    }
+
+    class Count extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$g, create_fragment$g, safe_not_equal, { ga: 0, count: 1, sz: 2 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Count",
+    			options,
+    			id: create_fragment$g.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Count>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Count>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get count() {
+    		throw new Error("<Count>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set count(value) {
+    		throw new Error("<Count>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<Count>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<Count>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    function applyAsciiMath(delay = -1) {
+        setTimeout(() => {
+            safe(() => MathJax.typeset());
+        }, delay === -1 ? 2000 : delay);
+    }
+    function toAscii(str) {
+        return str.includes("`") ?
+            str : `\`${str}\``;
+    }
+    function n2d$1(num) {
+        return new Decimal(num);
+    }
+    function fractionToMath(num) {
+        let sign = num.isNeg() ? '-' : '';
+        let w = num.trunc();
+        let n = num.minus(w).abs();
+        if (n.eq(0)) {
+            let str = num.toNumber().toLocaleString('en');
+            return [false, str, str.length];
+        }
+        let d = n2d$1(1);
+        while (!n.toFraction()[1].eq(1)) {
+            n = n.mul(10);
+            d = d.mul(10);
+        }
+        let math = w.eq(0) ?
+            `${sign}${n}/${d}` :
+            `${w} ${n}/${d}`;
+        // console.log(`${num}: '${math}'`);
+        return [true, math, math.length];
+    }
+    // unitTests();
+
+    /* src\zero\Num.svelte generated by Svelte v3.52.0 */
+    const file$c = "src\\zero\\Num.svelte";
+
+    function create_fragment$f(ctx) {
+    	let button;
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t = text(/*_text*/ ctx[2]);
+    			attr_dev(button, "class", /*_bgColor*/ ctx[3]);
+    			set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			set_style(button, "font-size", /*_sz*/ ctx[1] + "px");
+    			add_location(button, file$c, 23, 0, 694);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t);
+
+    			if (!mounted) {
+    				dispose = [
+    					action_destroyer(pulse.call(null, button)),
+    					action_destroyer(bounceOnDrag.call(null, button))
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*_text*/ 4) set_data_dev(t, /*_text*/ ctx[2]);
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			}
+
+    			if (dirty & /*_sz*/ 2) {
+    				set_style(button, "font-size", /*_sz*/ ctx[1] + "px");
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$f.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$f($$self, $$props, $$invalidate) {
+    	let _text;
+    	let _len;
+    	let _sz;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Num', slots, []);
+    	let { ga } = $$props;
+    	let { num } = $$props;
+    	let { asAsciiMath } = $$props;
+    	let { sz = 30 } = $$props;
+
+    	function n2a(n) {
+    		let str = n.toNumber().toLocaleString('en');
+    		let [isFraction, math, len] = fractionToMath(n);
+    		if (!isFraction || !asAsciiMath) return [str, str.length];
+    		if (isFraction) len += 2;
+    		return [toAscii(math), len];
+    	}
+
+    	let _bgColor = getBgColor(ga);
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Num> was created without expected prop 'ga'");
+    		}
+
+    		if (num === undefined && !('num' in $$props || $$self.$$.bound[$$self.$$.props['num']])) {
+    			console.warn("<Num> was created without expected prop 'num'");
+    		}
+
+    		if (asAsciiMath === undefined && !('asAsciiMath' in $$props || $$self.$$.bound[$$self.$$.props['asAsciiMath']])) {
+    			console.warn("<Num> was created without expected prop 'asAsciiMath'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'num', 'asAsciiMath', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Num> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('num' in $$props) $$invalidate(4, num = $$props.num);
+    		if ('asAsciiMath' in $$props) $$invalidate(5, asAsciiMath = $$props.asAsciiMath);
+    		if ('sz' in $$props) $$invalidate(6, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		pulse,
+    		getBgColor,
+    		toAscii,
+    		fractionToMath,
+    		bounceOnDrag,
+    		ga,
+    		num,
+    		asAsciiMath,
+    		sz,
+    		n2a,
+    		_bgColor,
+    		_len,
+    		_sz,
+    		_text
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('num' in $$props) $$invalidate(4, num = $$props.num);
+    		if ('asAsciiMath' in $$props) $$invalidate(5, asAsciiMath = $$props.asAsciiMath);
+    		if ('sz' in $$props) $$invalidate(6, sz = $$props.sz);
+    		if ('_bgColor' in $$props) $$invalidate(3, _bgColor = $$props._bgColor);
+    		if ('_len' in $$props) $$invalidate(7, _len = $$props._len);
+    		if ('_sz' in $$props) $$invalidate(1, _sz = $$props._sz);
+    		if ('_text' in $$props) $$invalidate(2, _text = $$props._text);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*num*/ 16) {
+    			$$invalidate(2, [_text, _len] = n2a(num), _text, ($$invalidate(7, _len), $$invalidate(4, num)));
+    		}
+
+    		if ($$self.$$.dirty & /*sz, _len*/ 192) {
+    			$$invalidate(1, _sz = sz - 1.2 * _len);
+    		}
+    	};
+
+    	return [ga, _sz, _text, _bgColor, num, asAsciiMath, sz, _len];
+    }
+
+    class Num extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$f, create_fragment$f, safe_not_equal, { ga: 0, num: 4, asAsciiMath: 5, sz: 6 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Num",
+    			options,
+    			id: create_fragment$f.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Num>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Num>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get num() {
+    		throw new Error("<Num>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set num(value) {
+    		throw new Error("<Num>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get asAsciiMath() {
+    		throw new Error("<Num>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set asAsciiMath(value) {
+    		throw new Error("<Num>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<Num>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<Num>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\zero\Ans.svelte generated by Svelte v3.52.0 */
+    const file$b = "src\\zero\\Ans.svelte";
+
+    function create_fragment$e(ctx) {
+    	let button;
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t = text(/*_text*/ ctx[1]);
+    			attr_dev(button, "class", /*_bgColor*/ ctx[2]);
+    			set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			set_style(button, "font-size", /*_sz*/ ctx[3] + "px");
+    			add_location(button, file$b, 24, 0, 711);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button, "click", /*click_handler*/ ctx[10], false, false, false),
+    					action_destroyer(pulse.call(null, button)),
+    					action_destroyer(bounceOnDrag.call(null, button))
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*_text*/ 2) set_data_dev(t, /*_text*/ ctx[1]);
+
+    			if (dirty & /*_bgColor*/ 4) {
+    				attr_dev(button, "class", /*_bgColor*/ ctx[2]);
+    			}
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			}
+
+    			if (dirty & /*_sz*/ 8) {
+    				set_style(button, "font-size", /*_sz*/ ctx[3] + "px");
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$e.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$e($$self, $$props, $$invalidate) {
+    	let _text;
+    	let _len;
+    	let _scale;
+    	let _sz;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Ans', slots, []);
+    	let { ga } = $$props;
+    	let { num } = $$props;
+    	let { asAsciiMath } = $$props;
+    	let { sz = 30 } = $$props;
+
+    	function n2a(n) {
+    		let str = n.toNumber().toLocaleString('en');
+    		let [isFraction, math, len] = fractionToMath(n);
+    		if (!isFraction || !asAsciiMath) return [str, str.length];
+    		return [toAscii(math), len];
+    	}
+
+    	let _bgColor = "bg-gray-100";
+
+    	function setBgColor(value) {
+    		$$invalidate(2, _bgColor = value);
+    	}
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Ans> was created without expected prop 'ga'");
+    		}
+
+    		if (num === undefined && !('num' in $$props || $$self.$$.bound[$$self.$$.props['num']])) {
+    			console.warn("<Ans> was created without expected prop 'num'");
+    		}
+
+    		if (asAsciiMath === undefined && !('asAsciiMath' in $$props || $$self.$$.bound[$$self.$$.props['asAsciiMath']])) {
+    			console.warn("<Ans> was created without expected prop 'asAsciiMath'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'num', 'asAsciiMath', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Ans> was created with unknown prop '${key}'`);
+    	});
+
+    	function click_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('num' in $$props) $$invalidate(4, num = $$props.num);
+    		if ('asAsciiMath' in $$props) $$invalidate(5, asAsciiMath = $$props.asAsciiMath);
+    		if ('sz' in $$props) $$invalidate(6, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		toAscii,
+    		fractionToMath,
+    		pulse,
+    		bounceOnDrag,
+    		ga,
+    		num,
+    		asAsciiMath,
+    		sz,
+    		n2a,
+    		_bgColor,
+    		setBgColor,
+    		_text,
+    		_scale,
+    		_sz,
+    		_len
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('num' in $$props) $$invalidate(4, num = $$props.num);
+    		if ('asAsciiMath' in $$props) $$invalidate(5, asAsciiMath = $$props.asAsciiMath);
+    		if ('sz' in $$props) $$invalidate(6, sz = $$props.sz);
+    		if ('_bgColor' in $$props) $$invalidate(2, _bgColor = $$props._bgColor);
+    		if ('_text' in $$props) $$invalidate(1, _text = $$props._text);
+    		if ('_scale' in $$props) $$invalidate(8, _scale = $$props._scale);
+    		if ('_sz' in $$props) $$invalidate(3, _sz = $$props._sz);
+    		if ('_len' in $$props) $$invalidate(9, _len = $$props._len);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*num*/ 16) {
+    			$$invalidate(1, [_text, _len] = n2a(num), _text, ($$invalidate(9, _len), $$invalidate(4, num)));
+    		}
+
+    		if ($$self.$$.dirty & /*_len*/ 512) {
+    			$$invalidate(8, _scale = _len < 5 ? 1.2 : 1.5);
+    		}
+
+    		if ($$self.$$.dirty & /*sz, _scale, _text*/ 322) {
+    			$$invalidate(3, _sz = sz - _scale * _text.length);
+    		}
+    	};
+
+    	return [
+    		ga,
+    		_text,
+    		_bgColor,
+    		_sz,
+    		num,
+    		asAsciiMath,
+    		sz,
+    		setBgColor,
+    		_scale,
+    		_len,
+    		click_handler
+    	];
+    }
+
+    class Ans$2 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$e, create_fragment$e, safe_not_equal, {
+    			ga: 0,
+    			num: 4,
+    			asAsciiMath: 5,
+    			sz: 6,
+    			setBgColor: 7
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Ans",
+    			options,
+    			id: create_fragment$e.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get num() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set num(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get asAsciiMath() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set asAsciiMath(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get setBgColor() {
+    		return this.$$.ctx[7];
+    	}
+
+    	set setBgColor(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\zero\Op.svelte generated by Svelte v3.52.0 */
+    const file$a = "src\\zero\\Op.svelte";
+
+    function create_fragment$d(ctx) {
+    	let button;
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t = text(/*op*/ ctx[1]);
+    			attr_dev(button, "class", /*_bgColor*/ ctx[3]);
+    			set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			set_style(button, "font-size", /*sz*/ ctx[2]);
+    			add_location(button, file$a, 10, 0, 318);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button, "click", /*click_handler*/ ctx[4], false, false, false),
+    					action_destroyer(pulse.call(null, button)),
+    					action_destroyer(bounceOnDrag.call(null, button))
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*op*/ 2) set_data_dev(t, /*op*/ ctx[1]);
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			}
+
+    			if (dirty & /*sz*/ 4) {
+    				set_style(button, "font-size", /*sz*/ ctx[2]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$d.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$d($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Op', slots, []);
+    	let { ga } = $$props;
+    	let { op } = $$props;
+    	let { sz = "30px" } = $$props;
+    	let _bgColor = getBgColor(ga);
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Op> was created without expected prop 'ga'");
+    		}
+
+    		if (op === undefined && !('op' in $$props || $$self.$$.bound[$$self.$$.props['op']])) {
+    			console.warn("<Op> was created without expected prop 'op'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'op', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Op> was created with unknown prop '${key}'`);
+    	});
+
+    	const click_handler = () => Mp3.playRandom();
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('op' in $$props) $$invalidate(1, op = $$props.op);
+    		if ('sz' in $$props) $$invalidate(2, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		pulse,
+    		Mp3,
+    		getBgColor,
+    		bounceOnDrag,
+    		ga,
+    		op,
+    		sz,
+    		_bgColor
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('op' in $$props) $$invalidate(1, op = $$props.op);
+    		if ('sz' in $$props) $$invalidate(2, sz = $$props.sz);
+    		if ('_bgColor' in $$props) $$invalidate(3, _bgColor = $$props._bgColor);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [ga, op, sz, _bgColor, click_handler];
+    }
+
+    class Op extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$d, create_fragment$d, safe_not_equal, { ga: 0, op: 1, sz: 2 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Op",
+    			options,
+    			id: create_fragment$d.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Op>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Op>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get op() {
+    		throw new Error("<Op>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set op(value) {
+    		throw new Error("<Op>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<Op>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<Op>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\zero\Main.svelte generated by Svelte v3.52.0 */
+
+    const { Object: Object_1$2 } = globals;
+
+    function get_each_context$4(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[37] = list[i];
+    	child_ctx[38] = list;
+    	child_ctx[39] = i;
+    	return child_ctx;
+    }
+
+    // (320:4) {#key recreate[0]}
+    function create_key_block_1(ctx) {
+    	let num;
+    	let current;
+
+    	num = new Num({
+    			props: {
+    				ga: "lhs",
+    				num: /*_game*/ ctx[1].nums[0],
+    				asAsciiMath: /*_withFractions*/ ctx[2] && trueFalse()
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(num.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(num, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const num_changes = {};
+    			if (dirty[0] & /*_game*/ 2) num_changes.num = /*_game*/ ctx[1].nums[0];
+    			if (dirty[0] & /*_withFractions*/ 4) num_changes.asAsciiMath = /*_withFractions*/ ctx[2] && trueFalse();
+    			num.$set(num_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(num.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(num.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(num, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_key_block_1.name,
+    		type: "key",
+    		source: "(320:4) {#key recreate[0]}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (328:4) {#key recreate[0]}
+    function create_key_block$2(ctx) {
+    	let num;
+    	let current;
+
+    	num = new Num({
+    			props: {
+    				ga: "rhs",
+    				num: /*_game*/ ctx[1].nums[1],
+    				asAsciiMath: /*_withFractions*/ ctx[2] && trueFalse()
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(num.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(num, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const num_changes = {};
+    			if (dirty[0] & /*_game*/ 2) num_changes.num = /*_game*/ ctx[1].nums[1];
+    			if (dirty[0] & /*_withFractions*/ 4) num_changes.asAsciiMath = /*_withFractions*/ ctx[2] && trueFalse();
+    			num.$set(num_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(num.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(num.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(num, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_key_block$2.name,
+    		type: "key",
+    		source: "(328:4) {#key recreate[0]}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (334:4) {#each _game.answers as ans, i (recreate[i]) }
+    function create_each_block$4(key_1, ctx) {
+    	let first;
+    	let ans;
+    	let i = /*i*/ ctx[39];
+    	let current;
+    	const assign_ans = () => /*ans_binding*/ ctx[9](ans, i);
+    	const unassign_ans = () => /*ans_binding*/ ctx[9](null, i);
+
+    	function click_handler() {
+    		return /*click_handler*/ ctx[10](/*i*/ ctx[39]);
+    	}
+
+    	let ans_props = {
+    		ga: `a${/*i*/ ctx[39]}`,
+    		num: /*ans*/ ctx[37],
+    		asAsciiMath: /*_withFractions*/ ctx[2] && /*_game*/ ctx[1].asAsceeMath[/*i*/ ctx[39]]
+    	};
+
+    	ans = new Ans$2({ props: ans_props, $$inline: true });
+    	assign_ans();
+    	ans.$on("click", click_handler);
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			first = empty();
+    			create_component(ans.$$.fragment);
+    			this.first = first;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, first, anchor);
+    			mount_component(ans, target, anchor);
+    			current = true;
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+
+    			if (i !== /*i*/ ctx[39]) {
+    				unassign_ans();
+    				i = /*i*/ ctx[39];
+    				assign_ans();
+    			}
+
+    			const ans_changes = {};
+    			if (dirty[0] & /*_game*/ 2) ans_changes.ga = `a${/*i*/ ctx[39]}`;
+    			if (dirty[0] & /*_game*/ 2) ans_changes.num = /*ans*/ ctx[37];
+    			if (dirty[0] & /*_withFractions, _game*/ 6) ans_changes.asAsciiMath = /*_withFractions*/ ctx[2] && /*_game*/ ctx[1].asAsceeMath[/*i*/ ctx[39]];
+    			ans.$set(ans_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(ans.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(ans.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(first);
+    			unassign_ans();
+    			destroy_component(ans, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$4.name,
+    		type: "each",
+    		source: "(334:4) {#each _game.answers as ans, i (recreate[i]) }",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (314:0) <Grid {layout}      on:click={() => fire("--evt-click")}  >
+    function create_default_slot$4(ctx) {
+    	let count;
+    	let t0;
+    	let clock;
+    	let t1;
+    	let previous_key = /*recreate*/ ctx[4][0];
+    	let t2;
+    	let op;
+    	let t3;
+    	let previous_key_1 = /*recreate*/ ctx[4][0];
+    	let t4;
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
+    	let t5;
+    	let congrats_1;
+    	let current;
+
+    	count = new Count({
+    			props: { ga: "cnt", count: /*_roundsLeft*/ ctx[5] },
+    			$$inline: true
+    		});
+
+    	clock = new Clock({ props: { ga: "clk" }, $$inline: true });
+    	let key_block0 = create_key_block_1(ctx);
+
+    	op = new Op({
+    			props: { ga: "op", op: /*_game*/ ctx[1].op },
+    			$$inline: true
+    		});
+
+    	let key_block1 = create_key_block$2(ctx);
+    	let each_value = /*_game*/ ctx[1].answers;
+    	validate_each_argument(each_value);
+    	const get_key = ctx => /*recreate*/ ctx[4][/*i*/ ctx[39]];
+    	validate_each_keys(ctx, each_value, get_each_context$4, get_key);
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		let child_ctx = get_each_context$4(ctx, each_value, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$4(key, child_ctx));
+    	}
+
+    	let congrats_1_props = {};
+    	congrats_1 = new Congrats({ props: congrats_1_props, $$inline: true });
+    	/*congrats_1_binding*/ ctx[11](congrats_1);
+
+    	const block = {
+    		c: function create() {
+    			create_component(count.$$.fragment);
+    			t0 = space();
+    			create_component(clock.$$.fragment);
+    			t1 = space();
+    			key_block0.c();
+    			t2 = space();
+    			create_component(op.$$.fragment);
+    			t3 = space();
+    			key_block1.c();
+    			t4 = space();
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t5 = space();
+    			create_component(congrats_1.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(count, target, anchor);
+    			insert_dev(target, t0, anchor);
+    			mount_component(clock, target, anchor);
+    			insert_dev(target, t1, anchor);
+    			key_block0.m(target, anchor);
+    			insert_dev(target, t2, anchor);
+    			mount_component(op, target, anchor);
+    			insert_dev(target, t3, anchor);
+    			key_block1.m(target, anchor);
+    			insert_dev(target, t4, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, t5, anchor);
+    			mount_component(congrats_1, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const count_changes = {};
+    			if (dirty[0] & /*_roundsLeft*/ 32) count_changes.count = /*_roundsLeft*/ ctx[5];
+    			count.$set(count_changes);
+
+    			if (dirty[0] & /*recreate*/ 16 && safe_not_equal(previous_key, previous_key = /*recreate*/ ctx[4][0])) {
+    				group_outros();
+    				transition_out(key_block0, 1, 1, noop);
+    				check_outros();
+    				key_block0 = create_key_block_1(ctx);
+    				key_block0.c();
+    				transition_in(key_block0, 1);
+    				key_block0.m(t2.parentNode, t2);
+    			} else {
+    				key_block0.p(ctx, dirty);
+    			}
+
+    			const op_changes = {};
+    			if (dirty[0] & /*_game*/ 2) op_changes.op = /*_game*/ ctx[1].op;
+    			op.$set(op_changes);
+
+    			if (dirty[0] & /*recreate*/ 16 && safe_not_equal(previous_key_1, previous_key_1 = /*recreate*/ ctx[4][0])) {
+    				group_outros();
+    				transition_out(key_block1, 1, 1, noop);
+    				check_outros();
+    				key_block1 = create_key_block$2(ctx);
+    				key_block1.c();
+    				transition_in(key_block1, 1);
+    				key_block1.m(t4.parentNode, t4);
+    			} else {
+    				key_block1.p(ctx, dirty);
+    			}
+
+    			if (dirty[0] & /*_game, _withFractions, answers, select, recreate*/ 94) {
+    				each_value = /*_game*/ ctx[1].answers;
+    				validate_each_argument(each_value);
+    				group_outros();
+    				validate_each_keys(ctx, each_value, get_each_context$4, get_key);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, t5.parentNode, outro_and_destroy_block, create_each_block$4, t5, get_each_context$4);
+    				check_outros();
+    			}
+
+    			const congrats_1_changes = {};
+    			congrats_1.$set(congrats_1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(count.$$.fragment, local);
+    			transition_in(clock.$$.fragment, local);
+    			transition_in(key_block0);
+    			transition_in(op.$$.fragment, local);
+    			transition_in(key_block1);
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			transition_in(congrats_1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(count.$$.fragment, local);
+    			transition_out(clock.$$.fragment, local);
+    			transition_out(key_block0);
+    			transition_out(op.$$.fragment, local);
+    			transition_out(key_block1);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			transition_out(congrats_1.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(count, detaching);
+    			if (detaching) detach_dev(t0);
+    			destroy_component(clock, detaching);
+    			if (detaching) detach_dev(t1);
+    			key_block0.d(detaching);
+    			if (detaching) detach_dev(t2);
+    			destroy_component(op, detaching);
+    			if (detaching) detach_dev(t3);
+    			key_block1.d(detaching);
+    			if (detaching) detach_dev(t4);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d(detaching);
+    			}
+
+    			if (detaching) detach_dev(t5);
+    			/*congrats_1_binding*/ ctx[11](null);
+    			destroy_component(congrats_1, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$4.name,
+    		type: "slot",
+    		source: "(314:0) <Grid {layout}      on:click={() => fire(\\\"--evt-click\\\")}  >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$c(ctx) {
+    	let grid;
+    	let current;
+
+    	grid = new Grid({
+    			props: {
+    				layout: /*layout*/ ctx[7],
+    				$$slots: { default: [create_default_slot$4] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	grid.$on("click", /*click_handler_1*/ ctx[12]);
+
+    	const block = {
+    		c: function create() {
+    			create_component(grid.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(grid, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const grid_changes = {};
+
+    			if (dirty[0] & /*congrats, _game, _withFractions, answers, recreate, _roundsLeft*/ 63 | dirty[1] & /*$$scope*/ 512) {
+    				grid_changes.$$scope = { dirty, ctx };
+    			}
+
+    			grid.$set(grid_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(grid.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(grid.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(grid, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$c.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$c($$self, $$props, $$invalidate) {
+    	let _roundsLeft;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Main', slots, []);
+    	let congrats;
+    	let _game;
+    	let _current = 0;
+    	let _rounds = [];
+    	let _withFractions = false;
+    	let _config = Anki.getConfig();
+    	let _tcNewRound = newTimedCmd$2("--cmd-next-round", 1000);
+    	let _tcIdle = newTimedCmd$2("--cmd-idle", 7000, 3000);
+    	let _a = [1, 9];
+    	let _b = [2, 9];
+    	let _aA = [];
+    	let _bA = [];
+    	let _lastDigit = null;
+    	let answers = [null, null, null];
+    	let recreate = answers.map(_ => new Object());
+    	let D = n => new Decimal(n);
+
+    	function getAb() {
+    		let a = D(_aA.length > 0 ? randFrom(_aA) : rand(_a[0], _a[1]));
+    		let b = D(_bA.length > 0 ? randFrom(_bA) : rand(_b[0], _b[1]));
+    		return [a, b];
+    	}
+
+    	function getAbPairWithDots(line) {
+    		let [za, zb] = shuffle(line);
+
+    		let fa = za < 0
+    		? Decimal.pow(10, rand(za, -1))
+    		: Decimal.pow(10, rand(1, za));
+
+    		let fb = zb < 0
+    		? Decimal.pow(10, rand(zb, -1))
+    		: Decimal.pow(10, rand(1, zb));
+
+    		let [a, b] = getAb();
+    		let wrong = b.plus(pm(1));
+    		a = a.mul(fa);
+    		b = b.mul(fb);
+    		wrong = wrong.mul(fb);
+    		return { a, b, wrong, fa, fb };
+    	}
+
+    	function getAbPair() {
+    		let line = Anki.tokens().map(x => parseInt(x));
+    		if (line[0] < 0 || line[1] < 0) return getAbPairWithDots(line);
+    		let [a, b] = getAb();
+    		let wrong = b.plus(pm(1));
+    		let fa = D(1);
+    		let fb = D(1);
+    		let noOfZeros = rand(line[0], line[1]);
+
+    		for (let no = noOfZeros; no-- > 0; ) {
+    			if (a.equals(1)) {
+    				// ensure first factor is not one
+    				a = a.mul(10);
+
+    				fa = fa.mul(10);
+    				continue;
+    			}
+
+    			switch (trueFalse()) {
+    				case true:
+    					a = a.mul(10);
+    					fa = fa.mul(10);
+    					break;
+    				case false:
+    					b = b.mul(10);
+    					fb = fb.mul(10);
+    					wrong = wrong.mul(10);
+    					break;
+    			}
+    		}
+
+    		return { a, b, wrong, fa, fb };
+    	}
+
+    	function addMulRound() {
+    		let op = "x";
+    		let { a, b, wrong } = getAbPair();
+    		let lhs = a;
+    		let rhs = b;
+    		let a0 = lhs.mul(rhs);
+    		let a1 = lhs.mul(wrong);
+    		let a2, a3;
+
+    		switch (trueFalse()) {
+    			case true:
+    				a2 = a0.mul(10);
+    				a3 = a1.mul(10);
+    				break;
+    			case false:
+    				a2 = a0.div(10);
+    				a3 = a1.div(10);
+    				break;
+    		}
+
+    		let nums = shuffle([lhs, rhs]);
+    		let answers = shuffle([a0, a1, a2, a3]);
+    		let asAsceeMath = answers.map(_ => trueFalse());
+    		let rightAt = answers.findIndex(x => x == a0);
+    		_rounds.push({ nums, op, answers, asAsceeMath, rightAt });
+    	}
+
+    	function addDivRound() {
+    		let op = "/";
+    		let { a, b, wrong } = getAbPair();
+    		let lhs = a.mul(b);
+    		let rhs = a;
+    		let a0 = b;
+    		let a1 = wrong;
+    		let a2, a3;
+
+    		switch (trueFalse()) {
+    			case true:
+    				a2 = a0.mul(10);
+    				a3 = a1.mul(10);
+    				break;
+    			case false:
+    				a2 = a0.div(10);
+    				a3 = a1.div(10);
+    				break;
+    		}
+
+    		let nums = [lhs, rhs];
+    		let answers = shuffle([a0, a1, a2, a3]);
+    		let asAsceeMath = answers.map(_ => trueFalse());
+    		let rightAt = answers.findIndex(x => x === a0);
+    		_rounds.push({ nums, op, answers, asAsceeMath, rightAt });
+    	}
+
+    	let downTo10 = d => d.minus(d.mod(10));
+    	let upTo10 = d => d.plus(D(10).minus(d.mod(10)));
+
+    	function addLastDigitMulRound() {
+    		let op = "x";
+    		let [a, b] = getAb();
+    		while (a.mod(10).eq(0) || b.mod(10).eq(0)) [a, b] = getAb();
+    		let a0 = a.mul(b);
+    		let lastDigit = a0.mod(10);
+    		let low = downTo10(a).mul(downTo10(b));
+    		let high = upTo10(a).mul(upTo10(b));
+    		let f = n2d$2(rand(1, 10)).mul(10);
+
+    		let a1 = trueFalse()
+    		? low.minus(f).plus(lastDigit)
+    		: high.plus(f).plus(lastDigit);
+
+    		let d = pm(rand(1, 9));
+    		let a2 = a0.plus(d);
+    		let a3 = a1.plus(d).plus(pm(randFrom([10, 20, 30])));
+    		let nums = [a, b];
+    		let answers = shuffle([a0, a1, a2, a3]);
+    		let rightAt = answers.findIndex(x => x === a0);
+    		let asAsceeMath = answers.map(_ => false);
+    		_rounds.push({ nums, op, answers, asAsceeMath, rightAt });
+    	}
+
+    	function addLastDigitDivRound() {
+    		let op = ":";
+    		let [a, b] = getAb();
+    		while (a.mod(10).eq(0) || b.mod(10).eq(0)) [a, b] = getAb();
+    		let r0 = a.mul(b);
+    		let a0 = a;
+    		let a1 = a0.plus(pm(10));
+    		let a2 = a0.plus(pm(rand(1, 9)));
+
+    		// ambiguaty of division; f.e. 1634 : 38 => 43, 38, 53, 48
+    		while (a2.mul(b).mod(10).eq(r0.mod(10))) a2 = a0.plus(pm(rand(1, 9)));
+
+    		let a3 = a2.plus(pm(10));
+    		let nums = [r0, b];
+    		let answers = shuffle([a0, a1, a2, a3]);
+    		let rightAt = answers.findIndex(x => x === a0);
+    		let asAsceeMath = answers.map(_ => false);
+    		_rounds.push({ nums, op, answers, asAsceeMath, rightAt });
+    	}
+
+    	function addNextRounds() {
+    		let mulChars = "*x";
+    		let divChars = "/\\:";
+
+    		if (_lastDigit) {
+    			if (_lastDigit.length > 1) {
+    				switch (trueFalse()) {
+    					case true:
+    						addLastDigitMulRound();
+    						addLastDigitDivRound();
+    						break;
+    					case false:
+    						addLastDigitDivRound();
+    						addLastDigitMulRound();
+    						break;
+    				}
+
+    				return;
+    			}
+
+    			if (mulChars.includes(_lastDigit)) {
+    				addLastDigitMulRound();
+    				addLastDigitMulRound();
+    				return;
+    			}
+
+    			if (divChars.includes(_lastDigit)) {
+    				addLastDigitDivRound();
+    				addLastDigitDivRound();
+    				return;
+    			}
+    		}
+
+    		addMulRound();
+    		addDivRound();
+    	}
+
+    	async function nextRound() {
+    		_tcNewRound.cancel();
+    		_tcIdle.reset();
+    		if ($$invalidate(8, ++_current) === _rounds.length) addNextRounds();
+    		$$invalidate(1, _game = _rounds[_current]);
+    		answers.forEach(ans => ans.setBgColor("bg-gray-100"));
+    		$$invalidate(4, recreate = answers.map(_ => new Object()));
+    		await tick();
+    		refreshMath();
+    	}
+
+    	function init() {
+    		_tcIdle.reset();
+    		let cmds = Anki.commands();
+
+    		for (let cmd of cmds) {
+    			switch (cmd[0]) {
+    				case "dots":
+    					break;
+    				case "with-fractions":
+    					$$invalidate(2, _withFractions = true);
+    					break;
+    				case "last-digit":
+    					_lastDigit = cmd[1];
+    					break;
+    				case "a":
+    					_a = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    				case "b":
+    					_b = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    				case "a[]":
+    					_aA = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    				case "b[]":
+    					_bA = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    			}
+    		}
+
+    		let noOfRounds = _config.rounds ?? 4;
+    		for (let cnt = noOfRounds; cnt-- > 0; ) addNextRounds();
+    		$$invalidate(1, _game = _rounds[_current]);
+    		refreshMath();
+    	}
+
+    	function select(no) {
+    		_tcIdle.reset();
+
+    		if (_game.clickedAt !== undefined) {
+    			fire$2("--cmd-next-round");
+    			return;
+    		}
+
+    		$$invalidate(1, _game.clickedAt = no, _game);
+
+    		if (no === _game.rightAt) {
+    			if (_current == _rounds.length - 1) {
+    				Mp3.play("done");
+    				congrats.play();
+    			} else {
+    				Mp3.play("yes");
+    			}
+
+    			_tcNewRound.reset();
+    		} else {
+    			Mp3.play("no");
+    			answers[no].setBgColor("bg-red-200");
+    			addNextRounds();
+    			$$invalidate(5, _roundsLeft = _rounds.length - _current);
+    		}
+
+    		answers[_game.rightAt].setBgColor("bg-green-200");
+    	}
+
+    	function onClick() {
+    		if (_game.clickedAt !== undefined) fire$2("--cmd-next-round");
+    	}
+
+    	function idle() {
+    		_tcIdle.reset();
+    		Mp3.play("idle");
+    	}
+
+    	on$2("--cmd-next-round", () => nextRound());
+    	on$2("--evt-click", () => onClick());
+    	on$2("--cmd-idle", () => idle());
+    	init();
+
+    	let layout = {
+    		areas: `
+            "cnt   .    clk "
+            "lhs   op   rhs "
+            "a0    .    a1  "
+            "a2    .    a3  "
+        `,
+    		cols: `2fr 1fr 2fr`,
+    		rows: `60px 80px 80px 80px`,
+    		bgColors: {
+    			cnt: "bg-purple-300",
+    			lhs: "bg-green-100",
+    			op: "bg-yellow-200",
+    			rhs: "bg-green-100"
+    		}
+    	};
+
+    	const writable_props = [];
+
+    	Object_1$2.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Main> was created with unknown prop '${key}'`);
+    	});
+
+    	function ans_binding($$value, i) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			answers[i] = $$value;
+    			$$invalidate(3, answers);
+    		});
+    	}
+
+    	const click_handler = i => select(i);
+
+    	function congrats_1_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			congrats = $$value;
+    			$$invalidate(0, congrats);
+    		});
+    	}
+
+    	const click_handler_1 = () => fire$2("--evt-click");
+
+    	$$self.$capture_state = () => ({
+    		tick,
+    		Decimal,
+    		refreshMath,
+    		rand,
+    		shuffle,
+    		pm,
+    		trueFalse,
+    		randFrom,
+    		n2d: n2d$2,
+    		Anki,
+    		Mp3,
+    		Grid,
+    		Clock,
+    		Congrats,
+    		on: on$2,
+    		fire: fire$2,
+    		newTimedCmd: newTimedCmd$2,
+    		Count,
+    		Num,
+    		Ans: Ans$2,
+    		Op,
+    		congrats,
+    		_game,
+    		_current,
+    		_rounds,
+    		_withFractions,
+    		_config,
+    		_tcNewRound,
+    		_tcIdle,
+    		_a,
+    		_b,
+    		_aA,
+    		_bA,
+    		_lastDigit,
+    		answers,
+    		recreate,
+    		D,
+    		getAb,
+    		getAbPairWithDots,
+    		getAbPair,
+    		addMulRound,
+    		addDivRound,
+    		downTo10,
+    		upTo10,
+    		addLastDigitMulRound,
+    		addLastDigitDivRound,
+    		addNextRounds,
+    		nextRound,
+    		init,
+    		select,
+    		onClick,
+    		idle,
+    		layout,
+    		_roundsLeft
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('congrats' in $$props) $$invalidate(0, congrats = $$props.congrats);
+    		if ('_game' in $$props) $$invalidate(1, _game = $$props._game);
+    		if ('_current' in $$props) $$invalidate(8, _current = $$props._current);
+    		if ('_rounds' in $$props) $$invalidate(18, _rounds = $$props._rounds);
+    		if ('_withFractions' in $$props) $$invalidate(2, _withFractions = $$props._withFractions);
+    		if ('_config' in $$props) _config = $$props._config;
+    		if ('_tcNewRound' in $$props) _tcNewRound = $$props._tcNewRound;
+    		if ('_tcIdle' in $$props) _tcIdle = $$props._tcIdle;
+    		if ('_a' in $$props) _a = $$props._a;
+    		if ('_b' in $$props) _b = $$props._b;
+    		if ('_aA' in $$props) _aA = $$props._aA;
+    		if ('_bA' in $$props) _bA = $$props._bA;
+    		if ('_lastDigit' in $$props) _lastDigit = $$props._lastDigit;
+    		if ('answers' in $$props) $$invalidate(3, answers = $$props.answers);
+    		if ('recreate' in $$props) $$invalidate(4, recreate = $$props.recreate);
+    		if ('D' in $$props) D = $$props.D;
+    		if ('downTo10' in $$props) downTo10 = $$props.downTo10;
+    		if ('upTo10' in $$props) upTo10 = $$props.upTo10;
+    		if ('layout' in $$props) $$invalidate(7, layout = $$props.layout);
+    		if ('_roundsLeft' in $$props) $$invalidate(5, _roundsLeft = $$props._roundsLeft);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty[0] & /*_current*/ 256) {
+    			$$invalidate(5, _roundsLeft = _rounds.length - _current);
+    		}
+    	};
+
+    	return [
+    		congrats,
+    		_game,
+    		_withFractions,
+    		answers,
+    		recreate,
+    		_roundsLeft,
+    		select,
+    		layout,
+    		_current,
+    		ans_binding,
+    		click_handler,
+    		congrats_1_binding,
+    		click_handler_1
+    	];
+    }
+
+    class Main$2 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$c, create_fragment$c, safe_not_equal, {}, null, [-1, -1]);
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Main",
+    			options,
+    			id: create_fragment$c.name
+    		});
+    	}
+    }
+
+    /* src\core\AsciiMath.svelte generated by Svelte v3.52.0 */
+    const file$9 = "src\\core\\AsciiMath.svelte";
+
+    function create_fragment$b(ctx) {
+    	let p;
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			t = text(/*exp*/ ctx[1]);
+    			attr_dev(p, "class", /*bgColor*/ ctx[2]);
+    			set_style(p, "grid-area", /*ga*/ ctx[0]);
+    			set_style(p, "font-size", /*_sz*/ ctx[4] + "px");
+    			add_location(p, file$9, 28, 0, 782);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    			append_dev(p, t);
+    			/*p_binding*/ ctx[9](p);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(p, "click", /*click_handler*/ ctx[8], false, false, false),
+    					action_destroyer(bounceOnDrag.call(null, p))
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*exp*/ 2) set_data_dev(t, /*exp*/ ctx[1]);
+
+    			if (dirty & /*bgColor*/ 4) {
+    				attr_dev(p, "class", /*bgColor*/ ctx[2]);
+    			}
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(p, "grid-area", /*ga*/ ctx[0]);
+    			}
+
+    			if (dirty & /*_sz*/ 16) {
+    				set_style(p, "font-size", /*_sz*/ ctx[4] + "px");
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    			/*p_binding*/ ctx[9](null);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$b.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    const defaultScale = 1.4;
+
+    function instance$b($$self, $$props, $$invalidate) {
+    	let _scale;
+    	let _sz;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('AsciiMath', slots, []);
+    	let { ga } = $$props;
+    	let { exp } = $$props;
+    	let { scale = defaultScale } = $$props;
+    	let { bgColor = getBgColor(ga) } = $$props;
+    	let { sz = 30 } = $$props;
+    	let _self;
+
+    	async function update(exp) {
+    		await tick();
+    		$$invalidate(3, _self.innerText = '`' + exp + '`', _self);
+    		refreshMath();
+    		await delay(1000);
+
+    		_self.querySelectorAll("mjx-c").forEach(el => {
+    			pulse(el);
+    			bounceOnDrag(el);
+    		});
+    	}
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<AsciiMath> was created without expected prop 'ga'");
+    		}
+
+    		if (exp === undefined && !('exp' in $$props || $$self.$$.bound[$$self.$$.props['exp']])) {
+    			console.warn("<AsciiMath> was created without expected prop 'exp'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'exp', 'scale', 'bgColor', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<AsciiMath> was created with unknown prop '${key}'`);
+    	});
+
+    	function click_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function p_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			_self = $$value;
+    			$$invalidate(3, _self);
+    		});
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('exp' in $$props) $$invalidate(1, exp = $$props.exp);
+    		if ('scale' in $$props) $$invalidate(5, scale = $$props.scale);
+    		if ('bgColor' in $$props) $$invalidate(2, bgColor = $$props.bgColor);
+    		if ('sz' in $$props) $$invalidate(6, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		tick,
+    		refreshMath,
+    		delay,
+    		pulse,
+    		getBgColor,
+    		bounceOnDrag,
+    		defaultScale,
+    		ga,
+    		exp,
+    		scale,
+    		bgColor,
+    		sz,
+    		_self,
+    		update,
+    		_scale,
+    		_sz
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('exp' in $$props) $$invalidate(1, exp = $$props.exp);
+    		if ('scale' in $$props) $$invalidate(5, scale = $$props.scale);
+    		if ('bgColor' in $$props) $$invalidate(2, bgColor = $$props.bgColor);
+    		if ('sz' in $$props) $$invalidate(6, sz = $$props.sz);
+    		if ('_self' in $$props) $$invalidate(3, _self = $$props._self);
+    		if ('_scale' in $$props) $$invalidate(7, _scale = $$props._scale);
+    		if ('_sz' in $$props) $$invalidate(4, _sz = $$props._sz);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*scale*/ 32) {
+    			$$invalidate(7, _scale = scale ?? defaultScale);
+    		}
+
+    		if ($$self.$$.dirty & /*sz, _scale, exp*/ 194) {
+    			$$invalidate(4, _sz = sz - _scale * exp.length);
+    		}
+
+    		if ($$self.$$.dirty & /*exp*/ 2) {
+    			update(exp);
+    		}
+    	};
+
+    	return [ga, exp, bgColor, _self, _sz, scale, sz, _scale, click_handler, p_binding];
+    }
+
+    class AsciiMath extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$b, create_fragment$b, safe_not_equal, {
+    			ga: 0,
+    			exp: 1,
+    			scale: 5,
+    			bgColor: 2,
+    			sz: 6
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "AsciiMath",
+    			options,
+    			id: create_fragment$b.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<AsciiMath>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<AsciiMath>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get exp() {
+    		throw new Error("<AsciiMath>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set exp(value) {
+    		throw new Error("<AsciiMath>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get scale() {
+    		throw new Error("<AsciiMath>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set scale(value) {
+    		throw new Error("<AsciiMath>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get bgColor() {
+    		throw new Error("<AsciiMath>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set bgColor(value) {
+    		throw new Error("<AsciiMath>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<AsciiMath>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<AsciiMath>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\core\Progress.svelte generated by Svelte v3.52.0 */
+    const file$8 = "src\\core\\Progress.svelte";
+
+    function create_fragment$a(ctx) {
+    	let div1;
+    	let div0;
+    	let span;
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			div0 = element("div");
+    			span = element("span");
+    			t = text(/*_left*/ ctx[2]);
+    			add_location(span, file$8, 25, 8, 618);
+    			attr_dev(div0, "class", "\\ text-xs text-center text-black \\ " + /*_bgColor*/ ctx[3] + " \\");
+    			set_style(div0, "width", /*_bar*/ ctx[1] + "%");
+    			add_location(div0, file$8, 18, 4, 462);
+    			attr_dev(div1, "class", "w-full bg-red-50 text-right");
+    			set_style(div1, "grid-area", /*ga*/ ctx[0]);
+    			add_location(div1, file$8, 12, 0, 341);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    			append_dev(div0, span);
+    			append_dev(span, t);
+
+    			if (!mounted) {
+    				dispose = [
+    					action_destroyer(pulse.call(null, span)),
+    					action_destroyer(pulse.call(null, div1)),
+    					action_destroyer(bounceOnDrag.call(null, div1))
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*_left*/ 4) set_data_dev(t, /*_left*/ ctx[2]);
+
+    			if (dirty & /*_bar*/ 2) {
+    				set_style(div0, "width", /*_bar*/ ctx[1] + "%");
+    			}
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(div1, "grid-area", /*ga*/ ctx[0]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$a.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$a($$self, $$props, $$invalidate) {
+    	let _value;
+    	let _max;
+    	let _left;
+    	let _bar;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Progress', slots, []);
+    	let { ga } = $$props;
+    	let { values } = $$props;
+    	let _bgColor = getBgColor(ga);
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Progress> was created without expected prop 'ga'");
+    		}
+
+    		if (values === undefined && !('values' in $$props || $$self.$$.bound[$$self.$$.props['values']])) {
+    			console.warn("<Progress> was created without expected prop 'values'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'values'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Progress> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('values' in $$props) $$invalidate(4, values = $$props.values);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		pulse,
+    		getBgColor,
+    		bounceOnDrag,
+    		ga,
+    		values,
+    		_bgColor,
+    		_max,
+    		_value,
+    		_bar,
+    		_left
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('values' in $$props) $$invalidate(4, values = $$props.values);
+    		if ('_bgColor' in $$props) $$invalidate(3, _bgColor = $$props._bgColor);
+    		if ('_max' in $$props) $$invalidate(5, _max = $$props._max);
+    		if ('_value' in $$props) $$invalidate(6, _value = $$props._value);
+    		if ('_bar' in $$props) $$invalidate(1, _bar = $$props._bar);
+    		if ('_left' in $$props) $$invalidate(2, _left = $$props._left);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*values*/ 16) {
+    			$$invalidate(6, _value = values[0]);
+    		}
+
+    		if ($$self.$$.dirty & /*values*/ 16) {
+    			$$invalidate(5, _max = values[1]);
+    		}
+
+    		if ($$self.$$.dirty & /*_max, _value*/ 96) {
+    			$$invalidate(2, _left = _max - _value);
+    		}
+
+    		if ($$self.$$.dirty & /*_value, _max*/ 96) {
+    			$$invalidate(1, _bar = 100 * (_value / _max));
+    		}
+    	};
+
+    	return [ga, _bar, _left, _bgColor, values, _max, _value];
+    }
+
+    class Progress extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$a, create_fragment$a, safe_not_equal, { ga: 0, values: 4 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Progress",
+    			options,
+    			id: create_fragment$a.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Progress>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Progress>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get values() {
+    		throw new Error("<Progress>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set values(value) {
+    		throw new Error("<Progress>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\core\Timer.svelte generated by Svelte v3.52.0 */
+    const file$7 = "src\\core\\Timer.svelte";
+
+    function create_fragment$9(ctx) {
+    	let div1;
+    	let div0;
+    	let div0_class_value;
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			div0 = element("div");
+    			attr_dev(div0, "class", div0_class_value = "h-full w-full " + /*color*/ ctx[1]);
+    			set_style(div0, "width", /*_bar*/ ctx[2] + "%");
+    			add_location(div0, file$7, 39, 4, 988);
+    			attr_dev(div1, "class", "w-full h-full " + /*_bgColor*/ ctx[3]);
+    			set_style(div1, "grid-area", /*ga*/ ctx[0]);
+    			add_location(div1, file$7, 35, 0, 907);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*color*/ 2 && div0_class_value !== (div0_class_value = "h-full w-full " + /*color*/ ctx[1])) {
+    				attr_dev(div0, "class", div0_class_value);
+    			}
+
+    			if (dirty & /*_bar*/ 4) {
+    				set_style(div0, "width", /*_bar*/ ctx[2] + "%");
+    			}
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(div1, "grid-area", /*ga*/ ctx[0]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$9.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$9($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Timer', slots, []);
+    	let { ga } = $$props;
+    	let { seconds } = $$props;
+    	let { onExpiration } = $$props;
+    	let { color = "bg-red-500" } = $$props;
+    	let { bit = 30 } = $$props;
+    	let _startedAt;
+    	let _deadLine;
+    	let _bar = 0;
+    	let _bgColor = getBgColor(ga);
+    	let _intervalId;
+
+    	function stopCounting() {
+    		clearInterval(_intervalId);
+    	}
+
+    	function startCounting() {
+    		function tick() {
+    			let now = Date.now();
+    			$$invalidate(2, _bar = 100 * ((now - _startedAt) / (1000 * seconds)));
+
+    			if (now >= _deadLine) {
+    				onExpiration();
+    				stopCounting();
+    			}
+    		}
+
+    		_startedAt = Date.now();
+    		_deadLine = _startedAt + 1000 * seconds;
+    		_intervalId = setInterval(() => tick(), bit);
+    	}
+
+    	onMount(() => startCounting());
+    	onDestroy(() => stopCounting());
+
+    	function restart() {
+    		startCounting();
+    	}
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Timer> was created without expected prop 'ga'");
+    		}
+
+    		if (seconds === undefined && !('seconds' in $$props || $$self.$$.bound[$$self.$$.props['seconds']])) {
+    			console.warn("<Timer> was created without expected prop 'seconds'");
+    		}
+
+    		if (onExpiration === undefined && !('onExpiration' in $$props || $$self.$$.bound[$$self.$$.props['onExpiration']])) {
+    			console.warn("<Timer> was created without expected prop 'onExpiration'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'seconds', 'onExpiration', 'color', 'bit'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Timer> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('seconds' in $$props) $$invalidate(4, seconds = $$props.seconds);
+    		if ('onExpiration' in $$props) $$invalidate(5, onExpiration = $$props.onExpiration);
+    		if ('color' in $$props) $$invalidate(1, color = $$props.color);
+    		if ('bit' in $$props) $$invalidate(6, bit = $$props.bit);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		onDestroy,
+    		onMount,
+    		getBgColor,
+    		ga,
+    		seconds,
+    		onExpiration,
+    		color,
+    		bit,
+    		_startedAt,
+    		_deadLine,
+    		_bar,
+    		_bgColor,
+    		_intervalId,
+    		stopCounting,
+    		startCounting,
+    		restart
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('seconds' in $$props) $$invalidate(4, seconds = $$props.seconds);
+    		if ('onExpiration' in $$props) $$invalidate(5, onExpiration = $$props.onExpiration);
+    		if ('color' in $$props) $$invalidate(1, color = $$props.color);
+    		if ('bit' in $$props) $$invalidate(6, bit = $$props.bit);
+    		if ('_startedAt' in $$props) _startedAt = $$props._startedAt;
+    		if ('_deadLine' in $$props) _deadLine = $$props._deadLine;
+    		if ('_bar' in $$props) $$invalidate(2, _bar = $$props._bar);
+    		if ('_bgColor' in $$props) $$invalidate(3, _bgColor = $$props._bgColor);
+    		if ('_intervalId' in $$props) _intervalId = $$props._intervalId;
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [ga, color, _bar, _bgColor, seconds, onExpiration, bit, restart];
+    }
+
+    class Timer extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$9, create_fragment$9, safe_not_equal, {
+    			ga: 0,
+    			seconds: 4,
+    			onExpiration: 5,
+    			color: 1,
+    			bit: 6,
+    			restart: 7
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Timer",
+    			options,
+    			id: create_fragment$9.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Timer>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Timer>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get seconds() {
+    		throw new Error("<Timer>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set seconds(value) {
+    		throw new Error("<Timer>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get onExpiration() {
+    		throw new Error("<Timer>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set onExpiration(value) {
+    		throw new Error("<Timer>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get color() {
+    		throw new Error("<Timer>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set color(value) {
+    		throw new Error("<Timer>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get bit() {
+    		throw new Error("<Timer>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set bit(value) {
+    		throw new Error("<Timer>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get restart() {
+    		return this.$$.ctx[7];
+    	}
+
+    	set restart(value) {
+    		throw new Error("<Timer>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\equation\Sequnces.svelte generated by Svelte v3.52.0 */
+
+    function variatePm(ans_) {
+    	let ans = n2d$2(ans_);
+    	return [ans, ans.plus(pm(1)), ans.plus(pm(2)), ans.plus(pm(3))];
+    }
+
+    function applyDifs(a, difs) {
+    	let a2 = a + difs[0];
+    	let a3 = a2 + difs[1];
+    	let a4 = a3 + difs[2];
+    	let a5 = a4 + difs[3];
+    	let a6 = a5 + difs[4];
+    	return n2d$2([a, a2, a3, a4, a5, a6]);
+    }
+
+    function newSequence() {
+    	let sequences = [
+    		// 0
+    		function arithmeticProgression() {
+    			let a = rand(1, 40);
+    			let d = pm(rand(2, 7));
+    			let difs = [d, d * 2, d * 3, d * 4];
+    			let abc = applyDifs(a, difs);
+    			let ans = abc.pop();
+    			let answers = variatePm(ans);
+    			return { abc, answers };
+    		},
+    		// 1
+    		function geometricProgression() {
+    			let pows = [n2d$2(0.1), n2d$2(1).div(3), n2d$2(0.5), n2d$2(1), n2d$2(1.5), n2d$2(2), n2d$2(3)];
+    			let a = n2d$2(rand(1, 13));
+    			let p = randFrom(pows);
+    			let a2 = a.mul(p);
+    			let a3 = a2.mul(p);
+    			let ans = a3.mul(p);
+    			let abc = n2d$2([a, a2, a3]);
+    			let answers = n2d$2([ans, ans.minus(p), ans.plus(p), ans.plus(2)]);
+    			return { abc, answers };
+    		},
+    		// 2
+    		function _9_8_5_4_2() {
+    			let a = rand(1, 40);
+    			let d1 = pm(1);
+    			let d2a = pm(randFrom([2, 3, 4]));
+    			let d2d = pm(1);
+    			let difs = [d1, d2a, d1, d2a + d2d, d1];
+    			let abc = applyDifs(a, difs);
+    			let ans = abc.pop();
+    			let answers = variatePm(ans);
+    			return { abc, answers };
+    		},
+    		// 3
+    		function _3_5_4_6_5() {
+    			let a = rand(1, 40);
+    			let d1 = pm(2);
+    			let d2 = pm(1);
+    			let difs = [d1, d2, d1, d2, d1];
+    			let abc = applyDifs(a, difs);
+    			let ans = abc.pop();
+    			let answers = variatePm(ans);
+    			return { abc, answers };
+    		},
+    		// 4
+    		function _2_3_5_8_12() {
+    			let a = rand(1, 40);
+    			let da = pm(randFrom([1, 2]));
+    			let dd = pm(randFrom([1, 2]));
+    			let difs = [da, da + dd, da + 2 * dd, da + 3 * dd, da + 4 * dd];
+    			let abc = applyDifs(a, difs);
+    			let ans = abc.pop();
+    			let answers = variatePm(ans);
+    			return { abc, answers };
+    		},
+    		// 5
+    		function _1_3_2_4_3() {
+    			let a = rand(1, 40);
+
+    			do {
+    				let d1 = pm(randFrom([1, 2, 3, 4]));
+    				let d2 = pm(randFrom([1, 2, 3, 4]));
+    				if (d1 === d2) continue;
+    				if (d1 === -d2) continue;
+    				let difs = [d1, d2, d1, d2, d1];
+    				let abc = applyDifs(a, difs);
+    				let ans = abc.pop();
+    				let answers = variatePm(ans);
+    				return { abc, answers };
+    			} while (false);
+    		},
+    		// 6
+    		function _fibo() {
+    			let abc = n2d$2([1, 2, 3, 5, 8, 13]);
+    			let ans = 34;
+    			let answers = variatePm(ans);
+    			return { abc, answers };
+    		}
+    	];
+
+    	return sequences[6]();
+    }
+
+    /* src\equation\Utils.svelte generated by Svelte v3.52.0 */
+
+    function parseDecimal(str) {
+    	let parts = str.split('/');
+    	if (parts.length === 1) return new Decimal(str);
+    	let [n, d] = [new Decimal(parts[0]), new Decimal(parts[1])];
+    	let fr = n.div(d);
+    	return fr;
+    }
+
+    function get(n, nA) {
+    	return nA.length > 0 ? randFrom(nA) : n2d$2(rand(n[0], n[1]));
+    }
+
+    function percentsSimple(gameType, equ) {
+    	return gameType.includes("%") && equ.includes("*");
+    }
+
+    function percentsPlus(gameType, equ) {
+    	return gameType.includes("%") && equ.includes("+");
+    }
+
+    function percentsMinus(gameType, equ) {
+    	return gameType.includes("%") && equ.includes("-");
+    }
+
+    function makeProduct(min, max, nums, first, unique) {
+    	let nums2 = n2d$2([...nums]);
+    	let dividers = [];
+    	let product = n2d$2(first ?? 1);
+    	unique ??= true;
+    	let loopLimit = 20;
+
+    	do {
+    		let d = randFrom(nums2);
+    		if (product.mul(d).gt(max) && loopLimit-- > 0) continue;
+    		product = product.mul(d);
+    		dividers.push(d);
+    		if (unique) nums2.splice(nums2.indexOf(d), 1);
+    		if (nums2.length === 0) break;
+    	} while (product.lt(min) || dividers.length <= 1);
+
+    	return [product, dividers];
+    }
+
+    /* src\equation\Game.svelte generated by Svelte v3.52.0 */
+
+    let _config$1 = Anki.getConfig();
+    let _patterns;
+    let _next$1;
+    let _totalRounds$1 = _config$1.rounds;
+    let _gameType = "equ+-";
+    let _a = [10, 90];
+    let _b = [10, 90];
+    let _c = [10, 90];
+    let _d = [10, 90];
+    let _n = [1, 1];
+    let _aA = [];
+    let _bA = [];
+    let _cA = [];
+    let _dA = [];
+    let _nA = [];
+    let _x = ['X'];
+    let _noOverflow = false;
+    let _properOnly = false;
+    let _seconds = 15 * _config$1.rounds;
+    let _mathScale;
+    let _noAbSwap = false;
+    let _sequence = newSequence();
+    let _ansDividers = [];
+    let _dotsFactor = 1;
+
+    function newAbc(pattern) {
+    	let tzero = n => n - n % 10;
+
+    	if (_gameType === "+-dots") {
+    		let [a, b] = [get(_a, _aA), get(_b, _bA)];
+    		let a0 = rand(1, 9);
+    		let b0 = _noOverflow ? rand(0, 9 - a0) : rand(10 - a0, 9);
+    		let aa = n2d$2(tzero(a) + a0).div(_dotsFactor);
+    		let bb = n2d$2(tzero(b) + b0).div(_dotsFactor);
+    		let f = n2d$2(rand(1, 10));
+    		aa = aa.plus(f.div(_dotsFactor).div(10));
+    		if (trueFalse()) bb = bb.plus(n2d$2(10).minus(f).div(_dotsFactor).div(10));
+    		let c = aa.plus(bb);
+    		return [...shuffle([aa, bb]), c];
+    	}
+
+    	if (_gameType === "equ+-") {
+    		let [a, b] = [get(_a, _aA), get(_b, _bA)];
+    		let a0 = rand(1, 9);
+    		let b0 = _noOverflow ? rand(0, 9 - a0) : rand(10 - a0, 9);
+    		let aa = n2d$2(tzero(a) + a0);
+    		let bb = n2d$2(tzero(b) + b0);
+    		let c = aa.plus(bb);
+    		return [...shuffle([aa, bb]), c];
+    	}
+
+    	if (_gameType === "equ*/") {
+    		let [a, b] = [get(_a, _aA), get(_b, _bA)];
+    		let c = a.mul(b);
+    		let ab = _noAbSwap ? [a, b] : shuffle([a, b]);
+    		return [...ab, c];
+    	}
+
+    	if (_gameType === "ab+c=d") {
+    		let [a, b] = [get(_a, _aA), get(_b, _bA)];
+    		let d = get(_d, _dA);
+    		let c = d.minus(a.mul(b));
+    		return [...shuffle([a, b]), c, d];
+    	}
+
+    	if (_gameType === "a*/(b+c)=d") {
+    		for (let loopLimit = 100; true; ) {
+    			let [a, b] = [get(_a, _aA), get(_b, _bA)];
+    			let c = get(_c, _cA);
+    			let d;
+
+    			if (pattern.includes('+')) {
+    				d = a.mul(b).plus(a.mul(c));
+    			} else {
+    				if (b.lt(c)) [b, c] = [c, b];
+    				d = a.mul(b).minus(a.mul(c));
+    			}
+
+    			if (pattern.includes('/') && d.eq(0) && loopLimit-- > 0) continue;
+    			if (pattern.includes('/')) [a, d] = [d, a];
+    			return [a, b, c, d];
+    		}
+    	}
+
+    	if (_gameType === "a/b=c/d") {
+    		for (let loopLimit = 100; true; ) {
+    			let [a, b] = [get(_a, _aA), get(_b, _bA)];
+    			let c = get(_c, _cA);
+    			let n1 = get(_n, _nA);
+    			let n2 = get(_n, _nA);
+    			if (a.gt(b) && _properOnly) [a, b] = [b, a];
+    			if (a.eq(b) && loopLimit-- > 0) continue;
+    			return [a.mul(n1), b.mul(n1), a.mul(c).mul(n2), b.mul(c).mul(n2)];
+    		}
+    	}
+
+    	if (percentsSimple(_gameType, pattern)) {
+    		let b = get(_b, _bA);
+    		let c;
+    		let a;
+    		let loopLimit = 100;
+
+    		do {
+    			c = get(_c, _cA);
+    			a = c.mul(100).div(b);
+    			if (--loopLimit === 0) break;
+    		} while (!a.trunc().eq(a));
+
+    		if (loopLimit === 0) console.log(d2n([a, b, c]));
+    		return [a, b, c];
+    	} else if (percentsPlus(_gameType, pattern)) {
+    		// assert _bA is here
+    		let b = randFromIf(_bA, x => x.gte(100));
+
+    		let c;
+    		let a;
+    		let loopLimit = 100;
+
+    		do {
+    			c = get(_c, _cA);
+    			a = c.mul(100).div(b);
+    			if (--loopLimit === 0) break;
+    		} while (!a.trunc().eq(a));
+
+    		b = b.minus(100);
+    		if (loopLimit === 0) console.log(d2n([a, b, c]));
+    		return [a, b, c];
+    	} else if (percentsMinus(_gameType, pattern)) {
+    		// assert _bA is here
+    		let b = randFromIf(_bA, x => x.lt(100));
+
+    		let c;
+    		let a;
+    		let loopLimit = 100;
+
+    		do {
+    			c = get(_c, _cA);
+    			a = c.mul(100).div(b);
+    			if (--loopLimit === 0) break;
+    		} while (!a.trunc().eq(a));
+
+    		if (loopLimit === 0) console.log(d2n([a, b, c]));
+    		b = n2d$2(100).minus(b);
+    		return [a, b, c];
+    	}
+
+    	if (_gameType === "%-a-of-c") {
+    		let b = get(_b, _bA);
+    		let c;
+    		let a;
+    		let loopLimit = 100;
+
+    		do {
+    			c = get(_c, _cA);
+    			a = b.mul(c).div(100);
+    			if (--loopLimit === 0) break;
+    		} while (!a.trunc().eq(a));
+
+    		if (loopLimit === 0) console.log(d2n([a, b, c]));
+    		return [a, b, c];
+    	}
+
+    	if (_gameType === "%-b-is-c") {
+    		let b = get(_b, _bA);
+    		let c;
+    		let a;
+    		let loopLimit = 100;
+
+    		do {
+    			a = get(_a, _aA);
+    			c = a.mul(b).div(100);
+    			if (--loopLimit === 0) break;
+    		} while (!c.trunc().eq(c));
+
+    		if (loopLimit === 0) console.log(d2n([a, b, c]));
+    		return [a, b, c];
+    	}
+
+    	if (_gameType === "fr+-") {
+    		let [a, b] = [get(_a, _aA), get(_b, _bA)];
+    		let c = a.plus(b);
+    		return [...shuffle([a, b]), c];
+    	}
+
+    	if (_gameType === "fr*/") {
+    		let [a, b] = shuffle([get(_a, _aA), get(_b, _bA)]);
+    		let c = pattern.includes('*') ? a.mul(b) : a.div(b);
+    		return [a, b, c];
+    	}
+
+    	if (_gameType === "fr+-ab") {
+    		let [a, b] = [get(_a, _aA), get(_b, _bA)];
+
+    		if (a.eq(b)) {
+    			return pattern.includes('+')
+    			? [a, b, a.plus(b)]
+    			: [a.plus(b), ...shuffle([b, a])];
+    		}
+
+    		if (pattern.includes('+')) {
+    			return [...shuffle([a, b]), a.plus(b)];
+    		} else {
+    			let lhs = Decimal.max(a, b);
+    			let rhs = Decimal.min(a, b);
+    			let c = lhs.minus(rhs);
+    			return [lhs, rhs, c];
+    		}
+    	}
+
+    	if (_gameType === "fr-reduction") {
+    		for (let loopLimit = 20; true; ) {
+    			let [a, b] = [get(_a, _aA), get(_b, _bA)];
+    			let d = get(_d, _dA);
+    			a = a.mul(d);
+    			b = b.mul(d);
+    			let fr = nd2f(a, b);
+    			let c = f2d(fr);
+    			if (a.gte(b) && _properOnly && loopLimit-- > 0) continue;
+    			return [a, b, c];
+    		}
+    	}
+
+    	if (_gameType === "dividers") {
+    		do {
+    			let [a, aDividers] = makeProduct(_a[0], _a[1], _nA);
+    			let [b, bDividers] = makeProduct(_b[0], _b[1], _nA);
+    			if (a.eq(b)) continue;
+    			_ansDividers = [...aDividers, ...bDividers];
+    			let [c] = makeProduct(_c[0], _c[1], _ansDividers);
+    			if (c.eq(a) || c.eq(b)) continue;
+    			return [a, b, c];
+    		} while (true);
+    	}
+
+    	if (_gameType === "dividers-2") {
+    		let abc;
+
+    		for (let loopLimit = 50; loopLimit-- > 0; ) {
+    			let [a, aDividers] = makeProduct(_a[0], _a[1], _nA);
+    			let [b, bDividers] = makeProduct(_b[0], _b[1], _nA);
+    			if (a.eq(b)) continue;
+    			let all = shuffle([...aDividers, ...bDividers]);
+    			_ansDividers = all;
+    			let [ans, c, d, e, f] = [];
+
+    			switch (all.length) {
+    				default:
+    					continue;
+    				case 3:
+    					[ans, c, d] = all;
+    					abc = [a, b, c, d, ans];
+    					break;
+    				case 4:
+    					[ans, c, d, e] = all;
+    					[c, d] = c.lt(d) ? [c.mul(e), d] : [c, d.mul(e)];
+    					abc = [a, b, c, d, ans];
+    					break;
+    				case 5:
+    					[ans, c, d, e, f] = all;
+    					[c, d] = c.lt(d) ? [c, d] : [d, c];
+    					[e, f] = e.lt(f) ? [e, f] : [f, e];
+    					c = c.mul(f);
+    					d = d.mul(e);
+    					abc = [a, b, c, d, ans];
+    					break;
+    			} // min(c, d) * max(e, f)
+    			// max(c, d) * min(e, f)
+
+    			if (allAreUnique(abc)) break;
+    		}
+
+    		return abc;
+    	}
+
+    	if (_gameType == "dividers+-") {
+    		let r = _a;
+
+    		let factors = new Map([
+    				[2, [2, 7]],
+    				[3, [3, 7]],
+    				[5, [5, 7]],
+    				[6, [2, 3]],
+    				[7, [7, 11]],
+    				[9, [7, 8]],
+    				[10, [2, 5]]
+    			]);
+
+    		let ans = randFrom([...factors.keys()]);
+    		let others = factors.get(ans);
+    		let s = makeProduct(r[0], r[1], others, ans, false)[0];
+    		let a = rand(r[0], d2n(s.minus(r[0])));
+    		let b = s.minus(a);
+    		return n2d$2([a, b, ans]);
+    	}
+
+    	/*    if (_gameType == "sequence") {
+                _sequence = newSequence();
+                return _sequence;
+            }
+    */
+    	throw `Unknown game type '${_gameType}'`;
+    }
+
+    function makeAnswers$1(abc, rightAns) {
+    	if (_gameType === "+-dots") {
+    		let f1 = pm(n2d$2(10)).div(_dotsFactor);
+    		let f2 = pm(n2d$2(rand(1, 1))).div(_dotsFactor);
+    		let f3 = pm(n2d$2(rand(2, 2))).div(_dotsFactor);
+    		return shuffle([rightAns, rightAns.plus(f1), rightAns.plus(f2), rightAns.plus(f3)]);
+    	}
+
+    	if (_gameType === "equ+-") {
+    		return shuffle([
+    			rightAns,
+    			rightAns.plus(pm(10)),
+    			rightAns.plus(pm(rand(1, 1))),
+    			rightAns.plus(pm(rand(2, 2)))
+    		]);
+    	}
+
+    	if (_gameType === "equ*/") {
+    		return shuffle([
+    			rightAns,
+    			rightAns.plus(pm(rand(1, 1))),
+    			rightAns.plus(pm(rand(2, 2))),
+    			rightAns.plus(pm(rand(3, 3)))
+    		]);
+    	}
+
+    	if (_gameType === "ab+c=d" || _gameType === "a*/(b+c)=d" || _gameType === "a/b=c/d") {
+    		return shuffle([
+    			rightAns,
+    			rightAns.plus(pm(rand(1, 1))),
+    			rightAns.plus(pm(rand(2, 2))),
+    			rightAns.plus(pm(rand(3, 3)))
+    		]);
+    	}
+
+    	if (_gameType.includes("%")) {
+    		return shuffle([rightAns, rightAns.plus(pm(5)), rightAns.plus(pm(10)), rightAns.plus(pm(15))]);
+    	}
+
+    	if (_gameType.includes('fr+-') || _gameType === "fr*/") {
+    		let variate = (x, v) => x.gt(v) ? x.plus(v.mul(pm(1))) : x.plus(v);
+
+    		for (let loopLimit = 100; true; ) {
+    			let answers = [
+    				rightAns,
+    				variate(rightAns, abc[0]),
+    				variate(rightAns, abc[1]),
+    				variate(rightAns, abc[2])
+    			];
+
+    			if (!allAreUnique(answers) && loopLimit-- > 0) continue;
+    			return shuffle(answers);
+    		}
+    	}
+
+    	if (_gameType === "fr-reduction") {
+    		let va = (x, v) => x > v ? x + pm(v) : x + v;
+    		let fr = d2f(rightAns);
+
+    		for (let loopLimit = 100; true; ) {
+    			let n1 = fr.n;
+    			let n2 = va(fr.n, 1);
+    			let d1 = fr.d;
+    			let d2 = va(fr.d, 1);
+    			let answers = [rightAns, n2d$2(n2).div(d1), n2d$2(n1).div(d2), n2d$2(n2).div(d2)];
+    			if (!allAreUnique(answers) && loopLimit-- > 0) continue;
+    			return shuffle(answers);
+    		}
+    	}
+
+    	if (_gameType === "dividers") {
+    		let nDividers = _nA.filter(x => !_ansDividers.some(y => x.eq(y)));
+    		let pAll = _ansDividers.reduce((x, y) => x.mul(y));
+
+    		[2, 3].forEach(x => {
+    			let p = n2d$2(x);
+    			while (pAll.mod(p).eq(0)) p = p.mul(x);
+    			nDividers.push(p);
+    		});
+
+    		// console.log(`choose dividers (${pAll}): `, d2n(_ansDividers), d2n(nDividers));
+    		let variate = () => {
+    			for (let loopLimit = 30; true; ) {
+    				let p = randFrom(_ansDividers);
+    				if (_ansDividers.length > 2 && trueFalse()) p = p.mul(randFrom(_ansDividers));
+    				p = p.mul(randFrom(nDividers));
+    				if (p.gt(_c[1]) && loopLimit-- > 0) continue;
+    				return p;
+    			}
+    		};
+
+    		for (let loopLimit = 100; true; ) {
+    			let answers = [rightAns, variate(), variate(), variate()];
+    			if (!allAreUnique(answers) && loopLimit-- > 0) continue;
+    			return shuffle(answers);
+    		}
+    	}
+
+    	if (_gameType === "dividers-2") {
+    		let dividers = _ansDividers.filter(x => !x.eq(rightAns));
+    		dividers = [...dividers, ...n2d$2([23, 29])];
+    		let answers;
+
+    		for (let loopLimit = 30; loopLimit-- > 0; ) {
+    			let [a1, a2, a3] = shuffle(dividers);
+    			answers = [rightAns, a1, a2, a3];
+    			if (allAreUnique(answers)) break;
+    		}
+
+    		return shuffle(answers);
+    	}
+
+    	if (_gameType === "dividers+-") {
+    		let answers = [rightAns];
+    		let s = abc[0].plus(abc[1]);
+
+    		for (let f = 2; f < d2n(s); f++) {
+    			if (rightAns.eq(f)) continue;
+    			if (s.mod(f).eq(0)) continue;
+    			if (f === 4) continue;
+    			answers.push(n2d$2(f));
+    			if (answers.length >= 4) break;
+    		}
+
+    		answers = [...answers, ...n2d$2([11, 13, 17])].slice(0, 4);
+    		return shuffle(answers);
+    	}
+
+    	if (_gameType == "sequence") {
+    		let answers = _sequence.answers;
+    		return answers;
+    	}
+
+    	throw `Unknown game type '${_gameType}'`;
+    }
+
+    function makeEqu(pattern, abc) {
+    	let vars = pattern.match(/\b[A-Z]\b/g); // single upcase letters
+    	let v = randFrom(vars);
+    	let equ = pattern;
+    	[[/_r/g, "color(red)"], [/_g/g, "color(green)"], [/_b/g, "color(blue)"]].forEach(g => equ = equ.replace(g[0], g[1]));
+    	equ = equ.replace(v, '$').replace("xx", '@');
+    	let ans = abc[v.charCodeAt(0) - ('A').charCodeAt(0)];
+
+    	if (_gameType == "ab+c=d") {
+    		let c = abc[2];
+
+    		if (c.lt(0)) {
+    			abc[2] = c.neg();
+    			equ = equ.replace('+', "-");
+    		}
+
+    		if (ans.lt(0)) ans = ans.neg();
+    	}
+
+    	if (_gameType === "dividers+-" && trueFalse()) {
+    		let s = abc[0].plus(abc[1].mul(2));
+    		abc = [s, abc[1], abc[2], abc[3]];
+    		equ = equ.replace('+', '-');
+    	}
+
+    	let dotsOnly = _gameType === "+-dots";
+
+    	function at(i) {
+    		if (i >= abc.length) return "";
+    		if (!abc[i]) return "";
+    		return dotsOnly ? abc[i].toString() : d2t(abc[i]);
+    	}
+
+    	equ = equ.toLocaleLowerCase().replace(/\ba\b/, at(0)).replace(/\bb\b/, at(1)).replace(/\bc\b/, at(2)).replace(/\bd\b/, at(3)).replace(/\be\b/, at(4)).replace(/\bf\b/, at(5)).replace(/\bg\b/, at(6)).replace(/\bh\b/, at(7));
+    	equ = equ.replace('@', "xx").replace('$', randFrom(_x));
+    	return [equ, ans];
+    }
+
+    class CGame$1 {
+    	constructor() {
+    		for (let cmd of Anki.commands()) {
+    			switch (cmd[0].toLocaleLowerCase()) {
+    				case "equ+-":
+    					_gameType = "equ+-";
+    					break;
+    				case "equ*/":
+    					_gameType = "equ*/";
+    					break;
+    				case "ab+c=d":
+    					_gameType = "ab+c=d";
+    					break;
+    				case "%-simple":
+    					_gameType = "%-simple";
+    					break;
+    				case "%-plus":
+    					_gameType = "%-plus";
+    					break;
+    				case "%-minus":
+    					_gameType = "%-minus";
+    					break;
+    				case "%-all":
+    					_gameType = "%-all";
+    					break;
+    				case "game":
+    					_gameType = cmd[1];
+    				case "no-overflow":
+    					_noOverflow = false;
+    					break;
+    				case "proper-only":
+    					_properOnly = true;
+    					break;
+    				case "timer":
+    					_seconds = parseInt(cmd[1]);
+    					break;
+    				case "m-scale":
+    					_mathScale = parseFloat(cmd[1]);
+    					break;
+    				case "no-ab-swap":
+    					_noAbSwap = true;
+    					break;
+    				case "dots-factor":
+    					_dotsFactor = parseInt(cmd[1]);
+    					break;
+    				case "x":
+    					_x = cmd.slice(1);
+    					break;
+    				case "a":
+    					_a = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    				case "b":
+    					_b = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    				case "c":
+    					_c = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    				case "d":
+    					_d = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    				case "n":
+    					_n = cmd.slice(1).map(x => parseInt(x));
+    					break;
+    				case "a[]":
+    					_aA = cmd.slice(1).map(x => parseDecimal(x));
+    					break;
+    				case "b[]":
+    					_bA = cmd.slice(1).map(x => parseDecimal(x));
+    					break;
+    				case "c[]":
+    					_cA = cmd.slice(1).map(x => parseDecimal(x));
+    					break;
+    				case "d[]":
+    					_dA = cmd.slice(1).map(x => parseDecimal(x));
+    					break;
+    				case "n[]":
+    					_nA = cmd.slice(1).map(x => parseDecimal(x));
+    					break;
+    			}
+    		}
+
+    		_patterns = Anki.tokens();
+    		_next$1 = -1;
+    	}
+
+    	isLast() {
+    		return _next$1 + 1 >= _totalRounds$1;
+    	}
+
+    	addRounds(count) {
+    		_totalRounds$1 += count;
+    	}
+
+    	nextRound() {
+    		_next$1++;
+    		let gameType = _gameType;
+    		let pattern = _patterns[_next$1 % _patterns.length];
+    		let abc = newAbc(pattern);
+    		let [equ, rightAns] = makeEqu(pattern, abc);
+    		let answers = makeAnswers$1(abc, rightAns);
+    		let progress = [_next$1 < _totalRounds$1 ? _next$1 : _totalRounds$1, _totalRounds$1];
+
+    		return {
+    			seconds: _seconds,
+    			gameType,
+    			progress,
+    			equ,
+    			mathScale: _mathScale,
+    			rightAns,
+    			answers
+    		};
+    	}
+    }
+
+    function newEquation() {
+    	return new CGame$1();
+    }
+
+    /* src\equation\Model.svelte generated by Svelte v3.52.0 */
+
+    function on$1(name, cb) {
+    	onAny(name, cb);
+    }
+
+    function fire$1(name, args) {
+    	fireAny(name, args);
+    }
+
+    function newTimedCmd$1(cmd, timeout, jitter) {
+    	return new CTimedCmd(cmd, timeout, jitter ?? 0);
+    }
+
+    /* src\equation\Ans.svelte generated by Svelte v3.52.0 */
+    const file$6 = "src\\equation\\Ans.svelte";
+
+    function create_fragment$8(ctx) {
+    	let button;
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t = text(/*_text*/ ctx[1]);
+    			attr_dev(button, "class", /*_bgColor*/ ctx[3]);
+    			set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			set_style(button, "font-size", /*_sz*/ ctx[2] + "px");
+    			add_location(button, file$6, 50, 0, 1385);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t);
+
+    			if (!mounted) {
+    				dispose = [
+    					action_destroyer(pulse.call(null, button)),
+    					action_destroyer(bounceOnDrag.call(null, button)),
+    					listen_dev(button, "click", /*click_handler*/ ctx[10], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*_text*/ 2) set_data_dev(t, /*_text*/ ctx[1]);
+
+    			if (dirty & /*_bgColor*/ 8) {
+    				attr_dev(button, "class", /*_bgColor*/ ctx[3]);
+    			}
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			}
+
+    			if (dirty & /*_sz*/ 4) {
+    				set_style(button, "font-size", /*_sz*/ ctx[2] + "px");
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$8.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$8($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Ans', slots, []);
+    	let { gameType } = $$props;
+    	let { ga } = $$props;
+    	let { value } = $$props;
+    	let { units = "" } = $$props;
+    	let { bgColor = getBgColor(ga, "bg-gray-100") } = $$props;
+    	let { sz = 30 } = $$props;
+    	let _text;
+    	let _sz;
+    	let _bgColor;
+
+    	function toText(v) {
+    		if (!isFraction(v) && !units) return v.toNumber().toLocaleString('en');
+    		let dotsOnly = gameType === "+-dots";
+    		let text = dotsOnly ? v.toString() : d2t(v, trueFalse());
+    		if (units) text += units;
+    		return toAscii(text);
+    	}
+
+    	function setState(state) {
+    		switch (state) {
+    			case "start":
+    				$$invalidate(1, _text = "??");
+    				$$invalidate(3, _bgColor = bgColor);
+    				break;
+    			case "clicked":
+    				$$invalidate(1, _text = toText(value));
+    				$$invalidate(3, _bgColor = bgColor);
+    				break;
+    			case "right":
+    				$$invalidate(1, _text = toText(value));
+    				$$invalidate(3, _bgColor = "bg-green-200");
+    				break;
+    			case "wrong":
+    				$$invalidate(1, _text = toText(value));
+    				$$invalidate(3, _bgColor = "bg-red-200");
+    				break;
+    		}
+
+    		$$invalidate(2, _sz = sz - 1.2 * _text.length);
+    	}
+
+    	$$self.$$.on_mount.push(function () {
+    		if (gameType === undefined && !('gameType' in $$props || $$self.$$.bound[$$self.$$.props['gameType']])) {
+    			console.warn("<Ans> was created without expected prop 'gameType'");
+    		}
+
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Ans> was created without expected prop 'ga'");
+    		}
+
+    		if (value === undefined && !('value' in $$props || $$self.$$.bound[$$self.$$.props['value']])) {
+    			console.warn("<Ans> was created without expected prop 'value'");
+    		}
+    	});
+
+    	const writable_props = ['gameType', 'ga', 'value', 'units', 'bgColor', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Ans> was created with unknown prop '${key}'`);
+    	});
+
+    	function click_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('gameType' in $$props) $$invalidate(4, gameType = $$props.gameType);
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('value' in $$props) $$invalidate(5, value = $$props.value);
+    		if ('units' in $$props) $$invalidate(6, units = $$props.units);
+    		if ('bgColor' in $$props) $$invalidate(7, bgColor = $$props.bgColor);
+    		if ('sz' in $$props) $$invalidate(8, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		toAscii,
+    		isFraction,
+    		trueFalse,
+    		pulse,
+    		getBgColor,
+    		bounceOnDrag,
+    		d2t,
+    		gameType,
+    		ga,
+    		value,
+    		units,
+    		bgColor,
+    		sz,
+    		_text,
+    		_sz,
+    		_bgColor,
+    		toText,
+    		setState
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('gameType' in $$props) $$invalidate(4, gameType = $$props.gameType);
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('value' in $$props) $$invalidate(5, value = $$props.value);
+    		if ('units' in $$props) $$invalidate(6, units = $$props.units);
+    		if ('bgColor' in $$props) $$invalidate(7, bgColor = $$props.bgColor);
+    		if ('sz' in $$props) $$invalidate(8, sz = $$props.sz);
+    		if ('_text' in $$props) $$invalidate(1, _text = $$props._text);
+    		if ('_sz' in $$props) $$invalidate(2, _sz = $$props._sz);
+    		if ('_bgColor' in $$props) $$invalidate(3, _bgColor = $$props._bgColor);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		ga,
+    		_text,
+    		_sz,
+    		_bgColor,
+    		gameType,
+    		value,
+    		units,
+    		bgColor,
+    		sz,
+    		setState,
+    		click_handler
+    	];
+    }
+
+    class Ans$1 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$8, create_fragment$8, safe_not_equal, {
+    			gameType: 4,
+    			ga: 0,
+    			value: 5,
+    			units: 6,
+    			bgColor: 7,
+    			sz: 8,
+    			setState: 9
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Ans",
+    			options,
+    			id: create_fragment$8.name
+    		});
+    	}
+
+    	get gameType() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set gameType(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get ga() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get value() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set value(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get units() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set units(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get bgColor() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set bgColor(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get setState() {
+    		return this.$$.ctx[9];
+    	}
+
+    	set setState(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\equation\Main.svelte generated by Svelte v3.52.0 */
+
+    const { Object: Object_1$1 } = globals;
+
+    function get_each_context$3(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[25] = list[i];
+    	child_ctx[26] = list;
+    	child_ctx[27] = i;
+    	return child_ctx;
+    }
+
+    // (172:4) {#each _round.answers as ans, no (_recreate[no])}
+    function create_each_block$3(key_1, ctx) {
+    	let first;
+    	let ans;
+    	let no = /*no*/ ctx[27];
+    	let current;
+    	const assign_ans = () => /*ans_binding*/ ctx[11](ans, no);
+    	const unassign_ans = () => /*ans_binding*/ ctx[11](null, no);
+
+    	function click_handler_1() {
+    		return /*click_handler_1*/ ctx[12](/*ans*/ ctx[25]);
+    	}
+
+    	let ans_props = {
+    		gameType: /*_round*/ ctx[2].gameType,
+    		ga: `a${/*no*/ ctx[27]}`,
+    		value: /*ans*/ ctx[25],
+    		units: getAnsUnits(/*_round*/ ctx[2])
+    	};
+
+    	ans = new Ans$1({ props: ans_props, $$inline: true });
+    	assign_ans();
+    	ans.$on("click", click_handler_1);
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			first = empty();
+    			create_component(ans.$$.fragment);
+    			this.first = first;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, first, anchor);
+    			mount_component(ans, target, anchor);
+    			current = true;
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+
+    			if (no !== /*no*/ ctx[27]) {
+    				unassign_ans();
+    				no = /*no*/ ctx[27];
+    				assign_ans();
+    			}
+
+    			const ans_changes = {};
+    			if (dirty & /*_round*/ 4) ans_changes.gameType = /*_round*/ ctx[2].gameType;
+    			if (dirty & /*_round*/ 4) ans_changes.ga = `a${/*no*/ ctx[27]}`;
+    			if (dirty & /*_round*/ 4) ans_changes.value = /*ans*/ ctx[25];
+    			if (dirty & /*_round*/ 4) ans_changes.units = getAnsUnits(/*_round*/ ctx[2]);
+    			ans.$set(ans_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(ans.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(ans.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(first);
+    			unassign_ans();
+    			destroy_component(ans, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$3.name,
+    		type: "each",
+    		source: "(172:4) {#each _round.answers as ans, no (_recreate[no])}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (157:0) <Grid {layout}      on:click={() => anyClick()}  >
+    function create_default_slot$3(ctx) {
+    	let progress;
+    	let t0;
+    	let clock;
+    	let t1;
+    	let asciimath;
+    	let t2;
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
+    	let t3;
+    	let timer_1;
+    	let t4;
+    	let congrats_1;
+    	let current;
+
+    	progress = new Progress({
+    			props: { ga: "prg", values: /*_progress*/ ctx[4] },
+    			$$inline: true
+    		});
+
+    	clock = new Clock({ props: { ga: "clk" }, $$inline: true });
+
+    	asciimath = new AsciiMath({
+    			props: {
+    				ga: "equ",
+    				sz: 40,
+    				exp: /*_round*/ ctx[2].equ,
+    				scale: getScale(/*_round*/ ctx[2])
+    			},
+    			$$inline: true
+    		});
+
+    	asciimath.$on("click", /*click_handler*/ ctx[10]);
+    	let each_value = /*_round*/ ctx[2].answers;
+    	validate_each_argument(each_value);
+    	const get_key = ctx => /*_recreate*/ ctx[5][/*no*/ ctx[27]];
+    	validate_each_keys(ctx, each_value, get_each_context$3, get_key);
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		let child_ctx = get_each_context$3(ctx, each_value, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$3(key, child_ctx));
+    	}
+
+    	let timer_1_props = {
+    		ga: "tm",
+    		seconds: /*_round*/ ctx[2].seconds,
+    		onExpiration: /*func*/ ctx[13]
+    	};
+
+    	timer_1 = new Timer({ props: timer_1_props, $$inline: true });
+    	/*timer_1_binding*/ ctx[14](timer_1);
+    	let congrats_1_props = {};
+    	congrats_1 = new Congrats({ props: congrats_1_props, $$inline: true });
+    	/*congrats_1_binding*/ ctx[15](congrats_1);
+
+    	const block = {
+    		c: function create() {
+    			create_component(progress.$$.fragment);
+    			t0 = space();
+    			create_component(clock.$$.fragment);
+    			t1 = space();
+    			create_component(asciimath.$$.fragment);
+    			t2 = space();
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t3 = space();
+    			create_component(timer_1.$$.fragment);
+    			t4 = space();
+    			create_component(congrats_1.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(progress, target, anchor);
+    			insert_dev(target, t0, anchor);
+    			mount_component(clock, target, anchor);
+    			insert_dev(target, t1, anchor);
+    			mount_component(asciimath, target, anchor);
+    			insert_dev(target, t2, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, t3, anchor);
+    			mount_component(timer_1, target, anchor);
+    			insert_dev(target, t4, anchor);
+    			mount_component(congrats_1, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const progress_changes = {};
+    			if (dirty & /*_progress*/ 16) progress_changes.values = /*_progress*/ ctx[4];
+    			progress.$set(progress_changes);
+    			const asciimath_changes = {};
+    			if (dirty & /*_round*/ 4) asciimath_changes.exp = /*_round*/ ctx[2].equ;
+    			if (dirty & /*_round*/ 4) asciimath_changes.scale = getScale(/*_round*/ ctx[2]);
+    			asciimath.$set(asciimath_changes);
+
+    			if (dirty & /*_round, getAnsUnits, _answers, gotAnswer, _recreate*/ 300) {
+    				each_value = /*_round*/ ctx[2].answers;
+    				validate_each_argument(each_value);
+    				group_outros();
+    				validate_each_keys(ctx, each_value, get_each_context$3, get_key);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, t3.parentNode, outro_and_destroy_block, create_each_block$3, t3, get_each_context$3);
+    				check_outros();
+    			}
+
+    			const timer_1_changes = {};
+    			if (dirty & /*_round*/ 4) timer_1_changes.seconds = /*_round*/ ctx[2].seconds;
+    			timer_1.$set(timer_1_changes);
+    			const congrats_1_changes = {};
+    			congrats_1.$set(congrats_1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(progress.$$.fragment, local);
+    			transition_in(clock.$$.fragment, local);
+    			transition_in(asciimath.$$.fragment, local);
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			transition_in(timer_1.$$.fragment, local);
+    			transition_in(congrats_1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(progress.$$.fragment, local);
+    			transition_out(clock.$$.fragment, local);
+    			transition_out(asciimath.$$.fragment, local);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			transition_out(timer_1.$$.fragment, local);
+    			transition_out(congrats_1.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(progress, detaching);
+    			if (detaching) detach_dev(t0);
+    			destroy_component(clock, detaching);
+    			if (detaching) detach_dev(t1);
+    			destroy_component(asciimath, detaching);
+    			if (detaching) detach_dev(t2);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d(detaching);
+    			}
+
+    			if (detaching) detach_dev(t3);
+    			/*timer_1_binding*/ ctx[14](null);
+    			destroy_component(timer_1, detaching);
+    			if (detaching) detach_dev(t4);
+    			/*congrats_1_binding*/ ctx[15](null);
+    			destroy_component(congrats_1, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$3.name,
+    		type: "slot",
+    		source: "(157:0) <Grid {layout}      on:click={() => anyClick()}  >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$7(ctx) {
+    	let grid;
+    	let current;
+
+    	grid = new Grid({
+    			props: {
+    				layout: /*layout*/ ctx[9],
+    				$$slots: { default: [create_default_slot$3] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	grid.$on("click", /*click_handler_2*/ ctx[16]);
+
+    	const block = {
+    		c: function create() {
+    			create_component(grid.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(grid, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			const grid_changes = {};
+
+    			if (dirty & /*$$scope, congrats, _round, timer, _answers, _progress*/ 268435487) {
+    				grid_changes.$$scope = { dirty, ctx };
+    			}
+
+    			grid.$set(grid_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(grid.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(grid.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(grid, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$7.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function getScale(round) {
+    	if (round.mathScale) return round.mathScale;
+
+    	switch (round.gameType) {
+    		case "%-simple":
+    		case "%-plus":
+    		case "%-minus":
+    		case "%-all":
+    			return 1.2;
+    		case "dividers":
+    			return 0.3;
+    		case "dividers-2":
+    			return 0.4;
+    		case "dividers+-":
+    			return 0.35;
+    		case "sequence":
+    			return 0.35;
+    	}
+
+    	return undefined;
+    }
+
+    function getAnsUnits(round) {
+    	switch (round.gameType) {
+    		case "%-a-of-c":
+    			return "%";
+    	}
+
+    	return "";
+    }
+
+    function instance$7($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Main', slots, []);
+    	let timer;
+    	let congrats;
+    	let _game = newEquation();
+    	let _round = _game.nextRound();
+    	let _answers = [null, null, null, null];
+    	let _state;
+    	let _progress = [1, 10];
+    	let _tcNewRound = newTimedCmd$1("--cmd-new-round", 1000);
+    	let _tcIdle = newTimedCmd$1("--cmd-idle", 10000, 3000);
+    	let _recreate = _answers.map(_ => new Object());
+
+    	function equClick() {
+    		Mp3.playRandom();
+
+    		switch (_round.gameType) {
+    			case "sequence":
+    			case "dividers-2":
+    				newRound();
+    				break;
+    		}
+    	}
+
+    	function anyClick() {
+    		_tcIdle.reset();
+
+    		if (_state == "start") {
+    			_state = "clicked";
+    			_answers.forEach(ans => ans.setState("clicked"));
+    			run(() => refreshMath());
+    			return true;
+    		}
+
+    		if (_state === "clicked") return false;
+
+    		if (_state == "answered") {
+    			newRound();
+    			return true;
+    		}
+
+    		return true;
+    	}
+
+    	function gotAnswer(value) {
+    		_tcIdle.reset();
+    		if (anyClick()) return;
+
+    		if (_state === "clicked") {
+    			_state = "answered";
+    			let answerAt = _round.answers.findIndex(x => x.eq(value));
+    			let rightAt = _round.answers.findIndex(x => x.eq(_round.rightAns));
+
+    			if (answerAt === rightAt) {
+    				$$invalidate(4, _progress[0] += 1, _progress);
+    				let isLast = _game.isLast(_round);
+    				Mp3.play(isLast ? "done" : "yes");
+    				_tcNewRound.reset();
+    				if (isLast) congrats.play();
+    			} else {
+    				_answers[answerAt].setState("wrong");
+    				Mp3.play("no");
+    				_game.addRounds(2);
+    				$$invalidate(4, _progress[0] += 1, _progress);
+    				$$invalidate(4, _progress[1] += 2, _progress);
+    			}
+
+    			_answers[rightAt].setState("right");
+    		}
+    	}
+
+    	async function newRound() {
+    		$$invalidate(5, _recreate = _answers.map(_ => new Object()));
+    		$$invalidate(2, _round = _game.nextRound());
+    		await tick();
+    		startRound();
+    	}
+
+    	function idle() {
+    		Mp3.play("idle");
+    		_tcIdle.reset();
+    	}
+
+    	function startRound() {
+    		_state = "start";
+    		_tcIdle.reset();
+    		_tcNewRound.cancel();
+
+    		_answers.forEach(ans => {
+    			ans.setState("start");
+    		});
+
+    		$$invalidate(4, _progress = _round.progress);
+
+    		switch (_round.gameType) {
+    			case "dividers":
+    			case "dividers-2":
+    			case "dividers+-":
+    			case "sequence":
+    				anyClick();
+    				break;
+    		}
+    	}
+
+    	function timeIsUp() {
+    		_game.addRounds(1);
+    		$$invalidate(4, _progress[1] += 1, _progress);
+    		timer.restart();
+    		Mp3.play("time-is-up");
+    	}
+
+    	onMount(() => startRound());
+    	on$1("--cmd-new-round", () => newRound());
+    	on$1("--cmd-idle", () => idle());
+    	on$1("--evt-time-is-up", () => timeIsUp());
+
+    	let layout = {
+    		areas: `
+            "prg   .    clk "
+            "equ   equ  equ "
+            "a0    .    a1  "
+            "a2    .    a3  "
+            "tm    tm   tm  "
+        `,
+    		cols: `2fr 1fr 2fr`,
+    		rows: `50px 80px 80px 80px 5px`,
+    		bgColors: {
+    			prg: "bg-green-300",
+    			equ: "bg-yellow-50",
+    			tm: "bg-blue-100"
+    		}
+    	};
+
+    	const writable_props = [];
+
+    	Object_1$1.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Main> was created with unknown prop '${key}'`);
+    	});
+
+    	const click_handler = () => equClick();
+
+    	function ans_binding($$value, no) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			_answers[no] = $$value;
+    			$$invalidate(3, _answers);
+    		});
+    	}
+
+    	const click_handler_1 = ans => gotAnswer(ans);
+    	const func = () => fire$1("--evt-time-is-up");
+
+    	function timer_1_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			timer = $$value;
+    			$$invalidate(0, timer);
+    		});
+    	}
+
+    	function congrats_1_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			congrats = $$value;
+    			$$invalidate(1, congrats);
+    		});
+    	}
+
+    	const click_handler_2 = () => anyClick();
+
+    	$$self.$capture_state = () => ({
+    		tick,
+    		onMount,
+    		refreshMath,
+    		Mp3,
+    		AsciiMath,
+    		Clock,
+    		Grid,
+    		Progress,
+    		Timer,
+    		Congrats,
+    		run,
+    		newEquation,
+    		on: on$1,
+    		fire: fire$1,
+    		newTimedCmd: newTimedCmd$1,
+    		Ans: Ans$1,
+    		timer,
+    		congrats,
+    		_game,
+    		_round,
+    		_answers,
+    		_state,
+    		_progress,
+    		_tcNewRound,
+    		_tcIdle,
+    		_recreate,
+    		equClick,
+    		anyClick,
+    		gotAnswer,
+    		newRound,
+    		idle,
+    		startRound,
+    		getScale,
+    		getAnsUnits,
+    		timeIsUp,
+    		layout
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('timer' in $$props) $$invalidate(0, timer = $$props.timer);
+    		if ('congrats' in $$props) $$invalidate(1, congrats = $$props.congrats);
+    		if ('_game' in $$props) _game = $$props._game;
+    		if ('_round' in $$props) $$invalidate(2, _round = $$props._round);
+    		if ('_answers' in $$props) $$invalidate(3, _answers = $$props._answers);
+    		if ('_state' in $$props) _state = $$props._state;
+    		if ('_progress' in $$props) $$invalidate(4, _progress = $$props._progress);
+    		if ('_tcNewRound' in $$props) _tcNewRound = $$props._tcNewRound;
+    		if ('_tcIdle' in $$props) _tcIdle = $$props._tcIdle;
+    		if ('_recreate' in $$props) $$invalidate(5, _recreate = $$props._recreate);
+    		if ('layout' in $$props) $$invalidate(9, layout = $$props.layout);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		timer,
+    		congrats,
+    		_round,
+    		_answers,
+    		_progress,
+    		_recreate,
+    		equClick,
+    		anyClick,
+    		gotAnswer,
+    		layout,
+    		click_handler,
+    		ans_binding,
+    		click_handler_1,
+    		func,
+    		timer_1_binding,
+    		congrats_1_binding,
+    		click_handler_2
+    	];
+    }
+
+    class Main$1 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$7, create_fragment$7, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Main",
+    			options,
+    			id: create_fragment$7.name
+    		});
+    	}
+    }
+
+    /* src\fr-pairs\Model.svelte generated by Svelte v3.52.0 */
+
+    function on(name, cb) {
+    	onAny(name, cb);
+    }
+
+    function fire(name, args) {
+    	fireAny(name, args);
+    }
+
+    function newTimedCmd(cmd, timeout, jitter) {
+    	return new CTimedCmd(cmd, timeout, jitter ?? 0);
+    }
+
+    /* src\fr-pairs\Game.svelte generated by Svelte v3.52.0 */
+
+    let _config = Anki.getConfig();
+    let _fractions;
+    let _next;
+    let _totalRounds = _config.rounds;
+    let n2d = n => new Decimal(n);
+    let s2f = str => new Fraction(str);
+
+    function fxd(n, digits) {
+    	let p = n2d(10).pow(digits);
+    	return n2d(n).mul(p).trunc().div(p);
+    }
+
+    function aTriple(fr, abc) {
+    	let n = fr.valueOf();
+    	let dots = n.toFixed(5).length < n.toString().length;
+
+    	let triple = [
+    		fr.toFraction(false),
+    		fxd(n, 4).toString() + (dots ? "..." : ""),
+    		fr.mul(100).toString(2) + '%'
+    	];
+
+    	return [triple[abc[0]], triple[abc[1]], triple[abc[2]]];
+    }
+
+    class CGame {
+    	constructor() {
+    		function asFractions(lhs, rhs) {
+    			return lhs.compare(rhs);
+    		}
+
+    		for (let cmd of Anki.commands()) {
+    			switch (cmd[0].toLocaleLowerCase()) {
+    			}
+    		}
+
+    		_fractions = Anki.tokens().map(t => s2f(t)).sort(asFractions);
+    		_next = -1;
+    	}
+
+    	isLast() {
+    		return _next + 1 >= _totalRounds;
+    	}
+
+    	addRounds(count) {
+    		_totalRounds += count;
+    	}
+
+    	nextRound() {
+    		_next++;
+
+    		// assert _fractions.length >= 4
+    		let firstAt = rand(0, _fractions.length - 4);
+
+    		let abc = shuffle([0, 1, 2]);
+    		let triples = shuffle([0, 1, 2, 3].map(i => aTriple(_fractions[firstAt + i], abc)));
+    		let fr = triples[0][0];
+    		let answers = shuffle([triples[0][1], triples[1][1], triples[2][2], triples[3][2]]);
+    		let rightAt = answers.findIndex(ans => ans === triples[0][1]);
+    		let progress = [_next < _totalRounds ? _next : _totalRounds, _totalRounds];
+    		return { fr, rightAt, answers, progress };
+    	}
+    }
+
+    function newFrPairs() {
+    	return new CGame();
+    }
+
+    /* src\fr-pairs\Ans.svelte generated by Svelte v3.52.0 */
+    const file$5 = "src\\fr-pairs\\Ans.svelte";
+
+    function create_fragment$6(ctx) {
+    	let button;
+    	let t0;
+    	let t1;
+    	let t2;
+    	let button_class_value;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t0 = text("`");
+    			t1 = text(/*value*/ ctx[1]);
+    			t2 = text("`");
+    			attr_dev(button, "class", button_class_value = "" + (/*_bgColor*/ ctx[2] + " py-0.5 my-1"));
+    			set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			set_style(button, "font-size", /*_sz*/ ctx[3] + "px");
+    			add_location(button, file$5, 24, 0, 660);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t0);
+    			append_dev(button, t1);
+    			append_dev(button, t2);
+
+    			if (!mounted) {
+    				dispose = [
+    					action_destroyer(pulse.call(null, button)),
+    					action_destroyer(bounceOnDrag.call(null, button)),
+    					listen_dev(button, "click", /*click_handler*/ ctx[7], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*value*/ 2) set_data_dev(t1, /*value*/ ctx[1]);
+
+    			if (dirty & /*_bgColor*/ 4 && button_class_value !== (button_class_value = "" + (/*_bgColor*/ ctx[2] + " py-0.5 my-1"))) {
+    				attr_dev(button, "class", button_class_value);
+    			}
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			}
+
+    			if (dirty & /*_sz*/ 8) {
+    				set_style(button, "font-size", /*_sz*/ ctx[3] + "px");
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$6.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$6($$self, $$props, $$invalidate) {
+    	let _sz;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Ans', slots, []);
+    	let { ga } = $$props;
+    	let { value } = $$props;
+    	let { bgColor = getBgColor(ga, "bg-gray-100") } = $$props;
+    	let { sz = 24 } = $$props;
+    	let _bgColor = bgColor;
+
+    	function setState(state) {
+    		switch (state) {
+    			case "start":
+    				$$invalidate(2, _bgColor = bgColor);
+    				break;
+    			case "right":
+    				$$invalidate(2, _bgColor = "bg-green-200");
+    				break;
+    			case "wrong":
+    				$$invalidate(2, _bgColor = "bg-red-200");
+    				break;
+    		}
+    	}
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Ans> was created without expected prop 'ga'");
+    		}
+
+    		if (value === undefined && !('value' in $$props || $$self.$$.bound[$$self.$$.props['value']])) {
+    			console.warn("<Ans> was created without expected prop 'value'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'value', 'bgColor', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Ans> was created with unknown prop '${key}'`);
+    	});
+
+    	function click_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('value' in $$props) $$invalidate(1, value = $$props.value);
+    		if ('bgColor' in $$props) $$invalidate(4, bgColor = $$props.bgColor);
+    		if ('sz' in $$props) $$invalidate(5, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		pulse,
+    		getBgColor,
+    		bounceOnDrag,
+    		ga,
+    		value,
+    		bgColor,
+    		sz,
+    		_bgColor,
+    		setState,
+    		_sz
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('value' in $$props) $$invalidate(1, value = $$props.value);
+    		if ('bgColor' in $$props) $$invalidate(4, bgColor = $$props.bgColor);
+    		if ('sz' in $$props) $$invalidate(5, sz = $$props.sz);
+    		if ('_bgColor' in $$props) $$invalidate(2, _bgColor = $$props._bgColor);
+    		if ('_sz' in $$props) $$invalidate(3, _sz = $$props._sz);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*sz, value*/ 34) {
+    			$$invalidate(3, _sz = sz - 1.1 * value.length);
+    		}
+    	};
+
+    	return [ga, value, _bgColor, _sz, bgColor, sz, setState, click_handler];
+    }
+
+    class Ans extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$6, create_fragment$6, safe_not_equal, {
+    			ga: 0,
+    			value: 1,
+    			bgColor: 4,
+    			sz: 5,
+    			setState: 6
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Ans",
+    			options,
+    			id: create_fragment$6.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get value() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set value(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get bgColor() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set bgColor(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get setState() {
+    		return this.$$.ctx[6];
+    	}
+
+    	set setState(value) {
+    		throw new Error("<Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\fr-pairs\Question.svelte generated by Svelte v3.52.0 */
+    const file$4 = "src\\fr-pairs\\Question.svelte";
+
+    function create_fragment$5(ctx) {
+    	let p;
+    	let t0;
+    	let t1;
+    	let t2;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			t0 = text("`");
+    			t1 = text(/*math*/ ctx[1]);
+    			t2 = text("`");
+    			attr_dev(p, "class", /*_bgColor*/ ctx[2]);
+    			set_style(p, "grid-area", /*ga*/ ctx[0]);
+    			set_style(p, "font-size", /*_sz*/ ctx[3] + "px");
+    			add_location(p, file$4, 11, 0, 332);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    			append_dev(p, t0);
+    			append_dev(p, t1);
+    			append_dev(p, t2);
+
+    			if (!mounted) {
+    				dispose = [
+    					action_destroyer(pulse.call(null, p)),
+    					action_destroyer(bounceOnDrag.call(null, p)),
+    					listen_dev(p, "click", /*click_handler*/ ctx[6], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*math*/ 2) set_data_dev(t1, /*math*/ ctx[1]);
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(p, "grid-area", /*ga*/ ctx[0]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$5.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$5($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Question', slots, []);
+    	let { ga } = $$props;
+    	let { math } = $$props;
+    	let { bgColor = getBgColor(ga, "bg-gray-100") } = $$props;
+    	let { sz = 30 } = $$props;
+    	let _bgColor = bgColor;
+    	let _sz = sz;
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<Question> was created without expected prop 'ga'");
+    		}
+
+    		if (math === undefined && !('math' in $$props || $$self.$$.bound[$$self.$$.props['math']])) {
+    			console.warn("<Question> was created without expected prop 'math'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'math', 'bgColor', 'sz'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Question> was created with unknown prop '${key}'`);
+    	});
+
+    	function click_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('math' in $$props) $$invalidate(1, math = $$props.math);
+    		if ('bgColor' in $$props) $$invalidate(4, bgColor = $$props.bgColor);
+    		if ('sz' in $$props) $$invalidate(5, sz = $$props.sz);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		pulse,
+    		getBgColor,
+    		bounceOnDrag,
+    		ga,
+    		math,
+    		bgColor,
+    		sz,
+    		_bgColor,
+    		_sz
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('math' in $$props) $$invalidate(1, math = $$props.math);
+    		if ('bgColor' in $$props) $$invalidate(4, bgColor = $$props.bgColor);
+    		if ('sz' in $$props) $$invalidate(5, sz = $$props.sz);
+    		if ('_bgColor' in $$props) $$invalidate(2, _bgColor = $$props._bgColor);
+    		if ('_sz' in $$props) $$invalidate(3, _sz = $$props._sz);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [ga, math, _bgColor, _sz, bgColor, sz, click_handler];
+    }
+
+    class Question extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$5, create_fragment$5, safe_not_equal, { ga: 0, math: 1, bgColor: 4, sz: 5 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Question",
+    			options,
+    			id: create_fragment$5.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<Question>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<Question>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get math() {
+    		throw new Error("<Question>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set math(value) {
+    		throw new Error("<Question>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get bgColor() {
+    		throw new Error("<Question>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set bgColor(value) {
+    		throw new Error("<Question>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sz() {
+    		throw new Error("<Question>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sz(value) {
+    		throw new Error("<Question>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\fr-pairs\Main.svelte generated by Svelte v3.52.0 */
+
+    const { Object: Object_1 } = globals;
+
+    function get_each_context$2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[28] = list[i];
+    	child_ctx[29] = list;
+    	child_ctx[30] = i;
+    	return child_ctx;
+    }
+
+    // (130:4) {#key _recreate[0]}
+    function create_key_block$1(ctx) {
+    	let question;
+    	let current;
+
+    	question = new Question({
+    			props: {
+    				ga: "que",
+    				math: /*_round*/ ctx[5].fr,
+    				sz: 36
+    			},
+    			$$inline: true
+    		});
+
+    	question.$on("click", /*click_handler*/ ctx[12]);
+
+    	const block = {
+    		c: function create() {
+    			create_component(question.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(question, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const question_changes = {};
+    			if (dirty[0] & /*_round*/ 32) question_changes.math = /*_round*/ ctx[5].fr;
+    			question.$set(question_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(question.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(question.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(question, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_key_block$1.name,
+    		type: "key",
+    		source: "(130:4) {#key _recreate[0]}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (137:4) {#each _round.answers as ans, no (_recreate[no])}
+    function create_each_block$2(key_1, ctx) {
+    	let first;
+    	let ans;
+    	let no = /*no*/ ctx[30];
+    	let current;
+    	const assign_ans = () => /*ans_binding*/ ctx[13](ans, no);
+    	const unassign_ans = () => /*ans_binding*/ ctx[13](null, no);
+
+    	function click_handler_1() {
+    		return /*click_handler_1*/ ctx[14](/*ans*/ ctx[28]);
+    	}
+
+    	let ans_props = {
+    		ga: `a${/*no*/ ctx[30]}`,
+    		value: /*ans*/ ctx[28]
+    	};
+
+    	ans = new Ans({ props: ans_props, $$inline: true });
+    	assign_ans();
+    	ans.$on("click", click_handler_1);
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			first = empty();
+    			create_component(ans.$$.fragment);
+    			this.first = first;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, first, anchor);
+    			mount_component(ans, target, anchor);
+    			current = true;
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+
+    			if (no !== /*no*/ ctx[30]) {
+    				unassign_ans();
+    				no = /*no*/ ctx[30];
+    				assign_ans();
+    			}
+
+    			const ans_changes = {};
+    			if (dirty[0] & /*_round*/ 32) ans_changes.ga = `a${/*no*/ ctx[30]}`;
+    			if (dirty[0] & /*_round*/ 32) ans_changes.value = /*ans*/ ctx[28];
+    			ans.$set(ans_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(ans.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(ans.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(first);
+    			unassign_ans();
+    			destroy_component(ans, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$2.name,
+    		type: "each",
+    		source: "(137:4) {#each _round.answers as ans, no (_recreate[no])}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (123:0) <Grid {layout}      on:click={() => anyClick()}  >
+    function create_default_slot$2(ctx) {
+    	let progress;
+    	let t0;
+    	let clock;
+    	let t1;
+    	let previous_key = /*_recreate*/ ctx[3][0];
+    	let t2;
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
+    	let t3;
+    	let timer_1;
+    	let t4;
+    	let congrats_1;
+    	let current;
+
+    	progress = new Progress({
+    			props: { ga: "prg", values: /*_progress*/ ctx[6] },
+    			$$inline: true
+    		});
+
+    	clock = new Clock({ props: { ga: "clk" }, $$inline: true });
+    	let key_block = create_key_block$1(ctx);
+    	let each_value = /*_round*/ ctx[5].answers;
+    	validate_each_argument(each_value);
+    	const get_key = ctx => /*_recreate*/ ctx[3][/*no*/ ctx[30]];
+    	validate_each_keys(ctx, each_value, get_each_context$2, get_key);
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		let child_ctx = get_each_context$2(ctx, each_value, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$2(key, child_ctx));
+    	}
+
+    	let timer_1_props = {
+    		ga: "tm",
+    		seconds: /*_secondsPerRound*/ ctx[4] * /*_config*/ ctx[7].rounds,
+    		onExpiration: /*func*/ ctx[15]
+    	};
+
+    	timer_1 = new Timer({ props: timer_1_props, $$inline: true });
+    	/*timer_1_binding*/ ctx[16](timer_1);
+    	let congrats_1_props = {};
+    	congrats_1 = new Congrats({ props: congrats_1_props, $$inline: true });
+    	/*congrats_1_binding*/ ctx[17](congrats_1);
+
+    	const block = {
+    		c: function create() {
+    			create_component(progress.$$.fragment);
+    			t0 = space();
+    			create_component(clock.$$.fragment);
+    			t1 = space();
+    			key_block.c();
+    			t2 = space();
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t3 = space();
+    			create_component(timer_1.$$.fragment);
+    			t4 = space();
+    			create_component(congrats_1.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(progress, target, anchor);
+    			insert_dev(target, t0, anchor);
+    			mount_component(clock, target, anchor);
+    			insert_dev(target, t1, anchor);
+    			key_block.m(target, anchor);
+    			insert_dev(target, t2, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, t3, anchor);
+    			mount_component(timer_1, target, anchor);
+    			insert_dev(target, t4, anchor);
+    			mount_component(congrats_1, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const progress_changes = {};
+    			if (dirty[0] & /*_progress*/ 64) progress_changes.values = /*_progress*/ ctx[6];
+    			progress.$set(progress_changes);
+
+    			if (dirty[0] & /*_recreate*/ 8 && safe_not_equal(previous_key, previous_key = /*_recreate*/ ctx[3][0])) {
+    				group_outros();
+    				transition_out(key_block, 1, 1, noop);
+    				check_outros();
+    				key_block = create_key_block$1(ctx);
+    				key_block.c();
+    				transition_in(key_block, 1);
+    				key_block.m(t2.parentNode, t2);
+    			} else {
+    				key_block.p(ctx, dirty);
+    			}
+
+    			if (dirty[0] & /*_round, answers, gotAnswer, _recreate*/ 1066) {
+    				each_value = /*_round*/ ctx[5].answers;
+    				validate_each_argument(each_value);
+    				group_outros();
+    				validate_each_keys(ctx, each_value, get_each_context$2, get_key);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, t3.parentNode, outro_and_destroy_block, create_each_block$2, t3, get_each_context$2);
+    				check_outros();
+    			}
+
+    			const timer_1_changes = {};
+    			if (dirty[0] & /*_secondsPerRound*/ 16) timer_1_changes.seconds = /*_secondsPerRound*/ ctx[4] * /*_config*/ ctx[7].rounds;
+    			timer_1.$set(timer_1_changes);
+    			const congrats_1_changes = {};
+    			congrats_1.$set(congrats_1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(progress.$$.fragment, local);
+    			transition_in(clock.$$.fragment, local);
+    			transition_in(key_block);
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			transition_in(timer_1.$$.fragment, local);
+    			transition_in(congrats_1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(progress.$$.fragment, local);
+    			transition_out(clock.$$.fragment, local);
+    			transition_out(key_block);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			transition_out(timer_1.$$.fragment, local);
+    			transition_out(congrats_1.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(progress, detaching);
+    			if (detaching) detach_dev(t0);
+    			destroy_component(clock, detaching);
+    			if (detaching) detach_dev(t1);
+    			key_block.d(detaching);
+    			if (detaching) detach_dev(t2);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d(detaching);
+    			}
+
+    			if (detaching) detach_dev(t3);
+    			/*timer_1_binding*/ ctx[16](null);
+    			destroy_component(timer_1, detaching);
+    			if (detaching) detach_dev(t4);
+    			/*congrats_1_binding*/ ctx[17](null);
+    			destroy_component(congrats_1, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$2.name,
+    		type: "slot",
+    		source: "(123:0) <Grid {layout}      on:click={() => anyClick()}  >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$4(ctx) {
+    	let grid;
+    	let current;
+
+    	grid = new Grid({
+    			props: {
+    				layout: /*layout*/ ctx[11],
+    				$$slots: { default: [create_default_slot$2] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	grid.$on("click", /*click_handler_2*/ ctx[18]);
+
+    	const block = {
+    		c: function create() {
+    			create_component(grid.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(grid, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const grid_changes = {};
+
+    			if (dirty[0] & /*congrats, _secondsPerRound, timer, _round, answers, _recreate, _progress*/ 127 | dirty[1] & /*$$scope*/ 1) {
+    				grid_changes.$$scope = { dirty, ctx };
+    			}
+
+    			grid.$set(grid_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(grid.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(grid.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(grid, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$4.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$4($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Main', slots, []);
+    	let timer;
+    	let answers = [null, null, null, null];
+    	let congrats;
+    	let _recreate = [{}, {}, {}, {}];
+    	let _config = Anki.getConfig();
+    	let _secondsPerRound = 12;
+    	let _game = newFrPairs();
+    	let _round = _game.nextRound();
+    	let _state;
+    	let _progress = [1, 10];
+    	let _tcNewRound = newTimedCmd("--cmd-new-round", 1000);
+    	let _tcIdle = newTimedCmd("--cmd-idle", 10000, 3000);
+
+    	function init() {
+    		for (let cmd of Anki.commands()) {
+    			switch (cmd[0].toLocaleLowerCase()) {
+    				case "secondsPerRound":
+    					$$invalidate(4, _secondsPerRound = parseInt(cmd[1]));
+    					break;
+    			}
+    		}
+    	}
+
+    	function newRound() {
+    		$$invalidate(3, _recreate = _recreate.map(_ => new Object()));
+    		$$invalidate(5, _round = _game.nextRound());
+    		run(() => startRound());
+    	}
+
+    	function startRound() {
+    		_state = "start";
+    		_tcNewRound.cancel();
+    		_tcIdle.reset();
+
+    		answers.forEach(ans => {
+    			ans.setState("start");
+    		});
+
+    		$$invalidate(6, _progress = _round.progress);
+    		run(() => refreshMath());
+    	}
+
+    	function queClick() {
+    		Mp3.playRandom();
+    	}
+
+    	function anyClick() {
+    		_tcIdle.reset();
+    		if (_state == "start") return false;
+
+    		if (_state == "answered") {
+    			newRound();
+    			return true;
+    		}
+    	}
+
+    	function gotAnswer(ans) {
+    		_tcIdle.reset();
+    		if (anyClick()) return;
+    		_state = "answered";
+    		let answerAt = _round.answers.findIndex(x => x === ans);
+    		let rightAt = _round.rightAt;
+
+    		if (answerAt === rightAt) {
+    			$$invalidate(6, _progress[0] += 1, _progress);
+    			let isLast = _game.isLast();
+    			Mp3.play(isLast ? "done" : "yes");
+    			_tcNewRound.reset();
+    			if (isLast) congrats.play();
+    		} else {
+    			answers[answerAt].setState("wrong");
+    			Mp3.play("no");
+    			_game.addRounds(2);
+    			$$invalidate(6, _progress[0] += 1, _progress);
+    			$$invalidate(6, _progress[1] += 2, _progress);
+    		}
+
+    		answers[rightAt].setState("right");
+    	}
+
+    	function idle() {
+    		Mp3.play("idle");
+    		_tcIdle.reset();
+    	}
+
+    	function timeIsUp() {
+    		_game.addRounds(1);
+    		$$invalidate(6, _progress[1] += 1, _progress);
+    		timer.restart();
+    		Mp3.play("time-is-up");
+    	}
+
+    	init();
+    	on("--cmd-new-round", () => newRound());
+    	on("--cmd-idle", () => idle());
+    	on("--evt-time-is-up", () => timeIsUp());
+    	onMount(() => startRound());
+
+    	let layout = {
+    		areas: `
+            "prg   .    clk "
+            "que   que  que "
+            "a0    .    a1  "
+            ".     .    .   "
+            "a2    .    a3  "
+            ".     .    .   "
+            "tm    tm   tm  "
+        `,
+    		cols: `2fr 1fr 2fr`,
+    		rows: `50px 80px 70px 10px 70px 15px 5px`,
+    		bgColors: {
+    			prg: "bg-green-300",
+    			que: "bg-yellow-50 py-1",
+    			tm: "bg-blue-100"
+    		}
+    	};
+
+    	const writable_props = [];
+
+    	Object_1.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Main> was created with unknown prop '${key}'`);
+    	});
+
+    	const click_handler = () => queClick();
+
+    	function ans_binding($$value, no) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			answers[no] = $$value;
+    			$$invalidate(1, answers);
+    		});
+    	}
+
+    	const click_handler_1 = ans => gotAnswer(ans);
+    	const func = () => fire("--evt-time-is-up");
+
+    	function timer_1_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			timer = $$value;
+    			$$invalidate(0, timer);
+    		});
+    	}
+
+    	function congrats_1_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			congrats = $$value;
+    			$$invalidate(2, congrats);
+    		});
+    	}
+
+    	const click_handler_2 = () => anyClick();
+
+    	$$self.$capture_state = () => ({
+    		onMount,
+    		Anki,
+    		refreshMath,
+    		Mp3,
+    		Clock,
+    		Grid,
+    		Progress,
+    		Timer,
+    		Congrats,
+    		run,
+    		on,
+    		fire,
+    		newTimedCmd,
+    		newFrPairs,
+    		Ans,
+    		Question,
+    		timer,
+    		answers,
+    		congrats,
+    		_recreate,
+    		_config,
+    		_secondsPerRound,
+    		_game,
+    		_round,
+    		_state,
+    		_progress,
+    		_tcNewRound,
+    		_tcIdle,
+    		init,
+    		newRound,
+    		startRound,
+    		queClick,
+    		anyClick,
+    		gotAnswer,
+    		idle,
+    		timeIsUp,
+    		layout
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('timer' in $$props) $$invalidate(0, timer = $$props.timer);
+    		if ('answers' in $$props) $$invalidate(1, answers = $$props.answers);
+    		if ('congrats' in $$props) $$invalidate(2, congrats = $$props.congrats);
+    		if ('_recreate' in $$props) $$invalidate(3, _recreate = $$props._recreate);
+    		if ('_config' in $$props) $$invalidate(7, _config = $$props._config);
+    		if ('_secondsPerRound' in $$props) $$invalidate(4, _secondsPerRound = $$props._secondsPerRound);
+    		if ('_game' in $$props) _game = $$props._game;
+    		if ('_round' in $$props) $$invalidate(5, _round = $$props._round);
+    		if ('_state' in $$props) _state = $$props._state;
+    		if ('_progress' in $$props) $$invalidate(6, _progress = $$props._progress);
+    		if ('_tcNewRound' in $$props) _tcNewRound = $$props._tcNewRound;
+    		if ('_tcIdle' in $$props) _tcIdle = $$props._tcIdle;
+    		if ('layout' in $$props) $$invalidate(11, layout = $$props.layout);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		timer,
+    		answers,
+    		congrats,
+    		_recreate,
+    		_secondsPerRound,
+    		_round,
+    		_progress,
+    		_config,
+    		queClick,
+    		anyClick,
+    		gotAnswer,
+    		layout,
+    		click_handler,
+    		ans_binding,
+    		click_handler_1,
+    		func,
+    		timer_1_binding,
+    		congrats_1_binding,
+    		click_handler_2
+    	];
+    }
+
+    class Main extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$4, create_fragment$4, safe_not_equal, {}, null, [-1, -1]);
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Main",
+    			options,
+    			id: create_fragment$4.name
+    		});
+    	}
+    }
+
+    /* src\w-problem\WProblem.Ans.svelte generated by Svelte v3.52.0 */
+    const file$3 = "src\\w-problem\\WProblem.Ans.svelte";
+
+    // (24:4) {:else}
+    function create_else_block(ctx) {
+    	let bdi;
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			bdi = element("bdi");
+    			t = text(/*$value*/ ctx[1]);
+    			attr_dev(bdi, "dir", "rtl");
+    			set_style(bdi, "font-size", "15px");
+    			add_location(bdi, file$3, 24, 8, 588);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, bdi, anchor);
+    			append_dev(bdi, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$value*/ 2) set_data_dev(t, /*$value*/ ctx[1]);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(bdi);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block.name,
+    		type: "else",
+    		source: "(24:4) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (22:4) {#if isNumber}
+    function create_if_block$1(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text(/*$value*/ ctx[1]);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$value*/ 2) set_data_dev(t, /*$value*/ ctx[1]);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(22:4) {#if isNumber}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$3(ctx) {
+    	let button;
+    	let mounted;
+    	let dispose;
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*isNumber*/ ctx[3]) return create_if_block$1;
+    		return create_else_block;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			if_block.c();
+    			attr_dev(button, "class", /*bgColor*/ ctx[2]);
+    			set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			add_location(button, file$3, 14, 0, 414);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			if_block.m(button, null);
+
+    			if (!mounted) {
+    				dispose = [
+    					action_destroyer(pulse.call(null, button)),
+    					action_destroyer(bounceOnDrag.call(null, button)),
+    					listen_dev(button, "click", /*click_handler*/ ctx[10], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
+    				if_block.p(ctx, dirty);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(button, null);
+    				}
+    			}
+
+    			if (dirty & /*bgColor*/ 4) {
+    				attr_dev(button, "class", /*bgColor*/ ctx[2]);
+    			}
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(button, "grid-area", /*ga*/ ctx[0]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			if_block.d();
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$3.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$3($$self, $$props, $$invalidate) {
+    	let $isRight;
+    	let $isClicked;
+    	let $value;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('WProblem_Ans', slots, []);
+    	let { ga } = $$props;
+    	let { store } = $$props;
+    	let { value, isClicked, isRight } = store;
+    	validate_store(value, 'value');
+    	component_subscribe($$self, value, value => $$invalidate(1, $value = value));
+    	validate_store(isClicked, 'isClicked');
+    	component_subscribe($$self, isClicked, value => $$invalidate(9, $isClicked = value));
+    	validate_store(isRight, 'isRight');
+    	component_subscribe($$self, isRight, value => $$invalidate(8, $isRight = value));
+    	let bgColor;
+    	let isNumber;
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<WProblem_Ans> was created without expected prop 'ga'");
+    		}
+
+    		if (store === undefined && !('store' in $$props || $$self.$$.bound[$$self.$$.props['store']])) {
+    			console.warn("<WProblem_Ans> was created without expected prop 'store'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'store'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<WProblem_Ans> was created with unknown prop '${key}'`);
+    	});
+
+    	function click_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('store' in $$props) $$invalidate(7, store = $$props.store);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		pulse,
+    		bounceOnDrag,
+    		isNumeric,
+    		ga,
+    		store,
+    		value,
+    		isClicked,
+    		isRight,
+    		bgColor,
+    		isNumber,
+    		$isRight,
+    		$isClicked,
+    		$value
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('store' in $$props) $$invalidate(7, store = $$props.store);
+    		if ('value' in $$props) $$invalidate(4, value = $$props.value);
+    		if ('isClicked' in $$props) $$invalidate(5, isClicked = $$props.isClicked);
+    		if ('isRight' in $$props) $$invalidate(6, isRight = $$props.isRight);
+    		if ('bgColor' in $$props) $$invalidate(2, bgColor = $$props.bgColor);
+    		if ('isNumber' in $$props) $$invalidate(3, isNumber = $$props.isNumber);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*$value*/ 2) {
+    			$$invalidate(3, isNumber = isNumeric($value));
+    		}
+
+    		if ($$self.$$.dirty & /*$isClicked, $isRight*/ 768) {
+    			$$invalidate(2, bgColor = !$isClicked
+    			? "bg-gray-100"
+    			: $isRight ? "bg-green-200" : "bg-red-200");
+    		}
+    	};
+
+    	return [
+    		ga,
+    		$value,
+    		bgColor,
+    		isNumber,
+    		value,
+    		isClicked,
+    		isRight,
+    		store,
+    		$isRight,
+    		$isClicked,
+    		click_handler
+    	];
+    }
+
+    class WProblem_Ans extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$3, create_fragment$3, safe_not_equal, { ga: 0, store: 7 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "WProblem_Ans",
+    			options,
+    			id: create_fragment$3.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<WProblem_Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<WProblem_Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get store() {
+    		throw new Error("<WProblem_Ans>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set store(value) {
+    		throw new Error("<WProblem_Ans>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\w-problem\WProblem.Text.svelte generated by Svelte v3.52.0 */
+
+    const file$2 = "src\\w-problem\\WProblem.Text.svelte";
+
+    function get_each_context$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[4] = list[i];
+    	return child_ctx;
+    }
+
+    // (10:4) {#each $text as para}
+    function create_each_block$1(ctx) {
+    	let p;
+    	let bdi;
+    	let t0_value = /*para*/ ctx[4].line + "";
+    	let t0;
+    	let t1;
+    	let p_class_value;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			bdi = element("bdi");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			add_location(bdi, file$2, 11, 12, 243);
+    			attr_dev(p, "class", p_class_value = /*para*/ ctx[4].css);
+    			add_location(p, file$2, 10, 8, 207);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    			append_dev(p, bdi);
+    			append_dev(bdi, t0);
+    			append_dev(p, t1);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$text*/ 4 && t0_value !== (t0_value = /*para*/ ctx[4].line + "")) set_data_dev(t0, t0_value);
+
+    			if (dirty & /*$text*/ 4 && p_class_value !== (p_class_value = /*para*/ ctx[4].css)) {
+    				attr_dev(p, "class", p_class_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$1.name,
+    		type: "each",
+    		source: "(10:4) {#each $text as para}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$2(ctx) {
+    	let div;
+    	let mounted;
+    	let dispose;
+    	let each_value = /*$text*/ ctx[2];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			set_style(div, "grid-area", /*ga*/ ctx[0]);
+    			add_location(div, file$2, 6, 0, 125);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div, null);
+    			}
+
+    			if (!mounted) {
+    				dispose = listen_dev(div, "click", /*click_handler*/ ctx[3], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*$text*/ 4) {
+    				each_value = /*$text*/ ctx[2];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$1(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(div, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+
+    			if (dirty & /*ga*/ 1) {
+    				set_style(div, "grid-area", /*ga*/ ctx[0]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_each(each_blocks, detaching);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$2.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$2($$self, $$props, $$invalidate) {
+    	let $text,
+    		$$unsubscribe_text = noop,
+    		$$subscribe_text = () => ($$unsubscribe_text(), $$unsubscribe_text = subscribe(text, $$value => $$invalidate(2, $text = $$value)), text);
+
+    	$$self.$$.on_destroy.push(() => $$unsubscribe_text());
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('WProblem_Text', slots, []);
+    	let { ga } = $$props;
+    	let { text } = $$props;
+    	validate_store(text, 'text');
+    	$$subscribe_text();
+
+    	$$self.$$.on_mount.push(function () {
+    		if (ga === undefined && !('ga' in $$props || $$self.$$.bound[$$self.$$.props['ga']])) {
+    			console.warn("<WProblem_Text> was created without expected prop 'ga'");
+    		}
+
+    		if (text === undefined && !('text' in $$props || $$self.$$.bound[$$self.$$.props['text']])) {
+    			console.warn("<WProblem_Text> was created without expected prop 'text'");
+    		}
+    	});
+
+    	const writable_props = ['ga', 'text'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<WProblem_Text> was created with unknown prop '${key}'`);
+    	});
+
+    	function click_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('text' in $$props) $$subscribe_text($$invalidate(1, text = $$props.text));
+    	};
+
+    	$$self.$capture_state = () => ({ ga, text, $text });
+
+    	$$self.$inject_state = $$props => {
+    		if ('ga' in $$props) $$invalidate(0, ga = $$props.ga);
+    		if ('text' in $$props) $$subscribe_text($$invalidate(1, text = $$props.text));
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [ga, text, $text, click_handler];
+    }
+
+    class WProblem_Text extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, { ga: 0, text: 1 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "WProblem_Text",
+    			options,
+    			id: create_fragment$2.name
+    		});
+    	}
+
+    	get ga() {
+    		throw new Error("<WProblem_Text>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ga(value) {
+    		throw new Error("<WProblem_Text>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get text() {
+    		throw new Error("<WProblem_Text>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set text(value) {
+    		throw new Error("<WProblem_Text>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    let anki$1 = Anki.getCard();
+    let newWProblemStore = (model) => ({
+        text: writable(model.text),
+        problemId: readable(model.problemId),
+        sets: readable(anki$1.sets),
+        answers: model.answers.map(ans => ({
+            value: writable(ans.value),
+            isRight: writable(ans.isRight),
+            isClicked: writable(false)
+        }))
+    });
+
+    function parseText(str) {
+        str = str.replaceAll("\r", "\n");
+        var lines = str
+            .trim()
+            .replace("U+", "&#x")
+            .replaceAll("\r", "\n")
+            .split("\n")
+            .map(x => x.trim())
+            .filter(x => x !== "");
+        let text = [];
+        let css = "";
+        for (var line of lines) {
+            if (line.startsWith("{")) {
+                if (!line.endsWith("}"))
+                    continue;
+                css = line.slice(1, -1);
+                continue;
+            }
+            text.push({ line, css });
+            css = "";
+        }
+        return text;
+    }
+    function parseValues(str) {
+        let tokens = str.includes('\t') ? str.split('\t') :
+            str.includes('\n') ? str.split('\n') :
+                str.includes(';') ? str.split(';') :
+                    str.includes(',') ? str.split(',') :
+                        str.split(' ');
+        return tokens.map(s => s.trim());
+    }
+    function parseAnswers(str) {
+        var answers = parseValues(str);
+        return answers;
+    }
+    function parseVariables(str) {
+        var values = parseValues(str);
+        var vars = values.map(value => {
+            var [name, fmt] = value.split(':');
+            return { name, fmt: fmt ?? "" };
+        });
+        return vars;
+    }
+    function parseSets(str) {
+        let lines = str.includes("<br>") ? str.split("<br>") :
+            str.includes('\n') ? str.split('\n') :
+                str.includes('\r') ? str.split('\r') :
+                    str.includes(';') ? str.split(';') :
+                        [str];
+        lines = lines
+            .map(ln => ln.trim())
+            .filter(ln => ln != "");
+        let sets = lines
+            .map(ln => parseValues(ln));
+        return sets;
+    }
+    function parseOptions(str) {
+        var options = parseValues(str)
+            .map(o => o.includes('=') ? o.split("=") : [o, ""]);
+        let hebTest = false;
+        options.forEach(o => {
+            switch (o[0]) {
+                case "heb-test":
+                    hebTest = true;
+                    break;
+                default:
+                    console.log(`Unknown option '${o}'`);
+                    break;
+            }
+        });
+        return {
+            hebTest
+        };
+    }
+    let valueOf = (str) => str.trim();
+    let anki = Anki.getCard();
+    let newWProblemTemplate = () => ({
+        problemId: valueOf(anki.problemId),
+        text: parseText(valueOf(anki.content)),
+        answers: parseAnswers(valueOf(anki.answers)),
+        variables: parseVariables(valueOf(anki.variables)),
+        sets: parseSets(valueOf(anki.sets)),
+        options: parseOptions(valueOf(anki.options))
+    });
+
+    function newFormatters() {
+        function toMath(value) {
+            return value.includes("/") ? toAscii(value) : value;
+        }
+        function percents(value) {
+            if (value.includes("/"))
+                return toAscii(value);
+            let d = n2d$2(parseFloat(value));
+            if (d.isNaN())
+                return value;
+            switch (randFrom(["percents", "fraction", "dots"])) {
+                case "percents": return `${d.mul(100)}%`;
+                case "fraction": return toAscii(d2t(d));
+                case "dots": return value;
+            }
+        }
+        function kilo(value, fmt) {
+            if (value.includes("/"))
+                return toAscii(value);
+            let d = n2d$2(parseFloat(value));
+            if (d.isNaN())
+                return value;
+            let units = fmt.split(",");
+            if (units.length != 3)
+                return value;
+            switch (randFrom(["norm", "kilo"])) {
+                case "norm": return `${value} ${units[1]}`;
+                case "kilo": return `${d.div(1000)} ${units[2]}`;
+            }
+        }
+        let simpleFractions = [
+            "1/2",
+            "1/3", "2/3",
+            "1/4", "3/4",
+            "1/5", "2/5", "3/5", "4/5",
+            "1/6", "5/6",
+            "1/10", "3/10", "7/10", "9/10",
+            "1/12", "5/12", "7/12", "11/12"
+        ];
+        function isSimpleFraction(mins) {
+            let fr = d2t(mins.div(60));
+            return simpleFractions.includes(fr);
+        }
+        let tmHebrew = {
+            revaShaa: "רבע שעה",
+            heziShaa: "חצי שעה",
+            fractionOfShaa: "`N/D` שעה",
+            dakotOnly: "MM דקות",
+            shaa: "שעה",
+            shaaVeReva: "שעה ורבע",
+            shaaVaHezi: "שעה וחצי",
+            shaaVeFraction: "שעה ו-`N/D`",
+            shaaVeDakot: "שעה ו-MM דקות",
+            shaataim: "שעתיים",
+            shaataimVeReva: "שעתיים ורבע",
+            shaataimVaHezi: "שעתיים וחצי",
+            shaataimVeFraction: "שעתיים ו- `N/D`",
+            shaataimVeDakot: "שעתיים ו-MM דקות",
+            shaotOnly: "HH שעות",
+            shaotVeReva: "HH שעות ורבע",
+            shaotVaHezi: "HH שעות וחצי",
+            shaotVeFraction: "HH שעות ו- `N/D`",
+            shaotVeDakot: "HH שעות ו-MM דקות",
+        };
+        let tmTest = [
+            15,
+            30,
+            10, 20, 40, 50,
+            23,
+            60,
+            75,
+            90,
+            75, 85, 105,
+            83,
+            120,
+            135,
+            150,
+            135, 145, 165,
+            143,
+            180, 240,
+            255,
+            270,
+            275, 285, 305,
+            263,
+        ].map(x => variateTime(d2t(n2d$2(x).div(60))))
+            .flat();
+        function variateTime(value) {
+            let times = [];
+            let tm = t2d(value);
+            let minsTotal = tm.mul(60);
+            let hours = tm.trunc();
+            let mins = tm.minus(hours).mul(60);
+            let mm = d2t(mins);
+            let hh = d2t(hours);
+            (function dakotOnly() {
+                if (minsTotal.gte(60))
+                    return;
+                if (mins.eq(15)) {
+                    times.push(tmHebrew.revaShaa);
+                    times.push(tmHebrew.dakotOnly.replace("MM", "15"));
+                    times.push(tmHebrew.fractionOfShaa.replace("N/D", "1/4"));
+                    return;
+                }
+                if (mins.eq(30)) {
+                    times.push(tmHebrew.heziShaa);
+                    times.push(tmHebrew.dakotOnly.replace("MM", "30"));
+                    times.push(tmHebrew.fractionOfShaa.replace("N/D", "1/2"));
+                    return;
+                }
+                if (isSimpleFraction(mins)) {
+                    let fr = d2t(mins.div(60));
+                    times.push(tmHebrew.fractionOfShaa.replace("N/D", fr));
+                }
+                times.push(tmHebrew.dakotOnly.replace("MM", mm));
+            })();
+            (function shaaAhatVe() {
+                if (minsTotal.lt(60))
+                    return;
+                if (minsTotal.gte(120))
+                    return;
+                if (mins.eq(0)) {
+                    times.push(tmHebrew.shaa);
+                    times.push(tmHebrew.dakotOnly.replace("MM", "60"));
+                    return;
+                }
+                if (mins.eq(15)) {
+                    times.push(tmHebrew.shaaVeReva);
+                    times.push(tmHebrew.shaaVeDakot.replace("MM", "15"));
+                    times.push(tmHebrew.shaaVeFraction.replace("N/D", "1/4"));
+                    return;
+                }
+                if (mins.eq(30)) {
+                    times.push(tmHebrew.shaaVaHezi);
+                    times.push(tmHebrew.shaaVeDakot.replace("MM", "30"));
+                    times.push(tmHebrew.shaaVeFraction.replace("N/D", "1/2"));
+                    return;
+                }
+                if (isSimpleFraction(mins)) {
+                    let fr = d2t(mins.div(60));
+                    times.push(tmHebrew.shaaVeFraction.replace("N/D", fr));
+                }
+                times.push(tmHebrew.shaaVeDakot.replace("MM", mm));
+            })();
+            (function shaataimVe() {
+                if (minsTotal.lt(120))
+                    return;
+                if (minsTotal.gte(180))
+                    return;
+                if (mins.eq(0)) {
+                    times.push(tmHebrew.shaataim);
+                    times.push(tmHebrew.dakotOnly.replace("MM", "120"));
+                    return;
+                }
+                if (mins.eq(15)) {
+                    times.push(tmHebrew.shaataimVeReva);
+                    times.push(tmHebrew.shaataimVeDakot.replace("MM", "15"));
+                    times.push(tmHebrew.shaataimVeFraction.replace("N/D", "1/4"));
+                    return;
+                }
+                if (mins.eq(30)) {
+                    times.push(tmHebrew.shaataimVaHezi);
+                    times.push(tmHebrew.shaataimVeDakot.replace("MM", "30"));
+                    times.push(tmHebrew.shaataimVeFraction.replace("N/D", "1/2"));
+                    return;
+                }
+                if (isSimpleFraction(mins)) {
+                    let fr = d2t(mins.div(60));
+                    times.push(tmHebrew.shaataimVeFraction.replace("N/D", fr));
+                }
+                times.push(tmHebrew.shaataimVeDakot.replace("MM", mm));
+            })();
+            (function shaotVe() {
+                if (minsTotal.lt(180))
+                    return;
+                if (mins.eq(0)) {
+                    times.push(tmHebrew.shaotOnly.replace("HH", hh));
+                    times.push(tmHebrew.dakotOnly.replace("MM", d2t(hours.mul(60))));
+                    return;
+                }
+                if (mins.eq(15)) {
+                    times.push(tmHebrew.shaotVeReva.replace("HH", hh));
+                    times.push(tmHebrew.shaotVeDakot.replace("HH", hh).replace("MM", "15"));
+                    times.push(tmHebrew.shaotVeFraction.replace("HH", hh).replace("N/D", "1/4"));
+                    return;
+                }
+                if (mins.eq(30)) {
+                    times.push(tmHebrew.shaotVaHezi.replace("HH", hh));
+                    times.push(tmHebrew.shaotVeDakot.replace("HH", hh).replace("MM", "30"));
+                    times.push(tmHebrew.shaotVeFraction.replace("HH", hh).replace("N/D", "1/2"));
+                    return;
+                }
+                if (isSimpleFraction(mins)) {
+                    let fr = d2t(mins.div(60));
+                    times.push(tmHebrew.shaotVeFraction.replace("HH", hh).replace("N/D", fr));
+                }
+                times.push(tmHebrew.shaotVeDakot.replace("HH", hh).replace("MM", mm));
+            })();
+            return times;
+        }
+        function time(value) {
+            let times = variateTime(value);
+            return randFrom(times);
+        }
+        let formatters = new Map([
+            ["p", percents],
+            ["k", kilo],
+            ["t", time],
+        ]);
+        return {
+            apply: (value, fmt) => {
+                if (value.includes("`"))
+                    return value;
+                if (!fmt || fmt === "")
+                    return toMath(value);
+                if (!formatters.has(fmt[0]))
+                    return toMath(value);
+                return formatters.get(fmt[0])(value, fmt);
+            },
+            tmHebrew: Object.keys(tmHebrew).map(key => tmHebrew[key]),
+            tmTest
+        };
+    }
+    const formatters = newFormatters();
+
+    function applyFormat(value, fmt) {
+        var toMath = v => v.includes("/") ? toAscii(v) : v;
+        if (value.includes("`"))
+            return value;
+        if (!fmt || fmt === "")
+            return toMath(value);
+        return formatters.apply(value, fmt);
+    }
+    function substitute(str, vars, values) {
+        let nodes = vars.map(($var, i) => {
+            let value = applyFormat(values[i], $var.fmt);
+            return {
+                $var,
+                uniqueName: `__${i}__`,
+                value
+            };
+        });
+        nodes.sort((a, b) => b.$var.name.length - a.$var.name.length);
+        nodes.forEach(node => str = str.replaceAll(node.$var.name, node.uniqueName));
+        nodes.forEach(node => str = str.replaceAll(node.uniqueName, node.value));
+        // do it again as formatters could introduce more vars
+        nodes.forEach(node => str = str.replaceAll(node.$var.name, node.uniqueName));
+        nodes.forEach(node => str = str.replaceAll(node.uniqueName, node.value));
+        return str;
+    }
+    function makeText(template, set) {
+        return template.text.map(el => ({
+            line: substitute(el.line, template.variables, set),
+            css: el.css
+        }));
+    }
+    function makeAnswers(template, set) {
+        let answers = template.answers.map((ans, no) => ({
+            name: template.answers[no],
+            value: substitute(ans, template.variables, set),
+            isRight: no == 0 // by design the first is the right
+        }));
+        return shuffle(answers);
+    }
+    let newWProblemLogic = (template) => ({
+        makeModel: (lastSetId = -1) => {
+            let setId = rand(0, template.sets.length - 1);
+            while (setId === lastSetId && template.sets.length > 1)
+                setId = rand(0, template.sets.length - 1);
+            let set = template.sets[setId];
+            return {
+                problemId: template.problemId,
+                setId,
+                text: makeText(template, set),
+                answers: makeAnswers(template, set),
+                options: template.options
+            };
+        }
+    });
+
+    var _impl;
+    (function (_impl) {
+        function one2many(x) {
+            return x === undefined ? [] :
+                Array.isArray(x) ? x : [x];
+        }
+        function isPromise(p) {
+            return Boolean(p && typeof p.then === 'function');
+        }
+        function invoke(func) {
+            let result = func();
+            return isPromise(result) ?
+                result : Promise.resolve(result);
+        }
+        async function callMappedHandlers(state, handlers, arg) {
+            let mapped;
+            handlers = one2many(handlers);
+            for (let handler of handlers) {
+                let ret = await invoke(() => handler(arg));
+                if (typeof ret === 'string')
+                    mapped = ret;
+            }
+            return mapped;
+        }
+        _impl.callMappedHandlers = callMappedHandlers;
+        async function callTransitionHandlers(state, name, handlers, arg) {
+            let toState;
+            handlers = one2many(handlers);
+            for (let handler of handlers) {
+                let ret = await invoke(() => handler(arg));
+                if (typeof ret === 'string')
+                    toState = ret;
+            }
+            return toState;
+        }
+        _impl.callTransitionHandlers = callTransitionHandlers;
+        async function callEnterHandlers(_my, state, arg) {
+            let handlers = one2many(_my.config[state].onEnter);
+            for (let handler of handlers) {
+                await invoke(() => handler(arg));
+            }
+        }
+        _impl.callEnterHandlers = callEnterHandlers;
+        async function callLeaveHandlers(_my, state) {
+            let handlers = one2many(_my.config[state].onLeave);
+            for (let handler of handlers) {
+                await invoke(() => handler());
+            }
+        }
+        _impl.callLeaveHandlers = callLeaveHandlers;
+    })(_impl || (_impl = {}));
+
+    /* src\w-problem\WProblem.View.svelte generated by Svelte v3.52.0 */
+
+    const { console: console_1 } = globals;
+    const file$1 = "src\\w-problem\\WProblem.View.svelte";
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[15] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[18] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[21] = list[i];
+    	child_ctx[23] = i;
+    	return child_ctx;
+    }
+
+    // (77:4) {#key model}
+    function create_key_block(ctx) {
+    	let text_1;
+    	let current;
+
+    	text_1 = new WProblem_Text({
+    			props: { ga: "txt", text: /*store*/ ctx[2].text },
+    			$$inline: true
+    		});
+
+    	text_1.$on("click", /*click_handler*/ ctx[7]);
+
+    	const block = {
+    		c: function create() {
+    			create_component(text_1.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(text_1, target, anchor);
+    			current = true;
+    		},
+    		p: noop,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(text_1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(text_1.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(text_1, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_key_block.name,
+    		type: "key",
+    		source: "(77:4) {#key model}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (83:4) {#each store.answers as ans, no ({model}
+    function create_each_block_2(key_1, ctx) {
+    	let first;
+    	let ans;
+    	let current;
+
+    	function click_handler_1() {
+    		return /*click_handler_1*/ ctx[8](/*no*/ ctx[23]);
+    	}
+
+    	ans = new WProblem_Ans({
+    			props: {
+    				store: /*ans*/ ctx[21],
+    				ga: `a${/*no*/ ctx[23]}`
+    			},
+    			$$inline: true
+    		});
+
+    	ans.$on("click", click_handler_1);
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			first = empty();
+    			create_component(ans.$$.fragment);
+    			this.first = first;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, first, anchor);
+    			mount_component(ans, target, anchor);
+    			current = true;
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(ans.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(ans.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(first);
+    			destroy_component(ans, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_2.name,
+    		type: "each",
+    		source: "(83:4) {#each store.answers as ans, no ({model}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (72:0) <Grid on:click={() => textIsClicked()}      {layout}  >
+    function create_default_slot$1(ctx) {
+    	let congrats_1;
+    	let t0;
+    	let previous_key = /*model*/ ctx[0];
+    	let t1;
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
+    	let each_1_anchor;
+    	let current;
+    	let congrats_1_props = {};
+    	congrats_1 = new Congrats({ props: congrats_1_props, $$inline: true });
+    	/*congrats_1_binding*/ ctx[6](congrats_1);
+    	let key_block = create_key_block(ctx);
+    	let each_value_2 = /*store*/ ctx[2].answers;
+    	validate_each_argument(each_value_2);
+    	const get_key = ctx => ({ model: /*model*/ ctx[0] });
+    	validate_each_keys(ctx, each_value_2, get_each_context_2, get_key);
+
+    	for (let i = 0; i < each_value_2.length; i += 1) {
+    		let child_ctx = get_each_context_2(ctx, each_value_2, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block_2(key, child_ctx));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			create_component(congrats_1.$$.fragment);
+    			t0 = space();
+    			key_block.c();
+    			t1 = space();
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(congrats_1, target, anchor);
+    			insert_dev(target, t0, anchor);
+    			key_block.m(target, anchor);
+    			insert_dev(target, t1, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each_1_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const congrats_1_changes = {};
+    			congrats_1.$set(congrats_1_changes);
+
+    			if (dirty & /*model*/ 1 && safe_not_equal(previous_key, previous_key = /*model*/ ctx[0])) {
+    				group_outros();
+    				transition_out(key_block, 1, 1, noop);
+    				check_outros();
+    				key_block = create_key_block(ctx);
+    				key_block.c();
+    				transition_in(key_block, 1);
+    				key_block.m(t1.parentNode, t1);
+    			} else {
+    				key_block.p(ctx, dirty);
+    			}
+
+    			if (dirty & /*store, answerIsClicked, model*/ 13) {
+    				each_value_2 = /*store*/ ctx[2].answers;
+    				validate_each_argument(each_value_2);
+    				group_outros();
+    				validate_each_keys(ctx, each_value_2, get_each_context_2, get_key);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value_2, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block_2, each_1_anchor, get_each_context_2);
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(congrats_1.$$.fragment, local);
+    			transition_in(key_block);
+
+    			for (let i = 0; i < each_value_2.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(congrats_1.$$.fragment, local);
+    			transition_out(key_block);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			/*congrats_1_binding*/ ctx[6](null);
+    			destroy_component(congrats_1, detaching);
+    			if (detaching) detach_dev(t0);
+    			key_block.d(detaching);
+    			if (detaching) detach_dev(t1);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d(detaching);
+    			}
+
+    			if (detaching) detach_dev(each_1_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$1.name,
+    		type: "slot",
+    		source: "(72:0) <Grid on:click={() => textIsClicked()}      {layout}  >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (91:0) {#if model.options.hebTest }
+    function create_if_block(ctx) {
+    	let t;
+    	let each1_anchor;
+    	let each_value_1 = formatters.tmHebrew;
+    	validate_each_argument(each_value_1);
+    	let each_blocks_1 = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+    	}
+
+    	let each_value = formatters.tmTest;
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].c();
+    			}
+
+    			t = text("\r\n    -----------------------\r\n    ");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each1_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, t, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each1_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*formatters*/ 0) {
+    				each_value_1 = formatters.tmHebrew;
+    				validate_each_argument(each_value_1);
+    				let i;
+
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+
+    					if (each_blocks_1[i]) {
+    						each_blocks_1[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_1[i] = create_each_block_1(child_ctx);
+    						each_blocks_1[i].c();
+    						each_blocks_1[i].m(t.parentNode, t);
+    					}
+    				}
+
+    				for (; i < each_blocks_1.length; i += 1) {
+    					each_blocks_1[i].d(1);
+    				}
+
+    				each_blocks_1.length = each_value_1.length;
+    			}
+
+    			if (dirty & /*formatters*/ 0) {
+    				each_value = formatters.tmTest;
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(each1_anchor.parentNode, each1_anchor);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			destroy_each(each_blocks_1, detaching);
+    			if (detaching) detach_dev(t);
+    			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(each1_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block.name,
+    		type: "if",
+    		source: "(91:0) {#if model.options.hebTest }",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (92:4) {#each formatters.tmHebrew as heb }
+    function create_each_block_1(ctx) {
+    	let p;
+    	let bdi;
+    	let t_value = /*heb*/ ctx[18] + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			bdi = element("bdi");
+    			t = text(t_value);
+    			attr_dev(bdi, "dir", "rtl");
+    			add_location(bdi, file$1, 93, 12, 2667);
+    			attr_dev(p, "class", "text-xs");
+    			add_location(p, file$1, 92, 8, 2634);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    			append_dev(p, bdi);
+    			append_dev(bdi, t);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_1.name,
+    		type: "each",
+    		source: "(92:4) {#each formatters.tmHebrew as heb }",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (100:4) {#each formatters.tmTest as tst }
+    function create_each_block(ctx) {
+    	let p;
+    	let bdi;
+    	let t0_value = /*tst*/ ctx[15] + "";
+    	let t0;
+    	let t1;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			bdi = element("bdi");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			attr_dev(bdi, "dir", "rtl");
+    			add_location(bdi, file$1, 101, 12, 2863);
+    			attr_dev(p, "class", "text-xs");
+    			add_location(p, file$1, 100, 8, 2830);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    			append_dev(p, bdi);
+    			append_dev(bdi, t0);
+    			append_dev(p, t1);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block.name,
+    		type: "each",
+    		source: "(100:4) {#each formatters.tmTest as tst }",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$1(ctx) {
+    	let grid;
+    	let t;
+    	let if_block_anchor;
+    	let current;
+
+    	grid = new Grid({
+    			props: {
+    				layout: /*layout*/ ctx[5],
+    				$$slots: { default: [create_default_slot$1] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	grid.$on("click", /*click_handler_2*/ ctx[9]);
+    	let if_block = /*model*/ ctx[0].options.hebTest && create_if_block(ctx);
+
+    	const block = {
+    		c: function create() {
+    			create_component(grid.$$.fragment);
+    			t = space();
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(grid, target, anchor);
+    			insert_dev(target, t, anchor);
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			const grid_changes = {};
+
+    			if (dirty & /*$$scope, model, congrats*/ 16777219) {
+    				grid_changes.$$scope = { dirty, ctx };
+    			}
+
+    			grid.$set(grid_changes);
+
+    			if (/*model*/ ctx[0].options.hebTest) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block(ctx);
+    					if_block.c();
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(grid.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(grid.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(grid, detaching);
+    			if (detaching) detach_dev(t);
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$1.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$1($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('WProblem_View', slots, []);
+    	let template = newWProblemTemplate();
+    	console.log("template", template);
+    	let logic = newWProblemLogic(template);
+    	let model = logic.makeModel();
+    	console.log("model", model);
+    	let store = newWProblemStore(model);
+
+    	//    console.log("store", store);
+    	let solved = false;
+
+    	let solvedRight = false;
+    	let congrats;
+    	versions.add(template.problemId);
+
+    	onMount(() => {
+    		applyAsciiMath(1000);
+    	});
+
+    	function answerIsClicked(no) {
+    		if (solved) {
+    			makeNewProblem();
+    			return;
+    		}
+
+    		store.answers.forEach((ans, i) => ans.isClicked.set(model.answers[i].isRight));
+    		store.answers[no].isClicked.set(true);
+    		solved = true;
+    		solvedRight = model.answers[no].isRight;
+    		if (solvedRight) congrats.play();
+    	}
+
+    	function makeNewProblem() {
+    		$$invalidate(0, model = logic.makeModel(model.setId));
+    		store.text.set(model.text);
+
+    		store.answers.forEach((ans, i) => {
+    			ans.value.set(model.answers[i].value);
+    			ans.isRight.set(model.answers[i].isRight);
+    			ans.isClicked.set(false);
+    		});
+
+    		solved = false;
+    		solvedRight = false;
+    		applyAsciiMath(500);
+    	}
+
+    	function textIsClicked() {
+    		if (solved) {
+    			makeNewProblem();
+    		}
+    	}
+
+    	let layout = {
+    		areas: `
+            "txt  txt  txt "
+            "txt  txt  txt "
+            "txt  txt  txt "
+            "txt  txt  txt "
+            "a0    .    a1 "
+            "a2    .    a3 "
+            ".     .    .  "
+        `,
+    		cols: `2fr 1fr 2fr`,
+    		rows: `2fr 2fr 2fr 2fr 2fr 2fr 10px`
+    	};
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1.warn(`<WProblem_View> was created with unknown prop '${key}'`);
+    	});
+
+    	function congrats_1_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			congrats = $$value;
+    			$$invalidate(1, congrats);
+    		});
+    	}
+
+    	const click_handler = () => textIsClicked();
+    	const click_handler_1 = no => answerIsClicked(no);
+    	const click_handler_2 = () => textIsClicked();
+
+    	$$self.$capture_state = () => ({
+    		Ans: WProblem_Ans,
+    		Grid,
+    		Text: WProblem_Text,
+    		newWProblemStore,
+    		newWProblemTemplate,
+    		newWProblemLogic,
+    		onMount,
+    		applyAsciiMath,
+    		versions,
+    		Congrats,
+    		formatters,
+    		template,
+    		logic,
+    		model,
+    		store,
+    		solved,
+    		solvedRight,
+    		congrats,
+    		answerIsClicked,
+    		makeNewProblem,
+    		textIsClicked,
+    		layout
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('template' in $$props) template = $$props.template;
+    		if ('logic' in $$props) logic = $$props.logic;
+    		if ('model' in $$props) $$invalidate(0, model = $$props.model);
+    		if ('store' in $$props) $$invalidate(2, store = $$props.store);
+    		if ('solved' in $$props) solved = $$props.solved;
+    		if ('solvedRight' in $$props) solvedRight = $$props.solvedRight;
+    		if ('congrats' in $$props) $$invalidate(1, congrats = $$props.congrats);
+    		if ('layout' in $$props) $$invalidate(5, layout = $$props.layout);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		model,
+    		congrats,
+    		store,
+    		answerIsClicked,
+    		textIsClicked,
+    		layout,
+    		congrats_1_binding,
+    		click_handler,
+    		click_handler_1,
+    		click_handler_2
+    	];
+    }
+
+    class WProblem_View extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "WProblem_View",
+    			options,
+    			id: create_fragment$1.name
+    		});
+    	}
+    }
+
+    /* src\App.svelte generated by Svelte v3.52.0 */
+    const file = "src\\App.svelte";
+
+    // (58:0) <Grid {layout}>
+    function create_default_slot(ctx) {
+    	let div;
+    	let switch_instance;
+    	let t0;
+    	let powered;
+    	let t1;
+    	let version;
+    	let current;
+    	var switch_value = /*loadGame*/ ctx[0]();
+
+    	function switch_props(ctx) {
+    		return { $$inline: true };
+    	}
+
+    	if (switch_value) {
+    		switch_instance = construct_svelte_component_dev(switch_value, switch_props());
+    	}
+
+    	powered = new Powered({
+    			props: {
+    				ga: "pwrd",
+    				text: "Powered by gebemot.online"
+    			},
+    			$$inline: true
+    		});
+
+    	version = new Version({
+    			props: { ga: "ver", v: "0.25.49" },
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			if (switch_instance) create_component(switch_instance.$$.fragment);
+    			t0 = space();
+    			create_component(powered.$$.fragment);
+    			t1 = space();
+    			create_component(version.$$.fragment);
+    			attr_dev(div, "class", "w-full h-full");
+    			set_style(div, "grid-area", "game");
+    			add_location(div, file, 58, 4, 1754);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			if (switch_instance) mount_component(switch_instance, div, null);
+    			insert_dev(target, t0, anchor);
+    			mount_component(powered, target, anchor);
+    			insert_dev(target, t1, anchor);
+    			mount_component(version, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			if (switch_value !== (switch_value = /*loadGame*/ ctx[0]())) {
+    				if (switch_instance) {
+    					group_outros();
+    					const old_component = switch_instance;
+
+    					transition_out(old_component.$$.fragment, 1, 0, () => {
+    						destroy_component(old_component, 1);
+    					});
+
+    					check_outros();
+    				}
+
+    				if (switch_value) {
+    					switch_instance = construct_svelte_component_dev(switch_value, switch_props());
+    					create_component(switch_instance.$$.fragment);
+    					transition_in(switch_instance.$$.fragment, 1);
+    					mount_component(switch_instance, div, null);
+    				} else {
+    					switch_instance = null;
+    				}
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			if (switch_instance) transition_in(switch_instance.$$.fragment, local);
+    			transition_in(powered.$$.fragment, local);
+    			transition_in(version.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			if (switch_instance) transition_out(switch_instance.$$.fragment, local);
+    			transition_out(powered.$$.fragment, local);
+    			transition_out(version.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			if (switch_instance) destroy_component(switch_instance);
+    			if (detaching) detach_dev(t0);
+    			destroy_component(powered, detaching);
+    			if (detaching) detach_dev(t1);
+    			destroy_component(version, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot.name,
+    		type: "slot",
+    		source: "(58:0) <Grid {layout}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment(ctx) {
+    	let grid;
+    	let t;
+    	let logger;
+    	let current;
+
+    	grid = new Grid({
+    			props: {
+    				layout: /*layout*/ ctx[1],
+    				$$slots: { default: [create_default_slot] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	logger = new Logger({ $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			create_component(grid.$$.fragment);
+    			t = space();
+    			create_component(logger.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(grid, target, anchor);
+    			insert_dev(target, t, anchor);
+    			mount_component(logger, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			const grid_changes = {};
+
+    			if (dirty & /*$$scope*/ 4) {
+    				grid_changes.$$scope = { dirty, ctx };
+    			}
+
+    			grid.$set(grid_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(grid.$$.fragment, local);
+    			transition_in(logger.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(grid.$$.fragment, local);
+    			transition_out(logger.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(grid, detaching);
+    			if (detaching) detach_dev(t);
+    			destroy_component(logger, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('App', slots, []);
+
+    	onMount(() => {
+    		Anki.hideLoader();
+    		initMath();
+    	});
+
+    	function loadGame() {
+    		try {
+    			let config = Anki.getConfig();
+    			Mp3.buildMp3Library("assets", config.soundOn);
+
+    			switch (config.game) {
+    				case "plus-over":
+    				case "mul-div":
+    					return Main$4;
+    				case "gcd-lcm":
+    					return Main$3;
+    				case "zero":
+    					return Main$2;
+    				case "equ-abc":
+    					return Main$1;
+    				case "fr-pairs":
+    					return Main;
+    				case "w-problem":
+    					return WProblem_View;
+    				default:
+    					error(`Unknown game type: '${config.game}'`);
+    					return Oops;
+    			}
+    		} catch(err) {
+    			error("Failed to loadGame", err);
+    		}
+    	}
+
+    	let layout = {
+    		areas: `
+            "game  game  game  game"
+            "pwrd  pwrd  .     ver"
+        `,
+    		cols: `1fr 1fr 1ft 1fr`,
+    		rows: `98fr 2fr`
+    	};
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<App> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$capture_state = () => ({
+    		onMount,
+    		Oops,
+    		Logger,
+    		Grid,
+    		Version,
+    		Powered,
+    		error,
+    		Anki,
+    		initMath,
+    		Mp3,
+    		PlusOver: Main$4,
+    		GcdLcm: Main$3,
+    		Zero: Main$2,
+    		Equ: Main$1,
+    		FrPair: Main,
+    		WProblem: WProblem_View,
+    		loadGame,
+    		layout
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('layout' in $$props) $$invalidate(1, layout = $$props.layout);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [loadGame, layout];
+    }
+
+    class App extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance, create_fragment, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "App",
+    			options,
+    			id: create_fragment.name
+    		});
+    	}
+    }
+
+    const app = new App({
+        target: document.body,
+    });
+
+    return app;
+
+})();
 //# sourceMappingURL=bundle.js.map
