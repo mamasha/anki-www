@@ -20485,7 +20485,8 @@ var app = (function () {
                     return;
                 if (mins.eq(0)) {
                     times.push(tmHebrew.shaotOnly.replace("HH", hh));
-                    times.push(tmHebrew.dakotOnly.replace("MM", d2t(hours.mul(60))));
+                    if (minsTotal.lte(240))
+                        times.push(tmHebrew.dakotOnly.replace("MM", d2t(hours.mul(60))));
                     return;
                 }
                 if (mins.eq(15)) {
@@ -21361,7 +21362,7 @@ var app = (function () {
     		});
 
     	version = new Version({
-    			props: { ga: "ver", v: "0.25.50" },
+    			props: { ga: "ver", v: "0.25.51" },
     			$$inline: true
     		});
 
